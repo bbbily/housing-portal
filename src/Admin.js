@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import "./presentational/admin.css";
 
 class Admin extends Component {
     render() {
         return (
-            <div>
+            <div className="admin-container">
                 <h1>Admin</h1>
-                <div accordion>
+                <div className="admin-menu">
                     <h3>Admin Users</h3>
                     <div>
                         <p>

@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+body {
+    background: #3C3C3C;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+h3 {
+    border: 2px solid black;
+    background: #2B2B2B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+input, option, button {
+    background-color: #D8D8D8;
+    text-transform: uppercase;
+}
+
+.admin-container {
+    font-family: 'Nunito', sans-serif;
+    background: #3C3C3C;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.admin-menu {
+    border: 2px solid black;
+}
