@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, hashHistory } from "react-router";
@@ -8,14 +7,9 @@ import ApartmentList from "./ApartmentList";
 import NavBar from './NavBar';
 import Student from "./Student";
 import StudentList from "./StudentList";
-import App from "./App";
 import "./index.css";
-=======
-import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './presentational/App';
 import './presentational/index.css';
->>>>>>> master
 
 ReactDOM.render(
   <Router history={hashHistory}>
