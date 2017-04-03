@@ -9,9 +9,12 @@ class Test extends Component {
   }
 
   render() {
+    console.log(this.props.apartments)
+    if (this.props.apartments[0])
+    var birth_year = this.props.apartments[0].birth_year;
     return (
       <div>
-        {/* <div>{ this.props.apartments }</div> */}
+        <div><button>{ birth_year }</button></div>
         <button onClick={this.getData.bind(this)}>test</button>;
       </div>
     )
@@ -20,7 +23,7 @@ class Test extends Component {
 
 function mapStateToProps(state) {
   return {
-    apartments: state.apartments
+    apartments: state.apartments.apartments
   }
 }
 
