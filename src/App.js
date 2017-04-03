@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import MyModal from './modal'
 import DropDown from './DropDownMenu'
+import Container from './Container'
+
 
 class App extends Component {
   render() {
@@ -15,6 +17,7 @@ class App extends Component {
         </p>
         <MyModal />
         <DropDown />
+          <Container />
       </div>
     );
   }
