@@ -3,7 +3,6 @@ import axios from "axios";
 export const FETCH_APARTMENTS = "FETCH_APARTMENTS";
 export const CREATE_APARTMENT = "CREATE_APARTMENT";
 
-const ROOT_URL = "http://swapi.co/api/people/";
 
 export function fetchApartments() {
   const url = "/api";
@@ -16,9 +15,9 @@ export function fetchApartments() {
 }
 
 export function createApartment(props) {
-  const url = `${ROOT_URL}`;
+  const url = "/api";
   const request = axios.post(url, props)
-  console.log("request",request);
+  console.log("create",request);
   console.log("prp",props);
 
   return {

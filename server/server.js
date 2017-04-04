@@ -10,7 +10,7 @@ var port = 3000;
 
 var dbConnection = "postgres://owhmkznh:hxxkeFT6WkOZZ5-8qrA1aTWn2uOBbDGT@stampy.db.elephantsql.com:5432/owhmkznh";
 
-app.use(express.static(__dirname + "../build"));
+app.use(express.static("../build"));
 app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({extended:true}));
 app.use(session({"secret": config.sessionSecret}));
