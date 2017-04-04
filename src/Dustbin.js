@@ -24,11 +24,7 @@ const boxTarget = {
   },
 };
 
-// @DropTarget(ItemTypes.BOX, boxTarget, (connect, monitor) => ({
-//   connectDropTarget: connect.dropTarget(),
-//   isOver: monitor.isOver(),
-//   canDrop: monitor.canDrop(),
-// }))
+
 class Dustbin extends Component {
   static propTypes = {
     connectDropTarget: PropTypes.func.isRequired,

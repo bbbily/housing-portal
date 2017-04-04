@@ -36,10 +36,7 @@ const boxSource = {
   },
 };
 
-// @DragSource(ItemTypes.BOX, boxSource, (connect, monitor) => ({
-//   connectDragSource: connect.dragSource(),
-//   isDragging: monitor.isDragging(),
-// }))
+
 class Box extends Component {
   static propTypes = {
     connectDragSource: PropTypes.func.isRequired,

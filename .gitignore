@@ -8,6 +8,7 @@ config.js/
 
 # production
 /build
+/sandbox
 
 # misc
 .DS_Store

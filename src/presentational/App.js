@@ -1,7 +1,9 @@
 
 import React, { Component } from 'react';
 import './App.css';
-import Test from "../containers/test";
+import DatePickerComponent from "../DatePicker";
+
+
 
 class App extends Component {
  render() {
@@ -9,7 +11,7 @@ class App extends Component {
      <div className="App">
        <div className="App-header">
          <h2>Welcome to React</h2>
-         <Test />
+         <DatePickerComponent/>
        </div>
      </div>
    );
