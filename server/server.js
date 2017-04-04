@@ -11,7 +11,7 @@ var port = 3000;
 
 var dbConnection = "postgres://owhmkznh:hxxkeFT6WkOZZ5-8qrA1aTWn2uOBbDGT@stampy.db.elephantsql.com:5432/owhmkznh";
 
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "../build"));
 app.use(bodyParser.json());
 app.use(cors());
 //app.use(bodyParser.urlencoded({extended:true}));
@@ -54,8 +54,6 @@ app.delete('/api/users', function(req,res,next) {
     res.status(200).json(err + result);
   })
 })
-
-
 
 // routes for info on DevMountain campuses
 app.get('/api/campus', function(req, res, next) {
