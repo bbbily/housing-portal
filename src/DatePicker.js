@@ -6,8 +6,8 @@ class DatePickerComponent extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {stateDate: moment()}
-
+    this.state = {startDate: moment()}
+    console.log(this.state)
     this.handleChange = this.handleChange.bind(this)
   }
 
@@ -21,16 +21,9 @@ class DatePickerComponent extends Component {
     return (
       <div>
         <DatePicker
-          selected={this.state.startDate}
-          selectsStart  startDate={this.state.startDate}
-          endDate={this.state.endDate}
-          onChange={this.handleChangeStart} />
-          <DatePicker
-          selected={this.state.endDate}
-          selectsEnd  startDate={this.state.startDate}
-          endDate={this.state.endDate}
-          onChange={this.handleChangeEnd} />
-      </div>
+        selected={this.state.startDate}
+        onChange={this.handleChange} />
+       </div>
     );
   }
 }
