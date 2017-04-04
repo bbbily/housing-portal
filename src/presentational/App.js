@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
-import './App.css';
-import DatePickerComponent from "../DatePicker";
+import '../styles/App.css';
+import DatePickerComponent from "../containers/DatePicker";
 
 
 
