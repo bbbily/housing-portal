@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import '../styles/App.css';
-import DatePickerComponent from "../containers/DatePicker";
+import Modal from '../containers/modal'
 
 
 
@@ -11,7 +11,11 @@ class App extends Component {
      <div className="App">
        <div className="App-header">
          <h2>Welcome to React</h2>
-         <DatePickerComponent /> 
+        <Modal 
+          title="This Will Be Student Info"
+          heading="This is the heading of the modal">
+        This is some shit man
+        </Modal>
        </div>
      </div>
    );
