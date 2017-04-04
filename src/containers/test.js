@@ -9,9 +9,9 @@ class Test extends Component {
   }
 
   render() {
-    console.log(this.props.apartments)
-    if (this.props.apartments[0])
-    var birth_year = this.props.apartments[0].birth_year;
+    console.log( "data",this.props.apartments)
+    if (this.props.apartments)
+    var birth_year = this.props.apartments;
     return (
       <div>
         <div><button>{ birth_year }</button></div>
