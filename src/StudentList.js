@@ -45,7 +45,7 @@ class StudentList extends Component {
                     {/* Clickable Cards - Expand w/ more info. */}
                     {/* ng-repeat... ? */}
                     <img src="./favicon.ico" />
-                    <h2>name></h2>
+                    <h2>name</h2>
                     <p>age, gender, cohort</p>
                 </div>
                 <div>

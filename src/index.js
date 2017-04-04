@@ -18,11 +18,6 @@ import StudentList from "./StudentList";
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 ReactDOM.render(
-  <Provider store={ createStoreWithMiddleware(reducers)} >
-    <Router history={ browserHistory } >
-      <Route path="/" component={ App } >
-      </Route>
-    </Router>
-  </Provider>,
+  <StudentList />,
   document.getElementById('root')
 );
