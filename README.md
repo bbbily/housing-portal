@@ -1,3 +1,9 @@
+# housing-portal
+
+# Peng Wu  #  Paige Busch # Jeremy Gray # Steven Gray #
+
+DM19 group project to be presented 4/23/17
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
