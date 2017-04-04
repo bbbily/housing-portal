@@ -6,7 +6,7 @@ export default function(state=INITIAL_STATE, action) {
   switch (action.type) {
     case FETCH_APARTMENTS:
       // console.log(action.payload.data);
-      return { apartments: action.payload.data.results};
+      return { apartments: action.payload.data};
     default:
       return state;
   }
