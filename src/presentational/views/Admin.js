@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./presentational/admin.css";
+import "../../styles/admin.css";
 
 class Admin extends Component {
     render() {
