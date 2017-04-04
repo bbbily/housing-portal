@@ -23,6 +23,13 @@ import DatePickerComponent from "./containers/DatePicker";
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 ReactDOM.render(
-  <Admin />,
+  <Provider store={ createStoreWithMiddleware(reducers)} >
+    <Router history={ browserHistory } >
+      <Route path="/" component={ App } />
+      <Route path="/admin" component={Admin} />
+      <Route path="/apartmentList" component={ApartmentList} />
+      <Route path="/studentList" component={StudentList} />
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );
