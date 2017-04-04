@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Button, Panel } from 'react-bootstrap';
 
-class StudentList extends Component {
+class StudentListFilter extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -11,12 +12,12 @@ class StudentList extends Component {
     render() {
         return (
             <div>
-                <h1>Student List</h1>
+                <h1>Student List Filter</h1>
                 <div>
-                    <button onClick={ () => this.setState({ open: !this.state.open })}>
+                    <Button onClick={ () => this.setState({ open: !this.state.open })}>
                         Filter Results
-                    </button>
-                    <panel collapsible expanded={ this.state.open }>
+                    </Button>
+                    <Panel collapsible expanded={ this.state.open }>
                         <div>
                             Campus - drop down
                         </div>
@@ -39,24 +40,11 @@ class StudentList extends Component {
                             <input type="radio" name="gender" value="male" /> Male
                             <input type="radio" name="gender" value="female" /> Female
                         </div>
-                    </panel>
-                </div>
-                <div>
-                    {/* Clickable Cards - Expand w/ more info. */}
-                    {/* ng-repeat... ? */}
-                    <img src="./favicon.ico" />
-                    <h2>name</h2>
-                    <p>age, gender, cohort</p>
-                </div>
-                <div>
-                    {/* ng-show... ? */}
-                    <img src="./favicon.ico" />
-                    <h1>name</h1>
-                    <p>room, age, gender, address, cohort, eligibility, deposit paid</p>
+                    </Panel>
                 </div>
             </div>
         )
     }
 }
 
-export default StudentList
+export default StudentListFilter

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import "../../styles/admin.css";
+import "../../../styles/admin.css";
+import CreateNewAdmin from "./CreateNewAdmin";
+import CreateNewCohort from "./CreateNewCohort";
 
 class Admin extends Component {
     render() {
@@ -7,30 +9,8 @@ class Admin extends Component {
             <div className="admin-container">
                 <h1>Admin</h1>
                 <div className="admin-menu">
-                    <h3>Admin Users</h3>
-                    <div>
-                        <p>
-                        <ul>
-                        <li>User 1</li>
-                        <li>User 2</li>
-                        <li>User 3</li>
-                        </ul>
-                        <h4>New User:</h4>
-                        <input type="text" placeholder="Name" />
-                        <input type="text" placeholder="Username" />
-                        <input type="password" placeholder="Password" />
-                        <button>Save</button>
-                        <button>Cancel</button>
-                        </p>
-                    </div>
-                    <h3>Create New Cohort</h3>
-                    <div>
-                        <input type="text" placeholder="DM##" />
-                        Start Date
-                        End Date
-                        <button>Save</button>
-                        <button>Cancel</button>
-                    </div>
+                   <CreateNewAdmin />
+                   <CreateNewCohort> {this.props.children} </CreateNewCohort>
                     <h3>Create New Apartment</h3>
                     <div>
                         <select name="Campus">
