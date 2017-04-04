@@ -5,14 +5,13 @@ class ApartmentListFilter extends Component {
         constructor(props) {
         super(props);
         this.state = {
-            open: true
+            open: false
         };
     }
 
     render() {
         return (
             <div>
-                <h1>Apartment List Filter</h1>
                 <div>
                     <Button onClick={ () => this.setState({ open: !this.state.open })}>
                         Filter Results
