@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Button, Panel } from 'react-bootstrap';
 
-class ApartmentList extends Component {
+class ApartmentListFilter extends Component {
         constructor(props) {
         super(props);
         this.state = {
@@ -11,12 +12,12 @@ class ApartmentList extends Component {
     render() {
         return (
             <div>
-                <h1>Apartment List</h1>
+                <h1>Apartment List Filter</h1>
                 <div>
-                    <button onClick={ () => this.setState({ open: !this.state.open })}>
+                    <Button onClick={ () => this.setState({ open: !this.state.open })}>
                         Filter Results
-                    </button>
-                    <panel collapsible expanded={ this.state.open }>
+                    </Button>
+                    <Panel collapsible expanded={ this.state.open }>
                         <div>
                             Campus - drop down
                         </div>
@@ -33,24 +34,11 @@ class ApartmentList extends Component {
                             <input type="radio" name="gender" value="male" /> Male
                             <input type="radio" name="gender" value="female" /> Female 
                         </div>
-                    </panel>
-                </div>
-                <div>
-                    {/* collapsible cards */}
-                    <h1>room number</h1>
-                </div>
-                <div>
-                    Room 1 - display beds
-                </div>
-                <div>
-                    Room 2 - display beds
-                </div>
-                <div>
-                    Room 3 - display beds
+                    </Panel>
                 </div>
             </div>
         )
     }
 }
 
-export default ApartmentList
+export default ApartmentListFilter
