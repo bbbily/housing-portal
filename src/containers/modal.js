@@ -24,10 +24,6 @@ constructor(props) {
   render() {
     return (
       <div>
-<<<<<<< HEAD
-
-=======
->>>>>>> master
         <Button
           bsStyle="primary"
           bsSize="large"

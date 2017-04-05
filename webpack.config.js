@@ -8,7 +8,13 @@ module.exports = {
     },
     devtool: "source-map",
     devServer: {
-        contentBase: "./public"
+        contentBase: "./public",
+        proxy: {
+          "/api/": {
+            target: "http://localhost:3000",
+            secure: false
+          }
+        }
     },
     module: {
         loaders: [

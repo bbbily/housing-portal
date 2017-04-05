@@ -34,6 +34,8 @@ import Admin from "./presentational/views/Admin";
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 ReactDOM.render(
-  <Admin />,
+  <Provider store={createStoreWithMiddleware}>
+    <Admin />
+  </Provider>,
   document.getElementById('root')
 );
