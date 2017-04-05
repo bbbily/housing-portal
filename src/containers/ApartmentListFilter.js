@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Button, Panel } from 'react-bootstrap';
+import React, { Component } from "react";
+import { Button, Panel } from "react-bootstrap";
 
 class ApartmentListFilter extends Component {
         constructor(props) {

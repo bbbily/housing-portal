@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../../styles/admin.css";
+import "../../../styles/admin.scss";
 import CreateNewAdmin from "./CreateNewAdmin";
 import CreateNewCohort from "./CreateNewCohort";
 import CreateNewApartment from "./CreateNewApartment";
