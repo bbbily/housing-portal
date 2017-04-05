@@ -19,7 +19,7 @@ class CreateNewAdmin extends Component {
 
     render() {
       const admins = this.props.all.map( admin => (
-        <li>
+        <li key={admin.id}>
           { admin.first_name }  { admin.last_name }
         </li>
       ));
