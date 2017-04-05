@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "../../../styles/admin.css";
-import CreateNewAdmin from "./CreateNewAdmin";
-import CreateNewCohort from "./CreateNewCohort";
-import CreateNewApartment from "./CreateNewApartment";
+import "../styles/admin.css";
+import CreateNewAdmin from "../../containers/Admin/CreateNewAdmin";
+import CreateNewCohort from "../../containers/Admin/CreateNewCohort";
+import CreateNewApartment from "../../containers/Admin/CreateNewApartment";
 
 class Admin extends Component {
     render() {
