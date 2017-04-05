@@ -1,12 +1,12 @@
 
 import React, { Component } from 'react';
 import StudentForm from "../containers/StudentForm";
-import Test from "../containers/test.js"
 import '../styles/App.css';
 import DatePickerComponent from "../containers/DatePicker";
 import MyModal from '../containers/modal';
 
-import Modal from '../containers/modal'
+import Modal from '../containers/modal';
+import { Link } from "react-router";
 
 
 class App extends Component {
@@ -18,10 +18,9 @@ class App extends Component {
 
          <DatePickerComponent />
          <MyModal />
-         <Test />
          <DatePickerComponent/>
          <StudentForm />
-
+         <Link to="/admin"> <button>go to admin</button></Link>
        </div>
      </div>
    );

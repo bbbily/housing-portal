@@ -5,11 +5,11 @@ export const CREATE_APARTMENT = "CREATE_APARTMENT";
 
 
 export function fetchApartments() {
-  const url = "/api";
+  const url = "http://localhost:3000/api/users";
   const request = axios.get(url);
   console.log("request", request);
   return {
-    type: FETCH_APARTMENTS,
+    type: "FETCH_APARTMENTS",
     payload: request
   }
 }
