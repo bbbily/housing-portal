@@ -4,7 +4,7 @@ import {Button} from 'react-bootstrap'
 import {Popover} from 'react-bootstrap'
 import {Tooltip} from 'react-bootstrap'
 import{OverlayTrigger} from 'react-bootstrap'
- import '../styles/containers/modal.css'
+ // import '../styles/containers/modal.css'
 
 
 export default class MyModal extends Component {
@@ -24,13 +24,13 @@ constructor(props) {
   open() {
     this.setState({ showModal: true });
   }
- 
+
   render() {
 
 
     return (
       <div>
-      
+
         <Button
           bsStyle="primary"
           bsSize="large"

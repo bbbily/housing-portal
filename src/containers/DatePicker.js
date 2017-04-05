@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
-import "react-datepicker/dist/react-datepicker.css"
-import "../styles/containers/modal.css"
+// import "react-datepicker/dist/react-datepicker.css"
+// import "../styles/containers/modal.css"
 
 class DatePickerComponent extends Component {
 
@@ -26,7 +26,7 @@ class DatePickerComponent extends Component {
       <div>
         <DatePicker
         selected={this.state.startDate}
-        onChange={this.handleChange} 
+        onChange={this.handleChange}
         />
        </div>
     );

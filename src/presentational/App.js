@@ -18,7 +18,6 @@ class App extends Component {
            heading="This is the heading of the modal">
          This is some shit man
          </Modal>
-          <Test />
           <DatePickerComponent/>
           <StudentForm />
           <Link to="/admin"> <button>go to admin</button></Link>
