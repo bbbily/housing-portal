@@ -4,6 +4,7 @@ var massive = require('massive');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var config = require('./config');
+var path = require("path");
 // var controller = require('./dbCtrl');
 
 var app = module.exports = express();
@@ -97,7 +98,7 @@ app.delete('/api/building', controller.DeleteBuilding);
 */
 
 app.get('/admin', function (request, response){
-  response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+  response.sendFile(path.resolve(__dirname, 'build', 'index.html'))
 })
 
 app.listen(port, function() {
