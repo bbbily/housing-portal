@@ -8,13 +8,13 @@ import CreateNewApartment from "../../containers/Admin/CreateNewApartment";
 class Admin extends Component {
     render() {
         return (
+            <div>
+            <h1>Admin</h1>
             <div className="admin-container">
-                <h1>Admin</h1>
-                <div className="admin-menu">
                    <CreateNewAdmin />
                    <CreateNewCohort />
                    <CreateNewApartment />
-                </div>
+            </div>
             </div>
         )
     }
