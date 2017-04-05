@@ -1,5 +1,8 @@
-import React, { Component } from "react";
-import { Panel } from "react-bootstrap";
+
+import React, { Component } from 'react';
+import { Panel } from 'react-bootstrap';
+import { fetchApartments } from "../../../actions/action_apartments";
+import { connect } from "react-redux";
 import DropDown from "../../../containers/DropDownMenu";
 
 class CreateNewAdmin extends Component {
@@ -10,7 +13,15 @@ class CreateNewAdmin extends Component {
             open: false
         };
     }
+
+    componentWillMount() {
+      console.log("mounted")
+      this.props.dispatch(fetchApartments());
+    }
+
     render() {
+
+      console.log("user", this.props.user)
         return (
             <div>
                 <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
@@ -36,4 +47,10 @@ class CreateNewAdmin extends Component {
     }
 }
 
-export default CreateNewAdmin;
+function mapStateToProps(state) {
+  return {
+    user: state.apartments.apartments
+  }
+}
+
+export default connect(mapStateToProps)(CreateNewAdmin);
