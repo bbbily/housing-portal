@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+ // import '../styles/containers/modal.css'
 import { Modal, Button, Popover, Tooltip, OverlayTrigger } from "react-bootstrap"
-//  import '../styles/containers/modal.css'
 
 
 export default class MyModal extends Component {
@@ -20,7 +20,7 @@ constructor(props) {
   open() {
     this.setState({ showModal: true });
   }
- 
+
   render() {
     return (
       <div>
