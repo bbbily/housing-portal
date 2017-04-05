@@ -1,24 +1,24 @@
-import React, { PropTypes, Component } from 'react';
-import { DropTarget } from 'react-dnd';
-import ItemTypes from './itemTypes';
+import React, { PropTypes, Component } from "react";
+import { DropTarget } from "react-dnd";
+import ItemTypes from "./itemTypes";
 
 const style = {
-  height: '12rem',
-  width: '12rem',
-  marginRight: '1.5rem',
-  marginBottom: '1.5rem',
-  color: 'white',
-  padding: '1rem',
-  textAlign: 'center',
-  fontSize: '1rem',
-  lineHeight: 'normal',
-  float: 'left',
+  height: "12rem",
+  width: "12rem",
+  marginRight: "1.5rem",
+  marginBottom: "1.5rem",
+  color: "white",
+  padding: "1rem",
+  textAlign: "center",
+  fontSize: "1rem",
+  lineHeight: "normal",
+  float: "left",
 };
 
 const boxTarget = {
   drop({ allowedDropEffect }) {
     return {
-      name: `${allowedDropEffect} Dustbin`,
+      name: "${allowedDropEffect} Dustbin",
       allowedDropEffect,
     };
   },
@@ -37,19 +37,19 @@ class Dustbin extends Component {
     const { canDrop, isOver, allowedDropEffect, connectDropTarget } = this.props;
     const isActive = canDrop && isOver;
 
-    let backgroundColor = '#222';
+    let backgroundColor = "#222";
     if (isActive) {
-      backgroundColor = 'darkgreen';
+      backgroundColor = "darkgreen";
     } else if (canDrop) {
-      backgroundColor = 'darkkhaki';
+      backgroundColor = "darkkhaki";
     }
 
     return connectDropTarget(
       <div style={{ ...style, backgroundColor }}>
-        { `Works with ${allowedDropEffect} drop effect` }<br /><br />
+        { "Works with ${allowedDropEffect} drop effect" }<br /><br />
         {isActive ?
-          'Release to drop' :
-          'Drag a box here'
+          "Release to drop" :
+          "Drag a box here"
         }
       </div>,
     );

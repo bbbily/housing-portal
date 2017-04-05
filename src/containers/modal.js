@@ -1,10 +1,6 @@
-import React, { Component } from 'react';
-import {Modal} from 'react-bootstrap'
-import {Button} from 'react-bootstrap'
-import {Popover} from 'react-bootstrap'
-import {Tooltip} from 'react-bootstrap'
-import{OverlayTrigger} from 'react-bootstrap'
- import '../styles/containers/modal.css'
+import React, { Component } from "react";
+import { Modal, Button, Popover, Tooltip, OverlayTrigger } from "react-bootstrap"
+//  import '../styles/containers/modal.css'
 
 
 export default class MyModal extends Component {
@@ -26,11 +22,8 @@ constructor(props) {
   }
  
   render() {
-
-
     return (
       <div>
-      
         <Button
           bsStyle="primary"
           bsSize="large"
@@ -38,7 +31,6 @@ constructor(props) {
         >
           {this.props.title}
         </Button>
-
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
             <Modal.Title>{this.props.heading}</Modal.Title>

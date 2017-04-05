@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import StudentForm from "../containers/StudentForm";
-import '../styles/App.css';
+import "../styles/App.scss";
 import DatePickerComponent from "../containers/DatePicker";
-import Modal from '../containers/modal';
+import Modal from "../containers/modal";
 import { Link } from "react-router";
 
 
@@ -18,7 +18,7 @@ class App extends Component {
            heading="This is the heading of the modal">
          This is some shit man
          </Modal>
-          <Test />
+          {/*<Test />*/}
           <DatePickerComponent/>
           <StudentForm />
           <Link to="/admin"> <button>go to admin</button></Link>
