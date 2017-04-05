@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
-import {DropdownButton} from 'react-bootstrap'
-import {MenuItem} from 'react-bootstrap'
+import React, { Component } from "react";
+import { DropdownButton, MenuItem } from "react-bootstrap";
 
 export default class DropDown extends Component {
   render() {
-
     return (
       <div>
         <DropdownButton bsStyle="default" title="No caret" id="dropdown-no-caret">
@@ -16,7 +14,5 @@ export default class DropDown extends Component {
         </DropdownButton>
       </div>
     );
-  
   }
 }
-
