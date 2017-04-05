@@ -1,13 +1,13 @@
 DROP TABLE campus;
 
 CREATE TABLE campus(
-    id SERIAL PRIMARY KEY,
-    location_name VARCHAR(32),
-    street_address TEXT,
-    city TEXT,
-    state VARCHAR(16),
-    country VARCHAR(32),
-    post_code VARCHAR(16)
+   id SERIAL PRIMARY KEY,
+   location_name VARCHAR(32),
+   street_address TEXT,
+   city TEXT,
+   state VARCHAR(16),
+   country VARCHAR(32),
+   post_code VARCHAR(16)
 );
 
 INSERT INTO campus
