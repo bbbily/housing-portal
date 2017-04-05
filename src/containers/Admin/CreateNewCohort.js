@@ -12,7 +12,6 @@ export default class CreateNewCohort extends Component {
 
     }
 
-
     render() {
         return (
             <div>

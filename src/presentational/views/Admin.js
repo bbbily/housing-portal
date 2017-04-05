@@ -4,6 +4,7 @@ import CreateNewAdmin from "../../containers/Admin/CreateNewAdmin";
 import CreateNewCohort from "../../containers/Admin/CreateNewCohort";
 import CreateNewApartment from "../../containers/Admin/CreateNewApartment";
 
+
 class Admin extends Component {
     render() {
         return (

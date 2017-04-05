@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import StudentForm from "../containers/StudentForm";
-import '../styles/App.css';
+import "../styles/App.scss";
 import DatePickerComponent from "../containers/DatePicker";
-import Modal from '../containers/modal';
+import Modal from "../containers/modal";
 import { Link } from "react-router";
 
 

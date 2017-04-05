@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Panel } from 'react-bootstrap';
 import { getAdmins, createAdmin, deleteAdmin, editAdmin } from "../../actions/action_admin";

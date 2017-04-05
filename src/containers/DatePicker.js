@@ -11,7 +11,6 @@ class DatePickerComponent extends Component {
     this.state = {startDate: moment()}
     console.log(this.state)
     this.handleChange = this.handleChange.bind(this)
-
   }
 
   handleChange(date) {
@@ -21,7 +20,6 @@ class DatePickerComponent extends Component {
   }
 
   render() {
-
     return (
       <div>
         <DatePicker
