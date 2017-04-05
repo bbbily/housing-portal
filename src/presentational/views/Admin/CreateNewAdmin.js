@@ -1,7 +1,9 @@
+
 import React, { Component } from 'react';
 import { Panel } from 'react-bootstrap';
 import { fetchApartments } from "../../../actions/action_apartments";
 import { connect } from "react-redux";
+import DropDown from "../../../containers/DropDownMenu";
 
 class CreateNewAdmin extends Component {
     constructor(...args) {

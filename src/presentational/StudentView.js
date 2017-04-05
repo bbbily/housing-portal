@@ -2,14 +2,14 @@
 
 import React, { Component } from 'react';
 
-class Student extends Component {
+class StudentView extends Component {
     render() {
         return (
             <div>
-                <h1>Student</h1>
+                <h1>StudentView</h1>
             </div>
         )
     }
 }
 
-export default Student
+export default StudentView
