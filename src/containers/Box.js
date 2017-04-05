@@ -1,14 +1,14 @@
-import React, { Component, PropTypes } from 'react';
-import { DragSource } from 'react-dnd';
-import ItemTypes from './itemTypes';
+import React, { Component, PropTypes } from "react";
+import { DragSource } from "react-dnd";
+import ItemTypes from "./itemTypes";
 
 const style = {
-  border: '1px dashed gray',
-  backgroundColor: 'white',
-  padding: '0.5rem 1rem',
-  marginRight: '1.5rem',
-  marginBottom: '1.5rem',
-  float: 'left',
+  border: "1px dashed gray",
+  backgroundColor: "white",
+  padding: "0.5rem 1rem",
+  marginRight: "1.5rem",
+  marginBottom: "1.5rem",
+  float: "left",
 };
 
 const boxSource = {
@@ -23,11 +23,11 @@ const boxSource = {
     const dropResult = monitor.getDropResult();
 
     if (dropResult) {
-      let alertMessage = '';
-      if (dropResult.allowedDropEffect === 'any' || dropResult.allowedDropEffect === dropResult.dropEffect) {
-        alertMessage = `You ${dropResult.dropEffect === 'copy' ? 'copied' : 'moved'} ${item.name} into ${dropResult.name}!`;
+      let alertMessage = "";
+      if (dropResult.allowedDropEffect === "any" || dropResult.allowedDropEffect === dropResult.dropEffect) {
+        alertMessage = "You ${dropResult.dropEffect === "copy" ? "copied" : "moved"} ${item.name} into ${dropResult.name}!";
       } else {
-        alertMessage = `You cannot ${dropResult.dropEffect} an item into the ${dropResult.name}`;
+        alertMessage = "You cannot ${dropResult.dropEffect} an item into the ${dropResult.name}";
       }
       window.alert( // eslint-disable-line no-alert
         alertMessage,

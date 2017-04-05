@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Panel } from 'react-bootstrap';
+import React, { Component } from "react";
+import { Panel } from "react-bootstrap";
 
 class CreateNewApartment extends Component {
     constructor(...args) {
@@ -9,6 +9,7 @@ class CreateNewApartment extends Component {
             open: false
         };
     }
+    
     render() {
         return (
             <div>

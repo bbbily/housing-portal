@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Panel } from "react-bootstrap";
-import DatePickerComponent from "../../../containers/DatePicker";
+import DatePickerComponent from "../DatePicker";
 
 export default class CreateNewCohort extends Component {
     constructor(...args) {
@@ -9,9 +9,8 @@ export default class CreateNewCohort extends Component {
         this.state = {
             open: false,
         };
-      
-    }
 
+    }
 
     render() {
         return (
