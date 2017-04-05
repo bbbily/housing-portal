@@ -3,11 +3,13 @@
 # dependencies
 /node_modules
 config.js/
+
 # testing
 /coverage
 
 # production
 /sandbox
+src/**/*.css
 
 # misc
 .DS_Store
