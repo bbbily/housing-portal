@@ -1,1 +1,3 @@
-DELETE FROM campus WHERE id = $1;
+DELETE FROM campus
+WHERE id = $1;
+
