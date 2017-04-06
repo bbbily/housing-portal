@@ -1,9 +1,10 @@
 import {GET_ADMINS, CREATE_ADMIN, DELETE_ADMIN, EDIT_ADMIN} from "../actions/action_admin"
 import { GET_COHORTS, CREATE_COHORT, DELETE_COHORT, EDIT_COHORT } from '../actions/action_admin'
+import {combineReducers} from 'redux'
 
 const INITIAL_STATE = { all: [], admin: {}, cohort: {} };
 
-export function AdminReducer(state=INITIAL_STATE, action) {
+export function adminReducer(state=INITIAL_STATE, action) {
   switch (action.type) {
     case GET_ADMINS:
       return { all: action.payload.data }
@@ -25,8 +26,9 @@ export function AdminReducer(state=INITIAL_STATE, action) {
       break;
   }
 }
-export function CorhortReducer(state=INITIAL_STATE, action) {
-  switch (action.type) {
+
+export function cohortReducer(state=INITIAL_STATE, action) {
+  switch(action.type) {
     case GET_COHORTS:
       return { all: action.payload.data }
       break;

@@ -13,19 +13,16 @@ var db = massive.connect({connectionString : dbConnection},
 module.exports = {
     GetCampuses: function(req,res,next){
         db.get_campuses(function(err, prod) {
-            // console.log("get campi: ", err, prod);
             res.status(200).send(prod);
         })
     },
     AddCampus: function(req,res,next){
         db.add_campus(req.body.location_name, req.body.street_address, req.body.city, req.body.state, req.body.country, req.body.post_code, function (err, prod) {
-            console.log(err, prod);
             res.status(200).send("errors: " + err + " %%%% prods: " + prod);
         })
     },
     EditCampus: function(req,res,next){
         db.edit_campus(req.body.id, req.body.location_name, req.body.street_address, req.body.city, req.body.state, req.body.country, req.body.post_code, function(err, prod) {
-            console.log("changing locations");
             res.status(200).send(prod);
         })
     },
@@ -36,19 +33,16 @@ module.exports = {
     },
     GetCohorts: function(req,res,next){
         db.get_cohorts(function(err, prod) {
-            console.log("get admins: ", err, prod);
             res.status(200).send(prod);
         })
     },
     AddCohort: function(req,res,next){
         db.add_cohort(req.body.campus_id, req.body.name, req.body.start_date, req.body.end_date, function (err, prod) {
-            console.log(err, prod);
             res.status(200).send("errors: " + err + " %%%% prods: " + prod);
         })
     },
     EditCohort: function(req,res,next){
         db.edit_cohort(req.body.id, req.body.campus_id, req.body.name, req.body.start_date, req.body.end_date, function(err, prod) {
-            console.log("changing locations");
             res.status(200).send(err + prod);
         })
     },
@@ -59,7 +53,6 @@ module.exports = {
     },
     GetUsers: function(req,res,next){
         db.get_users(function(err, prod) {
-            // console.log("get admins: ", err, prod);
             res.status(200).send(prod);
         })
     },
@@ -81,6 +74,29 @@ module.exports = {
       console.log(req.body)
         db.delete_user(req.body.id, function(err, prod) {
             res.status(200).send(req.body);
+        })
+    },
+    GetApartments: function(req,res,next){
+        db.get_apartments(function(err, prod) {
+            //console.log("get admins: ", err, prod);
+            res.status(200).send(prod);
+        })
+    },
+    AddApartment: function(req,res,next){
+        db.add_apartment(req.body.campus_id, req.body.first_name, req.body.last_name, req.body.email, function (err, prod) {
+            //console.log(err, prod);
+            res.status(200).send("errors: " + err + " %%%% prods: " + prod);
+        })
+    },
+    EditApartment: function(req,res,next){
+        db.edit_apartment(req.body.id, req.body.campus_id, req.body.first_name, req.body.last_name, req.body.email, function(err, prod) {
+            //console.log("changing locations");
+            res.status(200).send(prod);
+        })
+    },
+    DeleteApartment: function(req,res,next) {
+        db.delete_apartment(req.body.id, function(err, prod) {
+            res.status(200).send(prod);
         })
     },
 

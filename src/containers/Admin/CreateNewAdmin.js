@@ -3,6 +3,8 @@ import { Panel } from "react-bootstrap";
 import { getAdmins, createAdmin } from "../../actions/action_admin";
 import { connect } from "react-redux";
 import DropDown from "../DropDownMenu";
+import "../../styles/newadmin.scss";
+import NewAdminForm from "./NewAdminForm";
 import AdminForm from "./AdminForm"
 
 class CreateNewAdmin extends Component {
@@ -22,20 +24,18 @@ class CreateNewAdmin extends Component {
     }
 
     render() {
-      const admins = this.props.all.map( (admin, i) => {
-        console.log("admin", admin.id);
-          return (
+      const admins = this.props.all.map( (admin, i) => (
         <li key={admin.id} id={admin.id}>
           <AdminForm initialValues={{ first_name: admin.first_name, last_name: admin.last_name, email: admin.email, campus_id: admin.campus_id}}  firstName={ admin.first_name } form={"form" + admin.id} id={ admin.id } key={admin.id} />
-        </li>
-      )});
+        </li> ));
+
         return (
-            <div>
+            <div className="new-admin-container">
                 <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
                     <h3>New Admin</h3>
                 </div>
                 <Panel collapsible expanded={ this.state.open }>
-                    <div>
+                    <div className="users-panel">
                         <ul>
                           { admins }
                         </ul>
