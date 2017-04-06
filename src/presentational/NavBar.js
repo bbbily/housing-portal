@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router";
-// import './NavBar.css';
+import '../styles/navbar.scss';
 
 class NavBar extends Component {
     render() {
         return (
             <div className="navbar-container">
-                <div>
-                    <Link to="/">
-                        Home
+                <img src="../styles/DevMtnLogo.png" />
+                <div className="nav-links">
+                    <Link to="/Admin">
+                        Admin Page
                     </Link>
                     <Link to="/ApartmentList">
                         Apartment List
@@ -16,6 +17,7 @@ class NavBar extends Component {
                     <Link to="/StudentList">
                         Student List
                     </Link>
+                    Logout
                 </div>
             </div>
         )
