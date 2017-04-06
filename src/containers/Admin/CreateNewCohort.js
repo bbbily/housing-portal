@@ -5,6 +5,7 @@ import { getCohorts, createCohort, deleteCohort, editCohort} from "../../actions
 import { connect} from "react-redux"
 import "../../styles/newcohort.scss";
 import moment from 'moment'
+//import AdminForm from 'AdminForm'
 
 class CreateNewCohort extends Component {
     constructor(...args) {
@@ -12,23 +13,56 @@ class CreateNewCohort extends Component {
 
         this.state = {
             open: false,
+            name: null,
+            start_date: null,
+            end_state: null,
+            
         };
 
+        this.handleInputChange = this.handleInputChange.bind(this)
+        this.sendCohort = this.sendCohort.bind(this)
     }
+
+    sendCohort(cohortObj) {
+        this.props.dispatch(createCohort(cohortObj))
+        console.log(cohortObj)
+    }
+
+    handleInputChange(event) {
+        const target = event.target
+        const value = target.value
+        const name = target.name
+
+        this.setState({
+            [name] : value
+        })
+        console.log(this.state)
+        console.log("children", this.props.children)
+    }
+
 
     componentWillMount() {
         this.props.dispatch(getCohorts())
     }
 
-    render() {
 
+    date(field, e) {
+        this.setState( {
+            [field]: e
+        })
+        console.log(e)
+    }
+
+
+    render() {
+        
         const cohorts = this.props.all.map( (cohort, i) => (
             <li key={i}>
                 <b>{ cohort.name }</b>:&nbsp;&nbsp;<b>From:</b> {moment(cohort.start_date).format("DD-MM-YYYY")}&nbsp;
                                         <b>To:</b> {moment(cohort.start_date).format("DD-MM-YYYY")}           
             </li>
         ))
-    console.log(this.props.all)
+   
         return (
             <div className="new-cohort-container">
                 <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
@@ -42,11 +76,11 @@ class CreateNewCohort extends Component {
                             </ul>
                         </div>
                         <div>
-                            Cohort Name <br />
-                            <input type="text" placeholder="DM##" /><br /><br />
-                            Start Date <DatePickerComponent dateName="startDate"/>
-                            End Date <DatePickerComponent dateName="endDate"/>
-                            <Button>Save</Button> <br /><br />
+                        Enter Cohort Name <br />
+                            <input type="text" placeholder="DM##" name="name" onChange={this.handleInputChange}/><br /><br />
+                            Start Date <input type="date" name="start_date" onChange={this.handleInputChange} /> <br /><br />
+                            End Date <input type="date" name="start_date" onChange={this.handleInputChange} /> <br /><br />
+                            <Button onClick={() => { this.sendCohort(this.state) }}>  Create  </Button> <br /><br />
                         </div>
                     </div>
                 </Panel>
@@ -57,7 +91,7 @@ class CreateNewCohort extends Component {
 
 function mapStateToProps(state) {
     return {
-        all: state.admin.all
+        all: state.cohort.all
     }
 }
 

@@ -55,25 +55,25 @@ export function getCohorts() {
     payload: request
   }
 }
-export function createCohort(CohortObj) {
+export function createCohort(cohortObj) {
   const url = "/api/cohort";
-  const request = axios.post(url, userObj);
+  const request = axios.post(url, cohortObj);
   return {
     type: CREATE_COHORT,
     payload: request
   }
 }
-export function deleteCohort(userObj) {
+export function deleteCohort(cohortObj) {
   const url = "/api/cohort";
-  const request = axios.delete(url, CohortObj);
+  const request = axios.delete(url, cohortObj);
   return {
     type: DELETE_COHORT,
     payload: request
   }
 }
-export function editCohort(userObj) {
+export function editCohort(cohortObj) {
   const url = "/api/cohort";
-  const request = axios.put(url, CohortObj);
+  const request = axios.put(url, cohortObj);
   return {
     type: EDIT_COHORT,
     payload: request
