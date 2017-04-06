@@ -16,7 +16,7 @@ class CreateNewCohort extends Component {
             name: null,
             start_date: null,
             end_state: null,
-            
+
         };
 
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -45,24 +45,15 @@ class CreateNewCohort extends Component {
         this.props.dispatch(getCohorts())
     }
 
-
-    date(field, e) {
-        this.setState( {
-            [field]: e
-        })
-        console.log(e)
-    }
-
-
     render() {
-        
+
         const cohorts = this.props.all.map( (cohort, i) => (
             <li key={i}>
                 <b>{ cohort.name }</b>:&nbsp;&nbsp;<b>From:</b> {moment(cohort.start_date).format("DD-MM-YYYY")}&nbsp;
-                                        <b>To:</b> {moment(cohort.start_date).format("DD-MM-YYYY")}           
+                                        <b>To:</b> {moment(cohort.start_date).format("DD-MM-YYYY")}
             </li>
         ))
-   
+
         return (
             <div className="new-cohort-container">
                 <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
