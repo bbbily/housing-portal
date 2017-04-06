@@ -3,6 +3,8 @@ import { Panel } from "react-bootstrap";
 import { getAdmins, createAdmin, deleteAdmin, editAdmin } from "../../actions/action_admin";
 import { connect } from "react-redux";
 import DropDown from "../DropDownMenu";
+import "../../styles/newadmin.scss";
+import NewAdminForm from "./NewAdminForm";
 
 class CreateNewAdmin extends Component {
     constructor(...args) {
@@ -25,21 +27,16 @@ class CreateNewAdmin extends Component {
       ));
       console.log("allllllll", admins)
         return (
-            <div>
+            <div className="new-admin-container">
                 <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
                     <h3>New Admin</h3>
                 </div>
                 <Panel collapsible expanded={ this.state.open }>
-                    <div>
+                    <div className="users-panel">
                         <ul>
                           { admins }
                         </ul>
-                        <h4>New User:</h4>
-                        <input type="text" placeholder="Name" />
-                        <input type="text" placeholder="Username" />
-                        <input type="password" placeholder="Password" />
-                        <button>Save</button>
-                        <button>Cancel</button>
+                        <NewAdminForm />
                     </div>
                 </Panel>
             </div>
