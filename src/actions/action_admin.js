@@ -47,7 +47,7 @@ export const EDIT_COHORT = "EDIT_COHORT";
 
 
 export function getCohorts() {
-  const url = "/api/users";
+  const url = "/api/cohort";
   const request = axios.get(url);
   // console.log("request", request);
   return {

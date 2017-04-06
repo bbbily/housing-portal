@@ -24,6 +24,7 @@ class CreateNewAdmin extends Component {
           <AdminForm initialValues={{ first_name: admin.first_name, last_name: admin.last_name, email: admin.email, campus_id: admin.campus_id}}  firstName={ admin.first_name } form={"form" + admin.id} id={ admin.id } key={admin.id} />
         </li>
       ));
+
         return (
             <div>
                 <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
