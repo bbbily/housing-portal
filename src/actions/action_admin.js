@@ -38,3 +38,44 @@ export function editAdmin(userObj) {
     payload: request
   }
 }
+
+
+export const GET_COHORTS = "GET_COHORTS";
+export const CREATE_COHORT = "CREATE_COHORT";
+export const DELETE_COHORT = "DELETE_COHORT";
+export const EDIT_COHORT = "EDIT_COHORT";
+
+
+export function getCohorts() {
+  const url = "/api/users";
+  const request = axios.get(url);
+  // console.log("request", request);
+  return {
+    type: GET_COHORTS,
+    payload: request
+  }
+}
+export function createCohort(CohortObj) {
+  const url = "/api/cohort";
+  const request = axios.post(url, userObj);
+  return {
+    type: CREATE_COHORT,
+    payload: request
+  }
+}
+export function deleteCohort(userObj) {
+  const url = "/api/cohort";
+  const request = axios.delete(url, CohortObj);
+  return {
+    type: DELETE_COHORT,
+    payload: request
+  }
+}
+export function editCohort(userObj) {
+  const url = "/api/cohort";
+  const request = axios.put(url, CohortObj);
+  return {
+    type: EDIT_COHORT,
+    payload: request
+  }
+}

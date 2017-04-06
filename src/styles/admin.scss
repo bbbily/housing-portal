@@ -6,7 +6,6 @@ body {
     text-transform: uppercase;
 }
 h3 {
-    border: 2px solid black;
     background: #2B2B2B;
     display: flex;
     justify-content: center;
@@ -19,14 +18,19 @@ input, option, button {
 }
 
 .admin-container {
-    font-family: "Nunito", sans-serif;
-    background: #3C3C3C;
+    height: 100vh;
     width: 100%;
-    height: 100%;
+    font-family: "Nunito", sans-serif;
+    color: #fff;
+    background: #3C3C3C;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    align-content: center;
 }
 
 .admin-menu {
-    border: 2px solid black;
+    // width: 100%;
+    display: flex;
+    flex-direction: column;
 }

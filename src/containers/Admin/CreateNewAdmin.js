@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Panel } from 'react-bootstrap';
+import React, { Component } from "react";
+import { Panel } from "react-bootstrap";
 import { getAdmins, createAdmin, deleteAdmin, editAdmin } from "../../actions/action_admin";
 import { connect } from "react-redux";
 import DropDown from "../DropDownMenu";
