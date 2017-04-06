@@ -23,7 +23,7 @@ class CreateNewAdmin extends Component {
           { admin.first_name }  { admin.last_name }
         </li>
       ));
-      console.log("allllllll", admins)
+      //console.log("allllllll", admins)
         return (
             <div>
                 <div onClick={ ()=> this.setState({ open: !this.state.open }) }>

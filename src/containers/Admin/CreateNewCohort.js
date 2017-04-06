@@ -3,6 +3,7 @@ import { Panel, Button } from "react-bootstrap";
 import DatePickerComponent from "../DatePicker";
 import { getCohorts, createCohort, deleteCohort, editCohort} from "../../actions/action_admin"
 import { connect} from "react-redux"
+import moment from 'moment'
 
 class CreateNewCohort extends Component {
     constructor(...args) {
@@ -17,13 +18,16 @@ class CreateNewCohort extends Component {
     componentWillMount() {
         this.props.dispatch(getCohorts())
     }
-    
+
     render() {
+
         const cohorts = this.props.all.map( (cohort, i) => (
             <li key={i}>
-                { cohort.first_name }
+                <b>{ cohort.name }</b>:&nbsp;&nbsp;<b>From:</b> {moment(cohort.start_date).format("DD-MM-YYYY")}&nbsp;
+                                        <b>To:</b> {moment(cohort.start_date).format("DD-MM-YYYY")}           
             </li>
         ))
+    console.log(this.props.all)
         return (
             <div>
                 <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
@@ -33,8 +37,8 @@ class CreateNewCohort extends Component {
                     <div>
                         Enter Cohort Name <br />
                         <input type="text" placeholder="DM##" /><br /><br />
-                        Start Date <DatePickerComponent />
-                        End Date <DatePickerComponent />
+                        Start Date <DatePickerComponent dateName="startDate"/>
+                        End Date <DatePickerComponent dateName="endDate"/>
                         <Button>Save</Button> <br /><br />
                     <ul>
                         {cohorts}
