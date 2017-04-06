@@ -9,16 +9,14 @@ class DatePickerComponent extends Component {
   constructor(props) {
     super(props)
     this.state = {setDate: moment()}
-    console.log(this.state)
     this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(date) {
+    const formatedDate = date.format("MMM DD, YYYY HH:MM")
     this.setState({
       setDate: date
     })
-    console.log(this.state.setDate)
-    console.log(date.format("MMM DD, YYYY HH:MM"))
   }
 
   render() {
@@ -27,8 +25,8 @@ class DatePickerComponent extends Component {
         <DatePicker
         selected={this.state.setDate}
         onChange={this.handleChange}
-        dateName={this.props.dateName}
-        dateValue={this.state.setDate}
+        name={this.props.dateName}
+        value={this.props.setDate}
         />
        </div>
     );
