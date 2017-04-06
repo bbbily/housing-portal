@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Panel } from "react-bootstrap";
+import "../../styles/newapartment.scss";
 
 class CreateNewApartment extends Component {
     constructor(...args) {
@@ -12,12 +13,13 @@ class CreateNewApartment extends Component {
     
     render() {
         return (
-            <div>
+            <div className="new-apartment-container">
                 <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
                     <h3>Create New Apartment</h3>
                 </div>
-                <Panel collapsible expanded={ this.state.open }>
+                <Panel className="apartment-panel" collapsible expanded={ this.state.open }>
                     <div>
+                        <h4>Campus:</h4>
                         <select name="Campus">
                             <option value="Dallas">Dallas</option>
                             <option value="Provo">Provo</option>
@@ -32,7 +34,7 @@ class CreateNewApartment extends Component {
                         <input type="text" placeholder="State" />
                         <input type="text" placeholder="Zip Code" />
                     </div>
-                    <h4>New Room:</h4>
+                    <h4>Room:</h4>
                     <div>
                         <label>Beds:</label>
                         <input type="number" placeholder="#" />
@@ -40,7 +42,7 @@ class CreateNewApartment extends Component {
                     <div>
                         <input type="radio" name="gender" value="male" /> Male
                         <input type="radio" name="gender" value="female" /> Female
-                    </div>
+                    </div><br /><br />
                     <div>
                         <button>New Room</button>
                         <button>Save</button>

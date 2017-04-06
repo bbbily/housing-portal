@@ -10,17 +10,17 @@ class Admin extends Component {
     render() {
         return (
             <div>
-            <h1>Admin</h1>
-            <div className="admin-container">
-                <NavBar />
-                <h1>Admin</h1>
-                <div className="admin-menu">
-                    <CreateNewAdmin />
-                    <CreateNewCohort />
-                    <CreateNewApartment />
+                <div className="admin-container">
+                    <NavBar />
+                    <h1>Admin</h1>
+                    <div className="admin-menu">
+                        <CreateNewAdmin />
+                        <CreateNewCohort />
+                        <CreateNewApartment />
+                    </div>
                 </div>
             </div>
-            </div>
+            
         )
     }
 }
