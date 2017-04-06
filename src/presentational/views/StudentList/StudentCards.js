@@ -15,8 +15,8 @@ class StudentCards extends Component {
             <div>
                 <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
                     <img src="./favicon.ico" />
-                    <h2>name</h2>
-                    <p>age, gender, cohort</p>
+                    <h2>{this.props.name}</h2>
+                    <p>{this.props.age}{this.props.gender}{this.props.cohort}</p>
                 </div>
                 <Panel collapsible expanded={ this.state.open }>
                     <div>

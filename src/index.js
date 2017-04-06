@@ -12,7 +12,7 @@ import reducers from "./reducers";
 import Admin from "./presentational/views/Admin";
 // import ApartmentList from "./presentational/views/Apartment";
 // import NavBar from "./presentational/NavBar";
-// import Student from "./presentational/views/Student";
+import Student from "./presentational/views/StudentList/Student";
 // import DropDown from "./containers/DropDownMenu";
 
  // import ApartmentListFilter from "./containers/ApartmentListFilter";
@@ -40,7 +40,7 @@ ReactDOM.render(
       <Route path="/" component={ App } />
       <Route path="/admin" component={Admin} />
       {/* <Route path="/apartmentList" component={ApartmentList} /> */}
-      {/* <Route path="/studentList" component={StudentList} /> */}
+      {<Route path="/students" component={Student} />}
     </Router>
   </Provider>,
 
