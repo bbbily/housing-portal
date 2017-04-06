@@ -5,7 +5,7 @@ const INITIAL_STATE = { all: [], admin: {} };
 export default function(state=INITIAL_STATE, action) {
   switch (action.type) {
     case GET_ADMINS:
-    // console.log("actions", action.payload)
+    console.log("actions", action.payload.data)
       return { all: action.payload.data }
       break;
     case CREATE_ADMIN:
@@ -15,7 +15,8 @@ export default function(state=INITIAL_STATE, action) {
       return { all: state.all.filter( admin => { admin.id !== action.payload.data.id}) }
       break;
     case EDIT_ADMIN:
-    const newAll = state.all.filter( admin => { admin.id !== action.payload.data.id})
+    const newAll = state.all.filter( admin => { admin.id !== action.payload.data.id })
+    console.log("newAll", newAll, state.all, action.payload)
       return { all: [...newAll, action.payload.data] }
       break;
     default:

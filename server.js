@@ -46,6 +46,7 @@ app.post('/api/users', function(req,res,next) {
 app.put('/api/users', function(req,res,next) {
   db.edit_user(req.body.id, req.body.campus_id, req.body.first_name, req.body.last_name, req.body.email, function (err, result) {
     res.status(200).json(result);
+    console.log(result);
   })
 })
 
