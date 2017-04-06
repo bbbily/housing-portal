@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
-import { editAdmin } from "../../actions/action_admin";
+import { editAdmin, deleteAdmin } from "../../actions/action_admin";
 
 function fetchData(firstName) {
   return {
@@ -16,8 +16,8 @@ class AdminForm extends Component {
     this.props.dispatch(editAdmin(props))
   }
 
-  handleDelete() {
-    
+  handleDelete(user) {
+    this.props.dispatch(deleteAdmin(user))
   }
 
   render() {
@@ -46,15 +46,12 @@ class AdminForm extends Component {
         </div>
         <button>Pancil</button>
         <button type="submit">Save</button>
-        <button onClick={ this.handleDelete.bind(this) }>X</button>
+        <button type="button" onClick={ this.handleDelete.bind(this, {id: this.props.id}) }>X</button>
       </form>
     )
   }
 }
 
-// function mapStateToProps(state) {
-//   initialValues: { firstName: "bbaa"}
-// }
 
 export default reduxForm({
   // initialValues: data

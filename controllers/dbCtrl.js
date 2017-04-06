@@ -13,13 +13,13 @@ var db = massive.connect({connectionString : dbConnection},
 module.exports = {
     GetCampuses: function(req,res,next){
         db.get_campuses(function(err, prod) {
-            console.log("get campi: ", err, prod);
+            // console.log("get campi: ", err, prod);
             res.status(200).send(prod);
         })
     },
     AddCampus: function(req,res,next){
         db.add_campus(req.body.location_name, req.body.street_address, req.body.city, req.body.state, req.body.country, req.body.post_code, function (err, prod) {
-            console.log(err, prod); 
+            console.log(err, prod);
             res.status(200).send("errors: " + err + " %%%% prods: " + prod);
         })
     },
@@ -42,7 +42,7 @@ module.exports = {
     },
     AddCohort: function(req,res,next){
         db.add_cohort(req.body.campus_id, req.body.name, req.body.start_date, req.body.end_date, function (err, prod) {
-            console.log(err, prod); 
+            console.log(err, prod);
             res.status(200).send("errors: " + err + " %%%% prods: " + prod);
         })
     },
@@ -59,25 +59,28 @@ module.exports = {
     },
     GetUsers: function(req,res,next){
         db.get_users(function(err, prod) {
-            console.log("get admins: ", err, prod);
+            // console.log("get admins: ", err, prod);
             res.status(200).send(prod);
         })
     },
     AddUser: function(req,res,next){
         db.add_user(req.body.campus_id, req.body.first_name, req.body.last_name, req.body.email, function (err, prod) {
-            console.log(err, prod); 
-            res.status(200).send("errors: " + err + " %%%% prods: " + prod);
+          db.get_users( function(err, prod) {
+            console.log(err, prod);
+            res.status(200).send(prod);
+          })
         })
     },
     EditUser: function(req,res,next){
-        db.update_campus(req.body.id, req.body.campus_id, req.body.first_name, req.body.last_name, req.body.email, function(err, prod) {
-            console.log("changing locations");
-            res.status(200).send(prod);
+      console.log("edit", req.body);
+        db.edit_user(req.body.id, req.body.campus_id, req.body.first_name, req.body.last_name, req.body.email, function(err, prod) {
+            res.status(200).send(req.body);
         })
     },
     DeleteUser: function(req,res,next) {
-        db.delete_campus(req.body.id, function(err, prod) {
-            res.status(200).send(prod);
+      console.log(req.body)
+        db.delete_user(req.body.id, function(err, prod) {
+            res.status(200).send(req.body);
         })
     },
 
@@ -90,7 +93,7 @@ module.exports = {
     },
     AddBuilding: function(req,res,next){
         db.add_building(function (err, prod) {
-            console.log(err, prod); 
+            console.log(err, prod);
             res.status(200).send("errors: " + err + " %%%% prods: " + prod);
         })
     },

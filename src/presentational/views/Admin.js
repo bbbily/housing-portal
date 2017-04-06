@@ -20,6 +20,7 @@ class Admin extends Component {
                     <CreateNewApartment />
                 </div>
             </div>
+          </div>
         )
     }
 }

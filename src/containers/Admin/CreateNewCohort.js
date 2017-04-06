@@ -17,7 +17,7 @@ class CreateNewCohort extends Component {
     componentWillMount() {
         this.props.dispatch(getCohorts())
     }
-    
+
     render() {
         const cohorts = this.props.all.map( (cohort, i) => (
             <li key={i}>
@@ -48,7 +48,7 @@ class CreateNewCohort extends Component {
 
 function mapStateToProps(state) {
     return {
-        all: state.admin.all
+        all: state.corhort.all
     }
 }
 

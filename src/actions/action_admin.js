@@ -15,16 +15,19 @@ export function getAdmins() {
   }
 }
 export function createAdmin(userObj) {
+  console.log(userObj)
   const url = "/api/users";
   const request = axios.post(url, userObj);
+  console.log("getrequest", request)
   return {
     type: CREATE_ADMIN,
     payload: request
   }
 }
 export function deleteAdmin(userObj) {
+  console.log("deleteuser", userObj)
   const url = "/api/users";
-  const request = axios.delete(url, userObj);
+  const request = axios.delete(url, {data: userObj});
   return {
     type: DELETE_ADMIN,
     payload: request
@@ -47,33 +50,32 @@ export const EDIT_COHORT = "EDIT_COHORT";
 
 
 export function getCohorts() {
-  const url = "/api/users";
+  const url = "/api/cohort";
   const request = axios.get(url);
-  // console.log("request", request);
   return {
     type: GET_COHORTS,
     payload: request
   }
 }
-export function createCohort(CohortObj) {
+export function createCohort(cohortObj) {
   const url = "/api/cohort";
-  const request = axios.post(url, userObj);
+  const request = axios.post(url, cohortObj);
   return {
     type: CREATE_COHORT,
     payload: request
   }
 }
-export function deleteCohort(userObj) {
+export function deleteCohort(cohortObj) {
   const url = "/api/cohort";
-  const request = axios.delete(url, CohortObj);
+  const request = axios.delete(url, {data: cohortObj});
   return {
     type: DELETE_COHORT,
     payload: request
   }
 }
-export function editCohort(userObj) {
+export function editCohort(cohortObj) {
   const url = "/api/cohort";
-  const request = axios.put(url, CohortObj);
+  const request = axios.put(url, cohortObj);
   return {
     type: EDIT_COHORT,
     payload: request
