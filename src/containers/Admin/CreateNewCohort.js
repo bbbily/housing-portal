@@ -12,13 +12,19 @@ class CreateNewCohort extends Component {
 
         this.state = {
             open: false,
-            cohortName: null,
-            startDate: null,
-            endDate: null,
+            name: null,
+            start_date: null,
+            end_state: null,
+            
         };
 
         this.handleInputChange = this.handleInputChange.bind(this)
+        this.sendCohort = this.sendCohort.bind(this)
+    }
 
+    sendCohort(cohortObj) {
+        this.props.dispatch(createCohort(cohortObj))
+        console.log(cohortObj)
     }
 
     handleInputChange(event) {
@@ -27,18 +33,25 @@ class CreateNewCohort extends Component {
         const name = target.name
 
         this.setState({
-            [name]: value
+            [name] : value
         })
         console.log(this.state)
+        console.log("children", this.props.children)
     }
 
-    onSubmit(props) {
-        console.log(props.name)
-    }
 
     componentWillMount() {
         this.props.dispatch(getCohorts())
     }
+
+
+    date(field, e) {
+        this.setState( {
+            [field]: e
+        })
+        console.log(e)
+    }
+
 
     render() {
         
@@ -58,10 +71,10 @@ class CreateNewCohort extends Component {
                     <form >
                         <div>
                             Enter Cohort Name <br />
-                            <input type="text" placeholder="DM##" name="cohortName" onChange={this.handleInputChange}/><br /><br />
-                            Start Date <DatePickerComponent name="startDate" onChange={this.handleInputChange}/>
-                            End Date <DatePickerComponent name="endDate" onChange={this.handleInputChange} />
-                            <Button onClick={ this.handleInputChange }>  Create  </Button> <br /><br />
+                            <input type="text" placeholder="DM##" name="name" onChange={this.handleInputChange}/><br /><br />
+                            Start Date <input type="date" name="start_date" onChange={this.handleInputChange} /> <br /><br />
+                            End Date <input type="date" name="start_date" onChange={this.handleInputChange} /> <br /><br />
+                            <Button onClick={() => { this.sendCohort(this.state) }}>  Create  </Button> <br /><br />
                         <ul>
                             {cohorts}
                         </ul>

@@ -6,27 +6,33 @@ import "react-datepicker/dist/react-datepicker.css"
 
 class DatePickerComponent extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {setDate: moment()}
-    this.handleChange = this.handleChange.bind(this)
-  }
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {setDate: moment()}
+  //   this.handleChange = this.handleChange.bind(this)
+  // }
 
-  handleChange(date) {
-    const formatedDate = date.format("MMM DD, YYYY HH:MM")
-    this.setState({
-      setDate: date
-    })
+  // handleChange(date) {
+  //   const formatedDate = date.format("MMM DD, YYYY HH:MM")
+  //   this.setState({
+  //     setDate: formatedDate
+  //   })
+  // }
+
+  handleChange(e) {
+    console.log(e._d)
+    this.props.date(e._d)
+  
   }
 
   render() {
     return (
+      
       <div>
         <DatePicker
-        selected={this.state.setDate}
-        onChange={this.handleChange}
+        
+        onChange={this.handleChange.bind(this)}
         name={this.props.dateName}
-        value={this.props.setDate}
         />
        </div>
     );
