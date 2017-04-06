@@ -8,13 +8,13 @@ class NavBar extends Component {
             <div className="navbar-container">
                 <img src="../styles/DevMtnLogo.png" />
                 <div className="nav-links">
-                    <Link to="/Admin">
+                    <Link to="/admin">
                         Admin Page
                     </Link>
-                    <Link to="/ApartmentList">
+                    <Link to="/apartmentList">
                         Apartment List
                     </Link>
-                    <Link to="/StudentList">
+                    <Link to="/studentList">
                         Student List
                     </Link>
                     Logout

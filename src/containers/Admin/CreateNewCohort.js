@@ -3,6 +3,7 @@ import { Panel, Button } from "react-bootstrap";
 import DatePickerComponent from "../DatePicker";
 import { getCohorts, createCohort, deleteCohort, editCohort} from "../../actions/action_admin"
 import { connect} from "react-redux"
+import "../../styles/newcohort.scss";
 import moment from 'moment'
 
 class CreateNewCohort extends Component {
@@ -29,20 +30,24 @@ class CreateNewCohort extends Component {
         ))
     console.log(this.props.all)
         return (
-            <div>
+            <div className="new-cohort-container">
                 <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
                     <h3>New Cohort</h3>
                 </div>
                 <Panel collapsible expanded={ this.state.open }>
-                    <div>
-                        Enter Cohort Name <br />
-                        <input type="text" placeholder="DM##" /><br /><br />
-                        Start Date <DatePickerComponent dateName="startDate"/>
-                        End Date <DatePickerComponent dateName="endDate"/>
-                        <Button>Save</Button> <br /><br />
-                    <ul>
-                        {cohorts}
-                    </ul>
+                    <div className="cohort-panel">
+                        <div>
+                            <ul>
+                                {cohorts}
+                            </ul>
+                        </div>
+                        <div>
+                            Cohort Name <br />
+                            <input type="text" placeholder="DM##" /><br /><br />
+                            Start Date <DatePickerComponent dateName="startDate"/>
+                            End Date <DatePickerComponent dateName="endDate"/>
+                            <Button>Save</Button> <br /><br />
+                        </div>
                     </div>
                 </Panel>
             </div>
