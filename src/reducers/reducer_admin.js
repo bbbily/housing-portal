@@ -6,7 +6,7 @@ const INITIAL_STATE = { all: [], admin: {}, cohort: {} };
 export default function(state=INITIAL_STATE, action) {
   switch (action.type) {
     case GET_ADMINS:
-    // console.log("actions", action.payload)
+    console.log("actions", action.payload.data)
       return { all: action.payload.data }
       break;
     case CREATE_ADMIN:

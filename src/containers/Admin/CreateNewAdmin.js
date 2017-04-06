@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import DropDown from "../DropDownMenu";
 import "../../styles/newadmin.scss";
 import NewAdminForm from "./NewAdminForm";
+import AdminForm from "./AdminForm"
 
 class CreateNewAdmin extends Component {
     constructor(...args) {
@@ -20,12 +21,12 @@ class CreateNewAdmin extends Component {
     }
 
     render() {
-      const admins = this.props.all.map( admin => (
-        <li key={admin.id}>
-          { admin.first_name }  { admin.last_name }
+      const admins = this.props.all.map( (admin, i) => (
+        <li key={i} id={admin.id}>
+          <AdminForm initialValues={{ first_name: admin.first_name, last_name: admin.last_name, email: admin.email, campus_id: admin.campus_id}}  firstName={ admin.first_name } form={"form" + admin.id} id={ admin.id } key={admin.id} />
         </li>
       ));
-      console.log("allllllll", admins)
+
         return (
             <div className="new-admin-container">
                 <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
