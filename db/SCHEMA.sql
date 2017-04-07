@@ -41,11 +41,12 @@ CREATE TABLE cohort(
 CREATE TABLE building (
     id SERIAL PRIMARY KEY,
     campus_id INT REFERENCES campus(id),
+    property_name VARCHAR(50),
     street_address TEXT,
     city TEXT,
-    state VARCHAR(16),
-    country VARCHAR(32),
-    post_code VARCHAR(16)
+    state VARCHAR(14),
+    country VARCHAR(30),
+    post_code VARCHAR(30)
 );
 
 
