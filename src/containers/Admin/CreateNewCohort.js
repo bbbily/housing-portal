@@ -94,9 +94,9 @@ class CreateNewCohort extends Component {
                             </li>
                             <li className="cohort-name-right">
                                 <DropdownButton title="Campus">
-                                <option value="1">Provo</option>
-                                <option value="2">Salt Lake City</option>
-                                <option value="3">Dallas</option>
+                                <MenuItem value="1">Provo</MenuItem>
+                                <MenuItem value="2">Salt Lake City</MenuItem>
+                                <MenuItem value="3">Dallas</MenuItem>
                                 </DropdownButton>
                             </li>
                             </ul>

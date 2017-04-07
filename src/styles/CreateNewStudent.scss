@@ -1,10 +1,10 @@
 @import "./_variables.scss";
 
 .student {
-  
+  color: $dark-gray;
 }
 
-.student ul {
+.student-ul {
   list-style: none;
   display: flex;
   justify-content: space-around;

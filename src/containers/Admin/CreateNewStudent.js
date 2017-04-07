@@ -1,8 +1,10 @@
 import React, { Component } from "react"
-import {Panel, Button, DropdownButton, MenuItem} from "react-bootstrap"
+import { Panel, Button, DropdownButton, MenuItem } from "react-bootstrap";
 import {getStudent, createStudent} from "../../actions/action_admin"
 import {connect} from "react-redux"
 import "../../styles/CreateNewStudent.scss"
+import { getCohorts, getCampuses} from "../../actions/action_admin"
+
 
 class CreateNewStudent extends Component {
   constructor(...args) {
@@ -52,8 +54,15 @@ class CreateNewStudent extends Component {
     })
   }
 
+  componentWillMount() {
+        this.props.dispatch(getCohorts())
+        this.props.dispatch(getCampuses()) 
+    }
 
   render() {
+        const campuses = this.props.campuses.map((campus,i) => (
+          <MenuItem id={campus.id} key={i}> {campus.city} </MenuItem>
+        ))
     return (
     <div className="new-student-container">
         <div onClick={ () => this.setState({ open: !this.state.open}) }>
@@ -61,46 +70,69 @@ class CreateNewStudent extends Component {
         </div>
         <Panel collapsible expanded={ this.state.open }>
           <div className="students-panel">
-            <div class="row">
-              <div class="student container">
-                <ul>
-                  <li><input type="text" placeholder="First" name="first_name" /></li>
+            <div className="row">
+              <div className="student container">
+              
+                <div className="col-sm-12">
+                <ul className="student-ul">
+                  <li><input type="text" placeholder="First" name="first_name"/></li>
                   <li><input type="text" placeholder="Last" name="last_name" /></li>
-                  <li>DROP DOWN MENU</li>
+                  <li>
+                    <DropdownButton title="Paid">
+                      <MenuItem value="yes">Yes</MenuItem>
+                      <MenuItem value="no">No</MenuItem>
+                    </DropdownButton>
+                  </li>
                 </ul>
-                <ul>
-                  <li>DOB: <input type="date" name="dob" /> </li>
-                  <li>DROP DOWN GENDER</li>
-                  <li>DROP DOWN COHORT</li>
+                <ul className="student-ul">
+                  <li>DOB: <br/> <input type="date" name="dob" /> </li>
+                  <li>
+                    <DropdownButton title="Gender">
+                      <MenuItem value="M">Male</MenuItem>
+                      <MenuItem value="F">Female</MenuItem>
+                    </DropdownButton>
+                  </li>
+                  <li>
+                    <DropdownButton title="Cohort">
+                      <MenuItem value="1">DM 22</MenuItem>
+                      <MenuItem value="2">DM 23</MenuItem>
+                    </DropdownButton>
+                  </li>
+                 <li>
+                    <DropdownButton title="Campus">
+                      {campuses}
+                    </DropdownButton>
+                  </li>
                 </ul>
-                <ul>
+                <ul className="student-ul">
                   <li><input type="text" placeholder="Email" name="email" /></li>
                   <li><input type="text" placeholder="Slack" name="slack" /></li>
                   <li><input type="text" placeholder="Phone" name="phone" /></li>
                 </ul>
-                  <ul>
-                  <li>Arrives: <input type="date" name="arrive_date" /></li>
-                  <li>Leaves: <input type="date" name="leave_date" /></li>
+                  <ul className="student-ul">
+                  <li>Arrives: <br/><input type="date" name="arrive_date" /></li>
+                  <li>Leaves: <br/><input type="date" name="leave_date" /></li>
                 </ul>
-                <ul>
+                <ul className="student-ul">
                   <li><input type="text" placeholder="address" name="street_address" /></li>
-                </ul>
-                <ul>
                   <li><input type="text" placeholder="city" name="city" /> </li>
+                </ul>
+                <ul className="student-ul">
                   <li><input type="text" placeholder="state" name="state" /> </li>
                   <li><input type="text" placeholder="country" name="country" /> </li>
                   <li><input type="text" placeholder="zip" name="post_code" /></li>
                 </ul>
-                <ul>
+                <ul className="student-ul">
                   <li><input type="text" placeholder="car info" name="car_info" /></li>
                 </ul>
-                <ul>
+                <ul className="student-ul">
                   <li><input type="text" placeholder="Notes" name="notes" /></li>
                   <li><input type="text" placeholder="Accommodations" name="accomodations" /></li>
                 </ul>
-                <ul>
+                <ul className="student-ul">
                   <li><Button> Add Student  </Button></li>
                 </ul>
+                </div>
               </div>
               </div>
           </div>
@@ -111,5 +143,10 @@ class CreateNewStudent extends Component {
   }
 
 }
-
-export default connect()(CreateNewStudent)
+function mapStateToProps(state) {
+  return {
+    all: state.cohort.all,
+    campuses: state.cohort.campuses
+  }
+}
+export default connect(mapStateToProps)(CreateNewStudent)
