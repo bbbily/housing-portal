@@ -68,7 +68,7 @@ class CreateNewCohort extends Component {
                     <li className="dm-info-ends-title"><b>Ends</b></li>
                 </ul>
                 <ul className="dm-info">
-                    <li>{moment(cohort.start_date).format("DD-MM-YYYY")}</li>
+                    <li>{moment(cohort.start_date).format("ddd, MMMM D,  YYYY")}</li>
                     <li>{moment(cohort.end_date).format("DD-MM-YYYY")}</li>
                 </ul>
             </div>
