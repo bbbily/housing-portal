@@ -16,7 +16,7 @@ class App extends Component {
          <Modal
            title="This Will Be Student Basic Info"
            heading="This is the heading of the modal">
-         This is some shit man
+         This is some stuff man
          </Modal>
           <DatePickerComponent/>
           <StudentForm />

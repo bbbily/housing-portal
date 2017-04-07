@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Panel } from "react-bootstrap";
+import StudentModal from "./StudentModal";
+import "../../../styles/studentcard.scss";
 
 class StudentCards extends Component {
     constructor(...args) {
@@ -11,20 +13,34 @@ class StudentCards extends Component {
     }
 
     render() {
+        const title = {
+            image: this.props.image,
+            name: this.props.name,
+            age: this.props.age,
+            gender: this.props.gender,
+            cohort: this.props.cohort
+        }
+        const heading = {
+            image: this.props.image,
+            name: this.props.name,
+            age: this.props.age,
+            gender: this.props.gender,
+            cohort: this.props.cohort
+        }
+        const body = {
+            room: this.props.room,
+            address: this.props.address,
+            eligibility: this.props.eligibility,
+            deposit_paid: this.props.deposit_paid
+        }
         return (
             <div>
-                <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
-                    <img src="./favicon.ico" />
-                    <h2>{this.props.name}</h2>
-                    <p>{this.props.age}{this.props.gender}{this.props.cohort}</p>
-                </div>
-                <Panel collapsible expanded={ this.state.open }>
-                    <div>
-                        <img src="./favicon.ico" />
-                        <h1>name</h1>
-                        <p>room, age, gender, address, cohort, eligibility, deposit paid</p>
-                    </div>
-                </ Panel>
+                <StudentModal
+                    title={title}
+                    heading={heading}
+                    body={body}
+                    className="student-modal">
+                </ StudentModal>
             </div>
         )
     }
