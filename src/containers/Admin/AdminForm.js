@@ -6,12 +6,6 @@ import "../../styles/admin.scss"
 import edit from "../../styles/icons/edit.svg"
 
 
-function fetchData(firstName) {
-  return {
-    firstName: firstName
-  }
-}
-
 class AdminForm extends Component {
 
   onSubmit(props) {
