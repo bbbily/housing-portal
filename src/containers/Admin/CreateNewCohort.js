@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Panel, Button } from "react-bootstrap";
+import { Panel, Button, DropdownButton, MenuItem } from "react-bootstrap";
 import DatePickerComponent from "../DatePicker";
-import { getCohorts, createCohort, deleteCohort, editCohort} from "../../actions/action_admin"
+import { getCohorts, createCohort, deleteCohort, editCohort, getCampuses} from "../../actions/action_admin"
 import { connect} from "react-redux"
 import "../../styles/newcohort.scss";
 import moment from 'moment'
-//import AdminForm from 'AdminForm'
+
 
 class CreateNewCohort extends Component {
     constructor(...args) {
@@ -15,7 +15,7 @@ class CreateNewCohort extends Component {
             open: false,
             name: null,
             start_date: null,
-            end_state: null,
+            end_date: null,
             
         };
 
@@ -36,13 +36,13 @@ class CreateNewCohort extends Component {
         this.setState({
             [name] : value
         })
-        console.log(this.state)
-        console.log("children", this.props.children)
+
     }
 
 
     componentWillMount() {
         this.props.dispatch(getCohorts())
+        this.props.dispatch(getCampuses()) 
     }
 
 
@@ -55,11 +55,19 @@ class CreateNewCohort extends Component {
 
 
     render() {
-        
+        // console.log(this.props)
+        // const campuses = this.props.all.map((campus,i) => (
+        //     <MenuItem id={campus.id} key={i}> {campus_city} </MenuItem>
+        // ))
+        const campusesList = ["Provo", "Dallas", "Salt Lake City"]
+        const campuses = campusesList.map( campus => (
+            <MenuItem>{campus}</MenuItem>
+        ))
+
         const cohorts = this.props.all.map( (cohort, i) => (
             <li key={i}>
                 <b>{ cohort.name }</b>:&nbsp;&nbsp;<b>From:</b> {moment(cohort.start_date).format("DD-MM-YYYY")}&nbsp;
-                                        <b>To:</b> {moment(cohort.start_date).format("DD-MM-YYYY")}           
+                                        <b>To:</b> {moment(cohort.end_date).format("DD-MM-YYYY")}           
             </li>
         ))
    
@@ -78,8 +86,11 @@ class CreateNewCohort extends Component {
                         <div>
                         Enter Cohort Name <br />
                             <input type="text" placeholder="DM##" name="name" onChange={this.handleInputChange}/><br /><br />
-                            Start Date <input type="date" name="start_date" onChange={this.handleInputChange} /> <br /><br />
-                            End Date <input type="date" name="start_date" onChange={this.handleInputChange} /> <br /><br />
+                            Starts <input type="date" name="start_date" onChange={this.handleInputChange} /> <br /><br />
+                            Ends <input type="date" name="end_date" onChange={this.handleInputChange} /> <br /><br />
+                             <DropdownButton title="Campus">
+                                    {campuses}
+                                    </DropdownButton>
                             <Button onClick={() => { this.sendCohort(this.state) }}>  Create  </Button> <br /><br />
                         </div>
                     </div>
@@ -90,8 +101,10 @@ class CreateNewCohort extends Component {
 }
 
 function mapStateToProps(state) {
+    console.log("CreateNewCohort", state)
     return {
         all: state.cohort.all
+        //campuses: state.campuses
     }
 }
 

@@ -44,7 +44,7 @@ export const GET_COHORTS = "GET_COHORTS";
 export const CREATE_COHORT = "CREATE_COHORT";
 export const DELETE_COHORT = "DELETE_COHORT";
 export const EDIT_COHORT = "EDIT_COHORT";
-
+export const GET_CAMPUSES = "GET_CAMPUSES"
 
 export function getCohorts() {
   const url = "/api/cohort";
@@ -76,6 +76,14 @@ export function editCohort(cohortObj) {
   const request = axios.put(url, cohortObj);
   return {
     type: EDIT_COHORT,
+    payload: request
+  }
+}
+export function getCampuses() {
+  const url = "/api/campus";
+  const request = axios.get(url);
+  return {
+    type: GET_CAMPUSES,
     payload: request
   }
 }

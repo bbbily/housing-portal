@@ -1,8 +1,11 @@
 import {GET_ADMINS, CREATE_ADMIN, DELETE_ADMIN, EDIT_ADMIN} from "../actions/action_admin"
-import { GET_COHORTS, CREATE_COHORT, DELETE_COHORT, EDIT_COHORT } from '../actions/action_admin'
+import { GET_COHORTS, CREATE_COHORT, DELETE_COHORT, EDIT_COHORT, GET_CAMPUSES } from '../actions/action_admin'
 import {combineReducers} from 'redux'
 
-const INITIAL_STATE = { all: [], admin: {}, cohort: {} };
+const INITIAL_STATE = { all: [], 
+                        admin: {}, 
+                        cohort: {},
+                        campuses: {} };
 
 export function adminReducer(state=INITIAL_STATE, action) {
   switch (action.type) {
@@ -40,6 +43,10 @@ export function cohortReducer(state=INITIAL_STATE, action) {
       let newCohort = state.all.filter( cohort => {cohort.id !== action.payload.data.id})
       return { all: [...newCohort, action.payload.data] }
       break;
+    // case GET_CAMPUSES:
+    //   console.log(action.payload.data)
+    //   return  {campuses: action.payload.data }
+    //   break;
     default:
       return state;
   }

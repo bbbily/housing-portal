@@ -4,7 +4,7 @@ import "../styles/App.scss";
 import DatePickerComponent from "../containers/DatePicker";
 import Modal from "../containers/modal";
 import { Link } from "react-router";
-
+import Admin from "./views/Admin";
 
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
          </Modal>
           <DatePickerComponent/>
           <StudentForm />
-          <Link to="/admin"> <button>go to admin</button></Link>
+          {<Link to="/admin"> <button>go to admin</button></Link>}
         </div>
       </div>
     );
