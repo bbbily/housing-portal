@@ -1,0 +1,31 @@
+@import "./_variables.scss";
+
+.modal-header, .modal-footer {
+      background: $blue;
+      color: #000;
+      border-style: none;
+}
+
+.modal-body {
+  background: $medium-gray;
+}
+
+.student-modal {
+    max-width: 350px;
+}
+
+.studentcard-button {
+    min-width: 350px;
+    max-width: 350px;
+    height: 100px;
+    margin: 10px 25px 10px 25px;
+}
+
+.studentcard-image {
+    border-radius: 50%;
+    width: 100px; 
+}
+
+.largecard-image {
+    width: 300px;
+}
