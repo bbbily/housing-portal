@@ -78,7 +78,7 @@ CREATE TABLE student(
     first_name VARCHAR(30),
     last_name VARCHAR(30),
     phone VARCHAR(30),
-    email VARCHAR(60),
+    email VARCHAR(60) UNIQUE,
     slack VARCHAR(15),
     street_address TEXT,
     city TEXT,

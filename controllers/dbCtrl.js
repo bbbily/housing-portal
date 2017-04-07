@@ -58,7 +58,7 @@ module.exports = {
     },
     AddUser: function(req,res,next){
         db.add_user(req.body.campus_id, req.body.first_name, req.body.last_name, req.body.email, function (err, prod) {
-          db.get_users( function(err, prod) {
+          db.get_users( function(err, prod) {    // need to return the new users list to the view
             console.log(err, prod);
             res.status(200).send(prod);
           })
@@ -74,29 +74,6 @@ module.exports = {
       console.log(req.body)
         db.delete_user(req.body.id, function(err, prod) {
             res.status(200).send(req.body);
-        })
-    },
-    GetApartments: function(req,res,next){
-        db.get_apartments(function(err, prod) {
-            //console.log("get admins: ", err, prod);
-            res.status(200).send(prod);
-        })
-    },
-    AddApartment: function(req,res,next){
-        db.add_apartment(req.body.campus_id, req.body.first_name, req.body.last_name, req.body.email, function (err, prod) {
-            //console.log(err, prod);
-            res.status(200).send("errors: " + err + " %%%% prods: " + prod);
-        })
-    },
-    EditApartment: function(req,res,next){
-        db.edit_apartment(req.body.id, req.body.campus_id, req.body.first_name, req.body.last_name, req.body.email, function(err, prod) {
-            //console.log("changing locations");
-            res.status(200).send(prod);
-        })
-    },
-    DeleteApartment: function(req,res,next) {
-        db.delete_apartment(req.body.id, function(err, prod) {
-            res.status(200).send(prod);
         })
     },
     GetBuildings: function(req,res,next){
@@ -119,6 +96,54 @@ module.exports = {
     },
     DeleteBuilding: function(req,res,next) {
         db.delete_building(req.body.id, function(err, prod) {
+            res.status(200).send(prod);
+        })
+    },
+    GetApartments: function(req,res,next){
+        db.get_apartments(function(err, prod) {
+            //console.log("get admins: ", err, prod);
+            res.status(200).send(prod);
+        })
+    },
+    AddApartment: function(req,res,next){
+        db.add_apartment(req.body.building_id, req.body.apartment_number, req.body.preferred_gender, req.body.over_21, function (err, prod) {
+            console.log(err,":e:::p:", prod);
+            res.status(200).send(prod);
+        })
+    },
+    EditApartment: function(req,res,next){
+        db.edit_apartment(req.body.id, req.body.building_id, req.body.apartment_number, req.body.preferred_gender, req.body.over_21, function(err, prod) {
+            //console.log("changing locations");
+            res.status(200).send(prod);
+        })
+    },
+    DeleteApartment: function(req,res,next) {  
+        db.delete_room (req.body.id, function(err, prod) {
+            db.delete_apartment(req.body.id, function(err, prod) {
+                res.status(200).send(err);
+            })
+        })
+    },
+    GetRooms: function(req,res,next){
+        db.get_rooms(function(err, prod) {
+            console.log(prod);
+            res.status(200).send(prod);
+        })
+    },
+    AddRoom: function(req,res,next){
+        db.add_room(req.body.apartment_id, req.body.number_of_beds, function (err, prod) {
+            console.log(err, prod);
+            res.status(200).send(prod);
+        })
+    },
+    EditRoom: function(req,res,next){
+        db.edit_room(req.body.id, req.body.apartment_id, req.body.number_of_beds, function(err, prod) {
+            console.log("changing locations");
+            res.status(200).send(prod);
+        })
+    },
+    DeleteRoom: function(req,res,next) {
+        db.delete_room(req.body.id, function(err, prod) {
             res.status(200).send(prod);
         })
     },
