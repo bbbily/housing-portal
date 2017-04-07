@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Panel } from "react-bootstrap";
+import "../../../styles/studentcard.scss";
+import Modal from "./StudentModal";
 
 class StudentCards extends Component {
     constructor(...args) {
@@ -11,24 +13,39 @@ class StudentCards extends Component {
     }
 
     render() {
+        console.log(this.props);
+        const title = {
+            image: this.props.image,
+            name: this.props.name,
+            age: this.props.age,
+            gender: this.props.gender,
+            cohort: this.props.cohort
+        }
+        const heading = {
+            image: this.props.image,
+            name: this.props.name,
+            age: this.props.age,
+            gender: this.props.gender,
+            cohort: this.props.cohort
+        }
+        const body = {
+            room: this.props.room,
+            address: this.props.address,
+            eligibility: this.props.eligibility,
+            deposit_paid: this.props.deposit_paid
+        }
+        console.log(heading, body);
         return (
             <div>
-                <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
-                    <img src={require("../../../styles/student1.jpg")} />
-                    <h2>{this.props.name}</h2>
-                    <p>{this.props.age}{this.props.gender}{this.props.cohort}</p>
-                </div>
-                <Panel collapsible expanded={ this.state.open }>
-                    <div>
-                    <img src="../../../styles/student1.jpg" />
-                        <h1>name</h1>
-                        <p>room, age, gender, address, cohort, eligibility, deposit paid</p>
-                    </div>
-                </ Panel>
+                <Modal
+                    title={title}
+                    heading={heading}
+                    body={body}
+                    >
+                </Modal>
             </div>
         )
     }
 }
 
 export default StudentCards
-
