@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 
-import { editAdmin } from "../../actions/action_admin";
+import { editAdmin, deleteAdmin } from "../../actions/action_admin";
 import "../../styles/admin.scss"
 import edit from "../../styles/icons/edit.svg"
 
@@ -22,6 +22,7 @@ class AdminForm extends Component {
     const { handleSubmit } = this.props;
     return (
       <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
+
         <ul className="admin-user-list">
         <li><Field name="first_name" component="input" type="text" className="admin-input-text"/></li>
            <li><Field name="last_name" component="input" type="text"  className="admin-input-text"/></li>
@@ -33,8 +34,8 @@ class AdminForm extends Component {
           </Field></li>
 
           <img src={require("../../styles/icons/edit.svg")} className="admin-icon"/>
-          <img src={require("../../styles/icons/save.svg")} className="admin-icon"/>
-          <img src={require("../../styles/icons/garbage.svg")} onClick={ this.handleDelete.bind(this) } className="admin-icon" />
+          <input type="image" src={require("../../styles/icons/save.svg")} name="submit" className="admin-icon" />
+          <img src={require("../../styles/icons/garbage.svg")} onClick={ this.handleDelete.bind(this, {id: this.props.id}) } className="admin-icon" />
         </ul>
       </form>
     )
