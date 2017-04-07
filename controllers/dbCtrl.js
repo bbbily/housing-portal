@@ -99,8 +99,6 @@ module.exports = {
             res.status(200).send(prod);
         })
     },
-
-    /*
     GetBuildings: function(req,res,next){
         db.get_buildings(function(err, prod) {
             console.log(prod);
@@ -123,5 +121,28 @@ module.exports = {
         db.delete_building(req.body.id, function(err, prod) {
             res.status(200).send(prod);
         })
-    }*/
+    },
+    GetStudents: function(req,res,next){
+        db.get_students(function(err, prod) {
+            console.log(prod);
+            res.status(200).send(prod);
+        })
+    },
+    AddStudent: function(req,res,next){
+        db.add_student(function (err, prod) {
+            console.log(err, prod); 
+            res.status(200).send("errors: " + err + " %%%% prods: " + prod);
+        })
+    },
+    EditStudent: function(req,res,next){
+        db.edit_student(req.body.id, req.body.location_name, function(err, prod) {
+            console.log("changing locations");
+            res.status(200).send(prod);
+        })
+    },
+    DeleteStudent: function(req,res,next) {
+        db.delete_student(req.body.id, function(err, prod) {
+            res.status(200).send(prod);
+        })
+    }
 }
