@@ -104,13 +104,13 @@ class CreateNewCohort extends Component {
                             </ul>
                             <ul className="cohort-dates">
                             <li className="cohort-begin-date">
-                                Begins 
+                                Begins <br />
                                 <input type="date"
                                             name="start_date" 
                                             onChange={this.handleInputChange} />
                             </li>
                             <li className="cohort-end-date">
-                                Ends 
+                                Ends <br />
                                 <input type="date"
                                     name="end_date" 
                                     onChange={this.handleInputChange} />
