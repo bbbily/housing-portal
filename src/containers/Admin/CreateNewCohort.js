@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Panel, Button, DropdownButton, MenuItem } from "react-bootstrap";
-import DatePickerComponent from "../DatePicker";
 import { getCohorts, createCohort, deleteCohort, editCohort, getCampuses} from "../../actions/action_admin"
 import { connect} from "react-redux"
 import "../../styles/newcohort.scss";
@@ -25,7 +24,6 @@ class CreateNewCohort extends Component {
 
     sendCohort(cohortObj) {
         this.props.dispatch(createCohort(cohortObj))
-        console.log(cohortObj)
     }
 
     handleInputChange(event) {

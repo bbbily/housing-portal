@@ -9,7 +9,7 @@ const INITIAL_STATE = { all: [],
                         admin: {}, 
                         cohort: {},
                         campuses: [],
-                        student: [] };
+                        };
 
 
 
@@ -79,10 +79,13 @@ export function cohortReducer(state=INITIAL_STATE, action) {
 import { GET_STUDENT } from '../actions/action_admin'
 
 
-export function studentReducer(state=INITIAL_STATE), action) {
+export function studentReducer(state=INITIAL_STATE, action) {
   switch (action.type) {
-    case: GET_STUDENT:
+    case GET_STUDENT:
       console.log(action.payload.data)
       return Object.assign({}, state, {student: action.payload.data})
+      break;
+    default:
+      return state;
   }
 }
