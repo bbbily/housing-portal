@@ -1,11 +1,23 @@
-import {GET_ADMINS, CREATE_ADMIN, DELETE_ADMIN, EDIT_ADMIN} from "../actions/action_admin"
-import { GET_COHORTS, CREATE_COHORT, DELETE_COHORT, EDIT_COHORT, GET_CAMPUSES } from '../actions/action_admin'
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////// Reducer for Admin Page
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 import {combineReducers} from 'redux'
 
 const INITIAL_STATE = { all: [], 
                         admin: {}, 
                         cohort: {},
-                        campuses: [] };
+                        campuses: [],
+                        student: [] };
+
+
+
+/////////////////////////////////////////////////
+// Reducer for New Admin Panel
+/////////////////////////////////////////////////
+import {GET_ADMINS, CREATE_ADMIN, DELETE_ADMIN, EDIT_ADMIN} from "../actions/action_admin"
+
 
 export function adminReducer(state=INITIAL_STATE, action) {
   switch (action.type) {
@@ -30,6 +42,13 @@ export function adminReducer(state=INITIAL_STATE, action) {
   }
 }
 
+
+/////////////////////////////////////////////////
+// Reducer for New Cohort Panel
+/////////////////////////////////////////////////
+import { GET_COHORTS, CREATE_COHORT, DELETE_COHORT, EDIT_COHORT, GET_CAMPUSES } from '../actions/action_admin'
+
+
 export function cohortReducer(state=INITIAL_STATE, action) {
   switch(action.type) {
     case GET_COHORTS:
@@ -51,5 +70,19 @@ export function cohortReducer(state=INITIAL_STATE, action) {
       break;
     default:
       return state;
+  }
+}
+
+/////////////////////////////////////////////////
+// Reducer for New Student Panel
+/////////////////////////////////////////////////
+import { GET_STUDENT } from '../actions/action_admin'
+
+
+export function studentReducer(state=INITIAL_STATE), action) {
+  switch (action.type) {
+    case: GET_STUDENT:
+      console.log(action.payload.data)
+      return Object.assign({}, state, {student: action.payload.data})
   }
 }
