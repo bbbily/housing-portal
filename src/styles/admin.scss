@@ -2,12 +2,12 @@
 @import "./_variables.scss";
 
 body {
-    background: #3C3C3C;
-    color: #FFFFFF;
+    background: $medium-gray;
+    color: $white;
     text-transform: uppercase;
 }
 h3 {
-    background: #2B2B2B;
+    background: $dark-gray;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,15 +15,15 @@ h3 {
     border-radius: 5px;
 }
 input, option, button {
-    background-color: #D8D8D8;
+    background-color: $light-gray;
 }
 
 .admin-container {
     height: 100vh;
     width: 100%;
     font-family: "Nunito", sans-serif;
-    color: #fff;
-    background: #3C3C3C;
+    color: $white;
+    background: $medium-gray;
     display: flex;
     align-items: center;
     flex-direction: column;

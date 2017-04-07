@@ -6,19 +6,12 @@ class NavBar extends Component {
     render() {
         return (
             <div className="navbar-container">
-                <img src="../styles/DevMtnLogo.png" />
-                <div className="nav-links">
-                    <Link to="/admin">
-                        Admin Page
-                    </Link>
-                    <Link to="/apartmentList">
-                        Apartment List
-                    </Link>
-                    <Link to="/studentList">
-                        Student List
-                    </Link>
-                    Logout
-                </div>
+                <img src={require("../styles/DevMtnLogo.png")} className="navbar-logo"/>
+                <ul className="nav-links">
+                   <li> <Link to="/admin"> Admin </Link> </li>
+                   <li> <Link to="/apartmentList"> Apartments </Link></li>
+                   <li> <Link to="/studentList"> Students </Link></li>
+                </ul>
             </div>
         )
     }

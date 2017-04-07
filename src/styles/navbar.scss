@@ -2,7 +2,7 @@
 @import "./_variables.scss";
 
 a {
-    color: #458BCD;
+    color: $blue;
 }
 a:hover {
     text-decoration: none;
@@ -17,10 +17,34 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    box-shadow: 0px 2px 30px 0px $dark-gray;
+    border-style:solid;
+    border-color: $dark-gray;
+    border-width: 0 0 2px 0;
 }
 
 .nav-links {
     display: flex;
     justify-content: space-around;
+    list-style:none;
+    height: 100px;
+    margin-top: 8px;
+}
+
+.nav-links li {
+    padding: 42px 22px 0 22px;
+    transition: all .2s;
+    border-color: $dark-gray;
+}
+
+.nav-links li:hover {
+    background-color: $medium-gray;
+    transition: all .2s;
+    border-style: solid;
+    border-width: 0 0 12px 0;
+    border-color: $dark-gray;
+}
+
+.navbar-logo {
+    width: 55px;
+    height: 55px;
 }
