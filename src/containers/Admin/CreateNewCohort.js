@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Panel, Button, DropdownButton, MenuItem } from "react-bootstrap";
-import DatePickerComponent from "../DatePicker";
 import { getCohorts, createCohort, deleteCohort, editCohort, getCampuses} from "../../actions/action_admin"
 import { connect} from "react-redux"
 import "../../styles/newcohort.scss";
@@ -25,7 +24,6 @@ class CreateNewCohort extends Component {
 
     sendCohort(cohortObj) {
         this.props.dispatch(createCohort(cohortObj))
-        console.log(cohortObj)
     }
 
     handleInputChange(event) {
@@ -68,8 +66,8 @@ class CreateNewCohort extends Component {
                     <li className="dm-info-ends-title"><b>Ends</b></li>
                 </ul>
                 <ul className="dm-info">
-                    <li>{moment(cohort.start_date).format("DD-MM-YYYY")}</li>
-                    <li>{moment(cohort.end_date).format("DD-MM-YYYY")}</li>
+                    <li>{moment(cohort.start_date).format("ddd, MMMM D,  YYYY")}</li>
+                    <li>{moment(cohort.end_date).format("ddd, MMMM D,  YYYY")}</li>
                 </ul>
             </div>
         ))
@@ -96,9 +94,9 @@ class CreateNewCohort extends Component {
                             </li>
                             <li className="cohort-name-right">
                                 <DropdownButton title="Campus">
-                                <option value="1">Provo</option>
-                                <option value="2">Salt Lake City</option>
-                                <option value="3">Dallas</option>
+                                <MenuItem value="1">Provo</MenuItem>
+                                <MenuItem value="2">Salt Lake City</MenuItem>
+                                <MenuItem value="3">Dallas</MenuItem>
                                 </DropdownButton>
                             </li>
                             </ul>
