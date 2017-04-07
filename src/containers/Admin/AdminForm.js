@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
-import { editAdmin, deleteAdmin } from "../../actions/action_admin";
+
+import { editAdmin } from "../../actions/action_admin";
+import "../../styles/admin.scss"
+import edit from "../../styles/icons/edit.svg"
+
 
 class AdminForm extends Component {
 
@@ -18,29 +22,20 @@ class AdminForm extends Component {
     const { handleSubmit } = this.props;
     return (
       <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
-        <div>
-          <label htmlFor="firstName">First Name</label>
-          <Field name="first_name" component="input" type="text" />
-        </div>
-        <div>
-          <label htmlFor="lastName">Last Name</label>
-          <Field name="last_name" component="input" type="text"  />
-        </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <Field name="email" component="input" type="text" />
-        </div>
-        <div>
-          <label htmlFor="campus">Campus</label>
-          <Field name="campus_id" component="select">
+        <ul className="admin-user-list">
+        <li><Field name="first_name" component="input" type="text" className="admin-input-text"/></li>
+           <li><Field name="last_name" component="input" type="text"  className="admin-input-text"/></li>
+           <li><Field name="email" component="input" type="text" value="addddd" className="admin-input-text"/></li>
+           <li><Field name="campus_id" component="select" className="admin-input-text">
             <option value="1">Provo</option>
             <option value="2">Salt Lake city</option>
             <option value="3">Dallas</option>
-          </Field>
-        </div>
-        <button type="button">Pancil</button>
-        <button type="submit">Save</button>
-        <button type="button" onClick={ this.handleDelete.bind(this, {id: this.props.id}) }>X</button>
+          </Field></li>
+
+          <img src={require("../../styles/icons/edit.svg")} className="admin-icon"/>
+          <img src={require("../../styles/icons/save.svg")} className="admin-icon"/>
+          <img src={require("../../styles/icons/garbage.svg")} onClick={ this.handleDelete.bind(this) } className="admin-icon" />
+        </ul>
       </form>
     )
   }

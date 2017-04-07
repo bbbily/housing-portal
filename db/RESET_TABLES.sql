@@ -1,6 +1,9 @@
 ----------- clean from bottom up to clear out the foreign key dependencies, then rebuild from top
 -----------  inherit from campus, apartment from building, room from apartment
 
+DELETE FROM student;
+ALTER SEQUENCE student_id_seq RESTART WITH 1;
+
 DELETE FROM room;
 ALTER SEQUENCE room_id_seq RESTART WITH 1;
 
@@ -18,7 +21,6 @@ ALTER SEQUENCE users_id_seq RESTART WITH 1;
 
 DELETE FROM campus;
 ALTER SEQUENCE campus_id_seq RESTART WITH 1;
-
 
 INSERT INTO campus
 (location_name, street_address, city, state, country, post_code)
@@ -89,3 +91,14 @@ VALUES
 (8, 1),
 (8, 2),
 (8, 1);
+
+INSERT INTO student
+(room_id, cohort_id, first_name, last_name, phone, email, slack, street_address, city, state, country, post_code,
+    dob, gender, car_info, arrive_date, leave_date, housing_eligibility, deposit_paid, accomodations, notes)
+VALUES
+(NULL, 2, 'Billy Joe', 'Bobb', '8015559876', 'student@devmoun.in', 'n00b_student', '123 Four Rd.', 'n00bton', 'NB', 'usa', '55555',
+    '1976-02-29', 'M', NULL, '1999-06-27', '1999-09-25', true, false, 'needs cheap beer', ''),
+(NULL, 1, 'Jenny Jenny', 'BoBenny', '8015551234', 'banananana@fofenny.org', 'imajenny', '123 Four Cir.', 'n00bton', 'NB', 'usa', '55555',
+    '1976-02-28', 'F', NULL, '1999-06-01', '1999-08-31', true, true, 'needs more sleep', ''),
+(NULL, 2, 'Cthulhu', '!', '8016661313', 'emptiness@lord.divine', 'therealcthulhu', '10000 Feet Deep', 'Bermuda', 'Atl', 'Oceania', '0',
+    '0001-01-01', 'O', NULL, '1999-06-27', '1999-09-25', true, true, 'needs souls', '');

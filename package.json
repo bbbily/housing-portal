@@ -10,6 +10,7 @@
     "cors": "^2.8.3",
     "express": "^4.15.2",
     "express-session": "^1.15.2",
+    "file-loader": "^0.11.1",
     "massive": "^2.6.0",
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13",
@@ -27,7 +28,7 @@
     "redux": "^3.6.0",
     "redux-form": "^6.6.1",
     "redux-promise": "^0.5.3",
-    "redux-simple-form": "^0.1.8"
+    "url-loader": "^0.5.8"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
