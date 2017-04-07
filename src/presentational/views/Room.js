@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Field } from "react-redux-form"
+import { Field } from "redux-form"
 
 export default class Room extends Component {
 
@@ -9,15 +9,11 @@ export default class Room extends Component {
         <h4>Room:</h4>
         <div>
           <label htmlFor={this.props.beds}>beds: </label>
-          <Field type="radio" name={this.props.beds} /> 1
-          <Field type="radio" name={this.props.beds} /> 2
-          <Field type="radio" name={this.props.beds} /> 3
+          <Field component="input" type="radio" name={this.props.beds} value="1" /> 1
+          <Field component="input" type="radio" name={this.props.beds} value="2" /> 2
+          <Field component="input" type="radio" name={this.props.beds} value="3" /> 3
         </div>
-        <div>
-          <label htmlFor={this.props.gender}>gender: </label>
-          <Field type="radio" name={this.props.gender} /> male
-          <Field type="radio" name={this.props.gender} /> female
-        </div>
+        
       </div>
     )
   }
