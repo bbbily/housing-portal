@@ -1,8 +1,9 @@
 import { GET_APARTMENTS, CREATE_APARTMENT }  from "../actions/action_apartments";
+import { GET_ADDRESS, CREATE_ADDRESS }  from "../actions/action_apartments";
 
 const INITIAL_STATE = { all: [], apartment_id: "" };
 
-export default function(state=INITIAL_STATE, action) {
+export function apartmentsReducer(state=INITIAL_STATE, action) {
 
   switch (action.type) {
     case GET_APARTMENTS:
@@ -10,6 +11,22 @@ export default function(state=INITIAL_STATE, action) {
       return { all: action.payload.data};
       break;
     case CREATE_APARTMENT:
+      console.log("data", action.payload.data);
+      return { apartment_id: action.payload.data};
+      break;
+    default:
+      return state;
+  }
+}
+
+export function addressReducer(state=INITIAL_STATE, action) {
+
+  switch (action.type) {
+    case GET_ADDRESS:
+      console.log("data", action.payload.data);
+      return { all: action.payload.data};
+      break;
+    case CREATE_ADDRESS:
       console.log("data", action.payload.data);
       return { apartment_id: action.payload.data};
       break;

@@ -2,9 +2,11 @@ import axios from "axios";
 
 export const GET_APARTMENTS = "GET_APARTMENTS";
 export const CREATE_APARTMENT = "CREATE_APARTMENT";
+export const CREATE_ADDRESS = "CREATE_ADDRESS";
+export const GET_ADDRESS = "GET_ADDRESS";
 
 
-export function fetchApartments() {
+export function getApartments() {
   const url = "api/apartments";
   const request = axios.get(url);
   console.log("request", request);
