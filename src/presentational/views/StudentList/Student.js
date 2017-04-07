@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import StudentListFilter from "../../../containers/StudentListFilter";
 import StudentCards from "./StudentCards";
-import "../../../styles/student.scss";
 
 class Student extends Component {
     render() {
@@ -114,8 +113,8 @@ class Student extends Component {
                 <div>
                     <StudentListFilter />
                 </div>
-                <div>
-                    <ul className="student-cards">
+                <div className="student-cards">
+                    <ul>
                         {StudentList}
                     </ul>
                 </div>

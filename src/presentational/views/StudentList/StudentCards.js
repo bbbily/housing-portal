@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Panel } from "react-bootstrap";
-import "../../../styles/studentcard.scss";
 import Modal from "./StudentModal";
 
 class StudentCards extends Component {
@@ -13,7 +12,6 @@ class StudentCards extends Component {
     }
 
     render() {
-        console.log(this.props);
         const title = {
             image: this.props.image,
             name: this.props.name,
@@ -34,14 +32,12 @@ class StudentCards extends Component {
             eligibility: this.props.eligibility,
             deposit_paid: this.props.deposit_paid
         }
-        console.log(heading, body);
         return (
             <div>
                 <Modal
                     title={title}
                     heading={heading}
-                    body={body}
-                    >
+                    body={body}>
                 </Modal>
             </div>
         )

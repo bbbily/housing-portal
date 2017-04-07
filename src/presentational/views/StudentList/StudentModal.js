@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import '../../../styles/containers/modal.css'
+import React, { Component } from "react";
 import { Modal, Button, Popover, Tooltip, OverlayTrigger } from "react-bootstrap"
-
+import "../../../styles/studentcard.scss";
 
 export default class MyModal extends Component {
 
@@ -23,29 +22,30 @@ constructor(props) {
 
   render() {
     return (
-      <div>
+      <div className="studentcard-container">
         <Button
           bsStyle="primary"
           bsSize="large"
-          onClick={this.open}>
-          {this.props.title.image}
-          {this.props.title.name} 
-          {this.props.title.age}
-          {this.props.title.gender}
-          {this.props.title.cohort}
+          onClick={this.open}
+          className="studentcard-button">
+          <img src={this.props.title.image} className="studentcard-image" id="student-photo" />
+          <h1>{this.props.title.name}</h1>
+          {this.props.title.age} &nbsp;&nbsp;
+          {this.props.title.gender} &nbsp;&nbsp;
+          {this.props.title.cohort} &nbsp;&nbsp;
         </Button>
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
             <Modal.Title>
-                {this.props.heading.image}
+                <img src={this.props.heading.image} className="largecard-image" />
                 <h1>
                     {this.props.heading.name}
                 </h1>
-                <p>{this.props.heading.age} {this.props.heading.gender} {this.props.heading.cohort}</p>
+                <p>{this.props.heading.age} &nbsp;&nbsp; {this.props.heading.gender} &nbsp;&nbsp; {this.props.heading.cohort}</p>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            {this.props.body.room} {this.props.body.address} {this.props.body.eligibility} {this.props.body.deposit_paid}
+            Room: {this.props.body.room} &nbsp;&nbsp; Address: {this.props.body.address} &nbsp;&nbsp; Eligibile: {this.props.body.eligibility} &nbsp;&nbsp; Deposit Paid: {this.props.body.deposit_paid}
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close}>Save</Button>
