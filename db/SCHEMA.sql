@@ -69,3 +69,29 @@ CREATE TABLE room(
 );
 
 
+---------------------------- STUDENT table
+
+CREATE TABLE student(
+    id SERIAL PRIMARY KEY,
+    room_id INT REFERENCES room(id), 
+    cohort_id INT REFERENCES cohort(id),
+    first_name VARCHAR(30),
+    last_name VARCHAR(30),
+    phone VARCHAR(30),
+    email VARCHAR(60),
+    slack VARCHAR(15),
+    street_address TEXT,
+    city TEXT,
+    state VARCHAR(16),
+    country VARCHAR(32),
+    post_code VARCHAR(16),
+    dob DATE,
+    gender CHAR(1),
+    car_info TEXT,
+    arrive_date DATE,
+    leave_date DATE,
+    housing_eligibility BOOLEAN,
+    deposit_paid BOOLEAN,
+    accomodations TEXT,
+    notes TEXT
+);
