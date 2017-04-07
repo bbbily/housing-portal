@@ -60,10 +60,18 @@ class CreateNewCohort extends Component {
         ))
 
         const cohorts = this.props.all.map( (cohort, i) => (
-            <li key={i}>
-                <b>{ cohort.name }</b>:&nbsp;&nbsp;<b>From:</b> {moment(cohort.start_date).format("DD-MM-YYYY")}&nbsp;
-                                        <b>To:</b> {moment(cohort.end_date).format("DD-MM-YYYY")}           
-            </li>
+            <div>
+                <div className="dm-info-name">{ cohort.name }</div>
+                <ul>
+                    <li className="dm-info-starts-title"><b>Begins</b></li>
+                    <li className="dm-info-ends-title"><b>Ends</b></li>
+                </ul>
+                <ul className="dm-info">
+                    <li>{moment(cohort.start_date).format("DD-MM-YYYY")}</li>
+                    <li>{moment(cohort.end_date).format("DD-MM-YYYY")}</li>
+                </ul>
+            </div>
+            
         ))
    
         return (
@@ -73,21 +81,46 @@ class CreateNewCohort extends Component {
                 </div>
                 <Panel collapsible expanded={ this.state.open }>
                     <div className="cohort-panel">
-                        <div>
-                            <ul>
+                        <div className="dm-info-container col-sm-6">
                                 {cohorts}
+                        </div>
+                        
+                        <div className="cohort-container col-sm-6">
+                            <ul className="cohort-name">
+                            <li className="cohort-name-left">
+                                <input type="text" 
+                                    className="" 
+                                    placeholder="DM##" 
+                                    name="name" 
+                                    onChange={this.handleInputChange}/> 
+                            </li>
+                            <li className="cohort-name-right">
+                                <DropdownButton title="Campus">
+                                <option value="1">Provo</option>
+                                <option value="2">Salt Lake City</option>
+                                <option value="3">Dallas</option>
+                                </DropdownButton>
+                            </li>
                             </ul>
+                            <ul className="cohort-dates">
+                            <li className="cohort-begin-date">
+                                Begins 
+                                <input type="date"
+                                            name="start_date" 
+                                            onChange={this.handleInputChange} />
+                            </li>
+                            <li className="cohort-end-date">
+                                Ends 
+                                <input type="date"
+                                    name="end_date" 
+                                    onChange={this.handleInputChange} />
+                                </li>
+                            </ul>
+                            <div className="create-cohort">
+                            <Button onClick={() => { this.sendCohort(this.state) }}>  Create Cohort  </Button>
+                            </div>
                         </div>
-                        <div>
-                        Enter Cohort Name <br />
-                            <input type="text" placeholder="DM##" name="name" onChange={this.handleInputChange}/><br /><br />
-                            Starts <input type="date" name="start_date" onChange={this.handleInputChange} /> <br /><br />
-                            Ends <input type="date" name="end_date" onChange={this.handleInputChange} /> <br /><br />
-                             <DropdownButton title="Campus">
-                                    {campuses}
-                                    </DropdownButton>
-                            <Button onClick={() => { this.sendCohort(this.state) }}>  Create  </Button> <br /><br />
-                        </div>
+                        
                     </div>
                 </Panel>
             </div>
