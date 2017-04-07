@@ -1,0 +1,21 @@
+@import "./_variables.scss";
+
+.student {
+  
+}
+
+.student ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.student-input-text {
+     background-color: $light-gray;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $outline;
+    padding: 6px;
+    margin: 3px;
+}
