@@ -149,18 +149,28 @@ module.exports = {
     },
     GetStudents: function(req,res,next){
         db.get_students(function(err, prod) {
-            console.log(prod);
+            // console.log(prod);
             res.status(200).send(prod);
         })
     },
     AddStudent: function(req,res,next){
-        db.add_student(function (err, prod) {
+        db.add_student(req.body.cohort_id, req.body.room_id, req.body.first_name, req.body.last_name,
+                        req.body.street_address, req.body.city, req.body.state, req.body.country,
+                        req.body.post_code, req.body.phone, req.body.email, req.body.slack, req.body.dob,
+                        req.body.gender, req.body.car_info, req.body.arrive_date, req.body.leave_date,
+                        req.body.housing_eligibility, req.body.deposit_paid, req.body.accomodations,
+                        req.body.notes, function (err, prod) {
             console.log(err, prod); 
             res.status(200).send("errors: " + err + " %%%% prods: " + prod);
         })
     },
     EditStudent: function(req,res,next){
-        db.edit_student(req.body.id, req.body.location_name, function(err, prod) {
+        db.edit_student(req.body.id, req.body.cohort_id, req.body.room_id, req.body.first_name, req.body.last_name,
+                        req.body.street_address, req.body.city, req.body.state, req.body.country,
+                        req.body.post_code, req.body.phone, req.body.email, req.body.slack, req.body.dob,
+                        req.body.gender, req.body.car_info, req.body.arrive_date, req.body.leave_date,
+                        req.body.housing_eligibility, req.body.deposit_paid, req.body.accomodations,
+                        req.body.notes,  function(err, prod) {
             console.log("changing locations");
             res.status(200).send(prod);
         })
