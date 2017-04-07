@@ -20,7 +20,10 @@ class App extends Component {
          </Modal>
           <DatePickerComponent/>
           <StudentForm />
-          {<Link to="/admin"> <button>go to admin</button></Link>}
+
+          <Link to="/admin"> <button>go to admin</button></Link>
+          <Link to="/students"> <button>Student List</button></Link>
+
         </div>
       </div>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
+
 import { editAdmin } from "../../actions/action_admin";
 import "../../styles/admin.scss"
 import edit from "../../styles/icons/edit.svg"
@@ -19,8 +20,8 @@ class AdminForm extends Component {
     this.props.dispatch(editAdmin(props))
   }
 
-  handleDelete() {
-    
+  handleDelete(user) {
+    this.props.dispatch(deleteAdmin(user))
   }
 
   render() {
@@ -46,9 +47,6 @@ class AdminForm extends Component {
   }
 }
 
-// function mapStateToProps(state) {
-//   initialValues: { firstName: "bbaa"}
-// }
 
 export default reduxForm({
   // initialValues: data

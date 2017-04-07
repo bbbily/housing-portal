@@ -16,7 +16,7 @@ class CreateNewCohort extends Component {
             name: null,
             start_date: null,
             end_date: null,
-            
+
         };
 
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -46,6 +46,7 @@ class CreateNewCohort extends Component {
     }
 
 
+
     date(field, e) {
         this.setState( {
             [field]: e
@@ -71,9 +72,8 @@ class CreateNewCohort extends Component {
                     <li>{moment(cohort.end_date).format("DD-MM-YYYY")}</li>
                 </ul>
             </div>
-            
         ))
-   
+ 
         return (
             <div className="new-cohort-container">
                 <div onClick={ ()=> this.setState({ open: !this.state.open }) }>

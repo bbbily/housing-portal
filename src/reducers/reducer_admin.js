@@ -13,22 +13,24 @@ export function adminReducer(state=INITIAL_STATE, action) {
       return { all: action.payload.data }
       break;
     case CREATE_ADMIN:
-      return { all: [...state.all, action.payload.data] }
+    console.log("create user", action.payload.data)
+      return { all: action.payload.data }
       break;
     case DELETE_ADMIN:
-      return { all: state.all.filter( admin => { admin.id !== action.payload.data.id}) }
+    console.log("actions", action.payload, state.all)
+      return { all: state.all.filter( admin =>  admin.id !== action.payload.data.id ) }
       break;
     case EDIT_ADMIN:
-    let newAdmin = state.all.filter( admin => { admin.id !== action.payload.data.id})
+    let newAdmin = state.all.filter( admin => admin.id !== action.payload.data.id )
       return { all: [...newAdmin, action.payload.data] }
       break;
     default:
       return state;
+      break;
   }
 }
 
 export function cohortReducer(state=INITIAL_STATE, action) {
-
   switch(action.type) {
     case GET_COHORTS:
       return { all: action.payload.data }
