@@ -5,7 +5,7 @@ import {combineReducers} from 'redux'
 const INITIAL_STATE = { all: [], 
                         admin: {}, 
                         cohort: {},
-                        campuses: {} };
+                        campuses: [] };
 
 export function adminReducer(state=INITIAL_STATE, action) {
   switch (action.type) {
@@ -43,10 +43,10 @@ export function cohortReducer(state=INITIAL_STATE, action) {
       let newCohort = state.all.filter( cohort => {cohort.id !== action.payload.data.id})
       return { all: [...newCohort, action.payload.data] }
       break;
-    // case GET_CAMPUSES:
-    //   console.log(action.payload.data)
-    //   return  {campuses: action.payload.data }
-    //   break;
+    case GET_CAMPUSES:
+      console.log(action.payload.data)
+      return Object.assign({}, state, {campuses: action.payload.data})
+      break;
     default:
       return state;
   }

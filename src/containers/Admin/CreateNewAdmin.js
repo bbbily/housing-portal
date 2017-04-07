@@ -34,6 +34,13 @@ class CreateNewAdmin extends Component {
                 </div>
                 <Panel collapsible expanded={ this.state.open }>
                     <div className="users-panel">
+                    <ul className="admin-user-title">
+                        <li>First</li>
+                        <li className="admin-li-last">Last</li>
+                        <li className="admin-li-email">Email</li>
+                        <li className="admin-li-campus">Campus</li>
+                        <li>Actions</li>
+                    </ul>
                         <ul>
                           { admins }
                         </ul>

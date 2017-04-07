@@ -50,18 +50,13 @@ class CreateNewCohort extends Component {
         this.setState( {
             [field]: e
         })
-        console.log(e)
     }
 
 
     render() {
-        // console.log(this.props)
-        // const campuses = this.props.all.map((campus,i) => (
-        //     <MenuItem id={campus.id} key={i}> {campus_city} </MenuItem>
-        // ))
-        const campusesList = ["Provo", "Dallas", "Salt Lake City"]
-        const campuses = campusesList.map( campus => (
-            <MenuItem>{campus}</MenuItem>
+        console.log(this.props)
+        const campuses = this.props.campuses.map((campus,i) => (
+            <MenuItem id={campus.id} key={i}> {campus.city} </MenuItem>
         ))
 
         const cohorts = this.props.all.map( (cohort, i) => (
@@ -101,10 +96,9 @@ class CreateNewCohort extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log("CreateNewCohort", state)
     return {
-        all: state.cohort.all
-        //campuses: state.campuses
+        all: state.cohort.all,
+        campuses: state.cohort.campuses
     }
 }
 

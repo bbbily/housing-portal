@@ -1,9 +1,16 @@
+@import "./_variables.scss";
+
 h3:hover {
     background: #458BCD;
 }
 
 ul {
     list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    text-align: center;
 }
 
 .new-admin-container {
@@ -14,4 +21,54 @@ ul {
 .users-panel {
     color: #000;
     border-radius: 0px;
+}
+
+.admin-input-text {
+    background-color: $light-gray;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $outline;
+    padding: 6px;
+    margin: 3px;
+}
+
+.admin-user-list {
+  display:flex;
+  justify-content: space-around;
+  list-style:none;
+}
+
+.admin-user-title {
+  display:flex;
+  justify-content: space-around;
+  list-style:none;
+  font-weight: bold;
+  text-align:center;
+}
+
+.admin-icon {
+    height: 15px;
+    width: 15px;
+    opacity: .5;
+    transition: all .3s;
+    margin-top: 12px;
+}
+
+.admin-icon:hover {
+    opacity: 1;
+    transition: all .3s;
+    margin-top: 12px;
+}
+
+.admin-li-last {
+    padding-left: 91px;
+}
+
+.admin-li-email {
+    padding-left: 56px;
+}
+
+.admin-li-campus {
+    padding-left: 24px;
 }

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito");
+@import "./_variables.scss";
 
 body {
     background: #3C3C3C;
@@ -15,7 +16,6 @@ h3 {
 }
 input, option, button {
     background-color: #D8D8D8;
-    text-transform: uppercase;
 }
 
 .admin-container {
@@ -39,4 +39,14 @@ input, option, button {
 
 .panel {
     border: none;
+}
+
+input[text] {
+    background-color: $light-gray;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $outline;
+    padding: 6px;
+    margin: 3px;
 }
