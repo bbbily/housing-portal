@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Modal, Button, Popover, Tooltip, OverlayTrigger } from "react-bootstrap"
 import "../../../styles/studentcard.scss";
 
-export default class MyModal extends Component {
+export default class StudentModal extends Component {
 
 constructor(props) {
   super(props)
@@ -22,7 +22,7 @@ constructor(props) {
 
   render() {
     return (
-      <div className="studentcard-container">
+      <span>
         <Button
           bsStyle="primary"
           bsSize="large"
@@ -51,7 +51,7 @@ constructor(props) {
             <Button onClick={this.close}>Save</Button>
           </Modal.Footer>
         </Modal>
-      </div>
+      </span>
     );
   }
 }

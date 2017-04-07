@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import StudentListFilter from "../../../containers/StudentListFilter";
 import StudentCards from "./StudentCards";
+import "../../../styles/student.scss";
 
 class Student extends Component {
     render() {

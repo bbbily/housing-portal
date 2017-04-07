@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Panel } from "react-bootstrap";
-import Modal from "./StudentModal";
+import StudentModal from "./StudentModal";
+import "../../../styles/studentcard.scss";
 
 class StudentCards extends Component {
     constructor(...args) {
@@ -34,11 +35,12 @@ class StudentCards extends Component {
         }
         return (
             <div>
-                <Modal
+                <StudentModal
                     title={title}
                     heading={heading}
-                    body={body}>
-                </Modal>
+                    body={body}
+                    className="student-modal">
+                </ StudentModal>
             </div>
         )
     }
