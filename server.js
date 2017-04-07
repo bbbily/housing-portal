@@ -36,11 +36,30 @@ app.put('/api/cohort', controller.EditCohort);
 app.post('/api/cohort', controller.AddCohort);
 app.delete('/api/cohort', controller.DeleteCohort);
 
+// accessing cohort CRUD functions
+app.get('/api/building', controller.GetBuildings);
+app.put('/api/building', controller.EditBuilding);
+app.post('/api/building', controller.AddBuilding);
+app.delete('/api/building', controller.DeleteBuilding);
+
 // accessing apartment CRUD functions
-app.get('/api/cohort', controller.GetApartments);
-app.put('/api/cohort', controller.EditApartment);
-app.post('/api/cohort', controller.AddApartment);
-app.delete('/api/cohort', controller.DeleteApartment);
+app.get('/api/apartment', controller.GetApartments);
+app.put('/api/apartment', controller.EditApartment);
+app.post('/api/apartment', controller.AddApartment);
+app.delete('/api/apartment', controller.DeleteApartment);
+
+// accessing room CRUD functions
+app.get('/api/room', controller.GetRooms);
+app.put('/api/room', controller.EditRoom);
+app.post('/api/room', controller.AddRoom);
+app.delete('/api/room', controller.DeleteRoom);
+
+
+// accessing student CRUD functions
+app.get('/api/student', controller.GetStudents);
+app.put('/api/student', controller.EditStudent);
+app.post('/api/student', controller.AddStudent);
+app.delete('/api/student', controller.DeleteStudent);
 
 
 
