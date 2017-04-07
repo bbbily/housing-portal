@@ -14,7 +14,7 @@ class App extends Component {
         <div className="App-header">
           <h2>Welcome to React</h2>
          <Modal
-           title="This Will Be Student Info"
+           title="This Will Be Student Basic Info"
            heading="This is the heading of the modal">
          This is some stuff man
          </Modal>

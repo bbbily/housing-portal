@@ -1,5 +1,8 @@
 import axios from "axios";
 
+/////////////////////////////////////////////////
+// Actions for New Admin Panel
+/////////////////////////////////////////////////
 export const GET_ADMINS = "GET_ADMINS";
 export const CREATE_ADMIN = "CREATE_ADMIN";
 export const DELETE_ADMIN = "DELETE_ADMIN";
@@ -42,7 +45,9 @@ export function editAdmin(userObj) {
   }
 }
 
-
+/////////////////////////////////////////////////
+// Actions for New Cohort Panel
+/////////////////////////////////////////////////
 export const GET_COHORTS = "GET_COHORTS";
 export const CREATE_COHORT = "CREATE_COHORT";
 export const DELETE_COHORT = "DELETE_COHORT";
@@ -91,3 +96,48 @@ export function getCampuses() {
   }
 }
 
+/////////////////////////////////////////////////
+// Actions for New Student Panel
+/////////////////////////////////////////////////
+
+export const GET_STUDENT = 'GET_STUDENT'
+export const CREATE_STUDENT = 'CREATE_STUDENT'
+export const EDIT_STUDENT = 'EDIT_STUDENT'
+export const DELETE_STUDENT = 'DELETE_STUDENT'
+
+export function getStudent() {
+  const url = "/api/student";
+  const request = axios.get(url)
+  return {
+    type: GET_STUDENT,
+    payload: request
+  }
+}
+
+export function createStudent(studentObj) {
+  const url = "/api/student";
+  const request = axios.post(url, studentObj)
+  return {
+    type: GET_STUDENT,
+    payload: request
+  }
+}
+
+
+export function editStudent(studentObj) {
+  const url = "/api/student";
+  const request = axios.put(url, studentObj)
+  return {
+    type: GET_STUDENT,
+    payload: request
+  }
+}
+
+export function deleteStudent(studentObj) {
+  const url = "/api/student";
+  const request = axios.delete(url, studentObj)
+  return {
+    type: GET_STUDENT,
+    payload: request
+  }
+}
