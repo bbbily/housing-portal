@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import { editAdmin, deleteAdmin } from "../../actions/action_admin";
 
-function fetchData(firstName) {
-  return {
-    firstName: firstName
-  }
-}
-
 class AdminForm extends Component {
 
   onSubmit(props) {
@@ -34,7 +28,7 @@ class AdminForm extends Component {
         </div>
         <div>
           <label htmlFor="email">Email</label>
-          <Field name="email" component="input" type="text" value="addddd" />
+          <Field name="email" component="input" type="text" />
         </div>
         <div>
           <label htmlFor="campus">Campus</label>
@@ -44,7 +38,7 @@ class AdminForm extends Component {
             <option value="3">Dallas</option>
           </Field>
         </div>
-        <button>Pancil</button>
+        <button type="button">Pancil</button>
         <button type="submit">Save</button>
         <button type="button" onClick={ this.handleDelete.bind(this, {id: this.props.id}) }>X</button>
       </form>
