@@ -21,6 +21,7 @@ class App extends Component {
           <DatePickerComponent/>
           <StudentForm />
           <Link to="/admin"> <button>go to admin</button></Link>
+          <Link to="/students"> <button>Student List</button></Link>
         </div>
       </div>
     );
