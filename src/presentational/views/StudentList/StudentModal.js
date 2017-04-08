@@ -29,10 +29,12 @@ constructor(props) {
           onClick={this.open}
           className="studentcard-button">
           <img src={this.props.title.image} className="studentcard-image" id="student-photo" />
-          <h1>{this.props.title.name}</h1>
-          {this.props.title.age} &nbsp;&nbsp;
-          {this.props.title.gender} &nbsp;&nbsp;
-          {this.props.title.cohort} &nbsp;&nbsp;
+          <h1 className="small-display-name">{this.props.title.name}</h1>
+          <p className="small-display-info">
+            {this.props.title.age} &nbsp;&nbsp;
+            {this.props.title.gender} &nbsp;&nbsp;
+            {this.props.title.cohort} &nbsp;&nbsp;
+          </p>
         </Button>
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>

@@ -23,7 +23,25 @@
 
 .studentcard-image {
     border-radius: 50%;
-    width: 100px; 
+    width: 80px;
+    position: relative;
+    left: -125px;
+    top: -1px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row; 
+}
+
+.small-display-name {
+    margin-top: -85px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.small-display-info {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .largecard-image {
