@@ -26,8 +26,8 @@
   border-width: 0 0 1px 0;
   border-color: $light-gray;
   padding-bottom: 24px;
-  margin-left: 150px;
-  margin-right: 150px;
+  margin-left: 80px;
+  margin-right: 80px;
   font-size: 2rem;
 }
 
@@ -41,18 +41,19 @@
       margin-bottom: 12px;
 }
 
-.student-input-text {
+input {
      background-color: $light-gray;
     border-radius: 5px;
     border-width: 1px;
     border-style: solid;
-    border-color: #a7a7a7;
+    border-color: #000000;
     padding: 6px;
     margin: 3px;
 }
 
 .student-80 {
   width: 550px;
+
 }
 
 .student-40 {
