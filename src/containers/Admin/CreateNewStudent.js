@@ -93,71 +93,92 @@ class CreateNewStudent extends Component {
         <Panel collapsible expanded={ this.state.open }>
           <div className="students-panel">
             <div className="row">
-                <div className="col-sm-12">
+                <div className="col-sm-6">
                   <h1>General</h1>
                 <ul className="student-ul">
-                  <li><input type="text" placeholder="First" name="first_name" className="student-30" onChange={this.handleInputChange}/></li>
-                  <li><input type="text" placeholder="Last" name="last_name"  className="student-30" onChange={this.handleInputChange}/></li>
-                  <li>
-                    <DropdownButton title="Deposit Paid" onSelect={ evt => { this.setState({ deposit_paid : evt }) }}  className="student-30">
-                      <MenuItem eventKey="Yes">Yes</MenuItem>
-                      <MenuItem eventKey="No">No</MenuItem>
-                    </DropdownButton> <br />
-                    {this.state.deposit_paid}
-                  </li>
-                </ul>
-                <ul className="student-ul">
+                  <li><input type="text" placeholder="First" name="first_name" className="student-40" onChange={this.handleInputChange}/></li>
+                  <li><input type="text" placeholder="Last" name="last_name"  className="student-40" onChange={this.handleInputChange}/></li>
                   <li>DOB <br/> <input type="date" name="dob"  className="student-20" onChange={this.handleInputChange}/> </li>
                   <li>
-                    <DropdownButton title="Gender" onSelect={ evt => { this.setState({ gender: evt }) }}  className="student-20">
-                      <MenuItem eventKey="Male">Male</MenuItem>
-                      <MenuItem eventKey="Female">Female</MenuItem>
-                    </DropdownButton><br />
-                    {this.state.gender} 
+                    <div className="item-container">
+                      <div className="item-left">                    
+                        <DropdownButton title="Gender" onSelect={ evt => { this.setState({ gender: evt }) }}  className="student-20">
+                          <MenuItem eventKey="Male">Male</MenuItem>
+                          <MenuItem eventKey="Female">Female</MenuItem>
+                        </DropdownButton>
+                      </div>
+                        <div className="item-right">{this.state.gender}</div>
+                    </div> 
                   </li>
-                  <li> 
-                    <DropdownButton title="Cohort" onSelect={ evt => {this.setState({cohort: evt }) }}  className="student-20">
-                      {cohorts}
-                    </DropdownButton><br />
-                    {this.state.cohort}
-                </li>
                  <li> 
+                    <div className="item-container">
+                      <div className="item-left">
                     <DropdownButton title="Campus" onSelect={ evt => this.setState({ campus: evt }) } className="student-20">
                       {campuses}
-                    </DropdownButton><br />
-                    {this.state.campus}
+                    </DropdownButton>
+                      </div>
+                        <div className="item-right">                    
+                    {this.state.campus}</div>
+                    </div>
                   </li>
-                </ul>
-                <ul className="student-ul">
-                  <li>Arrives: <br/><input type="date" name="arrive_date" className="student-40" 
+                  <li> 
+                    <div className="item-container">
+                      <div className="item-left"> 
+                        <DropdownButton title="Cohort" onSelect={ evt => {this.setState({cohort: evt }) }}  className="student-20">
+                          {cohorts}
+                        </DropdownButton>
+                      </div>
+                        <div className="item-right">{this.state.cohort}</div>
+                    </div>
+                </li>
+                  <li>
+                    <div className="item-container">
+                      <div className="item-left">
+                        <DropdownButton title="Deposit Paid" onSelect={ evt => { this.setState({ deposit_paid : evt }) }}  className="student-20">
+                          <MenuItem eventKey="Yes">Yes</MenuItem>
+                          <MenuItem eventKey="No">No</MenuItem>
+                        </DropdownButton>
+                      </div>
+                        <div className="item-right">{this.state.deposit_paid}</div>
+                    </div>
+                  </li>
+                  <li>Arrives:<input type="date" name="arrive_date" className="student-20" 
                                           value={this.state.arrive_date}
                                           onChange={ evt => {this.setState({ arrive_date: evt.target.value})}}
                                           /></li>
-                  <li>Leaves: <br/><input type="date" name="leave_date" className="student-40" 
+                  <li>Leaves: <input type="date" name="leave_date" className="student-20" 
                                           value={this.state.leave_date}
                                           onChange={ evt => { this.setState({ leave_date: evt.target.value})}}
                                           /></li>
                 </ul>
+               </div>
+
+               <div className="col-sm-6">
+               
                 <h1>Contact</h1>
                 <ul className="student-ul">
-                  <li><input type="text" placeholder="Email" name="email" className="student-30" onChange={this.handleInputChange}/></li>
-                  <li><input type="text" placeholder="Slack" name="slack" className="student-30" onChange={this.handleInputChange}/></li>
-                  <li><input type="text" placeholder="Phone" name="phone" className="student-30" onChange={this.handleInputChange}/></li>
+                  <li><input type="text" placeholder="Email" name="email" className="student-40" onChange={this.handleInputChange}/></li>
+                  <li><input type="text" placeholder="Slack" name="slack" className="student-40" onChange={this.handleInputChange}/></li>
+                  <li><input type="text" placeholder="Phone" name="phone" className="student-40" onChange={this.handleInputChange}/></li>
+                  <li><input type="text" placeholder="address" name="street_address" className="student-40" onChange={this.handleInputChange}/></li>
+                  <li><input type="text" placeholder="city" name="city" className="student-30" onChange={this.handleInputChange}/>
+                      <input type="text" placeholder="state" name="state"  className="student-10" onChange={this.handleInputChange}/> </li>
+                  <li><input type="text" placeholder="country" name="country"  className="student-30" onChange={this.handleInputChange}/>
+                      <input type="text" placeholder="zip" name="post_code"  className="student-10" onChange={this.handleInputChange}/></li>
+                  <ul className="student-ul">
+                    <li><Button onClick={this.createStudent}>     Add Student     </Button></li>
+                  </ul>
+                
                 </ul>
 
-                <ul className="student-ul">
-                  <li><input type="text" placeholder="address" name="street_address" className="student-40" onChange={this.handleInputChange}/></li>
-                  <li><input type="text" placeholder="city" name="city" className="student-40" onChange={this.handleInputChange}/> </li>
-                </ul>
-                <ul className="student-ul">
-                  <li><input type="text" placeholder="state" name="state"  className="student-30" onChange={this.handleInputChange}/> </li>
-                  <li><input type="text" placeholder="country" name="country"  className="student-30" onChange={this.handleInputChange}/> </li>
-                  <li><input type="text" placeholder="zip" name="post_code"  className="student-30" onChange={this.handleInputChange}/></li>
-                </ul>
+              </div>
+              </div>
+              <div className="row">
+                <div className="col-sm-12">
                 <h1>Misc</h1>
                 <ul className="student-ul">
-                  <li><input type="text" placeholder="Notes" name="notes"  className="student-40" onChange={this.handleInputChange}/></li>
-                  <li><input type="text" placeholder="Accommodations" name="accomodations"  className="student-40" onChange={this.handleInputChange}/></li>
+                  <li><input type="text" placeholder="Notes" name="notes"  className="student-80" onChange={this.handleInputChange}/></li>
+                  <li><input type="text" placeholder="Accommodations" name="accomodations"  className="student-80" onChange={this.handleInputChange}/></li>
                 </ul>
                 <ul className="student-ul">
                   <li><input type="text" placeholder="car info" name="car_info" className="student-80" onChange={this.handleInputChange}/></li>

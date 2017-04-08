@@ -33,10 +33,12 @@
 
 .student-ul {
   list-style: none;
-  display: flex;
-  justify-content: space-around;
   margin:0;
-  padding-top: 36px;
+  padding-top: 18px
+}
+
+.students-panel li {
+      margin-bottom: 12px;
 }
 
 .student-input-text {
@@ -44,7 +46,7 @@
     border-radius: 5px;
     border-width: 1px;
     border-style: solid;
-    border-color: $outline;
+    border-color: #a7a7a7;
     padding: 6px;
     margin: 3px;
 }
@@ -61,6 +63,36 @@
   width: 200px;
 }
 
-.student-20 {
-  width: 180px;
+.student-10 {
+  width: 80px;
+  margin-left: 32px;
+}
+
+.li-seperator {
+  padding-right:48px;
+  width: 120px;
+  text-align: center;
+}
+
+.same-line {
+  display: inline;
+}
+
+.item-container {
+  
+  display: flex;
+  justify-content:space-around;
+}
+
+.item-left {
+  margin-left: 48px;
+  width: 200px;
+  text-align: right;
+}
+
+.item-right {
+  text-align: center;
+    margin-right: 120px;
+    margin-top: 7px;
+    width: 100px;
 }
