@@ -28,9 +28,8 @@ export function createAdmin(userObj) {
   }
 }
 export function deleteAdmin(userObj) {
-  console.log("deleteuser", userObj)
   const url = "/api/users";
-  const request = axios.delete(url, userObj);
+  const request = axios.delete(url, { params: { id: userObj }});
   return {
     type: DELETE_ADMIN,
     payload: request
