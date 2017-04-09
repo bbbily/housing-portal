@@ -10,7 +10,7 @@ import ReduxPromise from "redux-promise";
 import reducers from "./reducers";
 // import Home from "./presentational/views/Home";
 import Admin from "./presentational/views/Admin";
-// import ApartmentList from "./presentational/views/Apartment";
+import Apartment from "./presentational/views/Apartment/Apartment";
 // import NavBar from "./presentational/NavBar";
 import Student from "./presentational/views/StudentList/Student";
 // import DropDown from "./containers/DropDownMenu";
@@ -39,8 +39,8 @@ ReactDOM.render(
     <Router history={ browserHistory } >
       <Route path="/" component={ App } />
       <Route path="/admin" component={Admin} />
-      {/* <Route path="/apartmentList" component={ApartmentList} /> */}
-      {<Route path="/students" component={Student} />}
+      <Route path="/Apartments" component={Apartment} />
+      <Route path="/students" component={Student} />
     </Router>
   </Provider>,
 

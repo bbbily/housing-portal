@@ -1,0 +1,22 @@
+@import "./_variables.scss";
+
+body {
+    background: $medium-gray;
+    
+    .walls {
+        color: #000;
+
+        .panel-body {
+            color: #000;
+        }
+    }
+}
+h3 {
+    color: $white;
+    background: $dark-gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85px;
+    border-radius: 5px;
+}

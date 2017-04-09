@@ -5,14 +5,12 @@
     height: 275px;
     float: left;
     margin: 10px 10px 85px 10px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
     
     .card-action {
         height: 50px;
         a {
             line-height: 50px;
             margin-left: 10px;
-            color: #FFAB40;
             transition: 0.5s;
             &:hover {
                 color: #74CCD1;
@@ -41,10 +39,26 @@
         height: 350px;
     }
 }
-    .modal-title {
-        height: 395px;
+.modal-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 395px;
 
-        img {
-            height: 315px;
-        }
+    img {
+        margin-top: 18px;
+        margin-bottom: -10px;
+        height: 315px;
     }
+    p {
+        margin-top: -8px;
+        font-size: 25px;
+    }
+}
+.modal-body {
+    background: #2B2B2B;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+}

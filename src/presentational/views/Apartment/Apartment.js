@@ -9,7 +9,6 @@ class Apartment extends Component {
             <div>
                 <div>
                     <ApartmentListFilter />
-                    
                 </div>
                 <div>
                     <RoomInfo />
