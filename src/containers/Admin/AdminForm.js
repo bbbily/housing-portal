@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 
-import { editAdmin } from "../../actions/action_admin";
+import { editAdmin, deleteAdmin } from "../../actions/action_admin";
 import "../../styles/admin.scss"
 import edit from "../../styles/icons/edit.svg"
 
@@ -14,8 +14,10 @@ class AdminForm extends Component {
     this.props.dispatch(editAdmin(props))
   }
 
-  handleDelete(user) {
-    this.props.dispatch(deleteAdmin(user))
+  handleDelete() {
+    
+    console.log(this.props.id)
+    this.props.dispatch(deleteAdmin(this.props.id))
   }
 
   render() {
@@ -32,7 +34,6 @@ class AdminForm extends Component {
             <option value="3">Dallas</option>
           </Field></li>
 
-          <img src={require("../../styles/icons/edit.svg")} className="admin-icon"/>
           <img src={require("../../styles/icons/save.svg")} className="admin-icon"/>
           <img src={require("../../styles/icons/garbage.svg")} onClick={ this.handleDelete.bind(this) } className="admin-icon" />
         </ul>
