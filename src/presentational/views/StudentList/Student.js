@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import StudentListFilter from "../../../containers/StudentListFilter";
 import StudentCards from "./StudentCards";
-import "../../../styles/student.scss";
+// import "../../../styles/student.scss";
+import "../../../styles/teststudent.scss";
+
 
 class Student extends Component {
     render() {
@@ -94,6 +96,36 @@ class Student extends Component {
             "room": "204",
             "address": "Idaho Falls, ID",
             "eligibility": "Yes",
+            "deposit_paid": "Yes"},
+            {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
+            "name": "Megan Fisher",
+            "age": "25",
+            "gender": "Female",
+            "cohort": "DM19",
+            "room": "204",
+            "address": "Idaho Falls, ID",
+            "eligibility": "Yes",
+            "deposit_paid": "Yes"},
+            {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
+            "name": "Megan Fisher",
+            "age": "25",
+            "gender": "Female",
+            "cohort": "DM19",
+            "room": "204",
+            "address": "Idaho Falls, ID",
+            "eligibility": "Yes",
+            "deposit_paid": "Yes"},
+            {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
+            "name": "Megan Fisher",
+            "age": "25",
+            "gender": "Female",
+            "cohort": "DM19",
+            "room": "204",
+            "address": "Idaho Falls, ID",
+            "eligibility": "Yes",
             "deposit_paid": "Yes"}
         ]
         const StudentList = students.map(students => (
@@ -115,7 +147,7 @@ class Student extends Component {
                     <StudentListFilter />
                 </div>
                 <div className="student-cards">
-                    <ul>
+                    <ul className="card-container">
                         {StudentList}
                     </ul>
                 </div>
