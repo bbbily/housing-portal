@@ -61,10 +61,6 @@ class CreateNewCohort extends Component {
         const cohorts = this.props.all.map( (cohort, i) => (
             <div>
                 <div className="dm-info-name">{ cohort.name }</div>
-                <ul>
-                    <li className="dm-info-starts-title"><b>Begins</b></li>
-                    <li className="dm-info-ends-title"><b>Ends</b></li>
-                </ul>
                 <ul className="dm-info">
                     <li>{moment(cohort.start_date).format("ddd, MMMM D,  YYYY")}</li>
                     <li>{moment(cohort.end_date).format("ddd, MMMM D,  YYYY")}</li>
@@ -81,6 +77,10 @@ class CreateNewCohort extends Component {
                     <div className="cohort-panel">
                         <div className="dm-info-container col-sm-6">
                             <h2>Current</h2>
+                            <ul>
+                               <li className="dm-info-starts-title"><b>Begins</b></li>
+                               <li className="dm-info-ends-title"><b>Ends</b></li>
+                            </ul>
                                 {cohorts}
                         </div>
                         

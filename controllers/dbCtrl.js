@@ -71,9 +71,12 @@ module.exports = {
         })
     },
     DeleteUser: function(req,res,next) {
-      console.log(req.body)
-        db.delete_user(req.body.id, function(err, prod) {
-            res.status(200).send(req.body);
+      console.log("DELETE USER REQ", req.query.id)
+        db.delete_user(req.query.id, function(err, prod) {
+          db.get_users( function(err, prod) {    // need to return the new users list to the view
+            console.log(err, prod);
+            res.status(200).send(prod);
+          })
         })
     },
     GetBuildings: function(req,res,next){
