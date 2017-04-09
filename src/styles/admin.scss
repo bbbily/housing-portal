@@ -13,9 +13,6 @@ h3 {
     height: 85px;
     border-radius: 5px;
 }
-input, option, button {
-    background-color: $light-gray;
-}
 
 .admin-container {
     width: 100%;
@@ -39,12 +36,12 @@ input, option, button {
     border: none;
 }
 
-input[text] {
-    background-color: $light-gray;
-    border-radius: 5px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: $outline;
-    padding: 6px;
-    margin: 3px;
-}
+// input[text] {
+//     background-color: $light-gray;
+//     border-radius: 5px;
+//     border-width: 1px;
+//     border-style: solid;
+//     border-color: $form-outline;
+//     padding: 6px;
+//     margin: 3px;
+// }
