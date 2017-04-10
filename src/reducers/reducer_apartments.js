@@ -1,5 +1,6 @@
 import { GET_APARTMENTS, CREATE_APARTMENT }  from "../actions/action_apartments";
 import { GET_ADDRESS, CREATE_ADDRESS }  from "../actions/action_apartments";
+import { GET_CAMPUSES }  from "../actions/action_apartments";
 
 const INITIAL_STATE = { all: [], apartment_id: "" };
 
@@ -32,6 +33,18 @@ export function addressReducer(state=INITIAL_STATE, action) {
     case CREATE_ADDRESS:
       console.log("data", action.payload.data);
       return { all: [...state.all, action.payload.data] };
+      break;
+    default:
+      return state;
+  }
+}
+
+export function campusReducer(state=INITIAL_STATE, action) {
+
+  switch (action.type) {
+    case GET_CAMPUSES:
+      console.log("data", action.payload.data);
+      return { all: action.payload.data};
       break;
     default:
       return state;
