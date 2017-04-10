@@ -24,6 +24,7 @@ class CreateNewAdmin extends Component {
     }
 
     render() {
+      console.log(this.props.all)
       const admins = this.props.all.map( (admin, i) => (
         <li key={admin.id} id={admin.id}>
           <AdminForm initialValues={{ first_name: admin.first_name, last_name: admin.last_name, email: admin.email, campus_id: admin.campus_id}}  firstName={ admin.first_name } form={"form" + admin.id} id={ admin.id } key={admin.id} />
