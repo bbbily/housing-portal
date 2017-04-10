@@ -11,7 +11,7 @@ const style = {
   float: 'left',
 };
 
-const boxSource = {
+const StudentSource = {
   beginDrag(props) {
     return {
       name: props.name,
@@ -25,6 +25,10 @@ const boxSource = {
     if (dropResult) {
       let alertMessage = '';
       if (dropResult.allowedDropEffect === 'any' || dropResult.allowedDropEffect === dropResult.dropEffect) {
+        /////////////////////////////////////
+        //this is where you handle a successful drop.
+        // dispatch here 
+        /////////////////////////////////////////
         alertMessage = `You ${dropResult.dropEffect === 'copy' ? 'copied' : 'moved'} ${item.name} into ${dropResult.name}!`;
       } else {
         alertMessage = `You cannot ${dropResult.dropEffect} an item into the ${dropResult.name}`;
@@ -36,11 +40,8 @@ const boxSource = {
   },
 };
 
-// @DragSource(ItemTypes.BOX, boxSource, (connect, monitor) => ({
-//   connectDragSource: connect.dragSource(),
-//   isDragging: monitor.isDragging(),
-// }))
-class Box extends Component {
+
+class Student extends Component {
   static propTypes = {
     connectDragSource: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,
@@ -61,7 +62,7 @@ class Box extends Component {
     );
   }
 }
- export default DragSource(ItemTypes.BOX, boxSource, (connect, monitor) => ({
+ export default DragSource(ItemTypes.Student, StudentSource, (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
   isDragging: monitor.isDragging(),
-}))(Box)
+}))(Student)

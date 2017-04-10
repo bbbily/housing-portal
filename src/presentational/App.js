@@ -5,7 +5,7 @@ import DatePickerComponent from "../containers/DatePicker";
 import Modal from "../containers/modal";
 import { Link } from "react-router";
 // import Admin from "./views/Admin";
- import DustbinMultipleTargets from '../dndtest/index'
+ import ApartmentsList from '../containers/Apartments/index'
 
 
 class App extends Component {
@@ -27,7 +27,7 @@ class App extends Component {
 
           <br/><br/>
           
-          <DustbinMultipleTargets /> 
+          <ApartmentsList /> 
         </div>
       </div>
     );

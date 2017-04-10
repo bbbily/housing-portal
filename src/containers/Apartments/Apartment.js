@@ -16,21 +16,21 @@ const style = {
   float: 'left',
 };
 
-export const boxTarget = {
+export const StudentTarget = {
   drop({ allowedDropEffect }) {
     return {
-      name: `${allowedDropEffect} Dustbin`,
+      name: `${allowedDropEffect} Apartment`,
       allowedDropEffect,
     };
   },
 };
 
-// @DropTarget(ItemTypes.BOX, boxTarget, (connect, monitor) => ({
+// @DropTarget(ItemTypes.Student, StudentTarget, (connect, monitor) => ({
 //   connectDropTarget: connect.dropTarget(),
 //   isOver: monitor.isOver(),
 //   canDrop: monitor.canDrop(),
 // }))
-class Dustbin extends Component {
+class Apartment extends Component {
   static propTypes = {
     connectDropTarget: PropTypes.func.isRequired,
     isOver: PropTypes.bool.isRequired,
@@ -51,18 +51,18 @@ class Dustbin extends Component {
 
     return connectDropTarget(
       <div style={{ ...style, backgroundColor }}>
-        { `Works with ${allowedDropEffect} drop effect` }<br /><br />
+       Room 1
         {isActive ?
-          'Release to drop' :
-          'Drag a box here'
+          'Release to place student' :
+          'Drag a student here'
         }
       </div>,
     );
   }
 }
 
-export default DropTarget(ItemTypes.BOX, boxTarget, (connect, monitor) => ({
+export default DropTarget(ItemTypes.Student, StudentTarget, (connect, monitor) => ({
   connectDropTarget: connect.dropTarget(),
   isOver: monitor.isOver(),
   canDrop: monitor.canDrop(),
-}))(Dustbin)
+}))(Apartment)
