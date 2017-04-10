@@ -31,6 +31,10 @@ import Student from "./presentational/views/StudentList/Student";
 // import RoomInfo from "./presentational/views/Apartment/RoomInfo";
 // import Student from "./presentational/views/StudentList/Student";
 
+
+
+
+
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 ReactDOM.render(
