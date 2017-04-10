@@ -1,10 +1,9 @@
 .modal-header, .modal-footer {
       background: #458BCD;
-      color: #2B2B2B ;
+      color: #2B2B2B;
       border-style: none;
 }
 
 .modal-body {
   background: #2B2B2B;
 }
-

@@ -1,0 +1,99 @@
+@import "./_variables.scss";
+
+.row {
+  padding:0;
+  margin:0;
+}
+
+.new-student-container {
+  margin-bottom: -37px;
+}
+
+.container {
+  padding:0;
+  margin:0;
+}
+
+.students-panel {
+  color: $dark-gray;
+  text-align:center;
+}
+
+.students-panel h1 {
+  color: $dark-gray;
+  padding-top: 24px;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  border-color: $light-gray;
+  padding-bottom: 24px;
+  margin-left: 80px;
+  margin-right: 80px;
+  font-size: 2rem;
+}
+
+.student-ul {
+  list-style: none;
+  margin:0;
+  padding-top: 18px
+}
+
+.students-panel li {
+      margin-bottom: 12px;
+}
+
+input {
+     background-color: $light-gray;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000000;
+    padding: 6px;
+    margin: 3px;
+}
+
+.student-80 {
+  width: 550px;
+
+}
+
+.student-40 {
+  width: 350px;
+}
+
+.student-30 {
+  width: 200px;
+}
+
+.student-10 {
+  width: 80px;
+  margin-left: 32px;
+}
+
+.li-seperator {
+  padding-right:48px;
+  width: 120px;
+  text-align: center;
+}
+
+.same-line {
+  display: inline;
+}
+
+.item-container {
+  
+  display: flex;
+  justify-content:space-around;
+}
+
+.item-left {
+  margin-left: 48px;
+  width: 200px;
+  text-align: right;
+}
+
+.item-right {
+  text-align: center;
+    margin-right: 120px;
+    margin-top: 7px;
+    width: 100px;
+}

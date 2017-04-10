@@ -14,8 +14,10 @@ class AdminForm extends Component {
     this.props.dispatch(editAdmin(props))
   }
 
-  handleDelete(user) {
-    this.props.dispatch(deleteAdmin(user))
+  handleDelete() {
+
+    console.log(this.props.id)
+    this.props.dispatch(deleteAdmin(this.props.id))
   }
 
   render() {
@@ -36,6 +38,7 @@ class AdminForm extends Component {
           <img src={require("../../styles/icons/edit.svg")} className="admin-icon"/>
           <input type="image" src={require("../../styles/icons/save.svg")} name="submit" className="admin-icon" />
           <img src={require("../../styles/icons/garbage.svg")} onClick={ this.handleDelete.bind(this, {id: this.props.id}) } className="admin-icon" />
+
         </ul>
       </form>
     )
