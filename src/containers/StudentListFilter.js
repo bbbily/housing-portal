@@ -31,7 +31,7 @@ class StudentListFilter extends Component {
                             Cohort - drop down
                         </div>
                         <div>
-                            <input type="checkbox" name="housing" value={ this.props.housing } onChange={ this.handleChecked.bind(this, "housing", !this.props.housing) } /> Need Housing
+                            <input type="checkbox" name="housing" value={ this.props.eligibility } onChange={ this.handleChecked.bind(this, "eligibility", !this.props.eligibility) } /> Need Housing
                         </div>
                         <div>
                             <input type="checkbox" name="deposit" value={ this.props.deposit_paid} onChange={ this.handleChecked.bind(this, "deposit_paid", !this.props.deposit_paid) } /> Deposit Paid

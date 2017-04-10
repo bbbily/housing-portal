@@ -8,7 +8,7 @@ class Student extends Component {
     super(props);
 
     this.state = {
-      // housing: false,
+      eligibility: false,
       deposit_paid: false,
       age: 0,
       accomodations: false,
@@ -147,7 +147,7 @@ class Student extends Component {
         return (
             <div>
                 <div>
-                    <StudentListFilter housing={ this.state.housing } deposit_paid={ this.state.deposit_paid } age={ this.state.age } handleChecked={ this.handleChecked.bind(this) }/>
+                    <StudentListFilter eligibility={ this.state.eligibility } deposit_paid={ this.state.deposit_paid } age={ this.state.age } handleChecked={ this.handleChecked.bind(this) }/>
                 </div>
                 <div className="student-cards">
                     <ul>

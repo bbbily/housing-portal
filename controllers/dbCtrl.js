@@ -71,12 +71,9 @@ module.exports = {
         })
     },
     DeleteUser: function(req,res,next) {
-      console.log("DELETE USER REQ", req.query.id)
+      console.log("DELETE USER REQ", req.query.id);
         db.delete_user(req.query.id, function(err, prod) {
-          db.get_users( function(err, prod) {    // need to return the new users list to the view
-            console.log(err, prod);
-            res.status(200).send(prod);
-          })
+            res.send(req.query.id);
         })
     },
     GetBuildings: function(req,res,next){
@@ -86,9 +83,10 @@ module.exports = {
         })
     },
     AddBuilding: function(req,res,next){
-        db.add_building(function (err, prod) {
-            console.log(err, prod);
-            res.status(200).send("errors: " + err + " %%%% prods: " + prod);
+      console.log(req.body)
+        db.add_building(req.body.campus_id, req.body.street_address, req.body.city, req.body.state, req.body.country, req.body.post_code, function (err, prod) {
+            console.log("prod", prod);
+            res.status(200).send(prod);
         })
     },
     EditBuilding: function(req,res,next){
@@ -120,7 +118,7 @@ module.exports = {
             res.status(200).send(prod);
         })
     },
-    DeleteApartment: function(req,res,next) {  
+    DeleteApartment: function(req,res,next) {
         db.delete_room (req.body.id, function(err, prod) {
             db.delete_apartment(req.body.id, function(err, prod) {
                 res.status(200).send(err);
@@ -163,7 +161,7 @@ module.exports = {
                         req.body.gender, req.body.car_info, req.body.arrive_date, req.body.leave_date,
                         req.body.housing_eligibility, req.body.deposit_paid, req.body.accomodations,
                         req.body.notes, function (err, prod) {
-            console.log(err, prod); 
+            console.log(err, prod);
             res.status(200).send("errors: " + err + " %%%% prods: " + prod);
         })
     },
