@@ -1,0 +1,14 @@
+@import "./_variables.scss";
+
+.walls {
+    width: 70%;
+}
+
+.panel-body {
+    color: #000;
+}
+
+.bedroom-container {
+    display: flex;
+    justify-content: space-around;
+}

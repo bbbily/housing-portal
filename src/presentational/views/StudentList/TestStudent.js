@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Modal, Button, Popover, Tooltip, OverlayTrigger } from "react-bootstrap"
-import "../../../styles/studentcard.scss";
+import "../../../styles/teststudent.scss";
 
-export default class StudentModal extends Component {
+export default class TestStudent extends Component {
 
 constructor(props) {
   super(props)
@@ -21,31 +21,38 @@ constructor(props) {
   }
 
   render() {
+
+    const titleStyle = {
+      width: "250px",
+      wordWrap: "break-word"
+    };
+
     return (
-      <span>
+      <span className="card">
         <Button
           bsStyle="primary"
           bsSize="large"
           onClick={this.open}
-          className="studentcard-button">
-          <div className="student-image-container">
-            <img src={this.props.title.image} className="studentcard-image" id="student-photo" />
-          </div>
-          <div className="student-name-container">
-            <h1 className="small-display-name">{this.props.title.name}</h1>
-          </div>
+          className="card">
           <div>
-            <p className="small-display-info">
-              {this.props.title.age} &nbsp;&nbsp;
-              {this.props.title.gender} &nbsp;&nbsp;
-              {this.props.title.cohort} &nbsp;&nbsp;
-            </p>
+            <img src={this.props.title.image} />
           </div>
+          <span
+            className="card-action">
+            <div className="card-title" style={titleStyle}>
+                {this.props.title.name}
+            </div>
+            <p className="card-content">
+                {this.props.title.age} &nbsp;&nbsp;
+                {this.props.title.gender} &nbsp;&nbsp;
+                {this.props.title.cohort} &nbsp;&nbsp;
+            </p>
+          </span>
         </Button>
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
             <Modal.Title>
-                <img src={this.props.heading.image} className="largecard-image" />
+                <img src={this.props.heading.image} />
                 <h1>
                     {this.props.heading.name}
                 </h1>

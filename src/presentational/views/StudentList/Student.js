@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import StudentListFilter from "../../../containers/StudentListFilter";
 import StudentCards from "./StudentCards";
 import "../../../styles/student.scss";
+import "../../../styles/teststudent.scss";
+import NavBar from "../../NavBar";
+
 
 class Student extends Component {
   constructor(props) {
@@ -103,6 +106,36 @@ class Student extends Component {
             "eligibility": true,
             "deposit_paid": true},
             {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
+            "name": "Missy Beutler",
+            "age": "25",
+            "gender": "Female",
+            "cohort": "DM10",
+            "room": "200",
+            "address": "Orem, UT",
+            "eligibility": true,
+            "deposit_paid": true},
+            {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
+            "name": "Maddie Humphreys",
+            "age": "21",
+            "gender": "Female",
+            "cohort": "DM1",
+            "room": "211",
+            "address": "Boise, ID",
+            "eligibility": true,
+            "deposit_paid": false},
+            {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
+            "name": "Sang Ahn",
+            "age": "98",
+            "gender": "Male",
+            "cohort": "DM16",
+            "room": "208",
+            "address": "Provo, UT",
+            "eligibility": false,
+            "deposit_paid": false},
+            {
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
             "name": "Megan Fisher",
             "age": "25",
@@ -146,11 +179,12 @@ class Student extends Component {
         ))
         return (
             <div>
+            <NavBar />
                 <div>
                     <StudentListFilter eligibility={ this.state.eligibility } deposit_paid={ this.state.deposit_paid } age={ this.state.age } handleChecked={ this.handleChecked.bind(this) }/>
                 </div>
                 <div className="student-cards">
-                    <ul>
+                    <ul className="card-container">
                         {StudentList}
                     </ul>
                 </div>

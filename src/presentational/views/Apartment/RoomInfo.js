@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import { Panel } from "react-bootstrap";
+import { Panel, Button, DropdownButton, MenuItem } from "react-bootstrap";
+import "../../../styles/admin.scss";
+import "../../../styles/roompanel.scss";
+import ApartmentsList from "../../../containers/Apartments/index";
 
 class RoomInfo extends Component {
     constructor(...args) {
@@ -12,19 +15,15 @@ class RoomInfo extends Component {
     
     render() {
         return (
-            <div>
+            <div className="walls">
                 <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
                     <h3>Room 1</h3>
                 </div>
                 <Panel collapsible expanded={ this.state.open }>
-                    <div>
-                        Room 1 - display beds
-                    </div>
-                    <div>
-                        Room 2 - display beds
-                    </div>
-                    <div>
-                        Room 3 - display beds
+                    <div className="bedroom-container">
+                        <div>
+                           <ApartmentsList />
+                        </div>
                     </div>
                 </Panel>
             </div>

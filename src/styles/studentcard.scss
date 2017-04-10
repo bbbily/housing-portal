@@ -10,6 +10,10 @@
   background: $medium-gray;
 }
 
+.card-container {
+    position: absolute;
+}
+
 .student-modal {
     max-width: 350px;
 }
@@ -23,8 +27,39 @@
 
 .studentcard-image {
     border-radius: 50%;
-    width: 100px; 
+    width: 80px;
+    position: relative;
+    left: -125px;
+    top: -1px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row; 
 }
+
+.small-display-name {
+    margin-top: -85px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    left: 120px;
+    word-wrap: break-word;    
+    max-width: 200px;
+    max-height: 400px;
+}
+
+.small-display-info {
+    display: flex;
+    justify-content: flex-end;
+}
+
+// .student-image-container {
+
+// }
+
+// .student-name-container {
+
+// }
 
 .largecard-image {
     width: 300px;
