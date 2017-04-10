@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import RoomInfo from "./RoomInfo";
+import NavBar from "../../NavBar";
 import NeedHousingContainer from "./NeedHousingContainer";
 import ApartmentListFilter from "../../../containers/ApartmentListFilter";
 
@@ -8,8 +9,10 @@ class Apartment extends Component {
         return (
             <div>
                 <div>
+                    <NavBar />
+                </div>
+                <div>
                     <ApartmentListFilter />
-                    
                 </div>
                 <div>
                     <RoomInfo />

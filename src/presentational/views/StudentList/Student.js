@@ -3,6 +3,7 @@ import StudentListFilter from "../../../containers/StudentListFilter";
 import StudentCards from "./StudentCards";
 // import "../../../styles/student.scss";
 import "../../../styles/teststudent.scss";
+import NavBar from "../../NavBar";
 
 
 class Student extends Component {
@@ -105,6 +106,36 @@ class Student extends Component {
             "eligibility": true,
             "deposit_paid": true},
             {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
+            "name": "Missy Beutler",
+            "age": "25",
+            "gender": "Female",
+            "cohort": "DM10",
+            "room": "200",
+            "address": "Orem, UT",
+            "eligibility": "Yes",
+            "deposit_paid": "Yes"},
+            {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
+            "name": "Maddie Humphreys",
+            "age": "21",
+            "gender": "Female",
+            "cohort": "DM1",
+            "room": "211",
+            "address": "Boise, ID",
+            "eligibility": "Yes",
+            "deposit_paid": "No"},
+            {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
+            "name": "Sang Ahn",
+            "age": "98",
+            "gender": "Male",
+            "cohort": "DM16",
+            "room": "208",
+            "address": "Provo, UT",
+            "eligibility": "No",
+            "deposit_paid": "No"},
+            {
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
             "name": "Megan Fisher",
             "age": "25",
@@ -132,6 +163,7 @@ class Student extends Component {
             }
           }
         })
+
         const StudentList = students.map(students => (
            <li> <StudentCards
                 image={students.image}
@@ -147,6 +179,7 @@ class Student extends Component {
         ))
         return (
             <div>
+            <NavBar />
                 <div>
                     <StudentListFilter housing={ this.state.housing } deposit_paid={ this.state.deposit_paid } age={ this.state.age } handleChecked={ this.handleChecked.bind(this) }/>
                 </div>

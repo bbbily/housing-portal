@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Panel } from "react-bootstrap";
+import "../styles/filter.scss";
 
 class StudentListFilter extends Component {
     constructor(props) {
@@ -20,17 +21,27 @@ class StudentListFilter extends Component {
 
     render() {
         return (
-            <div>
+            <div className="filter-container">
                 <div>
                     <Button onClick={ () => this.setState({ open: !this.state.open })}>
                         Filter Results
                     </Button>
                     <Panel collapsible expanded={ this.state.open }>
                         <div>
-                            Campus - drop down
+                            Campus
+                            <select>
+                                <option value="1">Provo</option>
+                                <option value="2">Salt Lake City</option>
+                                <option value="3">Dallas</option>
+                            </select>
                         </div>
                         <div>
-                            Cohort - drop down
+                            Cohort
+                            <select>
+                                <option value="1">DM1</option>
+                                <option value="2">DM2</option>
+                                <option value="3">DM3</option>
+                            </select>
                         </div>
                         <div>
                             <input type="checkbox" name="housing" value={ this.props.housing } onChange={ this.handleChecked.bind(this, "housing", !this.props.housing) } /> Need Housing
