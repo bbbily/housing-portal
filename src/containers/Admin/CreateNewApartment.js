@@ -3,7 +3,8 @@ import { Panel } from "react-bootstrap";
 import "../../styles/newapartment.scss";
 import { Field, reduxForm } from "redux-form";
 import Room from "../../presentational/views/Room";
-import Apartment from "./CreateApartmentForm";
+import Apartment from "./NewApartmentForm";
+import NewAddressForm from "./NewAddressForm";
 
 class CreateNewApartment extends Component {
     constructor(...args) {
@@ -11,7 +12,12 @@ class CreateNewApartment extends Component {
 
         this.state = {
             open: false,
-            rooms: []
+            rooms: [],
+            showAddressForm: false,
+            showApartmentForm: true,
+            addressButton: true,
+            apartmentButton: false,
+            showRoomForm: false
         };
     }
 
@@ -22,6 +28,10 @@ class CreateNewApartment extends Component {
       // this.props.dispatch(editAdmin(props))
     }
 
+    showRoom() {
+      console.log("showroom")
+      this.setState({ showRoomForm: true })
+    }
 
     render() {
         const Rooms = this.state.rooms;
@@ -32,13 +42,23 @@ class CreateNewApartment extends Component {
                     <h3>Create New Apartment</h3>
                 </div>
                 <Panel className="apartment-panel" collapsible expanded={ this.state.open }>
-                    <Apartment />
-                    <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) } >
+                    { this.state.showApartmentForm && (
+                      <div>
+                        <button onClick={ () => this.setState({ showAddressForm: !this.state.showAddressForm, showApartmentForm: !this.state.showApartmentForm, addressButton: false, apartmentButton: true, showRoomForm: false }) }>Add Address</button>
+                        <Apartment showRoom={ this.showRoom.bind(this) }/>
+                      </div>
+                    ) }
+                    { this.state.showAddressForm && (
+                      <div>
+                      <button onClick={ () => this.setState({ showAddressForm: !this.state.showAddressForm, showApartmentForm: !this.state.showApartmentForm, addressButton: true, apartmentButton: false }) }>Add Apartment</button>
+                      <NewAddressForm />
+                    </div>)}
+                    { this.state.showRoomForm && (<form onSubmit={ handleSubmit(this.onSubmit.bind(this)) } >
                       { Rooms }
                       <button type="button" onClick={ () => this.setState({ rooms: [...Rooms, <Room beds={`room${Rooms.length}bed`} gender={`room${Rooms.length}gender`} key={Rooms.length} /> ]})}>Add New Room</button>
                       <button type="submit">Save</button>
                       <button type="button" onClick={ () => this.setState({ rooms: Rooms.slice(0, Rooms.length-1)})}>Delete Room</button>
-                    </form>
+                    </form>)}
                 </Panel>
             </div>
         );

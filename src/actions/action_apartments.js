@@ -2,9 +2,11 @@ import axios from "axios";
 
 export const GET_APARTMENTS = "GET_APARTMENTS";
 export const CREATE_APARTMENT = "CREATE_APARTMENT";
+export const CREATE_ADDRESS = "CREATE_ADDRESS";
+export const GET_ADDRESS = "GET_ADDRESS";
 
 
-export function fetchApartments() {
+export function getApartments() {
   const url = "api/apartments";
   const request = axios.get(url);
   console.log("request", request);
@@ -22,6 +24,17 @@ export function createApartment(props) {
 
   return {
     type: CREATE_APARTMENT,
+    payload: request
+  }
+}
+
+export function createAddress(props) {
+  const url = "/api/building";
+  const request = axios.post(url, props)
+  console.log("ADDRESS",request);
+
+  return {
+    type: CREATE_ADDRESS,
     payload: request
   }
 }
