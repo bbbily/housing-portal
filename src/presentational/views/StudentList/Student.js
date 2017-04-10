@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import StudentListFilter from "../../../containers/StudentListFilter";
 import StudentCards from "./StudentCards";
-// import "../../../styles/student.scss";
+import "../../../styles/student.scss";
 import "../../../styles/teststudent.scss";
 import NavBar from "../../NavBar";
 
