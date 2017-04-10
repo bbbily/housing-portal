@@ -1,11 +1,13 @@
 .student-cards {
-    display: flex;
-    justify-content: center;
     width: 100%;
 }
 
 .card-container {
+    margin: 0;
+    padding-left: 100px;
+    padding-right: 100px;
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
 }

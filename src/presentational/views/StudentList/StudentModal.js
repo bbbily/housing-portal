@@ -22,44 +22,36 @@ constructor(props) {
 
   render() {
     return (
-      <span>
-        <Button
-          bsStyle="primary"
-          bsSize="large"
-          onClick={this.open}
-          className="studentcard-button">
-          <div className="student-image-container">
-            <img src={this.props.title.image} className="studentcard-image" id="student-photo" />
-          </div>
-          <div className="student-name-container">
-            <h1 className="small-display-name">{this.props.title.name}</h1>
-          </div>
-          <div>
-            <p className="small-display-info">
-              {this.props.title.age} &nbsp;&nbsp;
-              {this.props.title.gender} &nbsp;&nbsp;
-              {this.props.title.cohort} &nbsp;&nbsp;
-            </p>
-          </div>
-        </Button>
+      <div>
+
+
+        <div onClick={this.open} className="studentcard-button">
+          <img src="https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg" className="studentcard-image" />>
+            {this.props.title.name} <br />
+                {this.props.title.gender}, 
+                {this.props.title.age}. &nbsp;&nbsp;
+                {this.props.title.cohort} &nbsp;&nbsp;
+        </div>
+
+
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
             <Modal.Title>
-                <img src={this.props.heading.image} className="largecard-image" />
-                <h1>
                     {this.props.heading.name}
-                </h1>
                 <p>{this.props.heading.age} &nbsp;&nbsp; {this.props.heading.gender} &nbsp;&nbsp; {this.props.heading.cohort}</p>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            Room: {this.props.body.room} &nbsp;&nbsp; Address: {this.props.body.address} &nbsp;&nbsp; Eligibile: {this.props.body.eligibility} &nbsp;&nbsp; Deposit Paid: {this.props.body.deposit_paid}
+            Room: {this.props.body.room} <br />
+            {this.props.body.address}<br /> 
+            Eligibile: {this.props.body.eligibility} <br /> 
+            Deposit Paid: {this.props.body.deposit_paid}<br />
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close}>Save</Button>
           </Modal.Footer>
         </Modal>
-      </span>
+      </div>
     );
   }
 }
