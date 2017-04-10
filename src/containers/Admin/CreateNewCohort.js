@@ -15,6 +15,7 @@ class CreateNewCohort extends Component {
             name: null,
             start_date: null,
             end_date: null,
+            campus: null
 
         };
 
@@ -35,6 +36,7 @@ class CreateNewCohort extends Component {
             [name] : value
         })
 
+        console.log(this.state)
     }
 
 
@@ -51,19 +53,23 @@ class CreateNewCohort extends Component {
         })
     }
 
+    handleDelete() {
+        this.props.dispatch(deleteCohort(this.props.id))
+    }
 
     render() {
         console.log(this.props)
         const campuses = this.props.campuses.map((campus,i) => (
-            <MenuItem id={campus.id} key={i}> {campus.city} </MenuItem>
+            <MenuItem id={campus.id} key={campus.id}> {campus.city} </MenuItem>
         ))
 
         const cohorts = this.props.all.map( (cohort, i) => (
             <div>
-                <div className="dm-info-name">{ cohort.name }</div>
                 <ul className="dm-info">
+                    <li>{ cohort.name }</li>
                     <li>{moment(cohort.start_date).format("ddd, MMMM D,  YYYY")}</li>
                     <li>{moment(cohort.end_date).format("ddd, MMMM D,  YYYY")}</li>
+                    <li><img src={require("../../styles/icons/garbage.svg")} onClick={ this.handleDelete.bind(this, {id: this.props.id}) } className="cohort-garbage"/></li>
                 </ul>
             </div>
         ))
@@ -78,8 +84,10 @@ class CreateNewCohort extends Component {
                         <div className="dm-info-container col-sm-6">
                             <h2>Current</h2>
                             <ul>
+                                <li></li>
                                <li className="dm-info-starts-title"><b>Begins</b></li>
                                <li className="dm-info-ends-title"><b>Ends</b></li>
+                               <li></li>
                             </ul>
                                 {cohorts}
                         </div>
@@ -95,11 +103,11 @@ class CreateNewCohort extends Component {
                                         onChange={this.handleInputChange}/> 
                                 </li>
                             <li className="cohort-name-right">
-                                <DropdownButton title="Campus">
-                                <MenuItem value="1">Provo</MenuItem>
-                                <MenuItem value="2">Salt Lake City</MenuItem>
-                                <MenuItem value="3">Dallas</MenuItem>
-                                </DropdownButton>
+                    <DropdownButton title="Campus" onSelect={ evt => this.setState({ campus: evt }) } className="student-20">
+                      {campuses}
+                    </DropdownButton>
+                     
+                    {this.state.campus}
                             </li>
                             </ul>
                             <ul className="cohort-dates">

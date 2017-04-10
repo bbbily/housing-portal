@@ -16,6 +16,8 @@ class StudentListFilter extends Component {
         this.props.handleChecked(type, checked);
     }
 
+    
+
     render() {
         return (
             <div>

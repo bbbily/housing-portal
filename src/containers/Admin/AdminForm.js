@@ -38,6 +38,8 @@ class AdminForm extends Component {
             <option value="3">Dallas</option>
           </Field></li>
 
+
+
          
           <input type="button" src={require("../../styles/icons/save.svg")} className="edit-button" name="submit" value="Save"/> 
           <img src={require("../../styles/icons/garbage.svg")} onClick={ this.handleDelete.bind(this, {id: this.props.id}) } className="admin-icon" />
