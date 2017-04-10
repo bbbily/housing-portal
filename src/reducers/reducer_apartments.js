@@ -12,7 +12,10 @@ export function apartmentsReducer(state=INITIAL_STATE, action) {
       break;
     case CREATE_APARTMENT:
       console.log("data", action.payload.data);
-      return { apartment_id: action.payload.data};
+      return {
+        all: [...state.all, action.payload.data],
+        apartment_id: action.payload.data.id
+      };
       break;
     default:
       return state;
@@ -28,7 +31,7 @@ export function addressReducer(state=INITIAL_STATE, action) {
       break;
     case CREATE_ADDRESS:
       console.log("data", action.payload.data);
-      return { apartment_id: action.payload.data};
+      return { all: action.payload.data };
       break;
     default:
       return state;
