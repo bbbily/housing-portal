@@ -19,7 +19,7 @@ class RoomInfo extends Component {
                     <h3>Room 1</h3>
                 </div>
                 <Panel collapsible expanded={ this.state.open }>
-                    <div>
+                    <div className="bedroom-container">
                         <div>
                             Room 1 - display beds
                         </div>

@@ -1,0 +1,16 @@
+@import "./_variables.scss";
+
+.housing-container {
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    right: 25px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    li {
+        list-style-type: none;
+        margin-top: 105px;
+    }
+}
