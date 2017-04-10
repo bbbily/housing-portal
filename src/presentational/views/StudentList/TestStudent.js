@@ -21,6 +21,12 @@ constructor(props) {
   }
 
   render() {
+
+    const titleStyle = {
+      width: "250px",
+      wordWrap: "break-word"
+    };
+
     return (
       <span className="card">
         <Button
@@ -33,7 +39,7 @@ constructor(props) {
           </div>
           <span
             className="card-action">
-            <div className="card-title">
+            <div className="card-title" style={titleStyle}>
                 {this.props.title.name}
             </div>
             <p className="card-content">

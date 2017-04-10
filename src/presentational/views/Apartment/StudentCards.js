@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import "../../../styles/studentcard.scss";
 
 class StudentCards extends Component {
    render() {
         return (
-            <div>
+            <div className="card-container">
                 <div>
                     <img src="./favicon.ico" />
                     <h2>name</h2>

@@ -3,6 +3,7 @@ import StudentListFilter from "../../../containers/StudentListFilter";
 import StudentCards from "./StudentCards";
 // import "../../../styles/student.scss";
 import "../../../styles/teststudent.scss";
+import NavBar from "../../NavBar";
 
 
 class Student extends Component {
@@ -143,6 +144,7 @@ class Student extends Component {
         ))
         return (
             <div>
+            <NavBar />
                 <div>
                     <StudentListFilter />
                 </div>
