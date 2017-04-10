@@ -27,3 +27,14 @@ export function createApartment(props) {
     payload: request
   }
 }
+
+export function createAddress(props) {
+  const url = "/api/building";
+  const request = axios.post(url, props)
+  console.log("ADDRESS",request);
+
+  return {
+    type: CREATE_ADDRESS,
+    payload: request
+  }
+}
