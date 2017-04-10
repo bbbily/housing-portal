@@ -10,6 +10,7 @@ a:hover {
 
 .navbar-container {
     min-height: 100px;
+    max-height: 100px;
     width:100%;
     text-transform: uppercase;
     color: $white;
@@ -25,7 +26,7 @@ a:hover {
 .nav-links {
     display: flex;
     justify-content: space-around;
-    list-style:none;
+    list-style: none;
     min-height: 100px;
     margin-top: 8px;
 }
@@ -42,6 +43,7 @@ a:hover {
     border-style: solid;
     border-width: 0 0 12px 0;
     border-color: $dark-gray;
+    height: 100px;
 }
 
 .navbar-logo {
