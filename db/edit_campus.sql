@@ -5,4 +5,5 @@ SET location_name = $2,
     state = $5,
     country = $6,
     post_code = $7
-WHERE id = $1;
+WHERE id = $1
+RETURNING *;
