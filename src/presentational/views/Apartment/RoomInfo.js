@@ -22,7 +22,7 @@ class RoomInfo extends Component {
                 <Panel collapsible expanded={ this.state.open }>
                     <div className="bedroom-container">
                         <div>
-                           <RoomInfo />
+                           <ApartmentsList />
                         </div>
                     </div>
                 </Panel>
