@@ -17,6 +17,10 @@ class StudentListFilter extends Component {
         this.props.handleChecked(type, checked);
     }
 
+    handleSelect(type, selected, e) {
+        
+    }
+
     render() {
         return (
             <div className="filter-container">
@@ -27,7 +31,7 @@ class StudentListFilter extends Component {
                     <Panel collapsible expanded={ this.state.open }>
                         <div>
                             Campus
-                            <select>
+                            <select name="campus" onChange={this.handleSelect.bind(this, "campus", this.props.value)}>
                                 <option value="1">Provo</option>
                                 <option value="2">Salt Lake City</option>
                                 <option value="3">Dallas</option>
