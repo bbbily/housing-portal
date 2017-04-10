@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
-
+import {MenuItem, DropdownButton} from 'react-bootstrap'
 import { editAdmin, deleteAdmin } from "../../actions/action_admin";
 import "../../styles/admin.scss"
 import edit from "../../styles/icons/edit.svg"
@@ -20,7 +20,10 @@ class AdminForm extends Component {
     this.props.dispatch(deleteAdmin(this.props.id))
   }
 
+
+
   render() {
+
     const { handleSubmit } = this.props;
     return (
       <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
@@ -35,8 +38,10 @@ class AdminForm extends Component {
             <option value="3">Dallas</option>
           </Field></li>
 
-          <img src={require("../../styles/icons/edit.svg")} className="admin-icon"/>
-          <input type="image" src={require("../../styles/icons/save.svg")} name="submit" className="admin-icon" />
+
+
+         
+          <input type="button" src={require("../../styles/icons/save.svg")} className="edit-button" name="submit" value="Save"/> 
           <img src={require("../../styles/icons/garbage.svg")} onClick={ this.handleDelete.bind(this, {id: this.props.id}) } className="admin-icon" />
 
         </ul>
@@ -44,7 +49,6 @@ class AdminForm extends Component {
     )
   }
 }
-
 
 export default reduxForm({
   // initialValues: data

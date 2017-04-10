@@ -4,3 +4,4 @@ SET campus_id = $2,
     start_date = $4,
     end_date = $5
 WHERE id = $1
+RETURNING *;
