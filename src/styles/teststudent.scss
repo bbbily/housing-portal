@@ -1,0 +1,50 @@
+@import "./_variables.scss";
+
+.card {
+    width: 275px;
+    height: 275px;
+    float: left;
+    margin: 10px 10px 85px 10px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+    
+    .card-action {
+        height: 50px;
+        a {
+            line-height: 50px;
+            margin-left: 10px;
+            color: #FFAB40;
+            transition: 0.5s;
+            &:hover {
+                color: #74CCD1;
+                text-decoration: none;
+            }
+        }
+    }
+    .card-title {
+        color: $white;
+        font-size: 28px;
+    }
+    .card-content {
+        color: $white;
+        font-size: 20px;
+    }
+    img {
+        background-position: center;
+        background-size: cover;
+        width: 250px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        border-radius: 5px;
+    }
+    .btn-lg {
+        padding: 0;
+        height: 350px;
+    }
+}
+    .modal-title {
+        height: 395px;
+
+        img {
+            height: 315px;
+        }
+    }

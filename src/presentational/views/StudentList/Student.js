@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import StudentListFilter from "../../../containers/StudentListFilter";
 import StudentCards from "./StudentCards";
-import "../../../styles/student.scss";
+// import "../../../styles/student.scss";
+import "../../../styles/teststudent.scss";
+
 
 class Student extends Component {
   constructor(props) {
@@ -130,7 +132,6 @@ class Student extends Component {
             }
           }
         })
-
         const StudentList = students.map(students => (
            <li> <StudentCards
                 image={students.image}
@@ -150,7 +151,7 @@ class Student extends Component {
                     <StudentListFilter housing={ this.state.housing } deposit_paid={ this.state.deposit_paid } age={ this.state.age } handleChecked={ this.handleChecked.bind(this) }/>
                 </div>
                 <div className="student-cards">
-                    <ul>
+                    <ul className="card-container">
                         {StudentList}
                     </ul>
                 </div>
