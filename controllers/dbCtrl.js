@@ -27,7 +27,7 @@ module.exports = {
         })
     },
     DeleteCampus: function(req,res,next) {
-        db.delete_campus(req.body.id, function(err, prod) {
+        db.delete_campus(req.query.id, function(err, prod) {
             res.status(200).send(err + ':::' + prod);
         })
     },
@@ -47,7 +47,7 @@ module.exports = {
         })
     },
     DeleteCohort: function(req,res,next) {
-        db.delete_cohort(req.body.id, function(err, prod) {
+        db.delete_cohort(req.query.id, function(err, prod) {
             res.status(200).send(err + prod);
         })
     },
@@ -98,7 +98,7 @@ module.exports = {
         })
     },
     DeleteBuilding: function(req,res,next) {
-        db.delete_building(req.body.id, function(err, prod) {
+        db.delete_building(req.query.id, function(err, prod) {
             res.status(200).send(prod);
         })
     },
@@ -121,7 +121,7 @@ module.exports = {
         })
     },
     DeleteApartment: function(req,res,next) {  
-        db.delete_room (req.body.id, function(err, prod) {
+        db.delete_room (req.query.id, function(err, prod) {
             db.delete_apartment(req.body.id, function(err, prod) {
                 res.status(200).send(err);
             })

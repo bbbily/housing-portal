@@ -9,6 +9,8 @@ class StudentListFilter extends Component {
         };
     }
 
+    
+
     render() {
         return (
             <div>
@@ -18,7 +20,8 @@ class StudentListFilter extends Component {
                     </Button>
                     <Panel collapsible expanded={ this.state.open }>
                         <div>
-                            Campus - drop down
+                            <select >
+                            </select>Campus - drop down
                         </div>
                         <div>
                             Cohort - drop down
