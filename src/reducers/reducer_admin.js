@@ -55,7 +55,8 @@ export function cohortReducer(state=INITIAL_STATE, action) {
       return { all: action.payload.data }
       break;
     case CREATE_COHORT:
-      return { all: [...state.all, action.payload.data] }
+    
+      return { all: [...state.all, action.payload.data[0]] }
       break;
     case DELETE_COHORT:
       return { all: state.all.filter( cohort => { cohort.id !== action.payload.data.id}) }
@@ -65,7 +66,8 @@ export function cohortReducer(state=INITIAL_STATE, action) {
       return { all: [...newCohort, action.payload.data] }
       break;
     case GET_CAMPUSES:
-      console.log(action.payload.data)
+      console.log("CAMPUS DATA", action.payload.data)
+      //return { campuses: [...action.payload.data] }
       return Object.assign({}, state, {campuses: action.payload.data})
       break;
     default:
