@@ -4,4 +4,4 @@ SET campus_id = $2,
     last_name = $4,
     email = $5
 WHERE id = $1
-RETURNING *;
+returning *;

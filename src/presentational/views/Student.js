@@ -29,7 +29,7 @@ class Student extends Component {
     componentDidMount() {
       this.props.dispatch(getStudents())
     }
-    
+
 
     render() {
         let students = [{
@@ -113,7 +113,7 @@ class Student extends Component {
             "eligibility": true,
             "deposit_paid": true},
             {
-            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
             "name": "Missy Beutler",
             "age": "25",
             "gender": "Female",
@@ -121,9 +121,10 @@ class Student extends Component {
             "room": "200",
             "address": "Orem, UT",
             "eligibility": true,
-            "deposit_paid": true},
+            "deposit_paid": true,
+          "accomodations": "ddfasdf"},
             {
-            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
             "name": "Maddie Humphreys",
             "age": "21",
             "gender": "Female",
@@ -133,7 +134,7 @@ class Student extends Component {
             "eligibility": true,
             "deposit_paid": false},
             {
-            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
             "name": "Sang Ahn",
             "age": "98",
             "gender": "Male",
@@ -141,6 +142,7 @@ class Student extends Component {
             "room": "208",
             "address": "Provo, UT",
             "eligibility": false,
+            "accomodations": "ddfasdf",
             "deposit_paid": false},
             {
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
@@ -151,7 +153,8 @@ class Student extends Component {
             "room": "204",
             "address": "Idaho Falls, ID",
             "eligibility": true,
-            "deposit_paid": true}
+            "deposit_paid": true,
+            "accomodations": "ddfasdf"}
         ];
 
        let state = this.state;
@@ -171,8 +174,8 @@ class Student extends Component {
           }
         })
         console.log(this.props.all)
-        const StudentList = this.props.all.map(students => (
-         
+        const StudentList = students.map(students => (
+
            <li> <StudentCards
                 image={students.image}
                 name={`${students.first_name} ${students.last_name}`}
@@ -189,7 +192,7 @@ class Student extends Component {
             <div>
             <NavBar />
                 <div>
-                    <StudentListFilter eligibility={ this.state.eligibility } deposit_paid={ this.state.deposit_paid } age={ this.state.age } handleChecked={ this.handleChecked.bind(this) }/>
+                    <StudentListFilter eligibility={ this.state.eligibility } deposit_paid={ this.state.deposit_paid } age={ this.state.age } accomodations={ this.state.accomodations } handleChecked={ this.handleChecked.bind(this) }/>
                 </div>
 
                 <div className="student-cards">

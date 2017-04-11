@@ -8,7 +8,7 @@ class StudentListFilter extends Component {
         this.state = {
             open: false
         };
-    } 
+    }
 
     handleChecked(type, checked, e) {
       if (type === "age")
@@ -18,7 +18,7 @@ class StudentListFilter extends Component {
     }
 
     handleSelect(type, selected, e) {
-        
+
     }
 
     render() {
@@ -30,15 +30,15 @@ class StudentListFilter extends Component {
                             <option value="1">Provo</option>
                             <option value="2">Salt Lake City</option>
                             <option value="3">Dallas</option>
-                        </select></li>     
-                    
+                        </select></li>
+
                     <li>Cohort <br />
                         <select>
                             <option value="1">DM1</option>
                             <option value="2">DM2</option>
                             <option value="3">DM3</option>
                         </select></li>
-                    
+
                 <li>
                         <input type="checkbox" name="housing" value={ this.props.housing } onChange={ this.handleChecked.bind(this, "housing", !this.props.housing) } /> Need Housing
                     </li>
@@ -49,14 +49,14 @@ class StudentListFilter extends Component {
                         <input type="checkbox" name="age" value={ this.props.age } onChange={ this.handleChecked.bind(this, "age", !this.props.age) } /> 21+
                     </li>
                     <li>
-                        <input type="checkbox" name="accomodations" value={ this.props.accomodations } onChange={ this.handleChecked.bind(this, "accomodations") } /> Accomodations
+                        <input type="checkbox" name="accomodations" value={ this.props.accomodations } onChange={ this.handleChecked.bind(this, "accomodations", !this.props.accomodations) } /> Accomodations
                     </li>
                     <li><input type="radio" name="gender" value="male" /> Male</li>
                     <li><input type="radio" name="gender" value="female" /> Female</li>
                  </ul>
 
             </div>
-    
+
         )
     }
 }

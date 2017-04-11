@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { Field } from "redux-form";
-import { getCampuses } from "../actions/action_apartments";
+import { getCohorts } from "../actions/action_admin";
 import { connect } from "react-redux";
 
-class CampusDropdown extends Component {
+class CohortDropdown extends Component {
   componentWillMount() {
-    this.props.dispatch(getCampuses())
+    this.props.dispatch(getCohorts())
   }
   render() {
-    let campuses = this.props.campuses.map( campus => {
+    let cohorts = this.props.cohorts.map( cohort => {
       // let val = 0;
-      // switch (campus.location_name) {
+      // switch (cohort.location_name) {
       //   case "Provo":
       //     val = 1;
       //     break;
@@ -23,12 +23,12 @@ class CampusDropdown extends Component {
       //   default:
       //     val = 0;
       // }
-      return ( <option value={ campus.id } key={ campus.id} >{ campus.location_name }</option>)
+      return ( <option value={ cohort.id } key={ cohort.id} >{ cohort.name }</option>)
     })
-    console.log(this.props.campuses);
+    console.log(this.props.cohorts);
     return (
       <Field name={ this.props.name } component="select">
-        { campuses }
+        { cohorts }
           {/* <option value="Dallas">Dallas</option>
           <option value="Provo">Provo</option>
           <option value="SaltLake">Salt Lake</option> */}
@@ -38,7 +38,7 @@ class CampusDropdown extends Component {
 }
 
 function mapStateToProps(state) {
-  return { campuses: state.campus.all }
+  return { cohorts: state.cohort.all }
 }
 
-export default connect(mapStateToProps)(CampusDropdown);
+export default connect(mapStateToProps)(CohortDropdown);

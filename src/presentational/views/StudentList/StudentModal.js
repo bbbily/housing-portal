@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Modal, Button, Popover, Tooltip, OverlayTrigger } from "react-bootstrap"
+import { Modal, Button, Popover, Tooltip, OverlayTrigger } from "react-bootstrap";
 import "../../../styles/studentcard.scss";
+import StudentForm from "../../../containers/student/StudentForm"
 
 export default class StudentModal extends Component {
 
@@ -28,7 +29,7 @@ constructor(props) {
         <div onClick={this.open} className="studentcard-button">
           <img src="https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg" className="studentcard-image" />
             {this.props.title.name} <br />
-                {this.props.title.gender}, 
+                {this.props.title.gender},
                 {this.props.title.age}. &nbsp;&nbsp;
                 {this.props.title.cohort} &nbsp;&nbsp;
         </div>
@@ -41,11 +42,12 @@ constructor(props) {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            {this.props.heading.cohort}
+            <StudentForm />
+            {/* {this.props.heading.cohort}
             Room: {this.props.body.room} <br />
-            {this.props.body.address}<br /> 
-            Eligibile: {this.props.body.eligibility} <br /> 
-            Deposit Paid: {this.props.body.deposit_paid}<br />
+            {this.props.body.address}<br />
+            Eligibile: {this.props.body.eligibility} <br />
+            Deposit Paid: {this.props.body.deposit_paid}<br /> */}
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close}>Save Changes</Button>

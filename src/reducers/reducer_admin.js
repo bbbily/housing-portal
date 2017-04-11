@@ -29,12 +29,10 @@ export function adminReducer(state=INITIAL_STATE, action) {
       return { all: action.payload.data }
       break;
     case DELETE_ADMIN:
-    console.log("actions", action.payload, state.all)
       return { all: state.all.filter( admin =>  admin.id !== action.payload.data ) }
       break;
     case EDIT_ADMIN:
-    let newAdmin = state.all.filter( admin => admin.id !== action.payload.data.id )
-      return { all: [...newAdmin, action.payload.data] }
+      return { all: action.payload.data }
       break;
     default:
       return state;
@@ -55,7 +53,7 @@ export function cohortReducer(state=INITIAL_STATE, action) {
       return { all: action.payload.data }
       break;
     case CREATE_COHORT:
-    
+
       return { all: [...state.all, action.payload.data[0]] }
       break;
     case DELETE_COHORT:
