@@ -16,7 +16,7 @@ class Student extends Component {
       eligibility: false,
       deposit_paid: false,
       age: 0,
-      accomodations: "",
+      accomodations: false,
       gender: "male"
     }
   }

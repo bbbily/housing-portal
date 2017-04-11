@@ -55,13 +55,13 @@ class CreateNewStudent extends Component {
     this.refs.city.value="",
     this.refs.state.value="",
     this.refs.country.value="",
-    this.refs.post_code.value="",
-    this.setState({
-      gender: null,
-      campus: null,
-      cohort: null,
-      deposit: null,
-    })
+    this.refs.post_code.value=""
+    // this.setState({
+    //   gender: null,
+    //   campus: null,
+    //   cohort: null,
+    //   deposit: null,
+    // })
   }
 
   handleInputChange(event) {
