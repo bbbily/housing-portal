@@ -26,6 +26,26 @@ class RoomInfo extends Component {
                         </div>
                     </div>
                 </Panel>
+                <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
+                    <h3>Room 2</h3>
+                </div>
+                <Panel collapsible expanded={ this.state.open }>
+                    <div className="bedroom-container">
+                        <div>
+                           <ApartmentsList />
+                        </div>
+                    </div>
+                </Panel>
+                <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
+                    <h3>Room 3</h3>
+                </div>
+                <Panel collapsible expanded={ this.state.open }>
+                    <div className="bedroom-container">
+                        <div>
+                           <ApartmentsList />
+                        </div>
+                    </div>
+                </Panel>
             </div>
         );
     }
