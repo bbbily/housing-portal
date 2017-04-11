@@ -13,6 +13,7 @@ export function getStudents() {
 }
 
 export function editStudent(studentObj) {
+  console.log(studentObj)
   const url = "/api/student"
   const request = axios.put(url, studentObj)
   return {

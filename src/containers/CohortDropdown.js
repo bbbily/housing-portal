@@ -9,21 +9,8 @@ class CohortDropdown extends Component {
   }
   render() {
     let cohorts = this.props.cohorts.map( cohort => {
-      // let val = 0;
-      // switch (cohort.location_name) {
-      //   case "Provo":
-      //     val = 1;
-      //     break;
-      //   case "Salt Lake":
-      //     val = 2;
-      //     break;
-      //   case "Dallas":
-      //     val = 3;
-      //     break;
-      //   default:
-      //     val = 0;
-      // }
-      return ( <option value={ cohort.id } key={ cohort.id} >{ cohort.name }</option>)
+      console.log(cohort.id)
+      return ( <option value={ cohort.id } key={ cohort.id } >{ cohort.name }</option>)
     })
     console.log(this.props.cohorts);
     return (

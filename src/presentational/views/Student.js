@@ -41,6 +41,7 @@ class Student extends Component {
             "room": "205",
             "address": "Boston, MA",
             "eligibility": true,
+            "first_name": "ddd",
             "deposit_paid": false},
             {
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
@@ -49,7 +50,9 @@ class Student extends Component {
             "gender": "Male",
             "cohort": "DM19",
             "room": "201",
+            "first_name": "dddaaaaaa",
             "address": "Nephi, UT",
+            "first_name": "ddafdasfsadfsadfd",
             "eligibility": false,
             "deposit_paid": true},
             {
@@ -57,6 +60,7 @@ class Student extends Component {
             "name": "Steven Gray",
             "age": "18",
             "gender": "Male",
+            "first_name": "ddddfsadfadsfadsfdsafsadf",
             "cohort": "DM19",
             "room": "206",
             "address": "Moab, UT",
@@ -70,6 +74,7 @@ class Student extends Component {
             "cohort": "DM19",
             "room": "200",
             "address": "Draper, UT",
+            "first_name": "dddasdfadsfdsa",
             "eligibility": false,
             "deposit_paid": false},
             {
@@ -143,14 +148,17 @@ class Student extends Component {
             "address": "Provo, UT",
             "eligibility": false,
             "accomodations": "ddfasdf",
+            "first_name": "ddd",
             "deposit_paid": false},
             {
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
             "name": "Megan Fisher",
+            "first_name": "ddd",
             "age": "25",
             "gender": "Female",
             "cohort": "DM19",
             "room": "204",
+            "last_name": "afadfaf",
             "address": "Idaho Falls, ID",
             "eligibility": true,
             "deposit_paid": true,
@@ -173,12 +181,13 @@ class Student extends Component {
             }
           }
         })
-        console.log(this.props.all)
         const StudentList = students.map(students => (
 
            <li> <StudentCards
                 image={students.image}
                 name={`${students.first_name} ${students.last_name}`}
+                first_name={ students.first_name }
+                last_name={ students.last_name }
                 age={moment().diff(students.dob, 'years', false)}
                 gender={students.gender}
                 cohort={students.cohort}
@@ -186,6 +195,17 @@ class Student extends Component {
                 address={`${students.street_address} in ${students.city}, ${students.state}, ${students.country}`}
                 eligibility={students.eligibility}
                 deposit_paid={students.deposit_paid}
+                student_id={students.id}
+                dob={ students.dob }
+                email={ students.email }
+                slack={ students.slack }
+                phone={ students.phone }
+                city={ students.city }
+                state={ students.state }
+                country={ students.country }
+                post_code={ students.post_code }
+                arrive_date={ students.arrive_date }
+                leave_date={ students.leave_date }
                 /></li>
         ))
         return (

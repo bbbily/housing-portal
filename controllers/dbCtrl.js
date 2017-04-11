@@ -175,8 +175,10 @@ module.exports = {
                         req.body.gender, req.body.car_info, req.body.arrive_date, req.body.leave_date,
                         req.body.housing_eligibility, req.body.deposit_paid, req.body.accomodations,
                         req.body.notes,  function(err, prod) {
-            console.log("changing locations");
-            res.status(200).send(prod);
+            db.get_students(function(err, prod) {
+                // console.log(prod);
+                res.status(200).send(prod);
+            })
         })
     },
     DeleteStudent: function(req,res,next) {
