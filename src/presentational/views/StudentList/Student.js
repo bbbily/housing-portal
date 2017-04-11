@@ -11,13 +11,14 @@ class Student extends Component {
     super(props);
 
     this.state = {
-      // housing: false,
+      housing: false,
       deposit_paid: false,
       age: 0,
       accomodations: false,
-      gender: "male"
+      gender: "Male"
     }
   }
+    
     handleChecked(type, val) {
       this.setState({
         [type]: val
@@ -26,6 +27,7 @@ class Student extends Component {
 
     render() {
         let students = [{
+            "campus_id": 1,
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
             "name": "Jeremy Gray",
             "age": "54",
@@ -34,8 +36,10 @@ class Student extends Component {
             "room": "205",
             "address": "Boston, MA",
             "eligibility": true,
-            "deposit_paid": false},
+            "deposit_paid": false,
+            "accomodations": "beer"},
             {
+            "campus_id": 1,
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
             "name": "Peng Wu",
             "age": "70",
@@ -44,8 +48,10 @@ class Student extends Component {
             "room": "201",
             "address": "Nephi, UT",
             "eligibility": false,
-            "deposit_paid": true},
+            "deposit_paid": true,
+            "accomodations": 'NULL'},
             {
+            "campus_id": 1,
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
             "name": "Steven Gray",
             "age": "18",
@@ -54,7 +60,8 @@ class Student extends Component {
             "room": "206",
             "address": "Moab, UT",
             "eligibility": true,
-            "deposit_paid": true},
+            "deposit_paid": true,
+            "accomodations": ""},
             {
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
             "name": "Paige Busch",
@@ -66,6 +73,7 @@ class Student extends Component {
             "eligibility": false,
             "deposit_paid": false},
             {
+            "campus_id": 1,
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
             "name": "Sterling Chin",
             "age": "3",
@@ -76,6 +84,7 @@ class Student extends Component {
             "eligibility": true,
             "deposit_paid": true},
             {
+            "campus_id": 1,
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
             "name": "Jon Myrick",
             "age": "12",
@@ -86,6 +95,7 @@ class Student extends Component {
             "eligibility": true,
             "deposit_paid": false},
             {
+            "campus_id": 2,
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
             "name": "Gustav Nordstrom",
             "age": "69",
@@ -96,6 +106,7 @@ class Student extends Component {
             "eligibility": false,
             "deposit_paid": true},
             {
+            "campus_id": 2,
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
             "name": "Chase Derr",
             "age": "9",
@@ -106,6 +117,7 @@ class Student extends Component {
             "eligibility": true,
             "deposit_paid": true},
             {
+            "campus_id": 2,
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
             "name": "Missy Beutler",
             "age": "25",
@@ -116,6 +128,7 @@ class Student extends Component {
             "eligibility": "Yes",
             "deposit_paid": "Yes"},
             {
+            "campus_id": 2,
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
             "name": "Maddie Humphreys",
             "age": "21",
@@ -126,6 +139,7 @@ class Student extends Component {
             "eligibility": "Yes",
             "deposit_paid": "No"},
             {
+            "campus_id": 3,
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
             "name": "Sang Ahn",
             "age": "98",
@@ -136,6 +150,7 @@ class Student extends Component {
             "eligibility": "No",
             "deposit_paid": "No"},
             {
+            "campus_id": 3,
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
             "name": "Megan Fisher",
             "age": "25",
@@ -150,6 +165,7 @@ class Student extends Component {
         let state = this.state;
 
         ["housing", "deposit_paid", "age", "accomodations"].forEach(function(filterBy) {
+          console.log(filterBy, state[filterBy]);
           let filterValue = state[filterBy];
           if (filterValue) {
             if (filterBy === "age" && state[filterBy] >= 21) {
