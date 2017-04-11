@@ -33,15 +33,16 @@
 }
 
 .studentcard-button {
-    min-width: 228px;
+    min-width: 245px;
     height: 100px;
-    margin: 10px 25px 10px 25px;
-    background-color: $light-gray;
-    color: $dark-gray;
-    border-radius: 3px;
+    margin: 10px 15px 10px 15px;
+    background-color: $dark-gray;
+    color: $light-gray;
+    border-radius: 10px;
     text-align:left;
     padding: 8px;
     display: flex;
+    font-weight: bolder;
     align-items: center;
     box-shadow: 1px 1px 10px #000000;
     transition: all .2s;
