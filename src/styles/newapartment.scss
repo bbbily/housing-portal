@@ -3,7 +3,18 @@
 .new-apartment-container {
     margin-bottom: -40px;
     text-align: center;
-  
+    ul {
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+        padding: 0;
+        margin:0;
+    }
+
+    li {
+        margin-left: 48px;
+        padding:0;
+    }
 }
 
 .apartment-panel {
@@ -49,15 +60,3 @@ input[type=radio] {
     padding-bottom: 48px;
 }
 
-ul {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    padding: 0;
-    margin:0;
-}
-
-li {
-    margin-left: 48px;
-    padding:0;
-}

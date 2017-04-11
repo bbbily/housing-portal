@@ -24,9 +24,7 @@
   color: $dark-gray;
 }
 
-.card-container {
-    position: absolute;
-}
+
 
 .student-modal {
     max-width: 350px;
@@ -35,16 +33,16 @@
 .studentcard-button {
     min-width: 245px;
     height: 100px;
-    margin: 10px 15px 10px 15px;
-    background-color: $dark-gray;
-    color: $light-gray;
+    margin: 10px 5px 10px 5px;
+    background-color: $light-gray;
+    color: $dark-gray;
     border-radius: 10px;
     text-align:left;
     padding: 8px;
     display: flex;
     font-weight: bolder;
     align-items: center;
-    box-shadow: 1px 1px 10px #000000;
+    box-shadow: 3px 3px 10px #000000;
     transition: all .2s;
         &:hover {
                 box-shadow: 1px 1px 3px #000000;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Panel, Button } from "react-bootstrap";
+import { Panel, button } from "react-bootstrap";
 import "../../styles/newapartment.scss";
 import { Field, reduxForm } from "redux-form";
 import Room from "../../presentational/views/Room";
@@ -15,8 +15,8 @@ class CreateNewApartment extends Component {
             rooms: [],
             showAddressForm: false,
             showApartmentForm: true,
-            addressButton: true,
-            apartmentButton: false,
+            addressbutton: true,
+            apartmentbutton: false,
             showRoomForm: false
         };
     }
@@ -45,24 +45,24 @@ class CreateNewApartment extends Component {
                     { this.state.showApartmentForm && (
                       <div className="min-height">
                         <h1>New campus?</h1> <p>To add a building address, click Add New Address below. </p><br />
-                        <Button onClick={ () => this.setState({ showAddressForm: !this.state.showAddressForm, showApartmentForm: !this.state.showApartmentForm, addressButton: false, apartmentButton: true, showRoomForm: false }) }>Add New Address</Button>
+                        <button onClick={ () => this.setState({ showAddressForm: !this.state.showAddressForm, showApartmentForm: !this.state.showApartmentForm, addressbutton: false, apartmentbutton: true, showRoomForm: false }) }>Add New Address</button>
                         <hr />
                         <Apartment showRoom={ this.showRoom.bind(this) }/>
                       </div>
                     ) }
                     { this.state.showAddressForm && (
                       <div>
-                      <Button onClick={ () => this.setState({ showAddressForm: !this.state.showAddressForm, showApartmentForm: !this.state.showApartmentForm, addressButton: true, apartmentButton: false }) }>Add Apartment</Button>
+                      <button onClick={ () => this.setState({ showAddressForm: !this.state.showAddressForm, showApartmentForm: !this.state.showApartmentForm, addressbutton: true, apartmentbutton: false }) }>Add Apartment</button>
                       <NewAddressForm />
                     </div>)}
                     { this.state.showRoomForm && (<form onSubmit={ handleSubmit(this.onSubmit.bind(this)) } >
                       { Rooms }
                       <div className="room-controls-container">
                         <h1>Apartment added!</h1>
-                        <p>Now let's throw some rooms in there.</p>
-                        <Button className="margin-left" type="Button" onClick={ () => this.setState({ rooms: [...Rooms, <Room beds={`room${Rooms.length}bed`} gender={`room${Rooms.length}gender`} key={Rooms.length} /> ]})}>Add New Room</Button>
-                        <Button className="margin-left" type="submit">  Save  </Button>
-                        <Button className="margin-left" type="Button" onClick={ () => this.setState({ rooms: Rooms.slice(0, Rooms.length-1)})}>Delete Room</Button>
+                        <p>Now let's throw some bedrooms in there.</p>
+                        <button className="margin-left" type="button" onClick={ () => this.setState({ rooms: [...Rooms, <Room beds={`room${Rooms.length}bed`} gender={`room${Rooms.length}gender`} key={Rooms.length} /> ]})}>Add New Room</button>
+                        <button className="margin-left" type="submit">  Save  </button>
+                        <button className="margin-left" type="button" onClick={ () => this.setState({ rooms: Rooms.slice(0, Rooms.length-1)})}>Delete Room</button>
                       </div>
                     </form>)}
                 </Panel>
