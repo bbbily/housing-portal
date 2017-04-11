@@ -38,7 +38,8 @@ module.exports = {
     },
     AddCohort: function(req,res,next){
         db.add_cohort(req.body.campus_id, req.body.name, req.body.start_date, req.body.end_date, function (err, prod) {
-            res.status(200).send("errors: " + err + " %%%% prods: " + prod);
+            console.log(prod)
+            res.status(200).send(prod);
         })
     },
     EditCohort: function(req,res,next){

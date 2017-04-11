@@ -1,5 +1,30 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 @import "./_variables.scss";
 
 .filter-container {
+    color: #fff;
+    background-color: $dark-gray;
+    width: 75%;
+    padding-right: 75px;
+    padding-left: 75px;
+    text-align:center;
+    margin: auto;
+    border-radius: 0 0 10px 10px;
+    font-family: "Nunito", sans-serif;
+}  
+
+.filter-container ul {
+        display:flex;
+        justify-content: space-around;
+        list-style: none;
+        padding-bottom: 18px;
+        padding-top: 18px;
+        
+}
+
+
+.filter-container select, input {
+    font-weight: bold;
+    margin-top: 0;
     color: #000;
 }

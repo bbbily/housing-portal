@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../styles/containers/modal.css'
 import { Modal, Button, Popover, Tooltip, OverlayTrigger } from "react-bootstrap"
 
 
