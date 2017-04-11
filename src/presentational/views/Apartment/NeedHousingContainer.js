@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import StudentCards from "./StudentCards";
 // import TestStudent from "../../../TestStudent";
 import "../../../styles/housingcontainer.scss";
-
+import { DragDropContextProvider } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+import Student from '../../../containers/Apartments/Student';
 class NeedHousingContainer extends Component {
     render() {
         let students = [{
@@ -128,7 +130,8 @@ class NeedHousingContainer extends Component {
         ];
 
         const StudentList = students.map(students => (
-           <li> <StudentCards
+          <li> 
+           {/*<StudentCards
                 image={students.image}
                 name={students.name}
                 age={students.age}
@@ -138,13 +141,18 @@ class NeedHousingContainer extends Component {
                 address={students.address}
                 eligibility={students.eligibility}
                 deposit_paid={students.deposit_paid}
-                /></li>
+                />*/}
+                
+                <Student name={students.name} />
+                </li>
         ))
 
         return (
-            <div className="housing-container">
-                { StudentList }
-            </div>
+            <DragDropContextProvider backend={HTML5Backend}>
+                <div className="housing-container">
+                    { StudentList }
+                </div>
+            </DragDropContextProvider>
         );
     }
 }

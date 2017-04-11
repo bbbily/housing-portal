@@ -1,18 +1,20 @@
 @import "./_variables.scss";
 
 .housing-container {
-    width: 30%;
-    height: 100%;
-    position: relative;
-    right: -880px;
-    top: -220px;
+    /* width: 30%; */
+    /* height: 100%; */
+    position: absolute;
+    right: 0px;
+    /* top: -220px; */
+    top: 135px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    overflow: auto;
+    overflow-y: scroll;
+    padding-right: 68px;
 
     li {
         list-style-type: none;
-        margin-top: 105px;
+        margin-top: 24px;
     }
 }

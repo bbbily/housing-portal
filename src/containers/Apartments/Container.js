@@ -4,7 +4,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import Room from './Room';
 import Student from './Student';
 import "../../styles/dndbed.scss";
-
+import "../../styles/housingcontainer.scss";
 const style = {
   borderRadius: '5px',
   backgroundColor: '#4d4d4d',
@@ -22,7 +22,7 @@ export default class Container extends Component {
 
   render() {
     return (
-      <DragDropContextProvider backend={HTML5Backend}>
+     <DragDropContextProvider backend={HTML5Backend}>
         <div>
           <div className="apartment-container" style={{ overflow: 'hidden', clear: 'both' }}>
             <div style={{ ...style }}>
@@ -38,11 +38,8 @@ export default class Container extends Component {
               <Room allowedDropEffect="any" />
             </div>
           </div>
-          <div style={{ overflow: 'hidden', clear: 'both' }}>
-            <Student name="Kevin"
-                 campus=""
-                 cohort=""
-                    />
+          <div style={{ overflow: 'hidden', clear: 'both' }} className="housing-container">
+            <Student name="Kevin" />
             <Student name="Joanna" />
             <Student name="Billy" />
           </div>
