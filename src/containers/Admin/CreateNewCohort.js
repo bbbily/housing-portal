@@ -15,7 +15,7 @@ class CreateNewCohort extends Component {
             name: null,
             start_date: null,
             end_date: null,
-            campus: null
+            campus_id: null
 
         };
 
@@ -36,13 +36,13 @@ class CreateNewCohort extends Component {
             [name] : value
         })
 
-        console.log(this.state)
+       
     }
 
 
     componentWillMount() {
         this.props.dispatch(getCohorts())
-        this.props.dispatch(getCampuses()) 
+        this.props.dispatch(getCampuses())
     }
 
 
@@ -58,13 +58,13 @@ class CreateNewCohort extends Component {
     }
 
     render() {
-        console.log(this.props)
+        console.log("Component", this.props.all)
         const campuses = this.props.campuses.map((campus,i) => (
-            <MenuItem id={campus.id} key={campus.id}> {campus.city} </MenuItem>
+            <MenuItem id={campus.id} key={campus.id}  eventKey={campus.id}> {campus.city} </MenuItem>
         ))
 
         const cohorts = this.props.all.map( (cohort, i) => (
-            <div>
+            <div key={cohort.id}>
                 <ul className="dm-info">
                     <li>{ cohort.name }</li>
                     <li>{moment(cohort.start_date).format("ddd, MMMM D,  YYYY")}</li>
@@ -73,7 +73,7 @@ class CreateNewCohort extends Component {
                 </ul>
             </div>
         ))
- 
+
         return (
             <div className="new-cohort-container">
                 <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
@@ -91,21 +91,21 @@ class CreateNewCohort extends Component {
                             </ul>
                                 {cohorts}
                         </div>
-                        
+
                         <div className="cohort-container col-sm-6">
                             <h2>Create</h2>
                             <ul className="cohort-name">
                                 <li className="cohort-name-left">
-                                    <input type="text" 
-                                        className="" 
-                                        placeholder="DM##" 
-                                        name="name" 
-                                        onChange={this.handleInputChange}/> 
+                                    <input type="text"
+                                        className=""
+                                        placeholder="DM##"
+                                        name="name"
+                                        onChange={this.handleInputChange}/>
                                 </li>
                             <li className="cohort-name-right">
                     <DropdownButton title="Campus" onSelect={ evt => this.setState({ campus: evt }) } className="student-20">
                       {campuses}
-                    </DropdownButton>
+                    </DropdownButton> <br />
                      
                     {this.state.campus}
                             </li>
@@ -114,13 +114,13 @@ class CreateNewCohort extends Component {
                             <li className="cohort-begin-date">
                                 Begins <br />
                                 <input type="date"
-                                            name="start_date" 
+                                            name="start_date"
                                             onChange={this.handleInputChange} />
                             </li>
                             <li className="cohort-end-date">
                                 Ends <br />
                                 <input type="date"
-                                    name="end_date" 
+                                    name="end_date"
                                     onChange={this.handleInputChange} />
                                 </li>
                             </ul>
@@ -128,7 +128,7 @@ class CreateNewCohort extends Component {
                             <Button onClick={() => { this.sendCohort(this.state) }}>  Create Cohort  </Button>
                             </div>
                         </div>
-                        
+
                     </div>
                 </Panel>
             </div>
@@ -139,7 +139,7 @@ class CreateNewCohort extends Component {
 function mapStateToProps(state) {
     return {
         all: state.cohort.all,
-        campuses: state.cohort.campuses
+        campuses: state.campus.all
     }
 }
 

@@ -15,7 +15,6 @@ class AdminForm extends Component {
   }
 
   handleDelete() {
-
     console.log(this.props.id)
     this.props.dispatch(deleteAdmin(this.props.id))
   }
@@ -38,11 +37,10 @@ class AdminForm extends Component {
             <option value="3">Dallas</option>
           </Field></li>
 
+          <input type="image" src={require("../../styles/icons/save.svg")} name="submit" className="admin-icon" />
+          <img src={require("../../styles/icons/garbage.svg")} onClick={ this.handleDelete.bind(this) } className="admin-icon" />
 
 
-         
-          <input type="button" src={require("../../styles/icons/save.svg")} className="edit-button" name="submit" value="Save"/> 
-          <img src={require("../../styles/icons/garbage.svg")} onClick={ this.handleDelete.bind(this, {id: this.props.id}) } className="admin-icon" />
 
         </ul>
       </form>

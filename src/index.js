@@ -12,7 +12,7 @@ import reducers from "./reducers";
 import Admin from "./presentational/views/Admin";
 import Apartment from "./presentational/views/Apartment/Apartment";
 // import NavBar from "./presentational/NavBar";
-import Student from "./presentational/views/StudentList/Student";
+import Student from "./presentational/views/Student";
 // import DropDown from "./containers/DropDownMenu";
 
  // import ApartmentListFilter from "./containers/ApartmentListFilter";

@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import { apartmentsReducer, addressReducer } from "./reducer_apartments";
-
+import { apartmentsReducer, addressReducer, campusReducer } from "./reducer_apartments";
+import {studentReducer} from './reducer_student'
 import {adminReducer, cohortReducer} from "./reducer_admin";
 import { reducer as formReducer } from "redux-form";
 // import { modelReducer, formReducer } from "react-redux-form";
@@ -11,7 +11,9 @@ const rootReducer = combineReducers({
   form: formReducer,
   admin: adminReducer,
   cohort: cohortReducer,
-  address: addressReducer
+  address: addressReducer,
+  campus: campusReducer,
+  students: studentReducer
 });
 
 export default rootReducer;

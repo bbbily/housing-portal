@@ -2,8 +2,61 @@
 
 .new-apartment-container {
     margin-bottom: -40px;
+    text-align: center;
+    ul {
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+        padding: 0;
+        margin:0;
+    }
+
+    li {
+        margin-left: 48px;
+        padding:0;
+    }
 }
 
 .apartment-panel {
     color: #000;
 }
+
+.new-address-form {
+    min-height: 450px;
+    padding-top: 48px;
+}
+
+hr {
+    width: 80%;
+    height: 2px;
+    border-color: $dark-gray;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.spacer {
+    margin-bottom: 36px;
+    border-style: solid;
+    border-color: $light-gray;
+    border-width: 0 0 1px 0;
+    padding-bottom: 24px;
+    margin-left: 250px;
+    margin-right: 250px;
+
+
+}
+
+input[type=radio] {
+    margin-left: 48px !important;
+}
+
+.margin-left {
+    margin-left: 48px;
+}
+
+.room-controls-container {
+    min-height: 450px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
