@@ -49,48 +49,67 @@ VALUES
 (3, 'DM-01z', '1999-06-01', '1999-08-30');
 
 INSERT INTO building
-(campus_id, street_address, city, state, country, post_code)
+(campus_id, property_name, street_address, city, state, country, post_code)
 VALUES
-(1, '575 S. 200 W.', 'Provo', 'Utah', 'United States of America', '84601'),
-(1, '777 S. Temple St.', 'Provo', 'Utah', 'United States of America', '84777');
+(1, 'Carson Corner', '491 S. Freedom Blvd', 'Provo', 'Utah', 'United States of America', '84601'),
+(2, 'City Station', '644 W N Temple', 'Salt Lake City', 'Utah', 'United States of America', '84116');
 
 INSERT INTO apartment
 (building_id, apartment_number, preferred_gender, over_21)
 VALUES
-(1, '101', 'M', 'true'),
-(1, '102', 'M', 'false'),
-(1, '201', 'F', 'true'),
-(1, '204', 'M', 'true'),
-(2, '109', 'M', 'true'),
-(2, '111', 'F', 'true'),
-(2, '210', 'M', 'true'),
-(2, '212', 'F', 'false');
+(1, '101', 'Female', 'false'),
+(1, '103', 'Male', 'false'),
+(1, '107', 'Male', 'false'),
+(1, '108', 'Male', 'false'),
+(1, '201', 'Male', 'true'),
+(1, '203', 'Male', 'true'),
+(1, '204', 'Male', 'true'),
+(1, '205', 'Male', 'true'),
+(1, '206', 'Male', 'true'),
+(1, '208', 'Female', 'true'),
+(2, '101', 'Male', 'true'),
+(2, '116', 'Female', 'false'),
+(2, '232', 'Male', 'true'),
+(2, '332', 'Female', 'false'),
+(2, '432', 'Male', 'false');
 
 INSERT INTO room
 (apartment_id, number_of_beds)
 VALUES
 (1, 2),
-(1, 1),
-(1, 2),
-(2, 2),
 (2, 2),
 (3, 2),
-(3, 1),
-(3, 2),
-(4, 1),
-(4, 1),
+(4, 2),
+(5, 1),
 (5, 2),
-(5, 2),
-(5, 2),
+(5, 1),
 (6, 1),
 (6, 2),
 (6, 1),
 (7, 2),
-(7, 1),
 (7, 2),
-(8, 1),
 (8, 2),
-(8, 1);
+(8, 2),
+(9, 1),
+(9, 2),
+(9, 1),
+(10, 1),
+(10, 2),
+(10, 1),
+(11, 2),
+(11, 2),
+(12, 2),
+(12, 2),
+(12, 1),
+(13, 2),
+(13, 2),
+(13, 2),
+(14, 2),
+(14, 2),
+(14, 2),
+(15, 2),
+(15, 2),
+(15, 2);
 
 INSERT INTO student
 (room_id, cohort_id, first_name, last_name, phone, email, slack, street_address, city, state, country, post_code,
@@ -101,4 +120,123 @@ VALUES
 (NULL, 1, 'Jenny Jenny', 'BoBenny', '8015551234', 'banananana@fofenny.org', 'imajenny', '123 Four Cir.', 'n00bton', 'NB', 'usa', '55555',
     '1976-02-28', 'F', NULL, '1999-06-01', '1999-08-31', true, true, 'needs more sleep', ''),
 (NULL, 2, 'Cthulhu', '!', '8016661313', 'emptiness@lord.divine', 'therealcthulhu', '10000 Feet Deep', 'Bermuda', 'Atl', 'Oceania', '0',
-    '0001-01-01', 'O', NULL, '1999-06-27', '1999-09-25', true, true, 'needs souls', '');
+    '0001-01-01', 'O', NULL, '1999-06-27', '1999-09-25', true, true, 'needs souls', ''),
+(NULL, 3, 'Jeremy', 'Gray', '000000000', 'jayjay@gray.com', 'jjgray', 'Revere Dr.', 'Boston', 'MA', 'USA', '22222',
+    '1990-07-04', 'M', NULL, NULL, NULL, true, true, NULL, ''),
+(NULL, 3, 'Peng', 'Wu', '5420529384', 'youngusien@apple.com', 'bbbily', '55 Some St.', 'Cincy', 'OH', 'USA', '33445',
+    '1997-07-07', 'M', NULL, NULL, NULL, true, false, 'sleep', '');
+
+          /*  
+            {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
+            "name": "Peng Wu",
+            "age": "70",
+            "gender": "Male",
+            "cohort": "DM19",
+            "room": "201",
+            "address": "Nephi, UT",
+            "eligibility": false,
+            "deposit_paid": true},
+            {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
+            "name": "Steven Gray",
+            "age": "18",
+            "gender": "Male",
+            "cohort": "DM19",
+            "room": "206",
+            "address": "Moab, UT",
+            "eligibility": true,
+            "deposit_paid": true},
+            {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
+            "name": "Paige Busch",
+            "age": "99",
+            "gender": "Female",
+            "cohort": "DM19",
+            "room": "200",
+            "address": "Draper, UT",
+            "eligibility": false,
+            "deposit_paid": false},
+            {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
+            "name": "Sterling Chin",
+            "age": "3",
+            "gender": "Male",
+            "cohort": "DM15",
+            "room": "206",
+            "address": "Alpine, UT",
+            "eligibility": true,
+            "deposit_paid": true},
+            {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
+            "name": "Jon Myrick",
+            "age": "12",
+            "gender": "Male",
+            "cohort": "DM12",
+            "room": "201",
+            "address": "Provo, UT",
+            "eligibility": true,
+            "deposit_paid": false},
+            {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
+            "name": "Gustav Nordstrom",
+            "age": "69",
+            "gender": "Male",
+            "cohort": "DM15",
+            "room": "206",
+            "address": "Sarasota, FL",
+            "eligibility": false,
+            "deposit_paid": true},
+            {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
+            "name": "Chase Derr",
+            "age": "9",
+            "gender": "Male",
+            "cohort": "DM23",
+            "room": "206",
+            "address": "Draper, UT",
+            "eligibility": true,
+            "deposit_paid": true},
+            {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
+            "name": "Missy Beutler",
+            "age": "25",
+            "gender": "Female",
+            "cohort": "DM10",
+            "room": "200",
+            "address": "Orem, UT",
+            "eligibility": "Yes",
+            "deposit_paid": "Yes"},
+            {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
+            "name": "Maddie Humphreys",
+            "age": "21",
+            "gender": "Female",
+            "cohort": "DM1",
+            "room": "211",
+            "address": "Boise, ID",
+            "eligibility": "Yes",
+            "deposit_paid": "No"},
+            {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
+            "name": "Sang Ahn",
+            "age": "98",
+            "gender": "Male",
+            "cohort": "DM16",
+            "room": "208",
+            "address": "Provo, UT",
+            "eligibility": "No",
+            "deposit_paid": "No"},
+            {
+            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
+            "name": "Megan Fisher",
+            "age": "25",
+            "gender": "Female",
+            "cohort": "DM19",
+            "room": "204",
+            "address": "Idaho Falls, ID",
+            "eligibility": true,
+            "deposit_paid": true}
+        ];
+
+        */

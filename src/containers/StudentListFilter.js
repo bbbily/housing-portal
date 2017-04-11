@@ -17,12 +17,13 @@ class StudentListFilter extends Component {
         this.props.handleChecked(type, checked);
     }
 
-    
+    handleSelect(type, selected, e) {
+        
+    }
 
     render() {
         return (
             <div className="filter-container">
-
                 <ul>
                     <li>Campus <br />
                         <select>
@@ -52,7 +53,8 @@ class StudentListFilter extends Component {
                     </li>
                     <li><input type="radio" name="gender" value="male" /> Male</li>
                     <li><input type="radio" name="gender" value="female" /> Female</li>
-                    </ul>
+                 </ul>
+
             </div>
     
         )

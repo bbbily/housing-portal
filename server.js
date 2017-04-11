@@ -62,6 +62,10 @@ app.post('/api/student', controller.AddStudent);
 app.delete('/api/student', controller.DeleteStudent);
 
 
+// get student and cohort information
+app.get('/api/cohort/student', controller.GetStudentsInCohort);
+
+
 
 
 
