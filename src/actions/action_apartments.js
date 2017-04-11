@@ -4,6 +4,7 @@ export const GET_APARTMENTS = "GET_APARTMENTS";
 export const CREATE_APARTMENT = "CREATE_APARTMENT";
 export const CREATE_ADDRESS = "CREATE_ADDRESS";
 export const GET_ADDRESS = "GET_ADDRESS";
+export const GET_CAMPUSES = "GET_CAMPUSES";
 
 
 export function getApartments() {
@@ -35,6 +36,16 @@ export function createAddress(props) {
 
   return {
     type: CREATE_ADDRESS,
+    payload: request
+  }
+}
+
+export function getCampuses() {
+  const url = "api/campus";
+  const request = axios.get(url);
+  console.log("request", request);
+  return {
+    type: GET_CAMPUSES,
     payload: request
   }
 }

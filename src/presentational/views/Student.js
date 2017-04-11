@@ -13,7 +13,7 @@ class Student extends Component {
     super(props);
 
     this.state = {
-      // housing: false,
+      eligibility: false,
       deposit_paid: false,
       age: 0,
       accomodations: false,
@@ -120,8 +120,8 @@ class Student extends Component {
             "cohort": "DM10",
             "room": "200",
             "address": "Orem, UT",
-            "eligibility": "Yes",
-            "deposit_paid": "Yes"},
+            "eligibility": true,
+            "deposit_paid": true},
             {
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
             "name": "Maddie Humphreys",
@@ -130,8 +130,8 @@ class Student extends Component {
             "cohort": "DM1",
             "room": "211",
             "address": "Boise, ID",
-            "eligibility": "Yes",
-            "deposit_paid": "No"},
+            "eligibility": true,
+            "deposit_paid": false},
             {
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",            
             "name": "Sang Ahn",
@@ -140,8 +140,8 @@ class Student extends Component {
             "cohort": "DM16",
             "room": "208",
             "address": "Provo, UT",
-            "eligibility": "No",
-            "deposit_paid": "No"},
+            "eligibility": false,
+            "deposit_paid": false},
             {
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
             "name": "Megan Fisher",
@@ -189,7 +189,7 @@ class Student extends Component {
             <div>
             <NavBar />
                 <div>
-                    <StudentListFilter housing={ this.state.housing } deposit_paid={ this.state.deposit_paid } age={ this.state.age } handleChecked={ this.handleChecked.bind(this) }/>
+                    <StudentListFilter eligibility={ this.state.eligibility } deposit_paid={ this.state.deposit_paid } age={ this.state.age } handleChecked={ this.handleChecked.bind(this) }/>
                 </div>
 
                 <div className="student-cards">

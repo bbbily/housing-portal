@@ -41,7 +41,7 @@ class CreateNewStudent extends Component {
     this.handleInputChange = this.handleInputChange.bind(this)
     this.clearData = this.clearData.bind(this)
   }
-  
+
   clearData() {
     this.refs.first_name.value="",
     this.refs.last_name.value="",
@@ -74,15 +74,15 @@ class CreateNewStudent extends Component {
     })
   }
 
-  componentDidMount() {
+  componentWillMount() {
         this.props.dispatch(getCohorts())
-        this.props.dispatch(getCampuses()) 
+        this.props.dispatch(getCampuses())
     }
 
 
   render() {
         const cohorts = this.props.all.map( (cohort, i) => (
-          <MenuItem id={cohort.id} key={i} eventKey={cohort.name} 
+          <MenuItem id={cohort.id} key={i} eventKey={cohort.name}
             onSelect={ () => {
               let start_date = moment(cohort.start_date).format("YYYY-MM-DD")
               let end_date = moment(cohort.end_date).format("YYYY-MM-DD")
@@ -107,35 +107,35 @@ class CreateNewStudent extends Component {
                 <div className="col-sm-6">
                   <h1>General</h1>
                 <ul className="student-ul">
-              
+
                   <li><input type="text" placeholder="First" name="first_name" ref="first_name" className="student-40" onChange={this.handleInputChange}/></li>
                   <li><input type="text" placeholder="Last" name="last_name" ref="last_name" className="student-40" onChange={this.handleInputChange}/></li>
                   <li>DOB <br/> <input type="date" name="dob" ref="dob" className="student-20" onChange={this.handleInputChange}/> </li>
                   <li>
                     <div className="item-container">
-                      <div className="item-left">                    
+                      <div className="item-left">
                         <DropdownButton title="Gender" onSelect={ evt => { this.setState({ gender: evt }) }}  className="student-20">
                           <MenuItem eventKey="M">Male</MenuItem>
                           <MenuItem eventKey="F">Female</MenuItem>
                         </DropdownButton>
                       </div>
                         <div className="item-right">{this.state.gender}</div>
-                    </div> 
+                    </div>
                   </li>
-                 <li> 
+                 <li>
                     <div className="item-container">
                       <div className="item-left">
                     <DropdownButton title="Campus" onSelect={ evt => this.setState({ campus: evt }) } className="student-20">
                       {campuses}
                     </DropdownButton>
                       </div>
-                        <div className="item-right">                    
+                        <div className="item-right">
                     {this.state.campus}</div>
                     </div>
                   </li>
-                  <li> 
+                  <li>
                     <div className="item-container">
-                      <div className="item-left"> 
+                      <div className="item-left">
                         <DropdownButton title="Cohort" onSelect={ evt => {this.setState({cohort: evt }) }}  className="student-20">
                           {cohorts}
                         </DropdownButton>
@@ -154,11 +154,11 @@ class CreateNewStudent extends Component {
                         <div className="item-right">{this.state.deposit_paid}</div>
                     </div>
                   </li>
-                  <li>Arrives:<input type="date" name="arrive_date" ref="arrive_date" className="student-20" 
+                  <li>Arrives:<input type="date" name="arrive_date" ref="arrive_date" className="student-20"
                                           value={this.state.arrive_date}
                                           onChange={ evt => {this.setState({ arrive_date: evt.target.value})}}
                                           /></li>
-                  <li>Leaves: <input type="date" name="leave_date" ref="leave_date" className="student-20" 
+                  <li>Leaves: <input type="date" name="leave_date" ref="leave_date" className="student-20"
                                           value={this.state.leave_date}
                                           onChange={ evt => { this.setState({ leave_date: evt.target.value})}}
                                           /></li>
@@ -166,7 +166,7 @@ class CreateNewStudent extends Component {
                </div>
 
                <div className="col-sm-6">
-               
+
                 <h1>Contact</h1>
                 <ul className="student-ul">
                   <li><input type="text" placeholder="Email" name="email" ref="email" className="student-40" onChange={this.handleInputChange}/></li>
@@ -178,7 +178,7 @@ class CreateNewStudent extends Component {
                   <li><input type="text" placeholder="country" name="country" ref="country" className="student-30" onChange={this.handleInputChange}/>
                       <input type="text" placeholder="zip" name="post_code" ref="post_code" className="student-10" onChange={this.handleInputChange}/></li>
                   <ul className="student-ul">
-                    <li><Button onClick={ () => 
+                    <li><Button onClick={ () =>
                       { this.props.dispatch(createStudent(this.state))
                         this.clearData()
                         this.setState({open: false})
@@ -189,8 +189,8 @@ class CreateNewStudent extends Component {
                     </li>
 
                   </ul>
-                
-                </ul> 
+
+                </ul>
 
               </div>
               </div>
@@ -221,7 +221,7 @@ class CreateNewStudent extends Component {
 function mapStateToProps(state) {
   return {
     all: state.cohort.all,
-    campuses: state.cohort.campuses
+    campuses: state.campus.all
   }
 }
 export default connect(mapStateToProps)(CreateNewStudent)
