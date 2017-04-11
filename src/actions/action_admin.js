@@ -63,6 +63,7 @@ export function getCohorts() {
   }
 }
 export function createCohort(cohortObj) {
+  console.log(cohortObj)
   const url = "/api/cohort";
   const request = axios.post(url, cohortObj);
   return {

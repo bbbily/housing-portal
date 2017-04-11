@@ -1,4 +1,3 @@
-import {combineReducers} from 'redux'
 
 const INITIAL_STATE = {
   all: []
@@ -13,8 +12,8 @@ export function studentReducer(state=INITIAL_STATE, action) {
       return {all: action.payload.data}
       break;
     case EDIT_STUDENT :
-      let newStudent = state.all.filter( student => students.id !== action.payload.data.id)
-      return {all: [...newStudent, action.payload.data]}
+      // let newStudent = state.all.filter( student => student.id !== action.payload.data.id)
+      return {all: action.payload.data}
   }
   return state;
 }
