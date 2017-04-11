@@ -64,7 +64,6 @@ export function cohortReducer(state=INITIAL_STATE, action) {
       return { all: [...newCohort, action.payload.data] }
       break;
     case GET_CAMPUSES:
-      console.log("CAMPUS DATA", action.payload.data)
       //return { campuses: [...action.payload.data] }
       return Object.assign({}, state, {campuses: action.payload.data})
       break;
