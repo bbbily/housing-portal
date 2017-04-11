@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { Panel } from "react-bootstrap";
 // import StudentModal from "./StudentModal";
 import StudentModal from "./StudentModal";
-// import "../../../styles/studentcard.scss";
-import "../../../styles/teststudent.scss";
+ import "../../../styles/studentcard.scss";
 
 class StudentCards extends Component {
     constructor(...args) {

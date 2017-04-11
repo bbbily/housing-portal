@@ -186,13 +186,13 @@ class Student extends Component {
                 /></li>
         ))
         return (
-            <div className="student-cards">
+            <div>
             <NavBar />
                 <div>
                     <StudentListFilter housing={ this.state.housing } deposit_paid={ this.state.deposit_paid } age={ this.state.age } handleChecked={ this.handleChecked.bind(this) }/>
                 </div>
 
-                <div>
+                <div className="student-cards">
                     <ul className="card-container">
                         {StudentList}
                     </ul>

@@ -26,7 +26,7 @@ constructor(props) {
 
 
         <div onClick={this.open} className="studentcard-button">
-          <img src="https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg" className="studentcard-image" />>
+          <img src="https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg" className="studentcard-image" />
             {this.props.title.name} <br />
                 {this.props.title.gender}, 
                 {this.props.title.age}. &nbsp;&nbsp;
@@ -37,18 +37,19 @@ constructor(props) {
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
             <Modal.Title>
-                    {this.props.heading.name}
-                <p>{this.props.heading.age} &nbsp;&nbsp; {this.props.heading.gender} &nbsp;&nbsp; {this.props.heading.cohort}</p>
+                  <h1>{this.props.heading.name}, {this.props.heading.gender}, {this.props.heading.age}</h1>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
+            {this.props.heading.cohort}
             Room: {this.props.body.room} <br />
             {this.props.body.address}<br /> 
             Eligibile: {this.props.body.eligibility} <br /> 
             Deposit Paid: {this.props.body.deposit_paid}<br />
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.close}>Save</Button>
+            <Button onClick={this.close}>Save Changes</Button>
+            <Button onClick={this.close}>Close</Button>
           </Modal.Footer>
         </Modal>
       </div>
