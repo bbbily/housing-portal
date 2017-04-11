@@ -60,7 +60,8 @@ class Student extends Component {
       connectDragSource(
         <div className="aptcard-button">
           <img src="https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg" className="aptcard-image" />
-          {name}
+          {this.props.name}, {this.props.age} <br />
+          {this.props.gender}
         </div>,
       )
     );

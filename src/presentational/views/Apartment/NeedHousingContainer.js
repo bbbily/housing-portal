@@ -143,7 +143,16 @@ class NeedHousingContainer extends Component {
                 deposit_paid={students.deposit_paid}
                 />*/}
                 
-                <Student name={students.name} />
+                <Student name={students.name} 
+                        image={students.image}
+                        age={students.age}
+                        gender={students.gender}
+                        cohort={students.cohort}
+                        room={students.room}
+                        address={students.address}
+                        eligibility={students.eligibility}
+                        deposit_paid={students.deposit_paid}
+                />
                 </li>
         ))
 
