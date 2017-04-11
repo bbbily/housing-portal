@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { DragSource } from 'react-dnd';
 import ItemTypes from './itemTypes';
+
 import "../../styles/aptstudentcard.scss";
+
 
 // const style = {
 //   border: '1px dashed gray',

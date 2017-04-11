@@ -1,13 +1,14 @@
 
 var massive = require('massive');
-// var dbConnection = "postgres://aquasau1_db:jppsDM19@aquasaurious.com:5432/aquasau1_housing";  // connection for S.Gray's bluehost account
+ //var dbConnection = "postgres://aquasau1_db:jppsDM19@aquasaurious.com:5432/aquasau1_housing";  
+ // connection for S.Gray's bluehost account
 var dbConnection = "postgres://owhmkznh:hxxkeFT6WkOZZ5-8qrA1aTWn2uOBbDGT@stampy.db.elephantsql.com:5432/owhmkznh";  // connection for free account at postgre
 
 
 var db = massive.connect({connectionString : dbConnection},
   function(err, localdb){
-      console.log("dbconn err: ", err);
-      console.log("db contents: ", localdb);    
+      //console.log("dbconn err: ", err);
+      //console.log("db contents: ", localdb);    
      db = localdb;
       //app.set('db', db);
   }
