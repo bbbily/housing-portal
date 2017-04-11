@@ -1,5 +1,11 @@
 
-
+DROP TABLE student;
+DROP TABLE room;
+DROP TABLE apartment;
+DROP TABLE building;
+DROP TABLE users;
+DROP TABLE cohort;
+DROP TABLE campus;
 
 --------------------------- CAMPUS table
 
@@ -56,7 +62,7 @@ CREATE TABLE apartment(
     id SERIAL PRIMARY KEY,
     building_id INT REFERENCES building(id),
     apartment_number VARCHAR(7),
-    preferred_gender CHAR(1),
+    preferred_gender CHAR(15),
     over_21 BOOLEAN
 );
 
@@ -87,7 +93,7 @@ CREATE TABLE student(
     country VARCHAR(32),
     post_code VARCHAR(16),
     dob DATE,
-    gender CHAR(1),
+    gender CHAR(15),
     car_info TEXT,
     arrive_date DATE,
     leave_date DATE,

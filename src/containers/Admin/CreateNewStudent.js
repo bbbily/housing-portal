@@ -1,10 +1,10 @@
 import React, { Component } from "react"
 import { Panel, Button, DropdownButton, MenuItem } from "react-bootstrap";
-import {getStudent, createStudent} from "../../actions/action_admin"
+import {getStudent, createStudent, getCohorts, getCampuses} from "../../actions/action_admin"
 import {connect} from "react-redux"
 import "../../styles/CreateNewStudent.scss"
-import { getCohorts, getCampuses} from "../../actions/action_admin"
 import moment from 'moment'
+import ListCampuses from "../../presentational/ListCampuses"
 
 
 
@@ -93,7 +93,7 @@ class CreateNewStudent extends Component {
           > {cohort.name} </MenuItem>
         ))
         const campuses = this.props.campuses.map((campus,i) => (
-          <MenuItem id={campus.id} key={i} eventKey={campus.city}> {campus.city} </MenuItem>
+          <MenuItem id={campus.id} key={campus.id} eventKey={campus.city}> {campus.city} </MenuItem>
         ))
     return (
     <div className="new-student-container">

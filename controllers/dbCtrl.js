@@ -1,10 +1,13 @@
 
 var massive = require('massive');
-var dbConnection = "postgres://owhmkznh:hxxkeFT6WkOZZ5-8qrA1aTWn2uOBbDGT@stampy.db.elephantsql.com:5432/owhmkznh";
+// var dbConnection = "postgres://aquasau1_db:jppsDM19@aquasaurious.com:5432/aquasau1_housing";  // connection for S.Gray's bluehost account
+var dbConnection = "postgres://owhmkznh:hxxkeFT6WkOZZ5-8qrA1aTWn2uOBbDGT@stampy.db.elephantsql.com:5432/owhmkznh";  // connection for free account at postgre
 
 
 var db = massive.connect({connectionString : dbConnection},
   function(err, localdb){
+      console.log("dbconn err: ", err);
+      console.log("db contents: ", localdb);    
      db = localdb;
       //app.set('db', db);
   }
@@ -18,7 +21,7 @@ module.exports = {
     },
     AddCampus: function(req,res,next){
         db.add_campus(req.body.location_name, req.body.street_address, req.body.city, req.body.state, req.body.country, req.body.post_code, function (err, prod) {
-            res.status(200).send("errors: " + err + " %%%% prods: " + prod);
+            res.status(200).send(prod);
         })
     },
     EditCampus: function(req,res,next){
@@ -28,7 +31,7 @@ module.exports = {
     },
     DeleteCampus: function(req,res,next) {
         db.delete_campus(req.query.id, function(err, prod) {
-            res.status(200).send(err + ':::' + prod);
+            res.status(200).send(prod);
         })
     },
     GetCohorts: function(req,res,next){
@@ -38,12 +41,12 @@ module.exports = {
     },
     AddCohort: function(req,res,next){
         db.add_cohort(req.body.campus_id, req.body.name, req.body.start_date, req.body.end_date, function (err, prod) {
-            res.status(200).send("errors: " + err + " %%%% prods: " + prod);
+            res.status(200).send(prod);
         })
     },
     EditCohort: function(req,res,next){
         db.edit_cohort(req.body.id, req.body.campus_id, req.body.name, req.body.start_date, req.body.end_date, function(err, prod) {
-            res.status(200).send(err + prod);
+            res.status(200).send(prod);
         })
     },
     DeleteCohort: function(req,res,next) {
@@ -180,6 +183,11 @@ module.exports = {
     },
     DeleteStudent: function(req,res,next) {
         db.delete_student(req.body.id, function(err, prod) {
+            res.status(200).send(prod);
+        })
+    },
+    GetStudentsInCohort: function(req,res,next) {
+        db.get_students_in_cohort(function(err, prod) {
             res.status(200).send(prod);
         })
     }
