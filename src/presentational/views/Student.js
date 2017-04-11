@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import StudentListFilter from "../../../containers/StudentListFilter";
-import StudentCards from "./StudentCards";
-import "../../../styles/student.scss";
-import "../../../styles/teststudent.scss";
-import NavBar from "../../NavBar";
-
+import StudentListFilter from "../../containers/StudentListFilter";
+import StudentCards from "./StudentList/StudentCards";
+import "../../styles/student.scss";
+import "../../styles/teststudent.scss";
+import NavBar from "../NavBar";
+import {getStudents} from "../../actions/action_student"
+import {connect} from 'react-redux'
+import moment from "moment"
 
 class Student extends Component {
   constructor(props) {
@@ -23,6 +25,11 @@ class Student extends Component {
         [type]: val
       })
     }
+
+    componentDidMount() {
+      this.props.dispatch(getStudents())
+    }
+    
 
     render() {
         let students = [{
@@ -147,7 +154,7 @@ class Student extends Component {
             "deposit_paid": true}
         ];
 
-        let state = this.state;
+       let state = this.state;
 
         ["housing", "deposit_paid", "age", "accomodations"].forEach(function(filterBy) {
           let filterValue = state[filterBy];
@@ -163,16 +170,17 @@ class Student extends Component {
             }
           }
         })
-
-        const StudentList = students.map(students => (
+        console.log(this.props.all)
+        const StudentList = this.props.all.map(students => (
+         
            <li> <StudentCards
                 image={students.image}
-                name={students.name}
-                age={students.age}
+                name={`${students.first_name} ${students.last_name}`}
+                age={moment().diff(students.dob, 'years', false)}
                 gender={students.gender}
                 cohort={students.cohort}
                 room={students.room}
-                address={students.address}
+                address={`${students.street_address} in ${students.city}, ${students.state}, ${students.country}`}
                 eligibility={students.eligibility}
                 deposit_paid={students.deposit_paid}
                 /></li>
@@ -183,6 +191,7 @@ class Student extends Component {
                 <div>
                     <StudentListFilter eligibility={ this.state.eligibility } deposit_paid={ this.state.deposit_paid } age={ this.state.age } handleChecked={ this.handleChecked.bind(this) }/>
                 </div>
+
                 <div className="student-cards">
                     <ul className="card-container">
                         {StudentList}
@@ -193,4 +202,9 @@ class Student extends Component {
     }
 }
 
-export default Student
+function mapStateToProps(state) {
+  return {
+    all: state.students.all
+  }
+}
+export default connect(mapStateToProps)(Student)

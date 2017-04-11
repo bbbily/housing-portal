@@ -1,3 +1,3 @@
 DELETE FROM room
 WHERE apartment_id = $1
-RETURNING *;
+RETURNING apartment_id;

@@ -11,23 +11,26 @@ class NewApartmentForm extends Component {
     const { handleSubmit } = this.props;
     return (
         <form onSubmit={ handleSubmit(this.onSubmit.bind(this))} >
-        <div>
-            <h4>Location:</h4>
+        <div className="spacer">
+            <h1>New Apartments?</h1>
+            <p>To add apartments to an existing campus, begin by selecting a campus.</p>
             <Field name="apartment.campus" component="select">
                 <option value="Dallas">Dallas</option>
                 <option value="Provo">Provo</option>
                 <option value="SaltLake">Salt Lake</option>
             </Field>
         </div>
-        <div>
+        <div className="spacer">
+          <p>Next, add an identifying apartment number.</p>
             <Field name="apartment.apt#" component="input" type="text" placeholder="Apt. #" />
         </div>
-        <div>
-          <label htmlFor={this.props.gender}>gender: </label>
-          <Field component="input" type="radio" name="apartment.gender" value="male" /> male
-          <Field component="input" type="radio" name="apartment.gender" value="female" /> female
+        <div className="spacer">
+          {/*<label htmlFor={this.props.gender}>Type of housing  </label>*/}
+          <p>Select the type of housing</p>
+          <Field component="input" type="radio" name="apartment.gender" value="male" className="margin-left"/> Male
+          <Field component="input" type="radio" name="apartment.gender" value="female" className="margin-left"/> Female
         </div>
-        <button type="submit">Save</button>
+        <button type="submit">  Create  </button>
       </form>
     )
   }
