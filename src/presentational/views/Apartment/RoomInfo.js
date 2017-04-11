@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Panel, Button, DropdownButton, MenuItem } from "react-bootstrap";
 import "../../../styles/admin.scss";
 import "../../../styles/roompanel.scss";
+import ApartmentsList from "../../../containers/Apartments/index";
 
 class RoomInfo extends Component {
     constructor(...args) {
@@ -19,15 +20,9 @@ class RoomInfo extends Component {
                     <h3>Room 1</h3>
                 </div>
                 <Panel collapsible expanded={ this.state.open }>
-                    <div>
+                    <div className="bedroom-container">
                         <div>
-                            Room 1 - display beds
-                        </div>
-                        <div>
-                            Room 2 - display beds
-                        </div>
-                        <div>
-                            Room 3 - display beds
+                           <ApartmentsList />
                         </div>
                     </div>
                 </Panel>
