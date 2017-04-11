@@ -1,19 +1,18 @@
 import React, { Component, PropTypes } from 'react';
 import { DragSource } from 'react-dnd';
 import ItemTypes from './itemTypes';
-// import StudentCards from 
-// import {getStudents}
-// import moment from 'moment'
+
+import "../../styles/aptstudentcard.scss";
 
 
-const style = {
-  border: '1px dashed gray',
-  backgroundColor: 'white',
-  padding: '0.5rem 1rem',
-  marginRight: '1.5rem',
-  marginBottom: '1.5rem',
-  float: 'left',
-};
+// const style = {
+//   border: '1px dashed gray',
+//   backgroundColor: 'white',
+//   padding: '0.5rem 1rem',
+//   marginRight: '1.5rem',
+//   marginBottom: '1.5rem',
+//   float: 'left',
+// };
 
 const StudentSource = {
   beginDrag(props) {
@@ -59,7 +58,8 @@ class Student extends Component {
 
     return (
       connectDragSource(
-        <div style={{ ...style, opacity }}>
+        <div className="aptcard-button">
+          <img src="https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg" className="aptcard-image" />
           {name}
         </div>,
       )
