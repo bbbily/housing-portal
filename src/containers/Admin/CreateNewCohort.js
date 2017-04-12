@@ -36,7 +36,7 @@ class CreateNewCohort extends Component {
             [name] : value
         })
 
-       
+
     }
 
 
@@ -58,7 +58,6 @@ class CreateNewCohort extends Component {
     }
 
     render() {
-        console.log("Component", this.props.all)
         const campuses = this.props.campuses.map((campus,i) => (
             <MenuItem id={campus.id} key={campus.id}  eventKey={campus.id}> {campus.city} </MenuItem>
         ))
@@ -106,7 +105,7 @@ class CreateNewCohort extends Component {
                     <DropdownButton title="Campus" onSelect={ evt => this.setState({ campus: evt }) } className="student-20">
                       {campuses}
                     </DropdownButton> <br />
-                     
+
                     {this.state.campus}
                             </li>
                             </ul>

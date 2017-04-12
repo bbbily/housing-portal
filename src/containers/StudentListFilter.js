@@ -8,7 +8,7 @@ class StudentListFilter extends Component {
         this.state = {
             open: false
         };
-    } 
+    }
 
     handleChecked(type, checked, e) {
 
@@ -35,7 +35,7 @@ class StudentListFilter extends Component {
     }
 
     handleSelect(type, selected, e) {
-        
+
     }
 
     render() {
@@ -50,6 +50,7 @@ class StudentListFilter extends Component {
                             <option value="" selected>All</option>
                         </select></li>     
                     
+
                     <li>Cohort <br />
                         <select name="cohort_id" onChange={ this.handleChange.bind(this) }>
                             <option value="1">DM1</option>
@@ -57,7 +58,7 @@ class StudentListFilter extends Component {
                             <option value="3">DM3</option>
                             <option value="" selected>All</option>
                         </select></li>
-                    
+
                 <li>
                         <input type="checkbox" name="housing_eligibility" value={ this.props.housing } onChange={ this.handleChecked.bind(this, "housing", !this.props.housing) } /> Need Housing
                     </li>
@@ -79,7 +80,7 @@ class StudentListFilter extends Component {
                  </ul>
 
             </div>
-    
+
         )
     }
 }

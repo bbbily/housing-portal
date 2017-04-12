@@ -31,16 +31,13 @@ class Student extends Component {
     componentWillMount() {
       this.props.dispatch(getStudents())
     }
-    
+
 
     render() {
- 
-        
-         // console.log(this.props.all)
 
         let students = this.props.all;
-         
-        if (students[0]) {
+         if (students[0]) {
+
           console.log("students", students, this.state)
           let state = this.state;
           
@@ -68,20 +65,31 @@ class Student extends Component {
           })
          }
 
-        
         const StudentList = students.map(students => (
-         
-           <li> <StudentCards
+                <li key={students.id}> <StudentCards
                 image={students.image}
                 name={`${students.first_name} ${students.last_name}`}
+                first_name={ students.first_name }
+                last_name={ students.last_name }
                 age={moment().diff(students.dob, 'years', false)}
                 gender={students.gender}
                 cohort_id={students.cohort_id}
                 room={students.room}
                 address={`${students.street_address} in ${students.city}, ${students.state}, ${students.country}`}
                 housing_eligibility={students.housing_eligibility}
-                deposit_paid={students.deposit_paid}
                 accomodations={students.accomodations}
+                deposit_paid={students.deposit_paid}
+                student_id={students.id}
+                dob={ students.dob }
+                email={ students.email }
+                slack={ students.slack }
+                phone={ students.phone }
+                city={ students.city }
+                state={ students.state }
+                country={ students.country }
+                post_code={ students.post_code }
+                arrive_date={ students.arrive_date }
+                leave_date={ students.leave_date }
                 /></li>
         ))
         return (
@@ -91,6 +99,7 @@ class Student extends Component {
                     <StudentListFilter housing_eligibility={ this.state.housing_eligibility } 
                                       deposit_paid={ this.state.deposit_paid } 
                                       age={ this.state.age } 
+
                                       accomodations={ this.state.accomodations }
                                       handleChecked={ this.handleChecked.bind(this) }/>
                 </div>

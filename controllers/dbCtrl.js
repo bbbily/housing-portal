@@ -9,6 +9,7 @@ var db = massive.connect({connectionString : dbConnection},
   function(err, localdb){
      console.log("dbconn err: ", err);
       //console.log("db contents: ", localdb);    
+
      db = localdb;
       //app.set('db', db);
   }
@@ -69,9 +70,11 @@ module.exports = {
         })
     },
     EditUser: function(req,res,next){
-      console.log("edit", req.body);
         db.edit_user(req.body.id, req.body.campus_id, req.body.first_name, req.body.last_name, req.body.email, function(err, prod) {
+          db.get_users( function(err, prod) {    // need to return the new users list to the view
+            console.log("edit", prod);
             res.status(200).send(prod);
+          })
         })
     },
     DeleteUser: function(req,res,next) {
@@ -176,8 +179,10 @@ module.exports = {
                         req.body.gender, req.body.car_info, req.body.arrive_date, req.body.leave_date,
                         req.body.housing_eligibility, req.body.deposit_paid, req.body.accomodations,
                         req.body.notes,  function(err, prod) {
-            console.log("changing locations");
-            res.status(200).send(prod);
+            db.get_students(function(err, prod) {
+                // console.log(prod);
+                res.status(200).send(prod);
+            })
         })
     },
     DeleteStudent: function(req,res,next) {

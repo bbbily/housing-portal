@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Panel } from "react-bootstrap";
 // import StudentModal from "./StudentModal";
 import StudentModal from "./StudentModal";
- import "../../../styles/studentcard.scss";
+import "../../../styles/studentcard.scss";
 
 class StudentCards extends Component {
     constructor(...args) {
@@ -12,8 +12,9 @@ class StudentCards extends Component {
             open: false
         };
     }
- 
+
     render() {
+        // console.log("studentcard", this.props)
 
         const title = {
             image: this.props.image,
@@ -41,8 +42,30 @@ class StudentCards extends Component {
                     title={title}
                     heading={heading}
                     body={body}
-                    className="student-modal">
-                </ StudentModal>
+                    className="student-modal"
+                    image={this.props.image}
+                    first_name={ this.props.first_name }
+                    last_name={ this.props.last_name }
+                    age={ this.props.age }
+                    gender={this.props.gender}
+                    cohort={this.props.cohort}
+                    room={this.props.room}
+                    address={`${this.props.street_address} in ${this.props.city}, ${this.props.state}, ${this.props.country}`}
+                    eligibility={this.props.eligibility}
+                    deposit_paid={this.props.deposit_paid}
+                    student_id={this.props.id}
+                    dob={ this.props.dob }
+                    email={ this.props.email }
+                    slack={ this.props.slack }
+                    phone={ this.props.phone }
+                    city={ this.props.city }
+                    state={ this.props.state }
+                    country={ this.props.country }
+                    post_code={ this.props.post_code }
+                    arrive_date={ this.props.arrive_date }
+                    leave_date={ this.props.leave_date }
+                    >
+                </StudentModal>
             </div>
         )
     }

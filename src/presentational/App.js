@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import StudentForm from "../containers/StudentForm";
 import "../styles/App.scss";
 import DatePickerComponent from "../containers/DatePicker";
 import Modal from "../containers/modal";
@@ -20,15 +19,13 @@ class App extends Component {
          This is some stuff man
          </Modal>
           <DatePickerComponent/>
-          <StudentForm />
-
           <Link to="/admin"> <button>go to admin</button></Link>
           <Link to="/students"> <button>Student List</button></Link>
           <Link to="/apartments"><button>apartment list</button></Link>
 
           <br/><br/>
-          
-          <ApartmentsList /> 
+
+          <ApartmentsList />
         </div>
       </div>
     );
