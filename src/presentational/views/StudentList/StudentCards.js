@@ -53,7 +53,7 @@ class StudentCards extends Component {
                     address={`${this.props.street_address} in ${this.props.city}, ${this.props.state}, ${this.props.country}`}
                     eligibility={this.props.eligibility}
                     deposit_paid={this.props.deposit_paid}
-                    student_id={this.props.id}
+                    student_id={this.props.student_id}
                     dob={ this.props.dob }
                     email={ this.props.email }
                     slack={ this.props.slack }

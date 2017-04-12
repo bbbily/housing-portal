@@ -177,7 +177,7 @@ module.exports = {
                         req.body.housing_eligibility, req.body.deposit_paid, req.body.accomodations,
                         req.body.notes,  function(err, prod) {
             db.get_students(function(err, prod) {
-                // console.log(prod);
+                console.log(prod);
                 res.status(200).send(prod);
             })
         })

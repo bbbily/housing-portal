@@ -8,6 +8,7 @@ import { Modal, Button, Popover, Tooltip, OverlayTrigger } from "react-bootstrap
 
 class StudentForm extends Component {
   onSubmit(props) {
+    props.id = this.props.student_id
     console.log("submit", props)
     this.props.dispatch(editStudent(props));
   }
