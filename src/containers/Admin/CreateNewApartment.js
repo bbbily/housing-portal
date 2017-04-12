@@ -56,7 +56,6 @@ class CreateNewApartment extends Component {
                       <NewAddressForm />
                     </div>)}
                     { this.state.showRoomForm && (<form onSubmit={ handleSubmit(this.onSubmit.bind(this)) } >
-                      { Rooms }
                       <div className="room-controls-container">
                         <h1>Apartment added!</h1>
                         <p>Now let's throw some bedrooms in there.</p>
@@ -64,6 +63,7 @@ class CreateNewApartment extends Component {
                         <button className="margin-left" type="submit">  Save  </button>
                         <button className="margin-left" type="button" onClick={ () => this.setState({ rooms: Rooms.slice(0, Rooms.length-1)})}>Delete Room</button>
                       </div>
+                      { Rooms }
                     </form>)}
                 </Panel>
             </div>

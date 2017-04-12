@@ -56,6 +56,7 @@ class StudentCards extends Component {
                     student_id={this.props.student_id}
                     dob={ this.props.dob }
                     email={ this.props.email }
+                    cohort_id={ this.props.cohort_id }
                     slack={ this.props.slack }
                     phone={ this.props.phone }
                     city={ this.props.city }

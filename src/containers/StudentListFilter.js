@@ -15,18 +15,18 @@ class StudentListFilter extends Component {
       console.log("type: ", type, "checked", checked,"e", e);
       if (type === "age")
         checked ? this.props.handleChecked(type, 21) : this.props.handleChecked(type, 0);
-        // else if (type === "accomodations") { 
+        // else if (type === "accomodations") {
         //     console.log(this.props)
         //     e.target.checked ? this.props.handleChecked(type, this.props.accomodations) : this.props.handleChecked(type, "");
         // }
 
-            
+
         // else if (type === "gender")
 
-        else 
+        else
         this.props.handleChecked(type, checked);
-         
-      
+
+
     }
 
     handleChange(e) {
@@ -48,8 +48,8 @@ class StudentListFilter extends Component {
                             <option value="2">Salt Lake City</option>
                             <option value="3">Dallas</option>
                             <option value="" selected>All</option>
-                        </select></li>     
-                    
+                        </select></li>
+
 
                     <li>Cohort <br />
                         <select name="cohort_id" onChange={ this.handleChange.bind(this) }>
