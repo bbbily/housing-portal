@@ -48,22 +48,19 @@ class Bed extends Component {
 
     let backgroundColor = '#3C3C3C';
     if (isActive) {
+      
       backgroundColor = '#458BCD';
     } else if (canDrop) {
       backgroundColor = '#67adef';
+     
     }
 
     return connectDropTarget(
       <div className="dnd-room" style={{ ...style, backgroundColor }}>
-       Bed 1
-        {/* isActive ?
+       Bed
+        {/*{ isActive ?
           'Release to place student' :
-          'Drag a student here'
-        */}
- {  /*       <div className="bed-container">
-            <div className="bed"></div>
-            <div className="bed"></div>
-          </div>*/}
+          'Drag a student here'}*/}
       </div>,
     );
   }
