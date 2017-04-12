@@ -75,12 +75,15 @@ export function cohortReducer(state=INITIAL_STATE, action) {
 /////////////////////////////////////////////////
 // Reducer for New Student Panel
 /////////////////////////////////////////////////
-import { GET_STUDENT } from '../actions/action_admin'
+import { GET_STUDENT, GET_ELIGIBILITY } from '../actions/action_admin'
 
 
 export function studentReducer(state=INITIAL_STATE, action) {
   switch (action.type) {
     case GET_STUDENT:
+      return Object.assign({}, state, {student: action.payload.data})
+      break;
+    case GET_ELIGIBILITY:
       console.log(action.payload.data)
       return Object.assign({}, state, {student: action.payload.data})
       break;

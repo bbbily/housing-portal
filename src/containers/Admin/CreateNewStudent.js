@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Panel, Button, DropdownButton, MenuItem } from "react-bootstrap";
-import {getStudent, createStudent, getCohorts, getCampuses} from "../../actions/action_admin"
+import {getStudent, createStudent, getCohorts, getCampuses, getEligibility} from "../../actions/action_admin"
 import {connect} from "react-redux"
 import "../../styles/CreateNewStudent.scss"
 import moment from 'moment'
@@ -179,7 +179,8 @@ class CreateNewStudent extends Component {
                       <input type="text" placeholder="zip" name="post_code" ref="post_code" className="student-10" onChange={this.handleInputChange}/></li>
                   <ul className="student-ul">
                     <li><Button onClick={ () =>
-                      { this.props.dispatch(createStudent(this.state))
+                      { this.props.dispatch(getEligibility(`${this.state.street_address} ${this.state.city} ${this.state.state}`))
+                        // this.props.dispatch(createStudent(this.state))
                         this.clearData()
                         this.setState({open: false})
                         alert(this.state.first_name + this.state.last_name + " added.")
