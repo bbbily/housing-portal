@@ -5,6 +5,9 @@ import { Field, reduxForm } from "redux-form";
 import Room from "../../presentational/views/Room";
 import Apartment from "./NewApartmentForm";
 import NewAddressForm from "./NewAddressForm";
+import { createRoom } from "../../actions/action_apartments";
+import { connect } from "react-redux";
+
 
 class CreateNewApartment extends Component {
     constructor(...args) {
@@ -24,8 +27,8 @@ class CreateNewApartment extends Component {
 
     onSubmit(props) {
       props.apartment_id = this.props.apartment_id;
-      console.log("adminform props", props)
-      // this.props.dispatch(editAdmin(props))
+      console.log("adminform props", this.props)
+      this.props.dispatch(createRoom(props));
     }
 
     showRoom() {
@@ -34,6 +37,7 @@ class CreateNewApartment extends Component {
     }
 
     render() {
+      console.log("adminform props", this.props)
         const Rooms = this.state.rooms;
         const { handleSubmit } = this.props;
         return (
@@ -47,19 +51,19 @@ class CreateNewApartment extends Component {
                         <h1>New campus?</h1> <p>To add a building address, click Add New Address below. </p><br />
                         <button onClick={ () => this.setState({ showAddressForm: !this.state.showAddressForm, showApartmentForm: !this.state.showApartmentForm, addressbutton: false, apartmentbutton: true, showRoomForm: false }) }>Add New Address</button>
                         <hr />
-                        <Apartment showRoom={ this.showRoom.bind(this) }/>
+                        <Apartment showRoom={ this.showRoom.bind(this) } initialValues={{ building_id: 1, over_21: false }} />
                       </div>
                     ) }
                     { this.state.showAddressForm && (
                       <div>
                       <button onClick={ () => this.setState({ showAddressForm: !this.state.showAddressForm, showApartmentForm: !this.state.showApartmentForm, addressbutton: true, apartmentbutton: false }) }>Add Apartment</button>
-                      <NewAddressForm />
+                      <NewAddressForm initialValues={{ campus_id: 1 }} />
                     </div>)}
                     { this.state.showRoomForm && (<form onSubmit={ handleSubmit(this.onSubmit.bind(this)) } >
                       <div className="room-controls-container">
                         <h1>Apartment added!</h1>
                         <p>Now let's throw some bedrooms in there.</p>
-                        <button className="margin-left" type="button" onClick={ () => this.setState({ rooms: [...Rooms, <Room beds={`room${Rooms.length}bed`} gender={`room${Rooms.length}gender`} key={Rooms.length} /> ]})}>Add New Room</button>
+                        <button className="margin-left" type="button" onClick={ () => this.setState({ rooms: [...Rooms, <Room beds={`room${Rooms.length}`} key={Rooms.length} /> ]})}>Add New Room</button>
                         <button className="margin-left" type="submit">  Save  </button>
                         <button className="margin-left" type="button" onClick={ () => this.setState({ rooms: Rooms.slice(0, Rooms.length-1)})}>Delete Room</button>
                       </div>
@@ -72,9 +76,15 @@ class CreateNewApartment extends Component {
 }
 
 function mapStateToProps(state) {
-  return { apartment_id: state.apartments.apartment_id }
+  return {
+    apartment_id: state.apartments.apartment_id,
+    all: state.apartments.all
+   }
 }
 
-export default reduxForm({
+CreateNewApartment = reduxForm({
   form: "roomForm"
-})(CreateNewApartment);
+})(CreateNewApartment)
+
+
+export default connect(mapStateToProps)(CreateNewApartment);

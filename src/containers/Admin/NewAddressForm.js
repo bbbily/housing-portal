@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
-import { createAddress } from "../../actions/action_apartments";
+import { createBuilding } from "../../actions/action_apartments";
 import CampusDropdown from "../CampusDropdown";
 
 class NewAddressForm extends Component {
   onSubmit(props) {
     console.log(props);
-    this.props.dispatch(createAddress(props));
+    this.props.dispatch(createBuilding(props));
   }
   render() {
     const { handleSubmit } = this.props;
