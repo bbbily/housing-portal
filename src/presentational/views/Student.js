@@ -13,17 +13,19 @@ class Student extends Component {
     super(props);
 
     this.state = {
-      eligibility: false,
+      housing_eligibility: false,
       deposit_paid: false,
       age: 0,
       accomodations: false,
-      gender: "male"
+      gender: "",
     }
   }
     handleChecked(type, val) {
+      console.log(type, val);
       this.setState({
         [type]: val
-      })
+      });
+      console.log(this.state);
     }
 
     componentWillMount() {
@@ -35,26 +37,35 @@ class Student extends Component {
  
         
          // console.log(this.props.all)
-         // let students = this.props.all
-            let students = this.props.all;
-         if (students[0]) {
+
+        let students = this.props.all;
+         
+        if (students[0]) {
           console.log("students", students, this.state)
           let state = this.state;
-          ["housing", "deposit_paid", "age", "accomodations"].forEach(function(filterBy) {
-          let filterValue = state[filterBy];
-          if (filterValue) {
-            if (filterBy === "age" && state[filterBy] >= 21) {
-              students = students.filter(function(student) {
-                console.log(student.dob)
-                return moment().diff(student.dob, 'years', false) >= 21;
-              })
-            } else {
-              students = students.filter(function(student) {
-                return student[filterBy];
-              })
+          
+          // console.log(state);
+          ["housing_eligibility", "deposit_paid", "age", "accomodations", "campus_id", "cohort_id", "gender"].forEach(function(filterBy) {
+              //console.log("filter: ", filterBy, "value:", state[filterBy]);
+            let filterValue = state[filterBy];
+            if (filterValue) {
+              if (filterBy === "age" && state[filterBy] >= 21) {
+                students = students.filter(function(student) {
+                  
+                  return moment().diff(student.dob, 'years', false) >= 21;
+                })
+              } else if (filterBy === "gender" || filterBy === "campus_id" || filterBy === "cohort_id") {
+                  students = students.filter(function(student) {
+                    console.log(filterValue, filterBy);
+                    return student[filterBy] == filterValue;
+                })
+              } else {
+                students = students.filter(function(student) {
+                  return student[filterBy];
+                })
+              }
             }
-          }
-        })
+          })
          }
 
         
@@ -65,10 +76,10 @@ class Student extends Component {
                 name={`${students.first_name} ${students.last_name}`}
                 age={moment().diff(students.dob, 'years', false)}
                 gender={students.gender}
-                cohort={students.cohort}
+                cohort_id={students.cohort_id}
                 room={students.room}
                 address={`${students.street_address} in ${students.city}, ${students.state}, ${students.country}`}
-                eligibility={students.eligibility}
+                housing_eligibility={students.housing_eligibility}
                 deposit_paid={students.deposit_paid}
                 accomodations={students.accomodations}
                 /></li>
@@ -77,7 +88,7 @@ class Student extends Component {
             <div>
             <NavBar />
                 <div>
-                    <StudentListFilter eligibility={ this.state.eligibility } 
+                    <StudentListFilter housing_eligibility={ this.state.housing_eligibility } 
                                       deposit_paid={ this.state.deposit_paid } 
                                       age={ this.state.age } 
                                       accomodations={ this.state.accomodations }

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+/*import React, { Component } from "react";
 import StudentListFilter from "../../../containers/StudentListFilter";
 import StudentCards from "./StudentCards";
 // import "../../../styles/student.scss";
@@ -15,7 +15,9 @@ class Student extends Component {
       deposit_paid: false,
       age: 0,
       accomodations: false,
-      gender: "Male"
+      gender: "",
+      cohort: "",
+      campus: ""
     }
   }
     
@@ -164,14 +166,16 @@ class Student extends Component {
 
         let state = this.state;
 
-        ["housing", "deposit_paid", "age", "accomodations"].forEach(function(filterBy) {
-          console.log(filterBy, state[filterBy]);
+        ["housing", "deposit_paid", "age", "accomodations", "gender", "campus", "cohort"].forEach(function(filterBy) {
+          console.log("filter: ", filterBy, state[filterBy]);
           let filterValue = state[filterBy];
           if (filterValue) {
             if (filterBy === "age" && state[filterBy] >= 21) {
               students = students.filter(function(student) {
                 return student[filterBy] >= 21;
               })
+            } else if (filterBy === "gender" || filterBy === "campus" || filterBy === "cohort") {
+                return student[filterBy] = filterValue;
             } else {
               students = students.filter(function(student) {
                 return student[filterBy];
@@ -210,3 +214,4 @@ class Student extends Component {
 }
 
 export default Student
+*/

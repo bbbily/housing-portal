@@ -7,7 +7,6 @@ DROP TABLE users;
 DROP TABLE cohort;
 DROP TABLE campus;
 
---------------------------- CAMPUS table
 
 CREATE TABLE campus(
    id SERIAL PRIMARY KEY,
@@ -20,8 +19,6 @@ CREATE TABLE campus(
 );
 
 
---------------------------- USERS (ADMINS) table
-
 CREATE TABLE users(
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(31),
@@ -30,8 +27,6 @@ CREATE TABLE users(
     campus_id INT REFERENCES campus(id)
 );
 
-
---------------------------- COHORT table
 
 CREATE TABLE cohort(
    id SERIAL PRIMARY KEY,
@@ -42,7 +37,6 @@ CREATE TABLE cohort(
 );
 
 
---------------------------- BUILDING table
 
 CREATE TABLE building (
     id SERIAL PRIMARY KEY,
@@ -56,8 +50,6 @@ CREATE TABLE building (
 );
 
 
---------------------------- APARTMENT table
-
 CREATE TABLE apartment(
     id SERIAL PRIMARY KEY,
     building_id INT REFERENCES building(id),
@@ -67,7 +59,6 @@ CREATE TABLE apartment(
 );
 
 
---------------------------- ROOMS table
 
 CREATE TABLE room(
     id SERIAL PRIMARY KEY,
@@ -75,8 +66,6 @@ CREATE TABLE room(
     number_of_beds INT
 );
 
-
----------------------------- STUDENT table
 
 CREATE TABLE student(
     id SERIAL PRIMARY KEY,
@@ -93,7 +82,7 @@ CREATE TABLE student(
     country VARCHAR(32),
     post_code VARCHAR(16),
     dob DATE,
-    gender CHAR(15),
+    gender CHAR(1),
     car_info TEXT,
     arrive_date DATE,
     leave_date DATE,

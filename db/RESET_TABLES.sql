@@ -124,7 +124,9 @@ VALUES
 (NULL, 3, 'Jeremy', 'Gray', '000000000', 'jayjay@gray.com', 'jjgray', 'Revere Dr.', 'Boston', 'MA', 'USA', '22222',
     '1990-07-04', 'M', NULL, NULL, NULL, true, true, NULL, ''),
 (NULL, 3, 'Peng', 'Wu', '5420529384', 'youngusien@apple.com', 'bbbily', '55 Some St.', 'Cincy', 'OH', 'USA', '33445',
-    '1997-07-07', 'M', NULL, NULL, NULL, true, false, 'sleep', '');
+    '1997-07-07', 'M', NULL, NULL, NULL, true, false, 'sleep', ''),
+(NULL, 2, 'Steven', 'Gray', '8016519199', 'aquas@aquas.com', 'n00b_student', '854 Wooden Ln.', 'SLC', 'UT', 'usa', '84116',
+    '1973-02-10T07:00:00.000Z', 'M', 'Some type of Subaru', '2017-01-23T07:00:00.000Z', '2017-04-21T06:00:00.000Z', true, false, 'needs sleep', '');
 
           /*  
             {
