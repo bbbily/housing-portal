@@ -4,6 +4,10 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import Room from './Room';
 import Student from './Student';
 import "../../styles/dndbed.scss";
+import "../../styles/housingcontainer.scss";
+import {connect} from "react-redux"
+import {getStudents} from "../../actions/action_student"
+import moment from "moment"
 
 const style = {
   borderRadius: '5px',
@@ -14,15 +18,28 @@ const style = {
   float: 'left',
 };
 
-export default class Container extends Component {
+class Container extends Component {
 
   constructor(props) {
     super(props)    
   }
 
+  componentWillMount() {
+    this.props.dispatch(getStudents())
+  }
+
   render() {
+
+    let students = this.props.all.map( studentInfo => (
+      <Student name={`${studentInfo.first_name} ${studentInfo.last_name}`}
+                eligibility={studentInfo.eligibility}
+                age={moment().diff(studentInfo.dob, 'years', false)}
+                gender={studentInfo.gender}
+                />
+    ))
+
     return (
-      <DragDropContextProvider backend={HTML5Backend}>
+     <DragDropContextProvider backend={HTML5Backend}>
         <div>
           <div className="apartment-container" style={{ overflow: 'hidden', clear: 'both' }}>
             <div style={{ ...style }}>
@@ -38,16 +55,18 @@ export default class Container extends Component {
               <Room allowedDropEffect="any" />
             </div>
           </div>
-          <div style={{ overflow: 'hidden', clear: 'both' }}>
-            <Student name="Kevin"
-                 campus=""
-                 cohort=""
-                    />
-            <Student name="Joanna" />
-            <Student name="Billy" />
+          <div className="housing-container">
+            {students}
           </div>
         </div>
       </DragDropContextProvider>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    all: state.students.all
+  }
+}
+export default connect(mapStateToProps)(Container)

@@ -2,6 +2,9 @@
 
 .walls {
     width: 70%;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 54px;
 }
 
 .panel-body {
