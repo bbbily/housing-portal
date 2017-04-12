@@ -13,7 +13,8 @@ const rootReducer = combineReducers({
   cohort: cohortReducer,
   address: addressReducer,
   campus: campusReducer,
-  students: studentReducer
+  students: studentReducer,
+  studentLocation: adminReducer
 });
 
 export default rootReducer;

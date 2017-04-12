@@ -36,6 +36,7 @@ class CreateNewStudent extends Component {
       accomodations: null,
       notes: null,
       room_id: null,
+      studentLocation: {},
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -81,6 +82,27 @@ class CreateNewStudent extends Component {
 
 
   render() {
+        const campusLocationInfo = [{
+          id: 0,
+          campus: "Provo",
+          lat: 40.2262087,
+          lng: -111.6609474
+        },
+        {
+          id: 1,
+          campus: "Salt Lake City",
+          lat: 40.7618227,
+          lng: -111.890594
+        },
+        {
+          id: 2,
+          campus: "Dallas",
+          lat: 32.7775249,
+          lng: -96.7956188
+        }];
+        const schoolLat = campusLocationInfo[0].lat;
+        const schoolLng = campusLocationInfo[0].lng;
+        
         const cohorts = this.props.all.map( (cohort, i) => (
           <MenuItem id={cohort.id} key={i} eventKey={cohort.name}
             onSelect={ () => {
@@ -95,6 +117,7 @@ class CreateNewStudent extends Component {
         const campuses = this.props.campuses.map((campus,i) => (
           <MenuItem id={campus.id} key={campus.id} eventKey={campus.city}> {campus.city} </MenuItem>
         ))
+        console.log("lkjhkhk",this.state);
     return (
     <div className="new-student-container">
         <div onClick={ () => this.setState({ open: !this.state.open}) }>
@@ -222,7 +245,8 @@ class CreateNewStudent extends Component {
 function mapStateToProps(state) {
   return {
     all: state.cohort.all,
-    campuses: state.campus.all
+    campuses: state.campus.all,
+    studentLocation: state.studentLocation
   }
 }
 export default connect(mapStateToProps)(CreateNewStudent)
