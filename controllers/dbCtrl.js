@@ -1,12 +1,15 @@
 
 var massive = require('massive');
- //var dbConnection = "postgres://aquasau1_db:jppsDM19@aquasaurious.com:5432/aquasau1_housing";
- // connection for S.Gray's bluehost account
-var dbConnection = "postgres://owhmkznh:hxxkeFT6WkOZZ5-8qrA1aTWn2uOBbDGT@stampy.db.elephantsql.com:5432/owhmkznh";  // connection for free account at postgre
 
+var dbConnection = "postgres://aquasau1_db:jppsDM19@aquasaurious.com:5432/aquasau1_housing";  // connection for S.Gray's bluehost account
+// var dbConnection = "postgres://owhmkznh:hxxkeFT6WkOZZ5-8qrA1aTWn2uOBbDGT@stampy.db.elephantsql.com:5432/owhmkznh";  // connection for free account at postgre
+// var dbConnection = "mysql://aquasau1_db:jppsDM19@aquasaurious.com:3306/aquasau1_housing";
 
 var db = massive.connect({connectionString : dbConnection},
   function(err, localdb){
+     console.log("dbconn err: ", err);
+      //console.log("db contents: ", localdb);    
+
      db = localdb;
       //app.set('db', db);
   }
@@ -61,7 +64,7 @@ module.exports = {
     AddUser: function(req,res,next){
         db.add_user(req.body.campus_id, req.body.first_name, req.body.last_name, req.body.email, function (err, prod) {
           db.get_users( function(err, prod) {    // need to return the new users list to the view
-            console.log(err, prod);
+            console.log(err, " ::: ", prod);
             res.status(200).send(prod);
           })
         })
