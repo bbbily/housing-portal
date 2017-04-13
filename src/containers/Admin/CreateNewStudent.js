@@ -38,6 +38,9 @@ class CreateNewStudent extends Component {
       room_id: null,
     }
 
+    
+    
+
     this.handleInputChange = this.handleInputChange.bind(this)
     this.clearData = this.clearData.bind(this)
   }
@@ -81,6 +84,7 @@ class CreateNewStudent extends Component {
 
 
   render() {
+    
         const cohorts = this.props.all.map( (cohort, i) => (
           <MenuItem id={cohort.id} key={i} eventKey={cohort.name}
             onSelect={ () => {

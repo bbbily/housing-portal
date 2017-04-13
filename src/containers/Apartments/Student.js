@@ -18,6 +18,9 @@ const StudentSource = {
   beginDrag(props) {
     return {
       name: props.name,
+      age: props.age,
+      eligibility: props.eligibility,
+      gender: props.gender
     };
   },
 
@@ -28,12 +31,16 @@ const StudentSource = {
     if (dropResult) {
       let alertMessage = '';
       if (dropResult.allowedDropEffect === 'any' || dropResult.allowedDropEffect === dropResult.dropEffect) {
+        if (dropResult.age < item.age)
         /////////////////////////////////////
         //this is where you handle a successful drop.
         // dispatch here 
         /////////////////////////////////////////
-        alertMessage = `You ${dropResult.dropEffect === 'copy' ? 'copied' : 'moved'} ${item.name} into ${dropResult.name}!`;
+        console.log(item)
+        alertMessage = `You too old!`
+        //alertMessage = `You ${dropResult.dropEffect === 'copy' ? 'copied' : 'moved'} ${item.name} into ${dropResult.name}! They are ${item.age} years old and are ${item.gender}`;
       } else {
+        alertMessage = 'You are just the right age.'
         alertMessage = `You cannot ${dropResult.dropEffect} an item into the ${dropResult.name}`;
       }
       window.alert( // eslint-disable-line no-alert
