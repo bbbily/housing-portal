@@ -7,7 +7,7 @@ var path = require("path");
 var controller = require('./controllers/dbCtrl');
 
 var app = express();
-var port = 3000;
+var port = 1023;
 
 app.use(express.static(__dirname + "/build"));
 app.use(bodyParser.json());
@@ -64,6 +64,9 @@ app.delete('/api/student', controller.DeleteStudent);
 
 // get student and cohort information
 app.get('/api/cohort/student', controller.GetStudentsInCohort);
+
+// get rooms from a specific apartment
+app.get('/api/apartment/:id', controller.GetRoomsByApartment);
 
 
 

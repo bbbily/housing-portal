@@ -7,6 +7,7 @@ import "../../styles/dndbed.scss";
 import "../../styles/housingcontainer.scss";
 import {connect} from "react-redux"
 import {getStudents} from "../../actions/action_student"
+import { getApartments } from "../../actions/action_apartments"
 import moment from "moment"
 
 const style = {
@@ -26,27 +27,36 @@ class Container extends Component {
 
   componentWillMount() {
     this.props.dispatch(getStudents())
+    this.props.dispatch(getApartments())
   }
 
   render() {
-
+    //console.log("studentInfo:", this.props.all)
     let students = this.props.all.map( studentInfo => (
-      <Student name={`${studentInfo.first_name} ${studentInfo.last_name}`}
+      <Student  name={`${studentInfo.first_name} ${studentInfo.last_name}`}
                 eligibility={studentInfo.eligibility}
                 age={moment().diff(studentInfo.dob, 'years', false)}
                 gender={studentInfo.gender}
                 />
     ))
+    
+    // let apartments = this.props.apartments.map( apartment => (
 
+    // ))
+    
     return (
      <DragDropContextProvider backend={HTML5Backend}>
         <div>
           <div className="apartment-container" style={{ overflow: 'hidden', clear: 'both' }}>
             <div style={{ ...style }}>
-              <Room allowedDropEffect="move" />
+              <Room allowedDropEffect="move" 
+                    preferred_gender="M"
+                    over_21="true"/>
             </div>
             <div style={{ ...style }}>
-              <Room allowedDropEffect="copy" />
+              <Room allowedDropEffect="copy" 
+                    gender="F"
+                    age="100"/>
               <Room allowedDropEffect="copy" />              
             </div>
             <div style={{ ...style }}>
@@ -66,7 +76,9 @@ class Container extends Component {
 
 function mapStateToProps(state) {
   return {
-    all: state.students.all
+    all: state.students.all,
+    apartments: state.apartments.all,
+    rooms: state.rooms
   }
 }
 export default connect(mapStateToProps)(Container)

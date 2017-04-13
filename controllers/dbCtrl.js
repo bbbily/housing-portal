@@ -4,7 +4,6 @@ var massive = require('massive');
 // var dbConnection = "postgres://aquasau1_db:jppsDM19@aquasaurious.com:5432/aquasau1_housing";  // connection for S.Gray's bluehost account
 var dbConnection = "postgres://owhmkznh:hxxkeFT6WkOZZ5-8qrA1aTWn2uOBbDGT@stampy.db.elephantsql.com:5432/owhmkznh";  // connection for free account at postgre
 
-// var dbConnection = "mysql://aquasau1_db:jppsDM19@aquasaurious.com:3306/aquasau1_housing";
 
 var db = massive.connect({connectionString : dbConnection},
   function(err, localdb){
@@ -135,6 +134,12 @@ module.exports = {
     GetRooms: function(req,res,next){
         db.get_rooms(function(err, prod) {
             console.log(prod);
+            res.status(200).send(prod);
+        })
+    },
+    GetRoomsByApartment: function(req,res, next) {
+        db.get_apartment_rooms(req.params.id, function(err, prod) {
+            console.log("get rooms:", req.params, err, prod)
             res.status(200).send(prod);
         })
     },
