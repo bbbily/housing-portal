@@ -13,11 +13,6 @@ constructor(props) {
   this.open = this.open.bind(this)
 }
 
-  sendData() {
-    close();
-
-  }
-
   close() {
     this.setState({ showModal: false });
   }
@@ -75,7 +70,7 @@ constructor(props) {
               address={`${this.props.street_address} in ${this.props.city}, ${this.props.state}, ${this.props.country}`}
               eligibility={this.props.eligibility}
               deposit_paid={this.props.deposit_paid}
-              student_id={this.props.id}
+              student_id={this.props.student_id}
             />
             {/* {this.props.heading.cohort}
             Room: {this.props.body.room} <br />

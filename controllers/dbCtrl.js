@@ -8,7 +8,7 @@ var massive = require('massive');
 var db = massive.connect({connectionString : dbConnection},
   function(err, localdb){
      console.log("dbconn err: ", err);
-      //console.log("db contents: ", localdb);    
+      //console.log("db contents: ", localdb);
 
      db = localdb;
       //app.set('db', db);
@@ -137,6 +137,12 @@ module.exports = {
             res.status(200).send(prod);
         })
     },
+    GetRoomsByApartment: function(req,res, next) {
+        db.get_apartment_rooms(req.params.id, function(err, prod) {
+            console.log("get rooms:", req.params, err, prod)
+            res.status(200).send(prod);
+        })
+    },
     AddRoom: function(req,res,next){
         db.add_room(req.body.apartment_id, req.body.number_of_beds, function (err, prod) {
             console.log(err, prod);
@@ -180,7 +186,7 @@ module.exports = {
                         req.body.housing_eligibility, req.body.deposit_paid, req.body.accomodations,
                         req.body.notes,  function(err, prod) {
             db.get_students(function(err, prod) {
-                // console.log(prod);
+                console.log(prod);
                 res.status(200).send(prod);
             })
         })

@@ -1,37 +1,60 @@
-import { GET_APARTMENTS, CREATE_APARTMENT }  from "../actions/action_apartments";
-import { GET_ADDRESS, CREATE_ADDRESS }  from "../actions/action_apartments";
-import { GET_CAMPUSES }  from "../actions/action_apartments";
 
-const INITIAL_STATE = { all: [], apartment_id: "" };
+import { GET_APARTMENTS, 
+        CREATE_APARTMENT, 
+        GET_ADDRESS, 
+        CREATE_ADDRESS, 
+        GET_CAMPUSES,
+        GET_ROOMS }  from "../actions/action_apartments";
+
+
+
+
+const INITIAL_STATE = { all: [], 
+                        apartment_id: "",
+                        rooms: [] };
 
 export function apartmentsReducer(state=INITIAL_STATE, action) {
 
   switch (action.type) {
     case GET_APARTMENTS:
-      console.log("data", action.payload.data);
       return { all: action.payload.data};
       break;
     case CREATE_APARTMENT:
-      console.log("data", action.payload.data);
       return {
         all: [...state.all, action.payload.data],
-        apartment_id: action.payload.data.id
+        apartment_id: action.payload.data[0].id
       };
       break;
+    case GET_ROOMS:
+      return  {rooms: action.payload.data }
     default:
       return state;
   }
 }
 
-export function addressReducer(state=INITIAL_STATE, action) {
+export function buildingReducer(state=INITIAL_STATE, action) {
 
   switch (action.type) {
-    case GET_ADDRESS:
+    case GET_BUILDINGS:
       console.log("data", action.payload.data);
       return { all: action.payload.data};
       break;
-    case CREATE_ADDRESS:
+    case CREATE_BUILDING:
+      return { all: [...state.all, action.payload.data] };
+      break;
+    default:
+      return state;
+  }
+}
+export function roomReducer(state=INITIAL_STATE, action) {
+
+  switch (action.type) {
+    case GET_ROOMS:
       console.log("data", action.payload.data);
+      return { all: action.payload.data};
+      break;
+    case CREATE_ROOM:
+    console.log("data", action.payload.data);
       return { all: [...state.all, action.payload.data] };
       break;
     default:
@@ -43,7 +66,6 @@ export function campusReducer(state=INITIAL_STATE, action) {
 
   switch (action.type) {
     case GET_CAMPUSES:
-      console.log("data", action.payload.data);
       return { all: action.payload.data};
       break;
     default:

@@ -39,6 +39,9 @@ class CreateNewStudent extends Component {
       studentLocation: null,
     }
 
+    
+    
+
     this.handleInputChange = this.handleInputChange.bind(this)
     this.clearData = this.clearData.bind(this)
   }

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
-import { createAddress } from "../../actions/action_apartments";
+import { createBuilding } from "../../actions/action_apartments";
 import CampusDropdown from "../CampusDropdown";
 
 class NewAddressForm extends Component {
   onSubmit(props) {
     console.log(props);
-    this.props.dispatch(createAddress(props));
+    this.props.dispatch(createBuilding(props));
   }
   render() {
     const { handleSubmit } = this.props;
@@ -16,6 +16,7 @@ class NewAddressForm extends Component {
         <p>This is the address of the building or apartment complex where the student apartments are located.</p>
       <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) } >
         <CampusDropdown name="campus_id"/>
+        <Field name="property_name" component="input" type="text" placeholder="building name" />
         <Field name="street_address" component="input" type="text" placeholder="Street" />
         <Field name="city" component="input" type="text" placeholder="City" />
         <Field name="state" component="input" type="text" placeholder="State" />
