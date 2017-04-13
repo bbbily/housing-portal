@@ -4,7 +4,7 @@ class RoommateInfo extends Component {
     render() {
         return (
             <div>
-            
+                This is where you can view your roommates.
             </div>
         )
     }

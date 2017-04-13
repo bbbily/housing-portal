@@ -4,7 +4,7 @@ class WorkOrder extends Component {
     render() {
         return (
             <div>
-            
+                This is where you can submit a work order.
             </div>
         )
     }
