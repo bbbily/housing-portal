@@ -1,14 +1,15 @@
 
 var massive = require('massive');
 
-var dbConnection = "postgres://aquasau1_db:jppsDM19@aquasaurious.com:5432/aquasau1_housing";  // connection for S.Gray's bluehost account
- //var dbConnection = "postgres://owhmkznh:hxxkeFT6WkOZZ5-8qrA1aTWn2uOBbDGT@stampy.db.elephantsql.com:5432/owhmkznh";  // connection for free account at postgre
+// var dbConnection = "postgres://aquasau1_db:jppsDM19@aquasaurious.com:5432/aquasau1_housing";  // connection for S.Gray's bluehost account
+var dbConnection = "postgres://owhmkznh:hxxkeFT6WkOZZ5-8qrA1aTWn2uOBbDGT@stampy.db.elephantsql.com:5432/owhmkznh";  // connection for free account at postgre
+
 // var dbConnection = "mysql://aquasau1_db:jppsDM19@aquasaurious.com:3306/aquasau1_housing";
 
 var db = massive.connect({connectionString : dbConnection},
   function(err, localdb){
      console.log("dbconn err: ", err);
-      //console.log("db contents: ", localdb);    
+      //console.log("db contents: ", localdb);
 
      db = localdb;
       //app.set('db', db);
@@ -180,7 +181,7 @@ module.exports = {
                         req.body.housing_eligibility, req.body.deposit_paid, req.body.accomodations,
                         req.body.notes,  function(err, prod) {
             db.get_students(function(err, prod) {
-                // console.log(prod);
+                console.log(prod);
                 res.status(200).send(prod);
             })
         })

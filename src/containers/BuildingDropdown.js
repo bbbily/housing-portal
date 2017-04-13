@@ -1,27 +1,27 @@
 import React, { Component } from "react";
 import { Field } from "redux-form";
-import { getCampuses } from "../actions/action_apartments";
+import { getBuildings } from "../actions/action_apartments";
 import { connect } from "react-redux";
 
 class CampusDropdown extends Component {
   componentWillMount() {
-    this.props.dispatch(getCampuses())
+    this.props.dispatch(getBuildings())
   }
   render() {
-    let campuses = this.props.campuses.map( campus => {
+    let buildings = this.props.buildings.map( building => {
 
-      return ( <option value={ campus.id } key={ campus.id} >{ campus.location_name }</option>)
+      return ( <option value={ building.id } key={ building.id} >{ building.property_name } - { building.city}</option>)
     })
     return (
       <Field name={ this.props.name } component="select">
-        { campuses }
+        { buildings }
       </Field>
     )
   }
 }
 
 function mapStateToProps(state) {
-  return { campuses: state.campus.all }
+  return { buildings: state.building.all }
 }
 
 export default connect(mapStateToProps)(CampusDropdown);
