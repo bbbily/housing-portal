@@ -12,8 +12,10 @@ export function studentReducer(state=INITIAL_STATE, action) {
       return {all: action.payload.data}
       break;
     case EDIT_STUDENT :
+    console.log("data", action.payload.data)
       // let newStudent = state.all.filter( student => student.id !== action.payload.data.id)
       return {all: action.payload.data}
+      break;
   }
   return state;
 }

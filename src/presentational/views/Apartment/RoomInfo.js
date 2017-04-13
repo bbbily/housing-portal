@@ -17,16 +17,17 @@ class RoomInfo extends Component {
         return (
             <div className="walls">
                 <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
-                    <h3>Room 1</h3>
-                </div>
-                <Panel collapsible expanded={ this.state.open }>
-                    <div className="bedroom-container">
+                    <h3>Room 203</h3>
+                      <div className="bedroom-container">
                         <div>
                            <ApartmentsList />
                         </div>
                     </div>
-                </Panel>
-                <div onClick={ ()=> this.setState({ open: !this.state.open }) }>
+                </div>
+                
+
+                
+                {/*<div onClick={ ()=> this.setState({ open: !this.state.open }) }>
                     <h3>Room 2</h3>
                 </div>
                 <Panel collapsible expanded={ this.state.open }>
@@ -45,7 +46,7 @@ class RoomInfo extends Component {
                            <ApartmentsList />
                         </div>
                     </div>
-                </Panel>
+                </Panel>*/}
             </div>
         );
     }

@@ -7,7 +7,7 @@ import {combineReducers} from 'redux'
 
 const INITIAL_STATE = { all: [],
                         admin: {},
-                        cohort: {},
+                        cohort: [],
                         campuses: [],
                         };
 
