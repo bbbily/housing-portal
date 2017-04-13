@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Field } from "redux-form";
-import { getCampuses } from "../actions/action_apartments";
+import { getCohorts } from "../actions/action_apartments";
 import { connect } from "react-redux";
 
-class CampusDropdown extends Component {
+class CohortSelector extends Component {
   componentWillMount() {
     this.props.dispatch(getCampuses())
   }
@@ -23,16 +22,13 @@ class CampusDropdown extends Component {
       //   default:
       //     val = 0;
       // }
-      return ( <option value={ campus.location_name } key={ campus.id} >{ campus.location_name }</option>)
+      return ( <option value={ campus.id } key={ campus.location_name} >{ campus.location_name }</option>)
     })
     console.log(this.props.campuses);
     return (
-      <select name="campus">
-          <option selected value="">Any</option>
-        { campuses }
-          {/* <option value="Dallas">Dallas</option>
-          <option value="Provo">Provo</option>
-          <option value="SaltLake">Salt Lake</option> */}
+      <select name="campus" onChange={ this.props.handleChange }>
+          <option selected value="" key="">Any</option>
+            { campuses }
       </select>
     )
   }
@@ -42,4 +38,4 @@ function mapStateToProps(state) {
   return { campuses: state.campus.all }
 }
 
-export default connect(mapStateToProps)(CampusDropdown);
+export default connect(mapStateToProps)(CampusSelector);

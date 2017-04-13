@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Panel } from "react-bootstrap";
 import "../styles/filter.scss";
+import CampusSelector from "./CampusSelector.js";
 
 class StudentListFilter extends Component {
     constructor(props) {
@@ -43,12 +44,8 @@ class StudentListFilter extends Component {
             <div className="filter-container">
                 <ul>
                     <li>Campus <br />
-                        <select name="campus_id" onChange={ this.handleChange.bind(this) }>
-                            <option value="1">Provo</option>
-                            <option value="2">Salt Lake City</option>
-                            <option value="3">Dallas</option>
-                            <option value="" selected>All</option>
-                        </select></li>     
+                        <CampusSelector handleChange = {this.handleChange.bind(this)} ></CampusSelector>
+                    </li>     
                     
 
                     <li>Cohort <br />
