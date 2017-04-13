@@ -137,6 +137,12 @@ module.exports = {
             res.status(200).send(prod);
         })
     },
+    GetRoomsByApartment: function(req,res, next) {
+        db.get_apartment_rooms(req.params.id, function(err, prod) {
+            console.log("get rooms:", req.params, err, prod)
+            res.status(200).send(prod);
+        })
+    },
     AddRoom: function(req,res,next){
         db.add_room(req.body.apartment_id, req.body.number_of_beds, function (err, prod) {
             console.log(err, prod);
