@@ -63,7 +63,8 @@ CREATE TABLE apartment(
 CREATE TABLE room(
     id SERIAL PRIMARY KEY,
     apartment_id INT REFERENCES apartment(id),
-    number_of_beds INT
+    number_of_beds INT,
+    beds_occupied INT
 );
 
 
