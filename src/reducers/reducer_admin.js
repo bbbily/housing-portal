@@ -23,21 +23,20 @@ import {GET_ADMINS, CREATE_ADMIN, DELETE_ADMIN, EDIT_ADMIN, GET_ELIGIBILITY} fro
 export function adminReducer(state=INITIAL_STATE, action) {
   switch (action.type) {
     case GET_ADMINS:
-      return { all: action.payload.data }
+      return { ...state, all: action.payload.data }
       break;
     case CREATE_ADMIN:
     console.log("create user", action.payload.data)
-      return { all: action.payload.data }
+      return { ...state, all: action.payload.data }
       break;
     case DELETE_ADMIN:
-      return { all: state.all.filter( admin =>  admin.id !== action.payload.data ) }
+      return { ...state, all: state.all.filter( admin =>  admin.id !== action.payload.data ) }
       break;
     case EDIT_ADMIN:
-      return { all: action.payload.data }
+      return { ...state, all: action.payload.data }
       break;
     case GET_ELIGIBILITY:
-    console.log("a string", action.payload.data.results[0].geometry.location);
-      return { studentLocation: action.payload.data.results[0].geometry.location }
+      return { ...state, studentLocation: action.payload.data.results[0].geometry.location }
       break;
     default:
       return state;

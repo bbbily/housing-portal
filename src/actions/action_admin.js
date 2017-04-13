@@ -7,7 +7,6 @@ export function getEligibility(address) {
   const key = "&key=AIzaSyCUSVgvH1z0fhMVFTJs0ARrSYCF_-u77iI";
   const url = baseUrl + address + key;
   const request = axios.get(url);
-  console.log(url);
   return {
     type: GET_ELIGIBILITY,
     payload: request

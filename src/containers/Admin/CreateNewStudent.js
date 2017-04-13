@@ -31,12 +31,12 @@ class CreateNewStudent extends Component {
       car_info: null,
       arrive_date: null,    //
       leave_date: null,     //
-      housing_elibility: null,
+      housing_eligibility: null,
       deposit_paid: null,   //
       accomodations: null,
       notes: null,
       room_id: null,
-      studentLocation: {},
+      studentLocation: null,
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -75,7 +75,7 @@ class CreateNewStudent extends Component {
     })
   }
 
-  componentWillMount() {
+  componentDidMount() {
         this.props.dispatch(getCohorts())
         this.props.dispatch(getCampuses())
     }
@@ -100,9 +100,38 @@ class CreateNewStudent extends Component {
           lat: 32.7775249,
           lng: -96.7956188
         }];
+
         const schoolLat = campusLocationInfo[0].lat;
         const schoolLng = campusLocationInfo[0].lng;
+
+        const lat2 = this.props.studentLocation.lat;
+        const lng2 = this.props.studentLocation.lng;
         
+        function distanceLatAndLng(schoolLat,schoolLng,lat2,lng2) {
+          const R = 3959; // Radius of the earth in mi
+          const dLat = deg2rad(lat2-schoolLat);  // deg2rad below
+          const dLon = deg2rad(lng2-schoolLng); 
+          const a = 
+            Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(deg2rad(schoolLat)) * Math.cos(deg2rad(lat2)) * 
+            Math.sin(dLon/2) * Math.sin(dLon/2)
+            ; 
+          const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+          const d = R * c; // Distance in mi
+          if (d >= 50) {
+            this.state.housing_eligibility = true;
+          } else {
+            this.state.housing_eligibility = false;
+          }
+          return d;
+        }
+
+        function deg2rad(deg) {
+          return deg * (Math.PI/180)
+        }
+
+        distanceLatAndLng.call(this, schoolLat, schoolLng, lat2, lng2);
+
         const cohorts = this.props.all.map( (cohort, i) => (
           <MenuItem id={cohort.id} key={i} eventKey={cohort.name}
             onSelect={ () => {
@@ -117,7 +146,7 @@ class CreateNewStudent extends Component {
         const campuses = this.props.campuses.map((campus,i) => (
           <MenuItem id={campus.id} key={campus.id} eventKey={campus.city}> {campus.city} </MenuItem>
         ))
-        console.log("lkjhkhk",this.state);
+
     return (
     <div className="new-student-container">
         <div onClick={ () => this.setState({ open: !this.state.open}) }>
@@ -203,7 +232,7 @@ class CreateNewStudent extends Component {
                   <ul className="student-ul">
                     <li><Button onClick={ () =>
                       { this.props.dispatch(getEligibility(`${this.state.street_address} ${this.state.city} ${this.state.state}`))
-                        // this.props.dispatch(createStudent(this.state))
+                        this.props.dispatch(createStudent(this.state))
                         this.clearData()
                         this.setState({open: false})
                         alert(this.state.first_name + this.state.last_name + " added.")
@@ -246,7 +275,7 @@ function mapStateToProps(state) {
   return {
     all: state.cohort.all,
     campuses: state.campus.all,
-    studentLocation: state.studentLocation
+    studentLocation: state.studentLocation.studentLocation
   }
 }
 export default connect(mapStateToProps)(CreateNewStudent)
