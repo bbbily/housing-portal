@@ -7,7 +7,7 @@ export const CREATE_ROOM = "CREATE_ROOM";
 export const CREATE_BUILDING = "CREATE_BUILDING";
 export const GET_BUILDINGS = "GET_BUILDINGS";
 export const GET_CAMPUSES = "GET_CAMPUSES";
-export const GET_ROOMS = "GET_ROOMS"
+
 
 export function getApartments() {
   const url = "api/apartment";
@@ -23,16 +23,6 @@ export function createApartment(props) {
   const request = axios.post(url, props)
   return {
     type: CREATE_APARTMENT,
-    payload: request
-  }
-}
-
-
-export function getRooms(id) {
-  const url = "/api/room/" + id
-  const request = axios.get(url)
-  return {
-    TYPE: GET_ROOMS,
     payload: request
   }
 }
@@ -60,11 +50,9 @@ export function createBuilding(props) {
 }
 
 
-export function getRooms(props) {
-  console.log("roo",props);
-  const url = "/api/room";
-  const request = axios.get(url, props)
-
+export function getRooms() {
+  const url = "/api/room"
+  const request = axios.get(url)
   return {
     type: GET_ROOMS,
     payload: request

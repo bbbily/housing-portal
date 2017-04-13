@@ -138,6 +138,7 @@ module.exports = {
         })
     },
     GetRoomsByApartment: function(req,res, next) {
+        console.log(req.params.id)
         db.get_apartment_rooms(req.params.id, function(err, prod) {
             console.log("get rooms:", req.params, err, prod)
             res.status(200).send(prod);

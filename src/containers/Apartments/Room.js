@@ -34,7 +34,7 @@ export const StudentTarget = {
 //   isOver: monitor.isOver(),
 //   canDrop: monitor.canDrop(),
 // }))
-class Bed extends Component {
+class Room extends Component {
   static propTypes = {
     connectDropTarget: PropTypes.func.isRequired,
     isOver: PropTypes.bool.isRequired,
@@ -59,7 +59,8 @@ class Bed extends Component {
      
     }
 
-    return connectDropTarget(
+    //return connectDropTarget(
+      return connectDropTarget(
       /////////////////////////////////
       // this is the individual bed
       ///////////////////////////////
@@ -68,7 +69,7 @@ class Bed extends Component {
         {/*{ isActive ?
           'Release to place student' :
           'Drag a student here'}*/}
-      </div>,
+      </div>
     );
   }
 }
@@ -77,4 +78,4 @@ export default DropTarget(ItemTypes.Student, StudentTarget, (connect, monitor) =
   connectDropTarget: connect.dropTarget(),
   isOver: monitor.isOver(),
   canDrop: monitor.canDrop(),
-}))(Bed)
+}))(Room)
