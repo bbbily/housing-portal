@@ -39,8 +39,11 @@ class Container extends Component {
                 gender={studentInfo.gender}
                 />
     ))
-    console.log(this.props.apartments)
+    
+    // let apartments = this.props.apartments.map( apartment => (
 
+    // ))
+    
     return (
      <DragDropContextProvider backend={HTML5Backend}>
         <div>
@@ -74,7 +77,8 @@ class Container extends Component {
 function mapStateToProps(state) {
   return {
     all: state.students.all,
-    apartments: state.apartments.all
+    apartments: state.apartments.all,
+    rooms: state.rooms
   }
 }
 export default connect(mapStateToProps)(Container)

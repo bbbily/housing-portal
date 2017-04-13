@@ -1,3 +1,4 @@
+
 import { GET_APARTMENTS, 
         CREATE_APARTMENT, 
         GET_ADDRESS, 
@@ -21,7 +22,7 @@ export function apartmentsReducer(state=INITIAL_STATE, action) {
     case CREATE_APARTMENT:
       return {
         all: [...state.all, action.payload.data],
-        apartment_id: action.payload.data.id
+        apartment_id: action.payload.data[0].id
       };
       break;
     case GET_ROOMS:
@@ -31,15 +32,29 @@ export function apartmentsReducer(state=INITIAL_STATE, action) {
   }
 }
 
-export function addressReducer(state=INITIAL_STATE, action) {
+export function buildingReducer(state=INITIAL_STATE, action) {
 
   switch (action.type) {
-    case GET_ADDRESS:
+    case GET_BUILDINGS:
       console.log("data", action.payload.data);
       return { all: action.payload.data};
       break;
-    case CREATE_ADDRESS:
+    case CREATE_BUILDING:
+      return { all: [...state.all, action.payload.data] };
+      break;
+    default:
+      return state;
+  }
+}
+export function roomReducer(state=INITIAL_STATE, action) {
+
+  switch (action.type) {
+    case GET_ROOMS:
       console.log("data", action.payload.data);
+      return { all: action.payload.data};
+      break;
+    case CREATE_ROOM:
+    console.log("data", action.payload.data);
       return { all: [...state.all, action.payload.data] };
       break;
     default:
@@ -51,7 +66,6 @@ export function campusReducer(state=INITIAL_STATE, action) {
 
   switch (action.type) {
     case GET_CAMPUSES:
-      console.log("data", action.payload.data);
       return { all: action.payload.data};
       break;
     default:

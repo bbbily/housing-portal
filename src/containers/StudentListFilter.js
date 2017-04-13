@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Panel } from "react-bootstrap";
 import "../styles/filter.scss";
+import CampusSelector from "./CampusSelector.js";
 
 class StudentListFilter extends Component {
     constructor(props) {
@@ -15,18 +16,18 @@ class StudentListFilter extends Component {
       console.log("type: ", type, "checked", checked,"e", e);
       if (type === "age")
         checked ? this.props.handleChecked(type, 21) : this.props.handleChecked(type, 0);
-        // else if (type === "accomodations") { 
+        // else if (type === "accomodations") {
         //     console.log(this.props)
         //     e.target.checked ? this.props.handleChecked(type, this.props.accomodations) : this.props.handleChecked(type, "");
         // }
 
-            
+
         // else if (type === "gender")
 
-        else 
+        else
         this.props.handleChecked(type, checked);
-         
-      
+
+
     }
 
     handleChange(e) {
@@ -43,12 +44,8 @@ class StudentListFilter extends Component {
             <div className="filter-container">
                 <ul>
                     <li>Campus <br />
-                        <select name="campus_id" onChange={ this.handleChange.bind(this) }>
-                            <option value="1">Provo</option>
-                            <option value="2">Salt Lake City</option>
-                            <option value="3">Dallas</option>
-                            <option value="" selected>All</option>
-                        </select></li>     
+                        <CampusSelector handleChange = {this.handleChange.bind(this)} ></CampusSelector>
+                    </li>     
                     
 
                     <li>Cohort <br />
