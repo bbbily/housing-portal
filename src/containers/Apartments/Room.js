@@ -43,6 +43,10 @@ class Bed extends Component {
   };
 
   render() {
+    ///////////////////////////////////
+    // setting of styles:
+    // this is where Students will display in beds
+    ////////////////////////////////////
     const { canDrop, isOver, allowedDropEffect, connectDropTarget } = this.props;
     const isActive = canDrop && isOver;
 
@@ -56,6 +60,9 @@ class Bed extends Component {
     }
 
     return connectDropTarget(
+      /////////////////////////////////
+      // this is the individual bed
+      ///////////////////////////////
       <div className="dnd-room" style={{ ...style, backgroundColor }}>
        Bed
         {/*{ isActive ?
