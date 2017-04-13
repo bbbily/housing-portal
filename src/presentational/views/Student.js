@@ -25,7 +25,6 @@ class Student extends Component {
       this.setState({
         [type]: val
       });
-      console.log(this.state);
     }
 
     componentWillMount() {
@@ -37,18 +36,13 @@ class Student extends Component {
 
         let students = this.props.all;
          if (students[0]) {
-
-          console.log("students", students, this.state)
           let state = this.state;
-          
-          // console.log(state);
           ["housing_eligibility", "deposit_paid", "age", "accomodations", "campus_id", "cohort_id", "gender"].forEach(function(filterBy) {
-              //console.log("filter: ", filterBy, "value:", state[filterBy]);
             let filterValue = state[filterBy];
             if (filterValue) {
               if (filterBy === "age" && state[filterBy] >= 21) {
                 students = students.filter(function(student) {
-                  
+
                   return moment().diff(student.dob, 'years', false) >= 21;
                 })
               } else if (filterBy === "gender" || filterBy === "campus_id" || filterBy === "cohort_id") {
@@ -96,10 +90,9 @@ class Student extends Component {
             <div>
             <NavBar />
                 <div>
-                    <StudentListFilter housing_eligibility={ this.state.housing_eligibility } 
-                                      deposit_paid={ this.state.deposit_paid } 
-                                      age={ this.state.age } 
-
+                    <StudentListFilter housing_eligibility={ this.state.housing_eligibility }
+                                      deposit_paid={ this.state.deposit_paid }
+                                      age={ this.state.age }
                                       accomodations={ this.state.accomodations }
                                       handleChecked={ this.handleChecked.bind(this) }/>
                 </div>
