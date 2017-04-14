@@ -4,13 +4,16 @@ import ItemTypes from './ItemTypes';
 import {connect, monitor} from 'react'
 import "../../styles/dndbed.scss";
 
-
+const style = {
+  //backgroundColor: '#363636'
+}
 
 export const StudentTarget = {
   drop({ allowedDropEffect, props, monitor }) {
     return {
       name: `${allowedDropEffect} Apartment`,
       allowedDropEffect,
+      room_id: monitor,
     };
   },
 };
@@ -30,25 +33,25 @@ class Bed extends Component {
     // setting of styles:
     // this is where Students will display in beds
     ////////////////////////////////////
+    console.log("Bed props:", this.props)
     const { canDrop, isOver, allowedDropEffect, connectDropTarget } = this.props;
     const isActive = canDrop && isOver;
-     console.log("Bed Props", this.props)
+     
 
     let backgroundColor = '#363636';
     if (isActive) {
-      
+      //console.log("Bed Props, isActive", this.props)
       backgroundColor = '#ffffff';
     } else if (canDrop) {
       backgroundColor = '#000000';
-     
+      //console.log("Bed Props, canDrop", this.props)
     }
 
-    //return connectDropTarget(
       return connectDropTarget(
       /////////////////////////////////
       // this is the individual bed
       ///////////////////////////////
-      <div className="dnd-bed">
+      <div className="dnd-bed" style={{...style, backgroundColor}}>
        Bed <br/>
         {/*{ isActive ?
           '' :

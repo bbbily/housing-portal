@@ -37,7 +37,9 @@ class Container extends Component {
                 eligibility={studentInfo.eligibility}
                 age={moment().diff(studentInfo.dob, 'years', false)}
                 gender={studentInfo.gender}
+                id={studentInfo.id}
                 allowedDropEffect="any"
+                room_id=''
                 />
     ))
    

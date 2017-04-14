@@ -20,14 +20,15 @@ const StudentSource = {
       name: props.name,
       age: props.age,
       eligibility: props.eligibility,
-      gender: props.gender
+      gender: props.gender,
+      id: props.id
     };
   },
 
   endDrag(props, monitor) {
     const item = monitor.getItem();
     const dropResult = monitor.getDropResult();
-    console.log(dropResult)
+    console.log("Dropresult: ", dropResult)
     if (dropResult) {
       let alertMessage = '';
       if (dropResult.allowedDropEffect === 'any' || dropResult.allowedDropEffect === dropResult.dropEffect) {
