@@ -133,7 +133,6 @@ module.exports = {
     },
     GetRooms: function(req,res,next){
         db.get_rooms(function(err, prod) {
-            console.log(prod);
             res.status(200).send(prod);
         })
     },
@@ -146,13 +145,11 @@ module.exports = {
     },
     AddRoom: function(req,res,next){
         db.add_room(req.body.apartment_id, req.body.number_of_beds, function (err, prod) {
-            console.log(err, prod);
             res.status(200).send(prod);
         })
     },
     EditRoom: function(req,res,next){
         db.edit_room(req.body.id, req.body.apartment_id, req.body.number_of_beds, function(err, prod) {
-            console.log("changing locations");
             res.status(200).send(prod);
         })
     },

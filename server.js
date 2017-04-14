@@ -70,8 +70,6 @@ app.get('/api/apartment/:id', controller.GetRoomsByApartment);
 
 
 
-
-
 app.get('/admin', function (request, response){
   response.sendFile(path.resolve(__dirname, 'build', 'index.html'))
 })
