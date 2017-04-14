@@ -51,7 +51,7 @@ class Bed extends Component {
       // this is the individual bed
       ///////////////////////////////
       <div className="dnd-bed">
-       .
+       Bed
         {/*{ isActive ?
           'Release to place student' :
           'Drag a student here'}*/}

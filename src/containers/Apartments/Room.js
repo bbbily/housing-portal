@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import Bed from './Bed';
-
+import "../../styles/dndbed.scss";
 class Room extends Component {
  
   render() {
-  console.log(this.props)
-    let bedList = []
-    for (var i = 0; i < this.props.numberOfBeds; i++) {
-      bedList.push("<Bed allowedDropEffect='move' />")
-    }
-    console.log(bedList)
-    return (
-      <div>
-        
-        I am room
+    
+    let listBeds = []
 
+    for (var i = 0; i < this.props.number_of_beds; i++)    {
+      listBeds.push(<Bed key={i} allowedDropEffect='move' />) 
+    } 
+  
+    return (
+      <div className="dnd-room">
+        Room
+         {listBeds}
       </div>
     );
   }

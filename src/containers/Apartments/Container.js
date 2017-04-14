@@ -30,7 +30,7 @@ class Container extends Component {
       open: false,
       bedList: ''
     } 
-    this.showBeds = this.showBeds.bind(this) 
+    
   }
 
   componentWillMount() {
@@ -50,28 +50,20 @@ class Container extends Component {
     ))
    
     let roomData = this.props.rooms.rooms
-    
+    console.log("Apartments", this.props.apartments)
+    console.log("rooms", roomData)
     let apartments = this.props.apartments.map( apartment => { 
     let displayRooms = roomData.filter(function(room) { return (room.apartment_id == apartment.id) })
-                                  .map(room => (<div key={room.id} className="dnd-room">
-            
-                                       Beds: {room.number_of_beds} <br/>
-       
-                                </div>))
-
-    // this prints out all of the rooms that apartment has.
-    // INSIDE of each room, the number of beds needs to be displayed
-    // then looped over the length of room.number_of_beds
-    //
-    //Bed should be the container componenent that holds each of the beds
-    //
-      return (
-      <div key={apartment.id}>
-       <b>Apt Number: </b> {apartment.apartment_number}
-        {displayRooms} 
-      </div> 
-    )
-  })
+                                  .map(room => (<Room key={room.id} 
+                                                      number_of_beds={room.number_of_beds}>
+                                                  </Room>))
+                                  return (
+                                  <div key={apartment.id}>
+                                  Apt: {apartment.apartment_number} / ID: {apartment.id}
+                                    {displayRooms} 
+                                  </div> 
+                                )
+                              })
   
     return (
      <DragDropContextProvider backend={HTML5Backend}>
