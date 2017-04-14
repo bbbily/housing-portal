@@ -19,6 +19,7 @@ export function getApartments() {
 }
 
 export function createApartment(props) {
+  console.log("props", props)
   const url = "/api/apartment";
   const request = axios.post(url, props)
   return {

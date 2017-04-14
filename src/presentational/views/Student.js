@@ -16,9 +16,8 @@ class Student extends Component {
       housing_eligibility: false,
       deposit_paid: false,
       age: 0,
-      accomodations: false,
-      gender: "",
-    }
+      accomodations: false
+      }
   }
     handleChecked(type, val) {
       console.log(type, val);
@@ -35,6 +34,7 @@ class Student extends Component {
     render() {
 
         let students = this.props.all;
+        console.log(students)
          if (students[0]) {
           let state = this.state;
           ["housing_eligibility", "deposit_paid", "age", "accomodations", "campus_id", "cohort_id", "gender"].forEach(function(filterBy) {
@@ -59,8 +59,8 @@ class Student extends Component {
           })
          }
 
-        const StudentList = students.map(students => (
-                <li key={students.id}> <StudentCards
+        const StudentList = students.map((students) => (
+                <li key={students.email}> <StudentCards
                 image={students.image}
                 name={`${students.first_name} ${students.last_name}`}
                 first_name={ students.first_name }

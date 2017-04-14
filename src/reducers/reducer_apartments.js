@@ -21,6 +21,7 @@ export function apartmentsReducer(state=INITIAL_STATE, action) {
       return { all: action.payload.data};
       break;
     case CREATE_APARTMENT:
+      console.log(action.payload.data)
       return {
         all: [...state.all, action.payload.data],
         apartment_id: action.payload.data[0].id
