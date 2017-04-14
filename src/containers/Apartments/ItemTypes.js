@@ -1,3 +1,6 @@
 export default {
-  Student: 'Student'
+  Student: 'Student',
+    FOOD: 'food',
+  GLASS: 'glass',
+  PAPER: 'paper',
 };

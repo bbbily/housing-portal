@@ -1,13 +1,13 @@
 import React, { PropTypes, Component } from 'react';
 import { DropTarget } from 'react-dnd';
-import ItemTypes from './itemTypes';
+import ItemTypes from './ItemTypes';
 import {connect, monitor} from 'react'
 import "../../styles/dndbed.scss";
 
 
 
 export const StudentTarget = {
-  drop({ allowedDropEffect }) {
+  drop({ allowedDropEffect, props, monitor }) {
     return {
       name: `${allowedDropEffect} Apartment`,
       allowedDropEffect,
@@ -15,17 +15,14 @@ export const StudentTarget = {
   },
 };
 
-// @DropTarget(ItemTypes.Student, StudentTarget, (connect, monitor) => ({
-//   connectDropTarget: connect.dropTarget(),
-//   isOver: monitor.isOver(),
-//   canDrop: monitor.canDrop(),
-// }))
+
 class Bed extends Component {
   static propTypes = {
     connectDropTarget: PropTypes.func.isRequired,
     isOver: PropTypes.bool.isRequired,
     canDrop: PropTypes.bool.isRequired,
     allowedDropEffect: PropTypes.string.isRequired,
+    room_id: PropTypes.number.isRequired
   };
 
   render() {
@@ -35,13 +32,14 @@ class Bed extends Component {
     ////////////////////////////////////
     const { canDrop, isOver, allowedDropEffect, connectDropTarget } = this.props;
     const isActive = canDrop && isOver;
+     console.log("Bed Props", this.props)
 
     let backgroundColor = '#363636';
     if (isActive) {
       
-      backgroundColor = 'red';
+      backgroundColor = '#ffffff';
     } else if (canDrop) {
-      backgroundColor = '#blue';
+      backgroundColor = '#000000';
      
     }
 
@@ -51,17 +49,19 @@ class Bed extends Component {
       // this is the individual bed
       ///////////////////////////////
       <div className="dnd-bed">
-       Bed
+       Bed <br/>
         {/*{ isActive ?
-          'Release to place student' :
+          '' :
           'Drag a student here'}*/}
       </div>
     );
   }
 }
 
+
 export default DropTarget(ItemTypes.Student, StudentTarget, (connect, monitor) => ({
   connectDropTarget: connect.dropTarget(),
   isOver: monitor.isOver(),
   canDrop: monitor.canDrop(),
 }))(Bed)
+ 

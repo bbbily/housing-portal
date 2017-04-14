@@ -14,6 +14,7 @@ class RoomInfo extends Component {
     }
     
     render() {
+        
         return (
             <div className="walls">
               <ApartmentsList />

@@ -6,11 +6,11 @@ class Room extends Component {
   render() {
     
     let listBeds = []
-
+    console.log("RoomID", this.props.room_id)
     for (var i = 0; i < this.props.number_of_beds; i++)    {
-      listBeds.push(<Bed key={i} allowedDropEffect='move' />) 
+      listBeds.push(<Bed key={i} allowedDropEffect='move' room_id={this.props.room_id}/>) 
     } 
-  
+    
     return (
       <div className="dnd-room">
         Room

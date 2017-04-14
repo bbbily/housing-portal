@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    width: 90%;
 }
 
 .bed-container {
@@ -23,26 +24,53 @@
 }
 
 .dnd-bed {
-    width: 20px;
+    text-align:center;
     height: 50px;
     border-radius: 5px;
     margin: 12px;
     padding: 12px;
     align-content: center;
-    color: black;
-    background-color: $dark-gray;
+    color: $dark-gray;
+    background-color: $light-gray;
 }
 
 .dnd-room {
     width: 200px; 
-    height: 200px; 
     border-radius: 5px;
     /* margin: 12px; */
     padding: 12px;
     align-content: center;
     color: white;
-    background-color: $light-gray;
-    border-width: 1px;
-    border-style: solid;
-    border-color: blue;
+    background-color: $dark-gray;
+}
+
+.apt-number {
+    padding: 24px;
+}
+
+.apt-holder {
+    width: 90%;
+    background-color: $bg-gray;
+    margin-top:24px;
+    text-align:center;
+}
+
+.apt-holder h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 90%;
+    background-color: $bg-gray;
+    color: #fff;
+}
+
+
+.apt-ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style:none;
+}
+
+.apt-li {
+    margin-left: 24px;
 }
