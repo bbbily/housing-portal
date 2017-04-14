@@ -11,11 +11,16 @@
     flex-direction: column;
     overflow-y: scroll;
     padding-right: 45px;
-    padding-top: 412px;
+    padding-top: 40px;
 
     li {
         list-style-type: none;
         margin-top: 24px;
     }
 
+}
+
+.room-holder {
+    display: flex;
+    justify-content: space-between;
 }

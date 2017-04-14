@@ -1,7 +1,6 @@
 
 var massive = require('massive');
 
-// var dbConnection = "postgres://aquasau1_db:jppsDM19@aquasaurious.com:5432/aquasau1_housing";  // connection for S.Gray's bluehost account
 // var dbConnection = "postgres://owhmkznh:hxxkeFT6WkOZZ5-8qrA1aTWn2uOBbDGT@stampy.db.elephantsql.com:5432/owhmkznh";  // connection for free account at postgre
 var dbConnection = "postgres://oxfmgejzvudchb:e63f8d8c81df7baea7bacf2b6e3f31bc3e5b89391e4980568e57034b77543813@ec2-54-243-185-123.compute-1.amazonaws.com:5432/ddq2tdbgj1t5g0?ssl=true"; // heroku
 
@@ -133,11 +132,11 @@ module.exports = {
     },
     GetRooms: function(req,res,next){
         db.get_rooms(function(err, prod) {
-            console.log(prod);
             res.status(200).send(prod);
         })
     },
     GetRoomsByApartment: function(req,res, next) {
+        console.log(req.params.id)
         db.get_apartment_rooms(req.params.id, function(err, prod) {
             console.log("get rooms:", req.params, err, prod)
             res.status(200).send(prod);
@@ -145,13 +144,11 @@ module.exports = {
     },
     AddRoom: function(req,res,next){
         db.add_room(req.body.apartment_id, req.body.number_of_beds, function (err, prod) {
-            console.log(err, prod);
             res.status(200).send(prod);
         })
     },
     EditRoom: function(req,res,next){
         db.edit_room(req.body.id, req.body.apartment_id, req.body.number_of_beds, function(err, prod) {
-            console.log("changing locations");
             res.status(200).send(prod);
         })
     },

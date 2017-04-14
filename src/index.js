@@ -13,6 +13,7 @@ import Admin from "./presentational/views/Admin";
 import Apartment from "./presentational/views/Apartment/Apartment";
 // import NavBar from "./presentational/NavBar";
 import Student from "./presentational/views/Student";
+import StudentView from "./presentational/views/StudentView/StudentView";
 // import DropDown from "./containers/DropDownMenu";
 
  // import ApartmentListFilter from "./containers/ApartmentListFilter";
@@ -45,6 +46,7 @@ ReactDOM.render(
       <Route path="/admin" component={Admin} />
       <Route path="/Apartments" component={Apartment} />
       <Route path="/students" component={Student} />
+      <Route path="/studentview" component={StudentView} />
     </Router>
   </Provider>,
 

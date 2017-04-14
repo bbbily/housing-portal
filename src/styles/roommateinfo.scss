@@ -1,0 +1,25 @@
+@import "./_variables.scss";
+
+.roommate-container {
+    border-bottom-style: solid;
+    margin-bottom: -40px;
+}
+
+.roommate-container h2 {
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+    padding-top: 12px;
+    border-color: $light-gray;
+}
+
+.roommate-panel {
+    color: #000;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+}

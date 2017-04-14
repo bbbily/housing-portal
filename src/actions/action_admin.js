@@ -1,5 +1,18 @@
 import axios from "axios";
 
+export const GET_ELIGIBILITY = "GET_ELIGIBILITY";
+
+export function getEligibility(address) {
+  const baseUrl ="https://maps.googleapis.com/maps/api/geocode/json?address=";
+  const key = "&key=AIzaSyCUSVgvH1z0fhMVFTJs0ARrSYCF_-u77iI";
+  const url = baseUrl + address + key;
+  const request = axios.get(url);
+  return {
+    type: GET_ELIGIBILITY,
+    payload: request
+  }
+}
+
 /////////////////////////////////////////////////
 // Actions for New Admin Panel
 /////////////////////////////////////////////////

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Panel } from "react-bootstrap";
 import "../styles/filter.scss";
-import CampusSelector from "./CampusSelector.js";
+import CampusSelector from "./CampusSelector";
 
 class StudentListFilter extends Component {
     constructor(props) {
@@ -45,15 +45,15 @@ class StudentListFilter extends Component {
                 <ul>
                     <li>Campus <br />
                         <CampusSelector handleChange = {this.handleChange.bind(this)} ></CampusSelector>
-                    </li>     
-                    
+                    </li>
+
 
                     <li>Cohort <br />
-                        <select name="cohort_id" onChange={ this.handleChange.bind(this) }>
+                        <select name="cohort_id" defaultValue="" onChange={ this.handleChange.bind(this) }>
                             <option value="1">DM1</option>
                             <option value="2">DM2</option>
                             <option value="3">DM3</option>
-                            <option value="" selected>All</option>
+                            <option value="">All</option>
                         </select></li>
 
                 <li>
@@ -69,10 +69,10 @@ class StudentListFilter extends Component {
                         <input type="checkbox" name="accomodations" value={ this.props.accomodations } onChange={ this.handleChecked.bind(this, "accomodations", !this.props.accomodations) } /> Accomodations
                     </li>
                     <li>Gender <br />
-                        <select name="gender" onChange={ this.handleChange.bind(this) }>
+                        <select name="gender" defaultValue="" onChange={ this.handleChange.bind(this) }>
                             <option value="M">Male</option>
                             <option value="F">Female</option>
-                            <option value="" selected>Any</option>
+                            <option value="">Any</option>
                         </select></li>
                  </ul>
 

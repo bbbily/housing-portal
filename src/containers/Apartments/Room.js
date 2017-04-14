@@ -1,76 +1,23 @@
-import React, { PropTypes, Component } from 'react';
-import { DropTarget } from 'react-dnd';
-import ItemTypes from './itemTypes';
-import {connect, monitor} from 'react'
+import React, { Component } from 'react';
+import Bed from './Bed';
 import "../../styles/dndbed.scss";
-
-const style = {
-  borderRadius: '5px',
-  height: '12rem',
-  width: '12rem',
-  margin: '1.5rem',
-  display: 'flex',
-  justifyContent: 'space-around',
-  alignContent: 'center',
-  color: 'white',
-  padding: '4rem',
-  textAlign: 'center',
-  fontSize: '15px',
-  lineHeight: 'normal',
-  float: 'left',
-};
-
-export const StudentTarget = {
-  drop({ allowedDropEffect }) {
-    return {
-      name: `${allowedDropEffect} Apartment`,
-      allowedDropEffect,
-    };
-  },
-};
-
-// @DropTarget(ItemTypes.Student, StudentTarget, (connect, monitor) => ({
-//   connectDropTarget: connect.dropTarget(),
-//   isOver: monitor.isOver(),
-//   canDrop: monitor.canDrop(),
-// }))
-class Bed extends Component {
-  static propTypes = {
-    connectDropTarget: PropTypes.func.isRequired,
-    isOver: PropTypes.bool.isRequired,
-    canDrop: PropTypes.bool.isRequired,
-    allowedDropEffect: PropTypes.string.isRequired,
-  };
-
+class Room extends Component {
+ 
   render() {
-    const { canDrop, isOver, allowedDropEffect, connectDropTarget } = this.props;
-    const isActive = canDrop && isOver;
+    
+    let listBeds = []
 
-    let backgroundColor = '#3C3C3C';
-    if (isActive) {
-      backgroundColor = '#458BCD';
-    } else if (canDrop) {
-      backgroundColor = '#67adef';
-    }
-
-    return connectDropTarget(
-      <div className="dnd-room" style={{ ...style, backgroundColor }}>
-       Bed 1
-        {/* isActive ?
-          'Release to place student' :
-          'Drag a student here'
-        */}
- {  /*       <div className="bed-container">
-            <div className="bed"></div>
-            <div className="bed"></div>
-          </div>*/}
-      </div>,
+    for (var i = 0; i < this.props.number_of_beds; i++)    {
+      listBeds.push(<Bed key={i} allowedDropEffect='move' />) 
+    } 
+  
+    return (
+      <div className="dnd-room">
+        Room
+         {listBeds}
+      </div>
     );
   }
 }
 
-export default DropTarget(ItemTypes.Student, StudentTarget, (connect, monitor) => ({
-  connectDropTarget: connect.dropTarget(),
-  isOver: monitor.isOver(),
-  canDrop: monitor.canDrop(),
-}))(Bed)
+export default Room;
