@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Panel } from "react-bootstrap";
 import "../styles/filter.scss";
-import CampusSelector from "./CampusSelector.js";
+import CampusSelector from "./CampusSelector";
 
 class StudentListFilter extends Component {
     constructor(props) {

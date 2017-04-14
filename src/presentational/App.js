@@ -22,6 +22,7 @@ class App extends Component {
           <Link to="/admin"> <button>go to admin</button></Link>
           <Link to="/students"> <button>Student List</button></Link>
           <Link to="/apartments"><button>apartment list</button></Link>
+          <Link to="/studentview"><button>go to student view</button></Link>
 
           <br/><br/>
 

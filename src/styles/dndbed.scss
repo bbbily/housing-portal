@@ -21,3 +21,28 @@
     width: 35px;
     float: left;
 }
+
+.dnd-bed {
+    width: 20px;
+    height: 50px;
+    border-radius: 5px;
+    margin: 12px;
+    padding: 12px;
+    align-content: center;
+    color: black;
+    background-color: $dark-gray;
+}
+
+.dnd-room {
+    width: 200px; 
+    height: 200px; 
+    border-radius: 5px;
+    /* margin: 12px; */
+    padding: 12px;
+    align-content: center;
+    color: white;
+    background-color: $light-gray;
+    border-width: 1px;
+    border-style: solid;
+    border-color: blue;
+}

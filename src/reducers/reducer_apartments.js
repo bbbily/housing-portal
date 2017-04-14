@@ -9,11 +9,10 @@ import { GET_APARTMENTS,
         }  from "../actions/action_apartments";
 
 
-
-
 const INITIAL_STATE = { all: [],
                         apartment_id: "",
-                        rooms: [] };
+                        rooms: [],
+                        apartments: [] };
 
 export function apartmentsReducer(state=INITIAL_STATE, action) {
 
@@ -49,8 +48,7 @@ export function roomReducer(state=INITIAL_STATE, action) {
 
   switch (action.type) {
     case GET_ROOMS:
-      console.log("data", action.payload.data);
-      return { all: action.payload.data};
+      return { rooms: action.payload.data};
       break;
     case CREATE_ROOM:
       return { all: [...state.all, action.payload.data[0]] };

@@ -27,7 +27,6 @@ export function createApartment(props) {
   }
 }
 
-
 // export function getRoomsByApartment(id) {
 //   const url = "/api/apartment/" + id;
 //   const request = axios.get(url)
@@ -59,11 +58,9 @@ export function createBuilding(props) {
 }
 
 
-export function getRooms(props) {
-  console.log("roo",props);
-  const url = "/api/room";
-  const request = axios.get(url, props)
-
+export function getRooms() {
+  const url = "/api/room"
+  const request = axios.get(url)
   return {
     type: GET_ROOMS,
     payload: request

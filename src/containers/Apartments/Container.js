@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import { DragDropContextProvider } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import Room from './Room';
+import Bed from './Bed'
 import Student from './Student';
 import "../../styles/dndbed.scss";
 import "../../styles/housingcontainer.scss";
 import {connect} from "react-redux"
-import {getStudents} from "../../actions/action_student"
-import { getApartments } from "../../actions/action_apartments"
+import { getStudents } from "../../actions/action_student"
+import { getApartments, getRooms } from "../../actions/action_apartments"
 import moment from "moment"
+import { Panel } from "react-bootstrap";
+
 
 const style = {
   borderRadius: '5px',
@@ -22,49 +25,56 @@ const style = {
 class Container extends Component {
 
   constructor(props) {
-    super(props)    
+    super(props)  
+    this.state = {
+      open: false,
+      bedList: ''
+    } 
+    
   }
 
   componentWillMount() {
     this.props.dispatch(getStudents())
     this.props.dispatch(getApartments())
+    this.props.dispatch(getRooms())
   }
-
+  
   render() {
-    //console.log("studentInfo:", this.props.all)
+    
     let students = this.props.all.map( studentInfo => (
-      <Student  name={`${studentInfo.first_name} ${studentInfo.last_name}`}
+      <Student name={`${studentInfo.first_name} ${studentInfo.last_name}`}
                 eligibility={studentInfo.eligibility}
                 age={moment().diff(studentInfo.dob, 'years', false)}
                 gender={studentInfo.gender}
                 />
     ))
-    
-    // let apartments = this.props.apartments.map( apartment => (
-
-    // ))
-    
+   
+    let roomData = this.props.rooms.rooms
+    console.log("Apartments", this.props.apartments)
+    console.log("rooms", roomData)
+    let apartments = this.props.apartments.map( apartment => { 
+    let displayRooms = roomData.filter(function(room) { return (room.apartment_id == apartment.id) })
+                                  .map(room => (<Room key={room.id} 
+                                                      number_of_beds={room.number_of_beds}>
+                                                  </Room>))
+                                  return (
+                                  <div key={apartment.id}>
+                                  Apt: {apartment.apartment_number} / ID: {apartment.id}
+                                    {displayRooms} 
+                                  </div> 
+                                )
+                              })
+  
     return (
      <DragDropContextProvider backend={HTML5Backend}>
         <div>
-          <div className="apartment-container" style={{ overflow: 'hidden', clear: 'both' }}>
-            <div style={{ ...style }}>
-              <Room allowedDropEffect="move" 
-                    preferred_gender="M"
-                    over_21="true"/>
-            </div>
-            <div style={{ ...style }}>
-              <Room allowedDropEffect="copy" 
-                    gender="F"
-                    age="100"/>
-              <Room allowedDropEffect="copy" />              
-            </div>
-            <div style={{ ...style }}>
-              <Room allowedDropEffect="any" />
-              <Room allowedDropEffect="any" />
-              <Room allowedDropEffect="any" />
-            </div>
+         
+          <div className="apartment-container">
+             
+          {apartments}
+
           </div>
+          
           <div className="housing-container">
             {students}
           </div>
