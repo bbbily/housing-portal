@@ -8,7 +8,10 @@ class Room extends Component {
     let listBeds = []
     console.log(`The room with ID: ${this.props.room_id} has ${this.props.number_of_beds} total beds.`)
     for (var i = 0; i < this.props.number_of_beds; i++)    {
-      listBeds.push(<Bed key={i} allowedDropEffect='move' room_id={this.props.room_id}/>) 
+      listBeds.push(<Bed key={i} 
+                          allowedDropEffect='move' 
+                          room_id={this.props.room_id}
+                          lastDroppedItem={this.props.room_id}/>) 
     } 
     
     return (

@@ -8,12 +8,14 @@ const style = {
   //backgroundColor: '#363636'
 }
 
-export const StudentTarget = {
-  drop({ allowedDropEffect, props, monitor }) {
+const StudentTarget = {
+  drop({ props }) {
+    props.onDrop(monitor.getItem())
     return {
       name: `${allowedDropEffect} Apartment`,
       allowedDropEffect,
-      room_id: monitor,
+      room_id,
+      lastDroppedItem,
     };
   },
 };
@@ -28,13 +30,15 @@ class Bed extends Component {
     room_id: PropTypes.number.isRequired
   };
 
+  
+
   render() {
     ///////////////////////////////////
     // setting of styles:
     // this is where Students will display in beds
     ////////////////////////////////////
     console.log("Bed props:", this.props)
-    const { canDrop, isOver, allowedDropEffect, connectDropTarget } = this.props;
+    const { canDrop, isOver, allowedDropEffect, connectDropTarget, lastDroppedItem} = this.props;
     const isActive = canDrop && isOver;
      
 
@@ -56,13 +60,14 @@ class Bed extends Component {
         {/*{ isActive ?
           '' :
           'Drag a student here'}*/}
+          {lastDroppedItem}
       </div>
     );
   }
 }
 
 
-export default DropTarget(ItemTypes.Student, StudentTarget, (connect, monitor) => ({
+export default DropTarget(props => ItemTypes.Student, StudentTarget, (connect, monitor) => ({
   connectDropTarget: connect.dropTarget(),
   isOver: monitor.isOver(),
   canDrop: monitor.canDrop(),
