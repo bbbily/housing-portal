@@ -69,8 +69,6 @@ app.get('/api/cohort/student', controller.GetStudentsInCohort);
 app.get('/api/apartment/:id', controller.GetRoomsByApartment);
 
 
-app.delete("/api/allRoom", controller.deleteAllRooms)
-
 
 app.get('/admin', function (request, response){
   response.sendFile(path.resolve(__dirname, 'build', 'index.html'))
