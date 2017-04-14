@@ -62,6 +62,7 @@ class Student extends Component {
                 })
               }
             }
+            console.log("students::::", students);
           })
          }
 

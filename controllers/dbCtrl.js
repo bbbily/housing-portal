@@ -2,8 +2,8 @@
 var massive = require('massive');
 
 // var dbConnection = "postgres://aquasau1_db:jppsDM19@aquasaurious.com:5432/aquasau1_housing";  // connection for S.Gray's bluehost account
-var dbConnection = "postgres://owhmkznh:hxxkeFT6WkOZZ5-8qrA1aTWn2uOBbDGT@stampy.db.elephantsql.com:5432/owhmkznh";  // connection for free account at postgre
-
+// var dbConnection = "postgres://owhmkznh:hxxkeFT6WkOZZ5-8qrA1aTWn2uOBbDGT@stampy.db.elephantsql.com:5432/owhmkznh";  // connection for free account at postgre
+var dbConnection = "postgres://oxfmgejzvudchb:e63f8d8c81df7baea7bacf2b6e3f31bc3e5b89391e4980568e57034b77543813@ec2-54-243-185-123.compute-1.amazonaws.com:5432/ddq2tdbgj1t5g0?ssl=true"; // heroku
 
 var db = massive.connect({connectionString : dbConnection},
   function(err, localdb){
