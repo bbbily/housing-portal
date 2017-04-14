@@ -9,6 +9,7 @@ const INITIAL_STATE = { all: [],
                         admin: {},
                         cohort: [],
                         campuses: [],
+                        studentLocation: {}
                         };
 
 
@@ -16,23 +17,26 @@ const INITIAL_STATE = { all: [],
 /////////////////////////////////////////////////
 // Reducer for New Admin Panel
 /////////////////////////////////////////////////
-import {GET_ADMINS, CREATE_ADMIN, DELETE_ADMIN, EDIT_ADMIN} from "../actions/action_admin"
+import {GET_ADMINS, CREATE_ADMIN, DELETE_ADMIN, EDIT_ADMIN, GET_ELIGIBILITY} from "../actions/action_admin"
 
 
 export function adminReducer(state=INITIAL_STATE, action) {
   switch (action.type) {
     case GET_ADMINS:
-      return { all: action.payload.data }
+      return { ...state, all: action.payload.data }
       break;
     case CREATE_ADMIN:
     console.log("create user", action.payload.data)
-      return { all: action.payload.data }
+      return { ...state, all: action.payload.data }
       break;
     case DELETE_ADMIN:
-      return { all: state.all.filter( admin =>  admin.id !== action.payload.data ) }
+      return { ...state, all: state.all.filter( admin =>  admin.id !== action.payload.data ) }
       break;
     case EDIT_ADMIN:
-      return { all: action.payload.data }
+      return { ...state, all: action.payload.data }
+      break;
+    case GET_ELIGIBILITY:
+      return { ...state, studentLocation: action.payload.data.results[0].geometry.location }
       break;
     default:
       return state;
@@ -75,16 +79,16 @@ export function cohortReducer(state=INITIAL_STATE, action) {
 /////////////////////////////////////////////////
 // Reducer for New Student Panel
 /////////////////////////////////////////////////
-import { GET_STUDENT } from '../actions/action_admin'
+// import { GET_STUDENT } from '../actions/action_admin'
 
 
-export function studentReducer(state=INITIAL_STATE, action) {
-  switch (action.type) {
-    case GET_STUDENT:
-      console.log(action.payload.data)
-      return Object.assign({}, state, {student: action.payload.data})
-      break;
-    default:
-      return state;
-  }
-}
+// export function studentReducer(state=INITIAL_STATE, action) {
+//   switch (action.type) {
+//     case GET_STUDENT:
+//     console.log("lkajsdklj");
+//       return Object.assign({}, state, {student: action.payload.data})
+//       break;
+//     default:
+//       return state;
+//   }
+// }
