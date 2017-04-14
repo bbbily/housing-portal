@@ -16,6 +16,6 @@ const rootReducer = combineReducers({
   students: studentReducer,
   studentLocation: adminReducer,
   room: roomReducer
-});
+})
 
 export default rootReducer;
