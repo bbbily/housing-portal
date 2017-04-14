@@ -18,7 +18,12 @@ class WorkOrder extends Component {
                 </div>
                 <Panel collapsible expanded={ this.state.open } >
                     <div className="workorder-panel">
-                        This is where you can submit a work order.
+                        <form>
+                            <h1>Having an issue?</h1>
+                            <textarea type="text" placeholder="Describe the issue(s) here"></textarea>
+                            <button>Submit</button>
+                            {/* Button : onClick={ () => this.props.dispatch(addAccommodations??(this.state)) } */}
+                        </form>
                     </div>
                 </Panel>
             </div>
