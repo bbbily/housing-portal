@@ -5,7 +5,6 @@ import { GET_APARTMENTS,
         CREATE_ADDRESS, 
         GET_CAMPUSES,
         GET_ROOMS,
-        GET_BUILDINGS, 
         CREATE_BUILDING,
         CREATE_ROOM }  from "../actions/action_apartments";
 
