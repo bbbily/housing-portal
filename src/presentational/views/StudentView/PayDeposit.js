@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Panel } from "react-bootstrap";
+import "../../../styles/paydeposit.scss";
 
 class PayDeposit extends Component {
     constructor(...args) {
@@ -11,12 +12,12 @@ class PayDeposit extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="deposit-container">
                 <div onClick={ () => this.setState({ open: !this.state.open}) }>
                     <h3>Pay Deposit</h3>
                 </div>
                 <Panel collapsible expanded={ this.state.open }>
-                    <div>
+                    <div className="deposit-panel">
                         This is the dropdown information for paying your deposit.
                     </div>
                 </Panel>

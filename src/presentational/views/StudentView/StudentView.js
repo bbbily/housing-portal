@@ -4,15 +4,14 @@ import PayDeposit from "./PayDeposit";
 import RoommateInfo from "./RoommateInfo";
 import WorkOrder from "./SubmitWorkOrder";
 import Accommodations from "./Accommodations";
+import "../../../styles/studentview.scss";
 
 class StudentView extends Component {
     render() {
         return (
-            <div>
-                <div>
-                    <NavBar />
-                </div>
-                <div>
+            <div className="studentview-container">
+                <NavBar />
+                <div className="studentview-menu">
                     <PayDeposit />
                     <RoommateInfo />
                     <WorkOrder />

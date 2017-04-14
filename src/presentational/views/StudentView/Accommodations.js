@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Panel } from "react-bootstrap";
+import "../../../styles/accommodations.scss";
 
 class Accommodations extends Component {
     constructor(...args) {
@@ -11,14 +12,16 @@ class Accommodations extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="accommodations-container">
                 <div onClick={ () => this.setState({ open: !this.state.open }) } >
                     <h3>
                         Accommodations
                     </h3>
                 </div>
                 <Panel collapsible expanded={ this.state.open }>
-                    This is where you can edit your accommodations.
+                    <div className="accommodations-panel">
+                        This is where you can edit your accommodations.
+                    </div>
                 </Panel>
             </div>
         )

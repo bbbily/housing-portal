@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Panel } from "react-bootstrap";
+import "../../../styles/workorder.scss";
 
 class WorkOrder extends Component {
     constructor(...args) {
@@ -11,12 +12,14 @@ class WorkOrder extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="workorder-container">
                 <div onClick={ () => this.setState({ open: !this.state.open }) }>
                     <h3>Work Orders</h3>
                 </div>
                 <Panel collapsible expanded={ this.state.open } >
-                    This is where you can submit a work order.
+                    <div className="workorder-panel">
+                        This is where you can submit a work order.
+                    </div>
                 </Panel>
             </div>
         )
