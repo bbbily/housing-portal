@@ -23,7 +23,10 @@ class ApartmentModal extends Component {
             <Field name="preferred_gender" component="input" type="radio" value="Male" /> Male
             <Field name="preferred_gender" component="input" type="radio" value="Female" /> Female
             <Field name="over_21" component="input" type="checkbox" /> 21
-            { Room }
+            { this.props.Rooms }
+            <button type="submit" >Save</button>
+            <button type="button" >add room</button>
+            <button type="button" >delete room</button>
           </form>
         </Modal.Body>
         <Modal.Footer>

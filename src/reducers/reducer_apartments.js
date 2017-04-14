@@ -1,15 +1,17 @@
 
-import { GET_APARTMENTS, 
-        CREATE_APARTMENT, 
-        GET_ADDRESS, 
-        CREATE_ADDRESS, 
+import { GET_APARTMENTS,
+        CREATE_APARTMENT,
+        GET_BUILDINGS,
+        CREATE_BUILDING,
         GET_CAMPUSES,
-        GET_ROOMS }  from "../actions/action_apartments";
+        GET_ROOMS,
+        CREATE_ROOM
+        }  from "../actions/action_apartments";
 
 
 
 
-const INITIAL_STATE = { all: [], 
+const INITIAL_STATE = { all: [],
                         apartment_id: "",
                         rooms: [] };
 
@@ -25,8 +27,6 @@ export function apartmentsReducer(state=INITIAL_STATE, action) {
         apartment_id: action.payload.data[0].id
       };
       break;
-    case GET_ROOMS:
-      return  {rooms: action.payload.data }
     default:
       return state;
   }
@@ -36,7 +36,6 @@ export function buildingReducer(state=INITIAL_STATE, action) {
 
   switch (action.type) {
     case GET_BUILDINGS:
-      console.log("data", action.payload.data);
       return { all: action.payload.data};
       break;
     case CREATE_BUILDING:
@@ -54,8 +53,7 @@ export function roomReducer(state=INITIAL_STATE, action) {
       return { all: action.payload.data};
       break;
     case CREATE_ROOM:
-    console.log("data", action.payload.data);
-      return { all: [...state.all, action.payload.data] };
+      return { all: [...state.all, action.payload.data[0]] };
       break;
     default:
       return state;

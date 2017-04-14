@@ -27,8 +27,11 @@ class CreateNewApartment extends Component {
 
     onSubmit(props) {
       props.apartment_id = this.props.apartment_id;
-      console.log("adminform props", this.props)
-      this.props.dispatch(createRoom(props));
+      console.log(this.state.rooms)
+      for (let i=0; i<this.state.rooms.length; i++) {
+        console.log("adminform props", props[i+""])
+        this.props.dispatch(createRoom({apartment_id: props.apartment_id, number_of_beds: props[i]}));
+      }
     }
 
     showRoom() {
@@ -63,7 +66,7 @@ class CreateNewApartment extends Component {
                       <div className="room-controls-container">
                         <h1>Apartment added!</h1>
                         <p>Now let's throw some bedrooms in there.</p>
-                        <button className="margin-left" type="button" onClick={ () => this.setState({ rooms: [...Rooms, <Room beds={`room${Rooms.length}`} key={Rooms.length} /> ]})}>Add New Room</button>
+                        <button className="margin-left" type="button" onClick={ () => this.setState({ rooms: [...Rooms, <Room beds={Rooms.length + ""} key={Rooms.length} /> ]})}>Add New Room</button>
                         <button className="margin-left" type="submit">  Save  </button>
                         <button className="margin-left" type="button" onClick={ () => this.setState({ rooms: Rooms.slice(0, Rooms.length-1)})}>Delete Room</button>
                       </div>
