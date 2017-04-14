@@ -4,7 +4,10 @@ import { GET_APARTMENTS,
         GET_ADDRESS, 
         CREATE_ADDRESS, 
         GET_CAMPUSES,
-        GET_ROOMS }  from "../actions/action_apartments";
+        GET_ROOMS,
+        GET_BUILDINGS,
+        CREATE_BUILDING,
+        CREATE_ROOM }  from "../actions/action_apartments";
 
 
 
