@@ -4,10 +4,6 @@ import ItemTypes from './itemTypes';
 import {connect, monitor} from 'react'
 import "../../styles/dndbed.scss";
 
-
-
-
-
 class Bed extends Component {
   static propTypes = {
     connectDropTarget: PropTypes.func.isRequired,
@@ -35,7 +31,7 @@ class Bed extends Component {
       
       backgroundColor = 'red';
     } else if (canDrop) {
-      backgroundColor = '#blue';
+      backgroundColor = 'blue';
      
     }
 
@@ -48,8 +44,6 @@ class Bed extends Component {
 
       <div className="dnd-bed">
 
-        
-       Bed <br/>
        {this.props.children}
         {/*{ isActive ?
           'Release to place student' :
