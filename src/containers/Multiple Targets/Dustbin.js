@@ -46,7 +46,7 @@ class Dustbin extends Component {
       <div style={{ ...style, backgroundColor }}>
         {isActive ?
           'Release to drop' :
-          `${accepts.join(', ')}`
+          `This dustbin accepts: ${accepts.join(', ')}`
         }
 
         {lastDroppedItem &&

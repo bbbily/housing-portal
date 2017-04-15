@@ -50,7 +50,7 @@ componentWillMount() {
  
     const { boxes, dustbins } = this.state;
     console.log("Container Props:", this.props.all)
-    let accepts = [ItemTypes.PAPER, ItemTypes.GLASS, NativeTypes.URL]
+  
     let students = this.props.all.map( studentInfo => (
       <div>
         <TestStudent  name={`${studentInfo.first_name} ${studentInfo.last_name}`}
@@ -58,7 +58,6 @@ componentWillMount() {
                 age={moment().diff(studentInfo.dob, 'years', false)}
                 gender={studentInfo.gender}
                 id={studentInfo.id}
-                isDropped={this.isDropped("asdfasdfasfs")}
                 /></div>
       ))
     

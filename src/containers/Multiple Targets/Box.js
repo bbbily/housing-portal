@@ -1,4 +1,4 @@
-/*import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { DragSource } from 'react-dnd';
 
 const style = {
@@ -46,4 +46,4 @@ class Box extends Component {
 export default DragSource(props => props.type, boxSource, (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
   isDragging: monitor.isDragging(),
-}))(Box)*/
+}))(Box)
