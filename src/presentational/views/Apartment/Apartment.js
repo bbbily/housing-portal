@@ -4,7 +4,7 @@ import NavBar from "../../NavBar";
 import NeedHousingContainer from "./NeedHousingContainer";
 import ApartmentListFilter from "../../../containers/ApartmentListFilter";
 import { DragDropContextProvider } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
+
 class Apartment extends Component {
     render() {
         return (
