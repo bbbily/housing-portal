@@ -18,7 +18,8 @@ class RoomInfo extends Component {
         
         return (
             <div className="walls">
-              <Container />
+              {/*<Container />*/}
+              <ApartmentsList />
             </div>
         );
     }

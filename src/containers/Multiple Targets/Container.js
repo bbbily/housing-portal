@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import update from 'react/lib/update';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend, { NativeTypes } from 'react-dnd-html5-backend';
 import Dustbin from './Dustbin';
-import Box from './Box';
+
 import ItemTypes from './ItemTypes';
 import "../../styles/dndbed.scss";
 import "../../styles/housingcontainer.scss";
@@ -50,7 +50,7 @@ componentWillMount() {
  
     const { boxes, dustbins } = this.state;
     console.log("Container Props:", this.props.all)
-    
+    let accepts = [ItemTypes.PAPER, ItemTypes.GLASS, NativeTypes.URL]
     let students = this.props.all.map( studentInfo => (
       <div>
         <TestStudent  name={`${studentInfo.first_name} ${studentInfo.last_name}`}
@@ -66,21 +66,17 @@ componentWillMount() {
     let apartments = this.props.apartments.map( apartment => { 
     let displayRooms = roomData.filter(function(room) { return (room.apartment_id == apartment.id) })
                                   .map((room) => (<li><Room key={room.id} 
-                                                          number_of_beds={room.number_of_beds}
-                                                          room_id={room.id}
-                                                          accepts={ItemTypes.PAPER}
-                                                          lastDroppedItem='asdf'
-                                                          onDrop={item => this.handleDrop(index, item)}
+                                                            number_of_beds={room.number_of_beds}
+                                                            room_id={room.id}
                                                           />
                                                   </li>))
                                   return (
                                   <Panel header={`Apt ${apartment.apartment_number}`}
-                                        eventKey={apartment.id} 
-                                        className="apt-holder">
+                                         eventKey={apartment.id} 
+                                         className="apt-holder">
                                       <ul className="apt-ul">
                                         {displayRooms} 
                                       </ul>
-                                  
                                   </Panel>
                                 )
                               })
@@ -109,6 +105,7 @@ componentWillMount() {
   }
 
   handleDrop(index, item) {
+    console.log(item)
     const { name } = item;
 
     this.setState(update(this.state, {

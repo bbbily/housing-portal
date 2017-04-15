@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { DragSource } from 'react-dnd';
-import ItemTypes from './ItemTypes';
+import ItemTypes from './itemTypes';
 
 import "../../styles/aptstudentcard.scss";
 
@@ -20,25 +20,23 @@ const StudentSource = {
       name: props.name,
       age: props.age,
       eligibility: props.eligibility,
-      gender: props.gender,
-      id: props.id
+      gender: props.gender
     };
   },
 
   endDrag(props, monitor) {
     const item = monitor.getItem();
     const dropResult = monitor.getDropResult();
-    console.log("Dropresult: ", dropResult)
+
     if (dropResult) {
       let alertMessage = '';
       if (dropResult.allowedDropEffect === 'any' || dropResult.allowedDropEffect === dropResult.dropEffect) {
-        
+        if (dropResult.age < item.age)
         /////////////////////////////////////
         //this is where you handle a successful drop.
         // dispatch here 
         /////////////////////////////////////////
-        console.log("STUDENT item:", item)
-        console.log("STUDENT props:", this.props)
+        console.log(item)
         alertMessage = `You too old!`
         //alertMessage = `You ${dropResult.dropEffect === 'copy' ? 'copied' : 'moved'} ${item.name} into ${dropResult.name}! They are ${item.age} years old and are ${item.gender}`;
       } else {
@@ -58,27 +56,25 @@ class Student extends Component {
     connectDragSource: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
-   // type: PropTypes.string.isRequired,
-    //isDropped: PropTypes.bool.isRequired   // NEW
   };
 
   render() {
-    const { name, age, eligibility, gender, isDragging, connectDragSource, isDropped } = this.props;
-//const { name } = this.props;
+    const { isDragging, connectDragSource } = this.props;
+    const { name } = this.props;
     const opacity = isDragging ? 0.4 : 1;
 
-    return connectDragSource(
+    return (
+      connectDragSource(
         <div className="aptcard-button">
           <img src="https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg" className="aptcard-image" />
           {this.props.name}, {this.props.age} <br />
           {this.props.gender}
         </div>,
-      
+      )
     );
   }
 }
- export default DragSource(props => ItemTypes.Student, StudentSource, (connect, monitor) => ({
+ export default DragSource(ItemTypes.Student, StudentSource, (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
   isDragging: monitor.isDragging(),
 }))(Student)
-
