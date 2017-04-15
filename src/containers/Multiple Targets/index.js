@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import Container from './Container';
+import { Panel, Accordion } from "react-bootstrap";
+import TestStudent from './TestStudent'
 
-export default class DustbinMultipleTargets extends Component {
+class DustbinMultipleTargets extends Component {
+
+  
+
   render() {
+   
+
+   
+   
     return (
       <div>
         <p>
@@ -16,7 +25,11 @@ export default class DustbinMultipleTargets extends Component {
           It also demonstrates the handling of native files and URLs (try dropping them onto the last two dustbins).
         </p>
         <Container />
+                
       </div>
     );
   }
 }
+
+
+

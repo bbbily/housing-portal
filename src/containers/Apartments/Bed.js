@@ -30,8 +30,6 @@ class Bed extends Component {
     room_id: PropTypes.number.isRequired
   };
 
-  
-
   render() {
     ///////////////////////////////////
     // setting of styles:

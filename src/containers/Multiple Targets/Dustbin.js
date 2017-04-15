@@ -20,12 +20,8 @@ const dustbinTarget = {
   },
 };
 
-@DropTarget(props => props.accepts, dustbinTarget, (connect, monitor) => ({
-  connectDropTarget: connect.dropTarget(),
-  isOver: monitor.isOver(),
-  canDrop: monitor.canDrop(),
-}))
-export default class Dustbin extends Component {
+
+class Dustbin extends Component {
   static propTypes = {
     connectDropTarget: PropTypes.func.isRequired,
     isOver: PropTypes.bool.isRequired,
@@ -50,7 +46,7 @@ export default class Dustbin extends Component {
       <div style={{ ...style, backgroundColor }}>
         {isActive ?
           'Release to drop' :
-          `This dustbin accepts: ${accepts.join(', ')}`
+          `${accepts.join(', ')}`
         }
 
         {lastDroppedItem &&
@@ -60,3 +56,8 @@ export default class Dustbin extends Component {
     );
   }
 }
+export default DropTarget(props => props.accepts, dustbinTarget, (connect, monitor) => ({
+  connectDropTarget: connect.dropTarget(),
+  isOver: monitor.isOver(),
+  canDrop: monitor.canDrop(),
+}))(Dustbin)

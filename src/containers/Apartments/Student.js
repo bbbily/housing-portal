@@ -25,32 +25,32 @@ const StudentSource = {
     };
   },
 
-//   endDrag(props, monitor) {
-//     const item = monitor.getItem();
-//     const dropResult = monitor.getDropResult();
-//     console.log("Dropresult: ", dropResult)
-//     if (dropResult) {
-//       let alertMessage = '';
-//       if (dropResult.allowedDropEffect === 'any' || dropResult.allowedDropEffect === dropResult.dropEffect) {
+  endDrag(props, monitor) {
+    const item = monitor.getItem();
+    const dropResult = monitor.getDropResult();
+    console.log("Dropresult: ", dropResult)
+    if (dropResult) {
+      let alertMessage = '';
+      if (dropResult.allowedDropEffect === 'any' || dropResult.allowedDropEffect === dropResult.dropEffect) {
         
-//         /////////////////////////////////////
-//         //this is where you handle a successful drop.
-//         // dispatch here 
-//         /////////////////////////////////////////
-//         console.log("STUDENT item:", item)
-//         console.log("STUDENT props:", this.props)
-//         alertMessage = `You too old!`
-//         //alertMessage = `You ${dropResult.dropEffect === 'copy' ? 'copied' : 'moved'} ${item.name} into ${dropResult.name}! They are ${item.age} years old and are ${item.gender}`;
-//       } else {
-//         alertMessage = 'You are just the right age.'
-//         alertMessage = `You cannot ${dropResult.dropEffect} an item into the ${dropResult.name}`;
-//       }
-//       window.alert( // eslint-disable-line no-alert
-//         alertMessage,
-//       );
-//     }
-//   },
-// };
+        /////////////////////////////////////
+        //this is where you handle a successful drop.
+        // dispatch here 
+        /////////////////////////////////////////
+        console.log("STUDENT item:", item)
+        console.log("STUDENT props:", this.props)
+        alertMessage = `You too old!`
+        //alertMessage = `You ${dropResult.dropEffect === 'copy' ? 'copied' : 'moved'} ${item.name} into ${dropResult.name}! They are ${item.age} years old and are ${item.gender}`;
+      } else {
+        alertMessage = 'You are just the right age.'
+        alertMessage = `You cannot ${dropResult.dropEffect} an item into the ${dropResult.name}`;
+      }
+      window.alert( // eslint-disable-line no-alert
+        alertMessage,
+      );
+    }
+  },
+};
 
 
 class Student extends Component {

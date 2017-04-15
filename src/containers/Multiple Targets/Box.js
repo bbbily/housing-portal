@@ -19,11 +19,8 @@ const boxSource = {
   },
 };
 
-@DragSource(props => props.type, boxSource, (connect, monitor) => ({
-  connectDragSource: connect.dragSource(),
-  isDragging: monitor.isDragging(),
-}))
-export default class Box extends Component {
+
+class Box extends Component {
   static propTypes = {
     connectDragSource: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,
@@ -46,3 +43,7 @@ export default class Box extends Component {
     );
   }
 }
+export default DragSource(props => props.type, boxSource, (connect, monitor) => ({
+  connectDragSource: connect.dragSource(),
+  isDragging: monitor.isDragging(),
+}))(Box)
