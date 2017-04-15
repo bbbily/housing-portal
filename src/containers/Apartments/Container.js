@@ -11,7 +11,7 @@ import { getStudents } from "../../actions/action_student"
 import { getApartments, getRooms } from "../../actions/action_apartments"
 import moment from "moment"
 import { Panel, Accordion } from "react-bootstrap";
-
+import { _pick } from 'lodash'
 
 const style = {
   borderRadius: '5px',
@@ -30,7 +30,7 @@ class Container extends Component {
       open: false,
       bedList: ''
     } 
-    
+  
   }
 
   componentWillMount() {
@@ -42,22 +42,35 @@ class Container extends Component {
 
   render() {
     const { boxes, dustbins } = this.state;
+    //console.log("STUDENT INFO:", this.props.all)
     let students = this.props.all.map( studentInfo => (
       <Student  name={`${studentInfo.first_name} ${studentInfo.last_name}`}
                 eligibility={studentInfo.eligibility}
                 age={moment().diff(studentInfo.dob, 'years', false)}
                 gender={studentInfo.gender}
                 id={studentInfo.id}
-               // isDropped={this.isDropped(name)}
+                room_id={studentInfo.id}
                />
     ))
-   
+    //
+    // We need each student id and it's corresponding room_id
+    // We will sed this to through our Room component
+    // To display the students in the correct rooms
+    //
+    
+    let studentRoomInfo = _.map(this.props.all, function(currentObj) {
+      return _.pick(currentObj, "id", "room_id", "first_name", "last_name")
+    })
+    
+    //console.log('studentRoomInfo', studentRoomInfo)
+    let studentsWithRooms = this.props.all.map( student => student.id )
     let roomData = this.props.rooms.rooms
     let apartments = this.props.apartments.map( apartment => { 
     let displayRooms = roomData.filter(function(room) { return (room.apartment_id == apartment.id) })
                                   .map(room => (<li><Room key={room.id} 
                                                           number_of_beds={room.number_of_beds}
-                                                          room_id={room.id}>
+                                                          room_id={room.id}
+                                                          all_student_info={studentRoomInfo}>
                                                   </Room></li>))
                                   return (
                                   <Panel header={`Apt ${apartment.apartment_number}`}

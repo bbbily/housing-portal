@@ -16,8 +16,8 @@ class Bed extends Component {
     allowedDropEffect: PropTypes.string.isRequired,
   };
   componentDidMount() {
-       console.log("Bed props", this.props)
-    let roomID = this.props.roomID
+       //console.log("Bed props", this.props)
+        let roomID = this.props.roomID
      
   }
   
@@ -42,10 +42,15 @@ class Bed extends Component {
     //return connectDropTarget(
       return connectDropTarget(
       /////////////////////////////////
-      // this is the individual bed
-      ///////////////////////////////
+      // display X button here
+      // add dispatch to remove student from bed
+      /////////////////////////
+
       <div className="dnd-bed">
-       Bed
+
+        
+       Bed <br/>
+       {this.props.children}
         {/*{ isActive ?
           'Release to place student' :
           'Drag a student here'}*/}

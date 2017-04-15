@@ -20,7 +20,8 @@ const StudentSource = {
       name: props.name,
       age: props.age,
       eligibility: props.eligibility,
-      gender: props.gender
+      gender: props.gender,
+      studentID: props.id
     };
   },
 
@@ -31,11 +32,12 @@ const StudentSource = {
     if (dropResult) {
       let alertMessage = '';
       if (dropResult.allowedDropEffect === 'any' || dropResult.allowedDropEffect === dropResult.dropEffect) {
-        console.log("dropResult", dropResult)
-        console.log("item", item)
+        //console.log("dropResult", dropResult)
+        //console.log("item", item)
+
+        // This is the data the needs to be dispatched
         console.log(`The student ${item.name} will be in room ${dropResult.roomID}`)
 
-        //alertMessage = `You ${dropResult.dropEffect === 'copy' ? 'copied' : 'moved'} ${item.name} into ${dropResult.name}! They are ${item.age} years old and are ${item.gender}`;
       } else {
         alertMessage = 'You are just the right age.'
         alertMessage = `You cannot ${dropResult.dropEffect} an item into the ${dropResult.name}`;
