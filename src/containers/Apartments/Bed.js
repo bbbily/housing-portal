@@ -6,20 +6,8 @@ import "../../styles/dndbed.scss";
 
 
 
-export const StudentTarget = {
-  drop({ allowedDropEffect }) {
-    return {
-      name: `${allowedDropEffect} Apartment`,
-      allowedDropEffect,
-    };
-  },
-};
 
-// @DropTarget(ItemTypes.Student, StudentTarget, (connect, monitor) => ({
-//   connectDropTarget: connect.dropTarget(),
-//   isOver: monitor.isOver(),
-//   canDrop: monitor.canDrop(),
-// }))
+
 class Bed extends Component {
   static propTypes = {
     connectDropTarget: PropTypes.func.isRequired,
@@ -27,6 +15,12 @@ class Bed extends Component {
     canDrop: PropTypes.bool.isRequired,
     allowedDropEffect: PropTypes.string.isRequired,
   };
+  componentDidMount() {
+       console.log("Bed props", this.props)
+    let roomID = this.props.roomID
+     
+  }
+  
 
   render() {
     ///////////////////////////////////
@@ -59,6 +53,15 @@ class Bed extends Component {
     );
   }
 }
+const StudentTarget = {
+    drop({ allowedDropEffect, roomID }) {
+      return {
+        name: `${allowedDropEffect} Apartment`,
+        allowedDropEffect,
+        roomID: `${roomID}`
+      };
+    },
+  }; 
 
 export default DropTarget(ItemTypes.Student, StudentTarget, (connect, monitor) => ({
   connectDropTarget: connect.dropTarget(),

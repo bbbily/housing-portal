@@ -27,17 +27,14 @@ const StudentSource = {
   endDrag(props, monitor) {
     const item = monitor.getItem();
     const dropResult = monitor.getDropResult();
-
+    
     if (dropResult) {
       let alertMessage = '';
       if (dropResult.allowedDropEffect === 'any' || dropResult.allowedDropEffect === dropResult.dropEffect) {
-        if (dropResult.age < item.age)
-        /////////////////////////////////////
-        //this is where you handle a successful drop.
-        // dispatch here 
-        /////////////////////////////////////////
-        console.log(item)
-        alertMessage = `You too old!`
+        console.log("dropResult", dropResult)
+        console.log("item", item)
+        console.log(`The student ${item.name} will be in room ${dropResult.roomID}`)
+
         //alertMessage = `You ${dropResult.dropEffect === 'copy' ? 'copied' : 'moved'} ${item.name} into ${dropResult.name}! They are ${item.age} years old and are ${item.gender}`;
       } else {
         alertMessage = 'You are just the right age.'
