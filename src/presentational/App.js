@@ -4,8 +4,8 @@ import DatePickerComponent from "../containers/DatePicker";
 import Modal from "../containers/modal";
 import { Link } from "react-router";
 // import Admin from "./views/Admin";
- import ApartmentsList from '../containers/Apartments/index'
-
+import ApartmentsList from '../containers/Apartments/index'
+import Container from '../containers/Multiple Targets/Container'
 
 class App extends Component {
   render() {
@@ -27,6 +27,7 @@ class App extends Component {
           <br/><br/>
 
           <ApartmentsList />
+          <Container />
         </div>
       </div>
     );

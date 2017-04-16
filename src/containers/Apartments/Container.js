@@ -10,8 +10,8 @@ import {connect} from "react-redux"
 import { getStudents } from "../../actions/action_student"
 import { getApartments, getRooms } from "../../actions/action_apartments"
 import moment from "moment"
-import { Panel } from "react-bootstrap";
-
+import { Panel, Accordion } from "react-bootstrap";
+import { _pick } from 'lodash'
 
 const style = {
   borderRadius: '5px',
@@ -30,7 +30,7 @@ class Container extends Component {
       open: false,
       bedList: ''
     } 
-    
+  
   }
 
   componentWillMount() {
@@ -39,42 +39,57 @@ class Container extends Component {
     this.props.dispatch(getRooms())
   }
   
+
   render() {
-    
+    const { boxes, dustbins } = this.state;
+    //console.log("STUDENT INFO:", this.props.all)
     let students = this.props.all.map( studentInfo => (
-      <Student name={`${studentInfo.first_name} ${studentInfo.last_name}`}
+      <Student  name={`${studentInfo.first_name} ${studentInfo.last_name}`}
                 eligibility={studentInfo.eligibility}
                 age={moment().diff(studentInfo.dob, 'years', false)}
                 gender={studentInfo.gender}
-                />
+                id={studentInfo.id}
+                room_id={studentInfo.id}
+               />
     ))
-   
+    //
+    // We need each student id and it's corresponding room_id
+    // We will sed this to through our Room component
+    // To display the students in the correct rooms
+    //
+    
+    let studentRoomInfo = _.map(this.props.all, function(currentObj) {
+      return _.pick(currentObj, "id", "room_id", "first_name", "last_name")
+    })
+    
+    //console.log('studentRoomInfo', studentRoomInfo)
+    let studentsWithRooms = this.props.all.map( student => student.id )
     let roomData = this.props.rooms.rooms
-    console.log("Apartments", this.props.apartments)
-    console.log("rooms", roomData)
     let apartments = this.props.apartments.map( apartment => { 
     let displayRooms = roomData.filter(function(room) { return (room.apartment_id == apartment.id) })
-                                  .map(room => (<Room key={room.id} 
-                                                      number_of_beds={room.number_of_beds}>
-                                                  </Room>))
+                                  .map(room => (<li><Room key={room.id} 
+                                                          number_of_beds={room.number_of_beds}
+                                                          room_id={room.id}
+                                                          all_student_info={studentRoomInfo}>
+                                                  </Room></li>))
                                   return (
-                                  <div key={apartment.id}>
-                                  Apt: {apartment.apartment_number} / ID: {apartment.id}
-                                    {displayRooms} 
-                                  </div> 
+                                  <Panel header={`Apt ${apartment.apartment_number}`}
+                                        eventKey={apartment.id} 
+                                        className="apt-holder">
+                                      <ul className="apt-ul">
+                                        {displayRooms} 
+                                      </ul>
+                                  
+                                  </Panel>
                                 )
                               })
   
     return (
      <DragDropContextProvider backend={HTML5Backend}>
         <div>
-         
-          <div className="apartment-container">
-             
-          {apartments}
-
-          </div>
-          
+          <Accordion className="apartment-container">
+            {apartments}
+          </Accordion>
           <div className="housing-container">
             {students}
           </div>
@@ -84,6 +99,7 @@ class Container extends Component {
   }
 }
 
+
 function mapStateToProps(state) {
   return {
     all: state.students.all,
@@ -92,3 +108,4 @@ function mapStateToProps(state) {
   }
 }
 export default connect(mapStateToProps)(Container)
+
