@@ -148,7 +148,7 @@ module.exports = {
         })
     },
     EditRoom: function(req,res,next){
-        db.edit_room(req.body.id, req.body.apartment_id, req.body.number_of_beds, function(err, prod) {
+        db.edit_room(req.body.id, req.body.apartment_id, req.body.number_of_beds, req.body.beds_occupied, function(err, prod) {
             res.status(200).send(prod);
         })
     },
