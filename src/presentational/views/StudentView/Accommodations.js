@@ -22,7 +22,7 @@ class Accommodations extends Component {
                     <div className="accommodations-panel">
                         <form>
                             <h1>Need Accommodations?</h1>
-                            <textarea type="text" placeholder="Describe them here"></textarea>
+                            <textarea type="text" placeholder="Describe them here"></textarea><br />
                             <Button>Submit</Button>
                             {/* Button : onClick={ () => this.props.dispatch(addAccommodations??(this.state)) } */}
                         </form>

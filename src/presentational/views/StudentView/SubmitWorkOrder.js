@@ -20,7 +20,7 @@ class WorkOrder extends Component {
                     <div className="workorder-panel">
                         <form>
                             <h1>Having an issue?</h1>
-                            <textarea type="text" placeholder="Describe the issue(s) here"></textarea>
+                            <textarea type="text" placeholder="Describe the issue(s) here"></textarea><br />
                             <button>Submit</button>
                             {/* Button : onClick={ () => this.props.dispatch(addAccommodations??(this.state)) } */}
                         </form>
