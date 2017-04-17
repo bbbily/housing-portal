@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Panel } from "react-bootstrap";
+import { Panel, Button } from "react-bootstrap";
 import "../../../styles/accommodations.scss";
 
 class Accommodations extends Component {
@@ -20,7 +20,12 @@ class Accommodations extends Component {
                 </div>
                 <Panel collapsible expanded={ this.state.open }>
                     <div className="accommodations-panel">
-                        This is where you can edit your accommodations.
+                        <form>
+                            <h1>Need Accommodations?</h1>
+                            <textarea type="text" placeholder="Describe them here"></textarea><br />
+                            <Button>Submit</Button>
+                            {/* Button : onClick={ () => this.props.dispatch(addAccommodations??(this.state)) } */}
+                        </form>
                     </div>
                 </Panel>
             </div>
