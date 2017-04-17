@@ -5,6 +5,30 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    width: 90%;
+    overflow-y: scroll;
+    height: 469px;
+}
+
+.apartment-container::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: $dark-gray;
+}
+
+.apartment-container::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: $dark-gray;
+ 
+}
+
+.apartment-container::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: $bg-gray;
 }
 
 .bed-container {
@@ -23,26 +47,76 @@
 }
 
 .dnd-bed {
-    width: 20px;
+    text-align:center;
     height: 50px;
     border-radius: 5px;
     margin: 12px;
     padding: 12px;
     align-content: center;
-    color: black;
-    background-color: $dark-gray;
+    color: $dark-gray;
+    background-color: $light-gray;
 }
 
 .dnd-room {
     width: 200px; 
-    height: 200px; 
     border-radius: 5px;
-    /* margin: 12px; */
+    margin: 12px;
     padding: 12px;
     align-content: center;
     color: white;
-    background-color: $light-gray;
-    border-width: 1px;
-    border-style: solid;
-    border-color: blue;
+    background: $dark-gray;
+}
+
+.apt-number {
+    padding: 24px;
+}
+
+.apt-holder {
+    width: 90%;
+    background: $medium-gray;
+    margin-top:24px;
+    text-align:center;
+}
+
+.apt-holder h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 90%;
+    background: $medium-gray;
+    cursor: pointer;
+}
+
+
+.apt-ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style:none;
+    background: $light-gray;
+}
+
+.apt-li {
+    margin-left: 24px;
+}
+
+.remove-icon {
+    position: absolute;
+    height: 25px;
+    right: 5px;
+    top: -8px;
+    opacity: .8;
+    transition: all .2s;
+}
+
+.remove-icon:hover {
+    opacity: 1;
+    transition: all .2s;
+}
+
+.bed-holder {
+    position: relative;
+}
+
+.panel {
+    border-radius: 6px;
 }

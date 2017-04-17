@@ -57,21 +57,21 @@ VALUES
 INSERT INTO apartment
 (building_id, apartment_number, preferred_gender, over_21)
 VALUES
-(1, '101', 'Female', 'false'),
-(1, '103', 'Male', 'false'),
-(1, '107', 'Male', 'false'),
-(1, '108', 'Male', 'false'),
-(1, '201', 'Male', 'true'),
-(1, '203', 'Male', 'true'),
-(1, '204', 'Male', 'true'),
-(1, '205', 'Male', 'true'),
-(1, '206', 'Male', 'true'),
-(1, '208', 'Female', 'true'),
-(2, '101', 'Male', 'true'),
-(2, '116', 'Female', 'false'),
-(2, '232', 'Male', 'true'),
-(2, '332', 'Female', 'false'),
-(2, '432', 'Male', 'false');
+(1, '101', 'F', 'false'),
+(1, '103', 'M', 'false'),
+(1, '107', 'M', 'false'),
+(1, '108', 'M', 'false'),
+(1, '201', 'M', 'true'),
+(1, '203', 'M', 'true'),
+(1, '204', 'M', 'true'),
+(1, '205', 'M', 'true'),
+(1, '206', 'M', 'true'),
+(1, '208', 'F', 'true'),
+(2, '101', 'M', 'true'),
+(2, '116', 'F', 'false'),
+(2, '232', 'M', 'true'),
+(2, '332', 'F', 'false'),
+(2, '432', 'M', 'false');
 
 INSERT INTO room
 (apartment_id, number_of_beds, beds_occupied)
@@ -126,39 +126,12 @@ VALUES
 (NULL, 3, 'Peng', 'Wu', '5420529384', 'youngusien@apple.com', 'bbbily', '55 Some St.', 'Cincy', 'OH', 'USA', '33445',
     '1997-07-07', 'M', NULL, NULL, NULL, true, false, 'sleep', ''),
 (NULL, 2, 'Steven', 'Gray', '8016519199', 'aquas@aquas.com', 'n00b_student', '854 Wooden Ln.', 'SLC', 'UT', 'usa', '84116',
-    '1973-02-10T07:00:00.000Z', 'M', 'Some type of Subaru', '2017-01-23T07:00:00.000Z', '2017-04-21T06:00:00.000Z', true, false, 'needs sleep', '');
+    '1973-02-10T07:00:00.000Z', 'M', 'Some type of Subaru', '2017-01-23T07:00:00.000Z', '2017-04-21T06:00:00.000Z', true, false, 'needs sleep', ''),
+(NULL, 2, 'Paige', 'Busch', '0000000000','pbsomething@somewhere.com', 'pb_n_f', 'SomewhereLand', 'Eden', 'UT', 'usa', '84110',
+    '1993-08-05', 'F', 'It drives', '2017-01-23', '2017-04-21', false, true, 'more time in the day', 'hi');
 
           /*  
-            {
-            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
-            "name": "Peng Wu",
-            "age": "70",
-            "gender": "Male",
-            "cohort": "DM19",
-            "room": "201",
-            "address": "Nephi, UT",
-            "eligibility": false,
-            "deposit_paid": true},
-            {
-            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
-            "name": "Steven Gray",
-            "age": "18",
-            "gender": "Male",
-            "cohort": "DM19",
-            "room": "206",
-            "address": "Moab, UT",
-            "eligibility": true,
-            "deposit_paid": true},
-            {
-            "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
-            "name": "Paige Busch",
-            "age": "99",
-            "gender": "Female",
-            "cohort": "DM19",
-            "room": "200",
-            "address": "Draper, UT",
-            "eligibility": false,
-            "deposit_paid": false},
+            
             {
             "image": "http://guyslonghair.com/wp-content/uploads/2015/10/abraham-lincoln-man-bun-hairstyle-funny.png?a127b9",
             "name": "Sterling Chin",

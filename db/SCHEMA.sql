@@ -54,7 +54,7 @@ CREATE TABLE apartment(
     id SERIAL PRIMARY KEY,
     building_id INT REFERENCES building(id),
     apartment_number VARCHAR(7),
-    preferred_gender CHAR(15),
+    preferred_gender CHAR(1),
     over_21 BOOLEAN
 );
 
@@ -70,7 +70,7 @@ CREATE TABLE room(
 
 CREATE TABLE student(
     id SERIAL PRIMARY KEY,
-    room_id INT REFERENCES room(id), 
+    room_id INT REFERENCES room(id),
     cohort_id INT REFERENCES cohort(id),
     first_name VARCHAR(30),
     last_name VARCHAR(30),

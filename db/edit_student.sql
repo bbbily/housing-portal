@@ -21,4 +21,3 @@ SET cohort_id = $2,
     accomodations = $21,
     notes = $22
 WHERE id = $1
-RETURNING *;
