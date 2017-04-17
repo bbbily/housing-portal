@@ -65,6 +65,8 @@ class Container extends Component {
     //console.log('studentRoomInfo', studentRoomInfo)
     let studentsWithRooms = this.props.all.map( student => student.id )
     let roomData = this.props.rooms.rooms
+
+    console.log("apartments", this.props.apartments)
     let apartments = this.props.apartments.map( apartment => { 
     let displayRooms = roomData.filter(function(room) { return (room.apartment_id == apartment.id) })
                                   .map(room => (<li><Room key={room.id} 
@@ -72,15 +74,30 @@ class Container extends Component {
                                                           room_id={room.id}
                                                           all_student_info={studentRoomInfo}>
                                                   </Room></li>))
+                                                  let over21 = apartment.over_21 ? "Yes" : "No"
+                                                  let gender = ''
+                                                  if (apartment.preferred_gender == "F"){ gender = "Female" } else gender = "Male"
+                                                  
+                                                  let panelInfo = `Over 21: ${over21} ${gender}`
+                                                  let headerMsg = `Apt ${apartment.apartment_number}` 
+                                                  
+                                                  //header={"Apt " + {apartment.apartment_number} + ". <img src=" + require("../../styles/icons/edit.svg") + "className='edit-apt'/>">}
                                   return (
-                                  <Panel header={`Apt ${apartment.apartment_number}`}
-                                        eventKey={apartment.id} 
-                                        className="apt-holder">
-                                      <ul className="apt-ul">
-                                        {displayRooms} 
-                                      </ul>
+                                  /*<div className="panel-container">
+                                    <div className="panel-info">{panelInfo}</div>
+
+                                    <div className="panel-settings"><img src={require('../../styles/icons/edit.svg')} /></div>
+                                  </div>*/
                                   
-                                  </Panel>
+                                    <Panel header={headerMsg}
+                                          eventKey={apartment.id} 
+                                          className="apt-holder">
+                                        <ul className="apt-ul">
+                                          {displayRooms} 
+                                        </ul>
+                                    </Panel>
+                                    
+                                    
                                 )
                               })
   

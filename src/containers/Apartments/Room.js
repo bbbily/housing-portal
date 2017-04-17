@@ -19,7 +19,7 @@ class Room extends Component {
   render() {
     
   let listBeds = []
-  console.log("all_student_info", this.props.all_student_info)
+  //console.log("all_student_info", this.props.all_student_info)
   const props = this.props
     for (var i = 0; i < this.props.all_student_info.length; i++) {
       
@@ -56,7 +56,7 @@ class Room extends Component {
 
     return (
       <div className="dnd-room">
-        Room
+        Room 
          {listBeds}
       </div>
     );
