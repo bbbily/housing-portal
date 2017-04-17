@@ -8,6 +8,7 @@ export const CREATE_ROOM = "CREATE_ROOM";
 export const CREATE_BUILDING = "CREATE_BUILDING";
 export const GET_BUILDINGS = "GET_BUILDINGS";
 export const GET_CAMPUSES = "GET_CAMPUSES";
+export const GET_COHORTS = "GET_COHORTS";
 
 export function getApartments() {
   const url = "api/apartment";
@@ -82,6 +83,16 @@ export function getCampuses() {
   console.log("request", request);
   return {
     type: GET_CAMPUSES,
+    payload: request
+  }
+}
+
+export function getCohorts() {
+  const url = "api/cohort";
+  const request = axios.get(url);
+  console.log("request", request);
+  return {
+    type: GET_COHORTS,
     payload: request
   }
 }

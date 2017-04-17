@@ -34,7 +34,7 @@ class Student extends Component {
     render() {
 
         let students = this.props.all;
-        console.log(students)
+        console.log(students);
          if (students[0]) {
           let state = this.state;
           ["housing_eligibility", "deposit_paid", "age", "accomodations", "campus_id", "cohort_id", "gender"].forEach(function(filterBy) {

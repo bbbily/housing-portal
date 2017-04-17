@@ -54,7 +54,7 @@ CREATE TABLE apartment(
     id SERIAL PRIMARY KEY,
     building_id INT REFERENCES building(id),
     apartment_number VARCHAR(7),
-    preferred_gender CHAR(15),
+    preferred_gender CHAR(1),
     over_21 BOOLEAN
 );
 

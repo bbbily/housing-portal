@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, Panel } from "react-bootstrap";
 import "../styles/filter.scss";
 import CampusSelector from "./CampusSelector";
+import CohortSelector from "./CohortSelector";
 
 class StudentListFilter extends Component {
     constructor(props) {
@@ -49,6 +50,7 @@ class StudentListFilter extends Component {
 
 
                     <li>Cohort <br />
+                        <CohortSelector handleChange = {this.handleChange.bind(this)} ></CohortSelector>
                         <select name="cohort_id" defaultValue="" onChange={ this.handleChange.bind(this) }>
                             <option value="1">DM1</option>
                             <option value="2">DM2</option>
