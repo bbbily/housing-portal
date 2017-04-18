@@ -6,6 +6,29 @@
     align-items: center;
     flex-wrap: wrap;
     width: 90%;
+    overflow-y: scroll;
+    height: 469px;
+}
+
+.apartment-container::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: $dark-gray;
+}
+
+.apartment-container::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: $dark-gray;
+ 
+}
+
+.apartment-container::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: $bg-gray;
 }
 
 .bed-container {
@@ -37,11 +60,11 @@
 .dnd-room {
     width: 200px; 
     border-radius: 5px;
-    /* margin: 12px; */
+    margin: 12px;
     padding: 12px;
     align-content: center;
     color: white;
-    background-color: $dark-gray;
+    background: $dark-gray;
 }
 
 .apt-number {
@@ -50,7 +73,7 @@
 
 .apt-holder {
     width: 90%;
-    background-color: $bg-gray;
+    background: $medium-gray;
     margin-top:24px;
     text-align:center;
 }
@@ -59,8 +82,8 @@
     font-size: 1.5rem;
     font-weight: bold;
     width: 90%;
-    background-color: $bg-gray;
-    color: #fff;
+    background: $medium-gray;
+    cursor: pointer;
 }
 
 
@@ -69,6 +92,7 @@
     justify-content: space-around;
     align-items: center;
     list-style:none;
+    background: $light-gray;
 }
 
 .apt-li {
@@ -91,4 +115,8 @@
 
 .bed-holder {
     position: relative;
+}
+
+.panel {
+    border-radius: 6px;
 }

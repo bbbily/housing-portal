@@ -1,5 +1,9 @@
 @import "./_variables.scss";
 
+h1 {
+    font-size: 25px;
+}
+
 .workorder-container {
     border-bottom-style: solid;
     margin-bottom: -40px;
@@ -22,4 +26,30 @@
     flex-wrap: wrap;
     justify-content: space-around;
     text-align: center;
+}
+
+textarea {
+    width: 550px;
+    height: 300px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000000;
+    padding: 6px;
+    margin: 3px;
+}
+
+button {
+    background-color: #e0e0e0;
+    border-color: #adadad;
+    background-image: linear-gradient(
+        to bottom,
+        #fff 0,
+        #e0e0e0 100%
+    );
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    border: 1px solid #adadad;
+    border-radius: 4px;
 }
