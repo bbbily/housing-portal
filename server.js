@@ -68,6 +68,10 @@ app.get('/api/cohort/student', controller.GetStudentsInCohort);
 // get rooms from a specific apartment
 app.get('/api/apartment/:id', controller.GetRoomsByApartment);
 
+// endpoints for assigning a student to a room
+app.put('/api/room/student', controller.StudentRoomAssign);
+app.put('/api/room/clear', controller.StudentRoomVacate);
+
 
 
 app.get('/admin', function (request, response){
