@@ -4,7 +4,7 @@ export const GET_STUDENTS = "GET_STUDENTS"
 export const EDIT_STUDENT = "EDIT_STUDENT"
 
 export function getStudents() {
-  const url = "/api/student"
+  const url = "/api/cohort/student"
   const request = axios.get(url)
   console.log(request)
   return {

@@ -51,12 +51,7 @@ class StudentListFilter extends Component {
 
                     <li>Cohort <br />
                         <CohortSelector handleChange = {this.handleChange.bind(this)} ></CohortSelector>
-                        <select name="cohort_id" defaultValue="" onChange={ this.handleChange.bind(this) }>
-                            <option value="1">DM1</option>
-                            <option value="2">DM2</option>
-                            <option value="3">DM3</option>
-                            <option value="">All</option>
-                        </select></li>
+                    </li>
 
                 <li>
                         <input type="checkbox" name="housing_eligibility" value={ this.props.housing } onChange={ this.handleChecked.bind(this, "housing", !this.props.housing) } /> Need Housing

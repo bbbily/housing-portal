@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NavBar from "../../NavBar";
+import StudentViewNav from "../../StudentViewNav";
 import PayDeposit from "./PayDeposit";
 import RoommateInfo from "./RoommateInfo";
 import WorkOrder from "./SubmitWorkOrder";
@@ -10,7 +10,7 @@ class StudentView extends Component {
     render() {
         return (
             <div className="studentview-container">
-                <NavBar />
+                <StudentViewNav />
                 <div className="studentview-menu">
                     <PayDeposit />
                     <RoommateInfo />

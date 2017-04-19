@@ -70,7 +70,7 @@ CREATE TABLE room(
 
 CREATE TABLE student(
     id SERIAL PRIMARY KEY,
-    room_id INT REFERENCES room(id),
+    room_id NULL INT REFERENCES room(id),
     cohort_id INT REFERENCES cohort(id),
     first_name VARCHAR(30),
     last_name VARCHAR(30),
