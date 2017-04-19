@@ -61,6 +61,26 @@ li {
     margin-top: 12px;
 }
 
+.edit-icon {
+    height: 20px;
+    width: 20px;
+    opacity: .5;
+    transition: all .3s;
+    margin-top: 12px;
+    border-style:none;
+    padding:0;
+    background: #fff;
+}
+
+.edit-icon:hover {
+    opacity: 1;
+    transition: all .3s;
+    margin-top: 12px;
+    border-style:none;
+    padding:0;
+    background: #fff;
+}
+
 .admin-li-last {
     padding-left: 91px;
 }
