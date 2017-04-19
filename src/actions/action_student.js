@@ -22,3 +22,29 @@ export function editStudent(studentObj) {
     payload: request
   }
 }
+
+///////////////////////////////
+// Actions for adding and removing apartments
+///////////////////////////////
+export const ADD_STUDENT_TO_APT = 'ADD_STUDENT_TO_APT'
+export const REMOVE_STUDENT_FROM_APT = 'REMOVE_STUDENT_FROM_APT'
+
+export function addStudentToApt(studentObj) {
+  // const url = "";
+  // const request = axios.put(url, studentObj)
+  console.log("addStudent(studentObj): ", studentObj)
+  return {
+    type: ADD_STUDENT_TO_APT,
+    payload: "test load"
+  }
+}
+
+export function removeStudentFromApt(studentObj) {
+  const url = "";
+  const request = axios.put(url, studentObj)
+  console.log("removeStudent(studentObj): ", studentObj)
+  return {
+    type: REMOVE_STUDENT_FROM_APT,
+    payload: "testy load"
+  }
+}
