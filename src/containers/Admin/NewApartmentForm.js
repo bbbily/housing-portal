@@ -25,9 +25,12 @@ class NewApartmentForm extends Component {
         </div>
         <div className="spacer">
           <p>Select the type of housing</p>
-          <Field component="input" type="radio" name="preferred_gender" value="Male" className="margin-left"/> Male
-          <Field component="input" type="radio" name="preferred_gender" value="Female" className="margin-left"/> Female
-          <Field component="input" type="checkbox" name="over_21" className="margin-left" /> 21
+          <ul className="apt-housing-type">
+              <li><Field component="input" type="radio" name="preferred_gender" value="Male" className="margin-left"/> Male</li>
+              <li><Field component="input" type="radio" name="preferred_gender" value="Female" className="margin-left"/> Female</li>
+              <li><Field component="input" type="checkbox" name="over_21" className="margin-left" /> 21+</li>
+          </ul>
+
         </div>
         <button type="submit">  Create  </button>
       </form>
