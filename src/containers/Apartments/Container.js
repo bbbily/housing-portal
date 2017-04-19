@@ -52,6 +52,7 @@ class Container extends Component {
                 room_id={studentInfo.id}
                />
     ))
+
     //
     // We need each student id and it's corresponding room_id
     // We will sed this to through our Room component
@@ -74,14 +75,13 @@ class Container extends Component {
                                                           room_id={room.id}
                                                           all_student_info={studentRoomInfo}>
                                                   </Room></li>))
-                                                  let over21 = apartment.over_21 ? "Yes" : "No"
-                                                  let gender = ''
-                                                  if (apartment.preferred_gender == "F"){ gender = "Female" } else gender = "Male"
+                                                  // let over21 = apartment.over_21 ? "Yes" : "No"
+                                                  // let gender = ''
+                                                  // if (apartment.preferred_gender == "F"){ gender = "Female" } else gender = "Male"
                                                   
-                                                  let panelInfo = `Over 21: ${over21} ${gender}`
+                                                  // let panelInfo = `Over 21: ${over21} ${gender}`
                                                   let headerMsg = `Apt ${apartment.apartment_number}` 
                                                   
-                                                  //header={"Apt " + {apartment.apartment_number} + ". <img src=" + require("../../styles/icons/edit.svg") + "className='edit-apt'/>">}
                                   return (
                                   /*<div className="panel-container">
                                     <div className="panel-info">{panelInfo}</div>
@@ -90,13 +90,18 @@ class Container extends Component {
                                   </div>*/
                                   
                                     <Panel header={headerMsg}
-                                          eventKey={apartment.id} 
-                                          className="apt-holder">
+                                           eventKey={apartment.id} 
+                                           className="apt-holder">
+                                        <div className="panel-settings"><img src={require('../../styles/icons/edit.svg')} className="panel-settings"/></div>
+                                       {/*   PUT MODAL CODE HERE  */} 
                                         <ul className="apt-ul">
                                           {displayRooms} 
                                         </ul>
                                     </Panel>
                                     
+                                    /////////////////////////////////////////
+                                    // For edit apartment, edit the <div className="panel-settings"><img src={require('../../styles/icons/edit.svg')} className="panel-settings"/></div>
+                                    ///////////////////////////////////////////
                                     
                                 )
                               })

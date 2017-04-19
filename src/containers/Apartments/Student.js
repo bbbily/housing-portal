@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { DragSource } from 'react-dnd';
 import ItemTypes from './itemTypes';
-
 import "../../styles/aptstudentcard.scss";
-
-
+import {addStudentToApt, removeStudentFromApt} from '../../actions/action_student'
+import {connect} from "react-redux"
+import flow from 'lodash/flow'
 // const style = {
 //   border: '1px dashed gray',
 //   backgroundColor: 'white',
@@ -25,10 +25,13 @@ const StudentSource = {
     };
   },
 
+
+
+
   endDrag(props, monitor) {
     const item = monitor.getItem();
     const dropResult = monitor.getDropResult();
-    
+    console.log(props)
     if (dropResult) {
       let alertMessage = '';
       if (dropResult.allowedDropEffect === 'any' || dropResult.allowedDropEffect === dropResult.dropEffect) {
@@ -36,7 +39,12 @@ const StudentSource = {
         //console.log("item", item)
 
         // This is the data the needs to be dispatched
-        console.log(`The student ${item.name} will be in room ${dropResult.roomID}`)
+       console.log(`The student ${item.name} will be in room ${dropResult.roomID}`)
+       let studentObj = {
+         id: item.name,
+         room_id: dropResult.roomID
+       }
+      props.dispatch(addStudentToApt(studentObj)) 
 
       } else {
         alertMessage = 'You are just the right age.'
@@ -73,7 +81,25 @@ class Student extends Component {
     );
   }
 }
- export default DragSource(ItemTypes.Student, StudentSource, (connect, monitor) => ({
+
+function mapStateToProps(state) {
+  return {
+    all: state.students.all
+  }
+}
+
+// Student = 
+// export default connect(mapStateToProps)(Student)
+
+// export default DragSource(ItemTypes.Student, StudentSource, (connect, monitor) => ({
+//   connectDragSource: connect.dragSource(),
+//   isDragging: monitor.isDragging(),
+// }))(Student)
+
+export default flow(
+  connect(mapStateToProps),
+  DragSource(ItemTypes.Student, StudentSource, (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
   isDragging: monitor.isDragging(),
-}))(Student)
+}))
+)(Student)
