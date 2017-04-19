@@ -33,7 +33,7 @@ class AdminForm extends Component {
            <li><Field name="email" component="input" type="text" value="addddd" className="admin-input-text"/></li>
            <li><Field name="campus_id" component="select" className="admin-input-text">
             <option value="1">Provo</option>
-            <option value="2">Salt Lake city</option>
+            <option value="2">Salt Lake City</option>
             <option value="3">Dallas</option>
           </Field></li>
 

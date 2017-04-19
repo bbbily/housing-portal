@@ -15,8 +15,8 @@ class NewApartmentForm extends Component {
     return (
         <form onSubmit={ handleSubmit(this.onSubmit.bind(this))} >
         <div className="spacer">
-            <h1>New Apartments?</h1>
-            <p>To add apartments to an existing campus building, begin by selecting a campus building.</p>
+            <h1>New apartments?</h1>
+            <p>Please select the campus building.</p>
             <BuildingDropdown name="building_id" />
         </div>
         <div className="spacer">
@@ -24,7 +24,7 @@ class NewApartmentForm extends Component {
             <Field name="apartment_number" component="input" type="text" placeholder="Apt. #" />
         </div>
         <div className="spacer">
-          <p>Select the type of housing</p>
+          <p>Select the type of housing.</p>
           <Field component="input" type="radio" name="preferred_gender" value="Male" className="margin-left"/> Male
           <Field component="input" type="radio" name="preferred_gender" value="Female" className="margin-left"/> Female
           <Field component="input" type="checkbox" name="over_21" className="margin-left" /> 21
