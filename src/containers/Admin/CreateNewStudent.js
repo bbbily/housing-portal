@@ -59,13 +59,16 @@ class CreateNewStudent extends Component {
     this.refs.city.value="",
     this.refs.state.value="",
     this.refs.country.value="",
-    this.refs.post_code.value=""
-    // this.setState({
-    //   gender: null,
-    //   campus: null,
-    //   cohort: null,
-    //   deposit: null,
-    // })
+    this.refs.post_code.value="",
+    this.refs.notes.value="",
+    this.refs.accomodations.value="",
+    this.refs.car_info.value=""
+    this.setState({
+      gender: null,
+      campus: null,
+      cohort: null,
+      deposit: null,
+    })
   }
 
   handleInputChange(event) {
@@ -122,9 +125,10 @@ class CreateNewStudent extends Component {
           const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
           const d = R * c; // Distance in mi
           if (d >= 50) {
-            this.state.housing_eligibility = true;
+            () => { this.setState({housing_eligibility : true})}
+            
           } else {
-            this.state.housing_eligibility = false;
+            () => { this.setState({housing_eligibility : false})}
           }
           return d;
         }
@@ -169,7 +173,7 @@ class CreateNewStudent extends Component {
                   <li>
                     <div className="item-container">
                       <div className="item-left">
-                        <DropdownButton title="Gender" onSelect={ evt => { this.setState({ gender: evt }) }}  className="student-20">
+                        <DropdownButton title="Gender" ref="gender" onSelect={ evt => { this.setState({ gender: evt }) }}  className="student-20">
                           <MenuItem eventKey="M">Male</MenuItem>
                           <MenuItem eventKey="F">Female</MenuItem>
                         </DropdownButton>
@@ -254,11 +258,11 @@ class CreateNewStudent extends Component {
                 <div className="col-sm-12">
                 <h1>Misc</h1>
                 <ul className="student-ul">
-                  <li><input type="text" placeholder="Notes" name="notes"  className="student-80" onChange={this.handleInputChange}/></li>
-                  <li><input type="text" placeholder="Accommodations" name="accomodations"  className="student-80" onChange={this.handleInputChange}/></li>
+                  <li><input type="text" placeholder="Notes" name="notes" ref="notes"  className="student-80" onChange={this.handleInputChange}/></li>
+                  <li><input type="text" placeholder="Accommodations" name="accomodations" ref="accomodations"  className="student-80" onChange={this.handleInputChange}/></li>
                 </ul>
                 <ul className="student-ul">
-                  <li><input type="text" placeholder="car info" name="car_info" className="student-80" onChange={this.handleInputChange}/></li>
+                  <li><input type="text" placeholder="car info" name="car_info" ref="car_info" className="student-80" onChange={this.handleInputChange}/></li>
                 </ul>
                 <ul className="student-ul">
                   <li><Button onClick={ () => {this.props.dispatch(createStudent(this.state))}}>     Add Student     </Button></li>
