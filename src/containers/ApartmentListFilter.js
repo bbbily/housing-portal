@@ -11,6 +11,14 @@ class ApartmentListFilter extends Component {
         };
     }
 
+    handleChange(change, e) {
+      console.log("type", e.target.name, change);
+      // if (e.target.name === "over_21")
+      //   change ? this.props.handleChange(e.target.name, 21) : this.props.handleChange(e.target.name, 0);
+      // else
+        this.props.handleChange(e.target.name, change)
+    }
+
     render() {
         return (
             <div className="filter-container">
@@ -24,14 +32,17 @@ class ApartmentListFilter extends Component {
                             <CampusSelector />
                         </div>
                         <div>
-                            <input type="checkbox" name="age" value="age" /> 21+
+                            <input type="checkbox" name="over_21" value={ this.props.over_21 } onChange={ this.handleChange.bind(this, !this.props.over_21) } /> 21+
                         </div>
                         <div>
-                            <input type="checkbox" name="open" value="" /> Open
+                            <input type="checkbox" name="open" value={ this.props.open } onChange={ this.handleChange.bind(this, !this.props.open)} /> Open
                         </div>
                         <div>
-                            <input type="radio" name="gender" value="male" /> Male
-                            <input type="radio" name="gender" value="female" /> Female
+                          <select name="gender" defaultValue="" onChange={ this.handleChange.bind(this, !this.props.gender) }>
+                              <option value="M">Male</option>
+                              <option value="F">Female</option>
+                              <option value="">Any</option>
+                          </select>
                         </div>
                     </Panel>
                 </div>

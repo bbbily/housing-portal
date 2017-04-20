@@ -11,7 +11,8 @@ import { getStudents } from "../../actions/action_student"
 import { getApartments, getRooms } from "../../actions/action_apartments"
 import moment from "moment"
 import { Panel, Accordion } from "react-bootstrap";
-import { _pick } from 'lodash'
+import { _pick } from 'lodash';
+import ApartmentListFilter from "../ApartmentListFilter";
 
 const style = {
   borderRadius: '5px',
@@ -25,12 +26,13 @@ const style = {
 class Container extends Component {
 
   constructor(props) {
-    super(props)  
+    super(props)
     this.state = {
       open: false,
-      bedList: ''
-    } 
-  
+      bedList: '',
+      over_21: false
+    }
+
   }
 
   componentWillMount() {
@@ -38,10 +40,16 @@ class Container extends Component {
     this.props.dispatch(getApartments())
     this.props.dispatch(getRooms())
   }
-  
+
+  handleChange(type, val) {
+    this.setState({
+      [type]: val
+    })
+  }
 
   render() {
     const { boxes, dustbins } = this.state;
+    let state = this.state;
     //console.log("STUDENT INFO:", this.props.all)
     let students = this.props.all.map( studentInfo => (
       <Student  name={`${studentInfo.first_name} ${studentInfo.last_name}`}
@@ -58,19 +66,29 @@ class Container extends Component {
     // We will sed this to through our Room component
     // To display the students in the correct rooms
     //
-    
+
     let studentRoomInfo = _.map(this.props.all, function(currentObj) {
       return _.pick(currentObj, "id", "room_id", "first_name", "last_name")
     })
-    
+
     //console.log('studentRoomInfo', studentRoomInfo)
     let studentsWithRooms = this.props.all.map( student => student.id )
     let roomData = this.props.rooms.rooms
 
-    console.log("apartments", this.props.apartments)
-    let apartments = this.props.apartments.map( apartment => { 
+
+    let apartments = this.props.apartments;
+    if (apartments[0])
+      ["over_21"].forEach(filterBy => {
+        let filterValue = state[filterBy];
+        if (filterValue) {
+          apartments = apartments.filter(apartment => {
+            return apartment[filterBy]});
+        }
+      })
+      console.log("apartmentssssssss", apartments)
+    let apartmentsList = apartments.map( apartment => {
     let displayRooms = roomData.filter(function(room) { return (room.apartment_id == apartment.id) })
-                                  .map(room => (<li><Room key={room.id} 
+                                  .map(room => (<li><Room key={room.id}
                                                           number_of_beds={room.number_of_beds}
                                                           room_id={room.id}
                                                           all_student_info={studentRoomInfo}>
@@ -78,46 +96,42 @@ class Container extends Component {
                                                   // let over21 = apartment.over_21 ? "Yes" : "No"
                                                   // let gender = ''
                                                   // if (apartment.preferred_gender == "F"){ gender = "Female" } else gender = "Male"
-                                                  
-                                                  // let panelInfo = `Over 21: ${over21} ${gender}`
-                                                  let headerMsg = `Apt ${apartment.apartment_number}` 
-                                                  
-                                  return (
-                                  /*<div className="panel-container">
-                                    <div className="panel-info">{panelInfo}</div>
 
-                                    <div className="panel-settings"><img src={require('../../styles/icons/edit.svg')} /></div>
-                                  </div>*/
-                                  
+                                                  // let panelInfo = `Over 21: ${over21} ${gender}`
+                                                  let headerMsg = `Apt ${apartment.apartment_number}`
+
+                                  return (
+
                                     <Panel header={headerMsg}
-                                           eventKey={apartment.id} 
+                                           eventKey={apartment.id}
                                            className="apt-holder">
                                         <div className="panel-settings"><img src={require('../../styles/icons/edit.svg')} className="panel-settings"/></div>
-                                       {/*   PUT MODAL CODE HERE  */} 
+                                       {/*   PUT MODAL CODE HERE  */}
                                         <ul className="apt-ul">
-                                          {displayRooms} 
+                                          {displayRooms}
                                         </ul>
                                     </Panel>
-                                    
+
                                     /////////////////////////////////////////
                                     // For edit apartment, edit the <div className="panel-settings"><img src={require('../../styles/icons/edit.svg')} className="panel-settings"/></div>
                                     ///////////////////////////////////////////
-                                    
+
                                 )
                               })
-  
+                              console.log("apartmentlist", apartmentsList)
+
     return (
-     <DragDropContextProvider backend={HTML5Backend}>
+    //  <DragDropContextProvider backend={HTML5Backend}>
         <div>
+          <ApartmentListFilter over_21={ this.state.over_21 } handleChange={ this.handleChange.bind(this) }/>
           <Accordion className="apartment-container">
-            {apartments}
+            {apartmentsList}
           </Accordion>
           <div className="housing-container">
             {students}
           </div>
         </div>
-      </DragDropContextProvider>
-    );
+    )
   }
 }
 
@@ -130,4 +144,3 @@ function mapStateToProps(state) {
   }
 }
 export default connect(mapStateToProps)(Container)
-
