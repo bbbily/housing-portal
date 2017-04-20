@@ -42,14 +42,15 @@ class Container extends Component {
   render() {
     const { boxes, dustbins } = this.state;
     console.log("STUDENT INFO:", this.props.all)
-    let students = this.props.all.map( studentInfo => (
-      <Student  name={`${studentInfo.first_name} ${studentInfo.last_name}`}
-                eligibility={studentInfo.eligibility}
-                age={moment().diff(studentInfo.dob, 'years', false)}
-                gender={studentInfo.gender}
-                id={studentInfo.id}
-                room_id={studentInfo.room_id}
-               />
+    let students = this.props.all.filter(function(student) { return !student.room_id })
+                                 .map( studentInfo => (
+                    <Student  name={`${studentInfo.first_name} ${studentInfo.last_name}`}
+                              eligibility={studentInfo.eligibility}
+                              age={moment().diff(studentInfo.dob, 'years', false)}
+                              gender={studentInfo.gender}
+                              id={studentInfo.id}
+                              room_id={studentInfo.room_id}
+                            />
     ))
 
     //
