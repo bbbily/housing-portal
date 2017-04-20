@@ -12,10 +12,10 @@ class ApartmentListFilter extends Component {
     }
 
     handleChange(change, e) {
-      console.log("type", e.target.name, change);
-      // if (e.target.name === "over_21")
-      //   change ? this.props.handleChange(e.target.name, 21) : this.props.handleChange(e.target.name, 0);
-      // else
+      console.log("type", e.target.name, e.target.value);
+      if (e.target.name === "preferred_gender" || e.target.name === "campus_id")
+        this.props.handleChange(e.target.name, e.target.value)
+      else
         this.props.handleChange(e.target.name, change)
     }
 
@@ -29,7 +29,7 @@ class ApartmentListFilter extends Component {
                     <Panel collapsible expanded={ this.state.open }>
                         <div>
                             Campus
-                            <CampusSelector />
+                            <CampusSelector handleChange={ this.handleChange.bind(this, this.props.campus_id)} />
                         </div>
                         <div>
                             <input type="checkbox" name="over_21" value={ this.props.over_21 } onChange={ this.handleChange.bind(this, !this.props.over_21) } /> 21+
@@ -38,7 +38,7 @@ class ApartmentListFilter extends Component {
                             <input type="checkbox" name="open" value={ this.props.open } onChange={ this.handleChange.bind(this, !this.props.open)} /> Open
                         </div>
                         <div>
-                          <select name="gender" defaultValue="" onChange={ this.handleChange.bind(this, !this.props.gender) }>
+                          <select name="preferred_gender" defaultValue="" onChange={ this.handleChange.bind(this, this.props.preferred_gender) }>
                               <option value="M">Male</option>
                               <option value="F">Female</option>
                               <option value="">Any</option>

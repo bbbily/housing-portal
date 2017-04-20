@@ -29,7 +29,9 @@ class Container extends Component {
     this.state = {
       open: false,
       bedList: '',
-      over_21: false
+      over_21: false,
+      preferred_gender: "",
+      campus_id: 0
     }
 
   }
@@ -48,12 +50,8 @@ class Container extends Component {
 
   render() {
     const { boxes, dustbins } = this.state;
-<<<<<<< HEAD
     let state = this.state;
     //console.log("STUDENT INFO:", this.props.all)
-=======
-    console.log("STUDENT INFO:", this.props.all)
->>>>>>> master
     let students = this.props.all.map( studentInfo => (
       <Student  name={`${studentInfo.first_name} ${studentInfo.last_name}`}
                 eligibility={studentInfo.eligibility}
@@ -73,25 +71,21 @@ class Container extends Component {
     let studentRoomInfo = _.map(this.props.all, function(currentObj) {
       return _.pick(currentObj, "id", "room_id", "first_name", "last_name")
     })
-<<<<<<< HEAD
-
-    //console.log('studentRoomInfo', studentRoomInfo)
-=======
->>>>>>> master
     let studentsWithRooms = this.props.all.map( student => student.id )
     let roomData = this.props.rooms.rooms
 
 
     let apartments = this.props.apartments;
+    console.log(apartments)
     if (apartments[0])
-      ["over_21"].forEach(filterBy => {
+      ["over_21", "preferred_gender", "campus_id"].forEach(filterBy => {
         let filterValue = state[filterBy];
         if (filterValue) {
           apartments = apartments.filter(apartment => {
-            return apartment[filterBy]});
+            console.log("apart", filterBy, filterValue)
+            return apartment[filterBy] == filterValue});
         }
       })
-      console.log("apartmentssssssss", apartments)
     let apartmentsList = apartments.map( apartment => {
     let displayRooms = roomData.filter(function(room) { return (room.apartment_id == apartment.id) })
                                   .map(room => (<li><Room key={room.id}
@@ -122,7 +116,7 @@ class Container extends Component {
     return (
     //  <DragDropContextProvider backend={HTML5Backend}>
         <div>
-          <ApartmentListFilter over_21={ this.state.over_21 } handleChange={ this.handleChange.bind(this) }/>
+          <ApartmentListFilter over_21={ this.state.over_21 } preferred_gender={ this.state.gender } campus_id={ this.state.campus_id} handleChange={ this.handleChange.bind(this) }/>
           <Accordion className="apartment-container">
             {apartmentsList}
           </Accordion>
