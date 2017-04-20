@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { DragDropContextProvider } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
+
 import Room from './Room';
 import Bed from './Bed'
 import Student from './Student';
@@ -42,14 +41,14 @@ class Container extends Component {
 
   render() {
     const { boxes, dustbins } = this.state;
-    //console.log("STUDENT INFO:", this.props.all)
+    console.log("STUDENT INFO:", this.props.all)
     let students = this.props.all.map( studentInfo => (
       <Student  name={`${studentInfo.first_name} ${studentInfo.last_name}`}
                 eligibility={studentInfo.eligibility}
                 age={moment().diff(studentInfo.dob, 'years', false)}
                 gender={studentInfo.gender}
                 id={studentInfo.id}
-                room_id={studentInfo.id}
+                room_id={studentInfo.room_id}
                />
     ))
 
@@ -62,8 +61,6 @@ class Container extends Component {
     let studentRoomInfo = _.map(this.props.all, function(currentObj) {
       return _.pick(currentObj, "id", "room_id", "first_name", "last_name")
     })
-    
-    //console.log('studentRoomInfo', studentRoomInfo)
     let studentsWithRooms = this.props.all.map( student => student.id )
     let roomData = this.props.rooms.rooms
 
@@ -75,12 +72,8 @@ class Container extends Component {
                                                           room_id={room.id}
                                                           all_student_info={studentRoomInfo}>
                                                   </Room></li>))
-                                                  // let over21 = apartment.over_21 ? "Yes" : "No"
-                                                  // let gender = ''
-                                                  // if (apartment.preferred_gender == "F"){ gender = "Female" } else gender = "Male"
-                                                  
-                                                  // let panelInfo = `Over 21: ${over21} ${gender}`
                                                   let headerMsg = `Apt ${apartment.apartment_number}` 
+<<<<<<< HEAD
                                                   
                                   return (
                                   /*<div className="panel-container">
@@ -117,12 +110,9 @@ class Container extends Component {
                                     /////////////////////////////////////////
                                     // For edit apartment, edit the <div className="panel-settings"><img src={require('../../styles/icons/edit.svg')} className="panel-settings"/></div>
                                     ///////////////////////////////////////////
-                                    
-                                )
-                              })
-  
+    
     return (
-     <DragDropContextProvider backend={HTML5Backend}>
+     
         <div>
           <Accordion className="apartment-container">
             {apartments}
@@ -131,7 +121,7 @@ class Container extends Component {
             {students}
           </div>
         </div>
-      </DragDropContextProvider>
+      
     );
   }
 }
