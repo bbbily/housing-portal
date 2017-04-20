@@ -17,10 +17,19 @@ class CreateNewAdmin extends Component {
             email: "",
             password: ""
         };
+
+       
     }
 
     componentWillMount() {
       this.props.dispatch(getAdmins());
+    }
+
+    clearData() {
+        this.refs.first_name.value = "",
+        this.refs.last_name.value = "",
+        this.refs.email.value = "",
+        this.refs.password.value = ""
     }
 
     render() {
@@ -51,11 +60,13 @@ class CreateNewAdmin extends Component {
                         <li><h4>New Admin</h4></li>
                     </ul>
                     <ul className="admin-user-title">
-                        <li><input type="text" className="admin-input-text" placeholder="first" value={ this.state.first_name } onChange={ e => { this.setState({first_name: e.target.value})} }/></li>
-                        <li><input type="text" className="admin-input-text" placeholder="last" value={ this.state.last_name } onChange={ e => { this.setState({last_name: e.target.value})} }/></li>
-                        <li><input type="text" className="admin-input-text" placeholder="email" value={ this.state.email } onChange={ e => { this.setState({email: e.target.value})} } /></li>
-                        <li><input type="password" className="admin-input-text" placeholder="Password" value={ this.state.password } onChange={ e => this.setState({password: e.target.value})}  /></li>
-                        <li><Button onClick={ () => this.props.dispatch(createAdmin(this.state))}>Save</Button></li>
+                        <form>
+                        <li><input ref="first_name" type="text" className="admin-input-text" placeholder="first" value={ this.state.first_name } onChange={ e => { this.setState({first_name: e.target.value})} }/></li>
+                        <li><input ref="last_name" type="text" className="admin-input-text" placeholder="last" value={ this.state.last_name } onChange={ e => { this.setState({last_name: e.target.value})} }/></li>
+                        <li><input ref="email" type="text" className="admin-input-text" placeholder="email" value={ this.state.email } onChange={ e => { this.setState({email: e.target.value})} } /></li>
+                        <li><input ref="password" type="password" className="admin-input-text" placeholder="Password" value={ this.state.password } onChange={ e => this.setState({password: e.target.value})}  /></li>
+                        <li><Button onClick={ () => {this.props.dispatch(createAdmin(this.state)); this.clearData()} }>Save</Button></li>
+                        </form>
                     </ul>
                     </div>
 

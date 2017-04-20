@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { DragDropContextProvider } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
+
 import Room from './Room';
 import Bed from './Bed'
 import Student from './Student';
@@ -49,15 +48,19 @@ class Container extends Component {
 
   render() {
     const { boxes, dustbins } = this.state;
+<<<<<<< HEAD
     let state = this.state;
     //console.log("STUDENT INFO:", this.props.all)
+=======
+    console.log("STUDENT INFO:", this.props.all)
+>>>>>>> master
     let students = this.props.all.map( studentInfo => (
       <Student  name={`${studentInfo.first_name} ${studentInfo.last_name}`}
                 eligibility={studentInfo.eligibility}
                 age={moment().diff(studentInfo.dob, 'years', false)}
                 gender={studentInfo.gender}
                 id={studentInfo.id}
-                room_id={studentInfo.id}
+                room_id={studentInfo.room_id}
                />
     ))
 
@@ -70,8 +73,11 @@ class Container extends Component {
     let studentRoomInfo = _.map(this.props.all, function(currentObj) {
       return _.pick(currentObj, "id", "room_id", "first_name", "last_name")
     })
+<<<<<<< HEAD
 
     //console.log('studentRoomInfo', studentRoomInfo)
+=======
+>>>>>>> master
     let studentsWithRooms = this.props.all.map( student => student.id )
     let roomData = this.props.rooms.rooms
 
@@ -93,15 +99,10 @@ class Container extends Component {
                                                           room_id={room.id}
                                                           all_student_info={studentRoomInfo}>
                                                   </Room></li>))
-                                                  // let over21 = apartment.over_21 ? "Yes" : "No"
-                                                  // let gender = ''
-                                                  // if (apartment.preferred_gender == "F"){ gender = "Female" } else gender = "Male"
 
-                                                  // let panelInfo = `Over 21: ${over21} ${gender}`
                                                   let headerMsg = `Apt ${apartment.apartment_number}`
 
                                   return (
-
                                     <Panel header={headerMsg}
                                            eventKey={apartment.id}
                                            className="apt-holder">
@@ -111,12 +112,10 @@ class Container extends Component {
                                           {displayRooms}
                                         </ul>
                                     </Panel>
-
                                     /////////////////////////////////////////
                                     // For edit apartment, edit the <div className="panel-settings"><img src={require('../../styles/icons/edit.svg')} className="panel-settings"/></div>
                                     ///////////////////////////////////////////
-
-                                )
+                                  )
                               })
                               console.log("apartmentlist", apartmentsList)
 

@@ -30,7 +30,7 @@ export function adminReducer(state=INITIAL_STATE, action) {
       return { ...state, all: action.payload.data }
       break;
     case DELETE_ADMIN:
-      return { ...state, all: state.all.filter( admin =>  admin.id !== action.payload.data ) }
+      return { ...state, all: state.all.filter( all =>  all.id !== action.payload.data ) }
       break;
     case EDIT_ADMIN:
       return { ...state, all: action.payload.data }
@@ -52,19 +52,20 @@ import { GET_COHORTS, CREATE_COHORT, DELETE_COHORT, EDIT_COHORT, GET_CAMPUSES } 
 
 
 export function cohortReducer(state=INITIAL_STATE, action) {
+  console.log('reducer state: ', action.payload);
   switch(action.type) {
     case GET_COHORTS:
       return { all: action.payload.data }
       break;
     case CREATE_COHORT:
-
       return { all: [...state.all, action.payload.data[0]] }
       break;
     case DELETE_COHORT:
-      return { all: state.all.filter( cohort => { cohort.id !== action.payload.data.id}) }
+      console.log(action.payload.data[0].id, ":::", state.all);
+      return { all: state.all.filter( all =>  all.id != action.payload.data[0].id) }
       break;
     case EDIT_COHORT:
-      let newCohort = state.all.filter( cohort => {cohort.id !== action.payload.data.id})
+      let newCohort = state.all.filter( all => all.id !== action.payload.data[0].id)
       return { all: [...newCohort, action.payload.data] }
       break;
     case GET_CAMPUSES:
