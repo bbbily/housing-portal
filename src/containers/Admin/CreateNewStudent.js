@@ -125,10 +125,10 @@ class CreateNewStudent extends Component {
           const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
           const d = R * c; // Distance in mi
           if (d >= 50) {
-            () => { this.setState({housing_eligibility : true})}
+           this.state.housing_eligibility = true
             
           } else {
-            () => { this.setState({housing_eligibility : false})}
+            this.state.housing_eligibility = false
           }
           return d;
         }
@@ -140,7 +140,7 @@ class CreateNewStudent extends Component {
         distanceLatAndLng.call(this, schoolLat, schoolLng, lat2, lng2);
 
         const cohorts = this.props.all.map( (cohort, i) => (
-          <MenuItem id={cohort.id} key={i} eventKey={cohort.name}
+          <MenuItem name="cohort" id={cohort.id} key={i} eventKey={cohort.name}
             onSelect={ () => {
               let start_date = moment(cohort.start_date).format("YYYY-MM-DD")
               let end_date = moment(cohort.end_date).format("YYYY-MM-DD")
@@ -151,7 +151,7 @@ class CreateNewStudent extends Component {
           > {cohort.name} </MenuItem>
         ))
         const campuses = this.props.campuses.map((campus,i) => (
-          <MenuItem id={campus.id} key={campus.id} eventKey={campus.city}> {campus.city} </MenuItem>
+          <MenuItem name="campus" id={campus.id} key={campus.id} eventKey={campus.city}> {campus.city} </MenuItem>
         ))
 
     return (
