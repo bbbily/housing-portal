@@ -42,8 +42,8 @@ export function createAdmin(userObj) {
 }
 export function deleteAdmin(userId) {
   console.log("deleteuser", userId)
-  const url = "/api/users";
-  const request = axios.delete(url, {params: {id: userId}});
+  const url = "/api/users/" + userId;
+  const request = axios.delete(url);
   return {
     type: DELETE_ADMIN,
     payload: request
@@ -76,7 +76,7 @@ export function getCohorts() {
   }
 }
 export function createCohort(cohortObj) {
-  console.log(cohortObj)
+  console.log(cohortObj);
   const url = "/api/cohort";
   const request = axios.post(url, cohortObj);
   return {
@@ -84,9 +84,10 @@ export function createCohort(cohortObj) {
     payload: request
   }
 }
-export function deleteCohort(cohortObj) {
-  const url = "/api/cohort";
-  const request = axios.delete(url, {data: cohortObj});
+export function deleteCohort(id) {
+  const url = "/api/cohort/" + id;
+  console.log("delete from", url);
+  const request = axios.delete(url);
   return {
     type: DELETE_COHORT,
     payload: request
