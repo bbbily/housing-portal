@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { DragDropContextProvider } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
+
 import Room from './Room';
 import Bed from './Bed'
 import Student from './Student';
@@ -89,7 +88,7 @@ class Container extends Component {
                                     ///////////////////////////////////////////
     
     return (
-     <DragDropContextProvider backend={HTML5Backend}>
+     
         <div>
           <Accordion className="apartment-container">
             {apartments}
@@ -98,7 +97,7 @@ class Container extends Component {
             {students}
           </div>
         </div>
-      </DragDropContextProvider>
+      
     );
   }
 }

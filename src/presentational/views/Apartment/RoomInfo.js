@@ -4,6 +4,8 @@ import "../../../styles/admin.scss";
 import "../../../styles/roompanel.scss";
 import ApartmentsList from "../../../containers/Apartments/index";
 //import Container from '../../../containers/Multiple Targets/Container'
+import { DragDropContextProvider } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 class RoomInfo extends Component {
     constructor(...args) {
@@ -17,10 +19,12 @@ class RoomInfo extends Component {
     render() {
         
         return (
+        <DragDropContextProvider backend={HTML5Backend}>
             <div className="walls">
               {/*<Container />*/}
               <ApartmentsList />
             </div>
+        </DragDropContextProvider>
         );
     }
 }
