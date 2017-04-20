@@ -167,8 +167,8 @@ class CreateNewStudent extends Component {
                   <h1>General</h1>
                 <ul className="student-ul">
 
-                  <li><input type="text" placeholder="First" name="first_name" ref="first_name" className="student-40" onChange={this.handleInputChange}/></li>
-                  <li><input type="text" placeholder="Last" name="last_name" ref="last_name" className="student-40" onChange={this.handleInputChange}/></li>
+                  <li><input type="text" placeholder="First Name" name="first_name" ref="first_name" className="student-40" onChange={this.handleInputChange}/></li>
+                  <li><input type="text" placeholder="Last Name" name="last_name" ref="last_name" className="student-40" onChange={this.handleInputChange}/></li>
                   <li>DOB <br/> <input type="date" name="dob" ref="dob" className="student-20" onChange={this.handleInputChange}/> </li>
                   <li>
                     <div className="item-container">
@@ -231,11 +231,11 @@ class CreateNewStudent extends Component {
                   <li><input type="text" placeholder="Email" name="email" ref="email" className="student-40" onChange={this.handleInputChange}/></li>
                   <li><input type="text" placeholder="Slack" name="slack" ref="slack" className="student-40" onChange={this.handleInputChange}/></li>
                   <li><input type="text" placeholder="Phone" name="phone" ref="phone" className="student-40" onChange={this.handleInputChange}/></li>
-                  <li><input type="text" placeholder="address" name="street_address" ref="street_address" className="student-40" onChange={this.handleInputChange}/></li>
-                  <li><input type="text" placeholder="city" name="city" ref="city" className="student-30" onChange={this.handleInputChange}/>
-                      <input type="text" placeholder="state" name="state" ref="state" className="student-10" onChange={this.handleInputChange}/> </li>
-                  <li><input type="text" placeholder="country" name="country" ref="country" className="student-30" onChange={this.handleInputChange}/>
-                      <input type="text" placeholder="zip" name="post_code" ref="post_code" className="student-10" onChange={this.handleInputChange}/></li>
+                  <li><input type="text" placeholder="Address" name="street_address" ref="street_address" className="student-40" onChange={this.handleInputChange}/></li>
+                  <li><input type="text" placeholder="City" name="city" ref="city" className="student-30" onChange={this.handleInputChange}/>
+                      <input type="text" placeholder="State" name="state" ref="state" className="student-10" onChange={this.handleInputChange}/> </li>
+                  <li><input type="text" placeholder="Country" name="country" ref="country" className="student-30" onChange={this.handleInputChange}/>
+                      <input type="text" placeholder="Zip" name="post_code" ref="post_code" className="student-10" onChange={this.handleInputChange}/></li>
                   <ul className="student-ul">
                     <li><Button onClick={ () =>
                       { this.props.dispatch(getEligibility(`${this.state.street_address} ${this.state.city} ${this.state.state}`))
@@ -262,7 +262,7 @@ class CreateNewStudent extends Component {
                   <li><input type="text" placeholder="Accommodations" name="accomodations" ref="accomodations"  className="student-80" onChange={this.handleInputChange}/></li>
                 </ul>
                 <ul className="student-ul">
-                  <li><input type="text" placeholder="car info" name="car_info" ref="car_info" className="student-80" onChange={this.handleInputChange}/></li>
+                  <li><input type="text" placeholder="Car Info" name="car_info" ref="car_info" className="student-80" onChange={this.handleInputChange}/></li>
                 </ul>
                 <ul className="student-ul">
                   <li><Button onClick={ () => {this.props.dispatch(createStudent(this.state))}}>     Add Student     </Button></li>
