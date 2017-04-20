@@ -149,7 +149,7 @@ export function editStudent(studentObj) {
 }
 
 export function deleteStudent(studentObj) {
-  const url = "/api/student";
+  const url = "/api/student/" + studentObj.id;
   const request = axios.delete(url, studentObj)
   return {
     type: GET_STUDENT,
