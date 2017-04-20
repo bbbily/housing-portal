@@ -56,18 +56,24 @@
 .panel-body {
     margin: 0;
     padding: 0;
+    border-top: none;    
+}
+
+.panel-group .panel-heading + .panel-collapse > .panel-body,
+.panel-group .panel-heading + .panel-collapse > .list-group {
+  border-top: none;
 }
 
 .panel-title {
+    border-top: none;
     background: $dark-gray;
     color: $white;
     font-size: 24px;
-    // padding: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 85px;
-    border-radius: 5px;
+    // border-radius: 5px;
     cursor: pointer;
     margin-bottom: -2px;
 }

@@ -76,7 +76,7 @@
 
 .apt-holder {
     width: 90%;
-    background: $dark-gray;
+    // background: $dark-gray;
     margin-top:24px;
     text-align:center;
     position: relative;
@@ -96,7 +96,7 @@
     justify-content: space-around;
     align-items: center;
     list-style:none;
-    background: $light-gray;
+    // background: $light-gray;
 }
 
 .apt-li {
@@ -123,4 +123,11 @@
 
 .panel {
     border-radius: 6px;
+}
+
+.panel-body {
+    // margin: 0;
+    // padding: 0;
+    border-top: none;
+    border-top-color: none;
 }
