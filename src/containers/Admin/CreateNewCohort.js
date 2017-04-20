@@ -15,7 +15,8 @@ class CreateNewCohort extends Component {
             name: null,
             start_date: null,
             end_date: null,
-            campus_id: null
+            campus_id: null,
+            id: null
 
         };
 
@@ -53,8 +54,9 @@ class CreateNewCohort extends Component {
         })
     }
 
-    handleDelete() {
-        this.props.dispatch(deleteCohort(this.props.id))
+    handleDelete(id) {
+        // console.log("deleting", this)
+        this.props.dispatch(deleteCohort(id))
     }
 
     render() {
@@ -68,7 +70,7 @@ class CreateNewCohort extends Component {
                     <li>{ cohort.name }</li>
                     <li>{moment(cohort.start_date).format("ddd, MMMM D,  YYYY")}</li>
                     <li>{moment(cohort.end_date).format("ddd, MMMM D,  YYYY")}</li>
-                    <li><img src={require("../../styles/icons/garbage.svg")} onClick={ this.handleDelete.bind(this, {id: this.props.id}) } className="cohort-garbage"/></li>
+                    <li><img src={require("../../styles/icons/garbage.svg")} onClick={ this.handleDelete.bind(this, cohort.id)} className="cohort-garbage"/></li>
                 </ul>
             </div>
         ))
@@ -102,7 +104,7 @@ class CreateNewCohort extends Component {
                                         onChange={this.handleInputChange}/>
                                 </li>
                             <li className="cohort-name-right">
-                    <DropdownButton title="Campus" onSelect={ evt => this.setState({ campus: evt }) } className="student-20">
+                    <DropdownButton title="Campus" onSelect={ evt => this.setState({ campus_id: evt }) } className="student-20">
                       {campuses}
                     </DropdownButton> <br />
 

@@ -18,46 +18,55 @@ var db = massive.connect({connectionString : dbConnection},
 module.exports = {
     GetCampuses: function(req,res,next){
         db.get_campuses(function(err, prod) {
+            console.log(err);
             res.status(200).send(prod);
         })
     },
     AddCampus: function(req,res,next){
         db.add_campus(req.body.location_name, req.body.street_address, req.body.city, req.body.state, req.body.country, req.body.post_code, function (err, prod) {
+            console.log(err);
             res.status(200).send(prod);
         })
     },
     EditCampus: function(req,res,next){
         db.edit_campus(req.body.id, req.body.location_name, req.body.street_address, req.body.city, req.body.state, req.body.country, req.body.post_code, function(err, prod) {
+            console.log(err);
             res.status(200).send(prod);
         })
     },
     DeleteCampus: function(req,res,next) {
-        db.delete_campus(req.query.id, function(err, prod) {
+        db.delete_campus(req.body.id, function(err, prod) {
+            console.log(err);
             res.status(200).send(prod);
         })
     },
     GetCohorts: function(req,res,next){
         db.get_cohorts(function(err, prod) {
+            console.log(err);
             res.status(200).send(prod);
         })
     },
     AddCohort: function(req,res,next){
         db.add_cohort(req.body.campus_id, req.body.name, req.body.start_date, req.body.end_date, function (err, prod) {
+            console.log(err);
             res.status(200).send(prod);
         })
     },
     EditCohort: function(req,res,next){
         db.edit_cohort(req.body.id, req.body.campus_id, req.body.name, req.body.start_date, req.body.end_date, function(err, prod) {
+            console.log(err);
             res.status(200).send(prod);
         })
     },
     DeleteCohort: function(req,res,next) {
-        db.delete_cohort(req.query.id, function(err, prod) {
+        db.delete_cohort(req.params.id, function(err, prod) {
+            console.log("delete cohort", req.params, err);
             res.status(200).send(prod);
         })
     },
     GetUsers: function(req,res,next){
         db.get_users(function(err, prod) {
+            console.log(err);
             res.status(200).send(prod);
         })
     },
@@ -78,9 +87,9 @@ module.exports = {
         })
     },
     DeleteUser: function(req,res,next) {
-      console.log("DELETE USER REQ", req.query.id);
-        db.delete_user(req.query.id, function(err, prod) {
-            res.send(req.query.id);
+      console.log("DELETE USER REQ", req.params.id);
+        db.delete_user(req.params.id, function(err, prod) {
+            res.send(req.params.id);
         })
     },
     GetBuildings: function(req,res,next){
@@ -101,7 +110,7 @@ module.exports = {
         })
     },
     DeleteBuilding: function(req,res,next) {
-        db.delete_building(req.query.id, function(err, prod) {
+        db.delete_building(req.body.id, function(err, prod) {
             res.status(200).send(prod);
         })
     },
@@ -125,7 +134,7 @@ module.exports = {
     },
 
     DeleteApartment: function(req,res,next) {
-        db.delete_room (req.query.id, function(err, prod) {
+        db.delete_room (req.body.id, function(err, prod) {
             db.delete_apartment(req.body.id, function(err, prod) {
                 res.status(200).send(prod);
             })
