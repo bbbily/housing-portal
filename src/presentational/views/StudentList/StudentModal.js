@@ -29,10 +29,11 @@ constructor(props) {
 
         <div onClick={this.open} className="studentcard-button">
           <img src="https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg" className="studentcard-image" />
-            {this.props.title.name} <br />
-                {this.props.title.gender},
-                {this.props.title.age}. &nbsp;&nbsp;
-                {this.props.title.cohort} &nbsp;&nbsp;
+            <ul>
+              <li>{this.props.title.name}</li>
+              <li><b>Gender:</b> {this.props.title.gender}</li>
+              <li><b>Age:</b> {this.props.title.age}</li>
+            </ul> 
         </div>
 
 

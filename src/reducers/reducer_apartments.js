@@ -5,7 +5,9 @@ import { GET_APARTMENTS,
         CREATE_BUILDING,
         GET_CAMPUSES,
         GET_ROOMS,
-        CREATE_ROOM
+        CREATE_ROOM,
+        ADD_STUDENT_TO_APT,
+        REMOVE_STUDENT_FROM_APT
         }  from "../actions/action_apartments";
 
 
@@ -69,3 +71,4 @@ export function campusReducer(state=INITIAL_STATE, action) {
       return state;
   }
 }
+
