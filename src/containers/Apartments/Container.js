@@ -73,7 +73,7 @@ class Container extends Component {
                                                           all_student_info={studentRoomInfo}>
                                                   </Room></li>))
                                                   let headerMsg = `Apt ${apartment.apartment_number}` 
-<<<<<<< HEAD
+
                                                   
                                   return (
                                   /*<div className="panel-container">
@@ -106,6 +106,7 @@ class Container extends Component {
                                             {displayRooms}
                                           </ul>
                                       </Panel>
+                                      )})
                                     
                                     /////////////////////////////////////////
                                     // For edit apartment, edit the <div className="panel-settings"><img src={require('../../styles/icons/edit.svg')} className="panel-settings"/></div>
