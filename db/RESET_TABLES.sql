@@ -125,10 +125,16 @@ VALUES
     '1990-07-04', 'M', NULL, NULL, NULL, true, true, NULL, ''),
 (NULL, 3, 'Peng', 'Wu', '5420529384', 'youngusien@apple.com', 'bbbily', '55 Some St.', 'Cincy', 'OH', 'USA', '33445',
     '1997-07-07', 'M', NULL, NULL, NULL, true, false, 'sleep', ''),
-(NULL, 2, 'Steven', 'Gray', '8016519199', 'aquas@aquas.com', 'n00b_student', '854 Wooden Ln.', 'SLC', 'UT', 'usa', '84116',
+(NULL, 2, 'Steven', 'Gray', '8016519199', 'aquas@aquas.com', 'somethingfishy', '854 Wooden Ln.', 'SLC', 'UT', 'usa', '84116',
     '1973-02-10T07:00:00.000Z', 'M', 'Some type of Subaru', '2017-01-23T07:00:00.000Z', '2017-04-21T06:00:00.000Z', true, false, 'needs sleep', ''),
 (NULL, 2, 'Paige', 'Busch', '0000000000','pbsomething@somewhere.com', 'pb_n_f', 'SomewhereLand', 'Eden', 'UT', 'usa', '84110',
-    '1993-08-05', 'F', 'It drives', '2017-01-23', '2017-04-21', false, true, 'more time in the day', 'hi');
+    '1993-08-05', 'F', 'It drives', '2017-01-23', '2017-04-21', false, true, 'more time in the day', 'hi'),
+(NULL, 1, 'Jon', 'Myrick', '0284018405','TheJonMyrick@vivint.com', 'IMJon', '1 The Street', 'Lehi', 'UT', 'usa', '84219',
+    '1995-08-05', 'F', 'It drives', '2017-01-23', '2017-04-21', false, false, NULL, 'hi'),
+(NULL, 2, 'Sterling', 'Chin', '0000000001','sterling.chin@rsl.mls', 'sturchin', 'SomewhereLand', 'Alpine', 'UT', 'usa', '84210',
+    '1983-01-01', 'F', 'Sessy Motorcycle', '2017-01-23', '2017-04-21', true, false, 'gimme a job already!', 'vroom'),
+(NULL, 2, 'Nordstrom', 'Gustav', '+46 011 0000000','gus@nordstroms.com', 'SweetSverige', 'Rosengut 44', 'Gothenburg', 'GT', 'Sverige', '41014',
+    '1993-08-05', 'F', 'It drives', '2017-01-23', '2017-04-21', false, true, NULL, 'Godmorgon!');
 
           /*  
             
