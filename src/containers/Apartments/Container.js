@@ -97,15 +97,37 @@ class Container extends Component {
                                                   let headerMsg = `Apt ${apartment.apartment_number}`
 
                                   return (
-                                    <Panel header={headerMsg}
-                                           eventKey={apartment.id}
-                                           className="apt-holder">
-                                        <div className="panel-settings"><img src={require('../../styles/icons/edit.svg')} className="panel-settings"/></div>
-                                       {/*   PUT MODAL CODE HERE  */}
-                                        <ul className="apt-ul">
-                                          {displayRooms}
-                                        </ul>
-                                    </Panel>
+                                  /*<div className="panel-container">
+                                    <div className="panel-info">{panelInfo}</div>
+
+                                    <div className="panel-settings"><img src={require('../../styles/icons/edit.svg')} /></div>
+                                  </div>*/
+                                    // <div className="apt-holder">
+                                    //   <div onClick={ ()=> this.setState({ open: !this.state.open })}>
+                                    //     <h3>
+                                    //     {headerMsg}
+                                    //     {apartment.id}
+                                    //     </h3>
+                                    //   </div>
+                                    //   <Panel collapsible expanded={ this.state.open }>
+                                    //       <div className="panel-settings"><img src={require('../../styles/icons/edit.svg')} className="panel-settings"/></div>
+                                    //     {/*   PUT MODAL CODE HERE  */}
+                                    //       <ul className="apt-ul">
+                                    //         {displayRooms}
+                                    //       </ul>
+                                    //   </Panel>
+                                    // </div>
+
+                                      <Panel header={headerMsg}
+                                            eventKey={apartment.id}
+                                            className="apt-holder">
+                                          <div className="panel-settings"><img src={require('../../styles/icons/edit.svg')} className="panel-settings"/></div>
+                                        {/*   PUT MODAL CODE HERE  */}
+                                          <ul className="apt-ul">
+                                            {displayRooms}
+                                          </ul>
+                                      </Panel>
+
                                     /////////////////////////////////////////
                                     // For edit apartment, edit the <div className="panel-settings"><img src={require('../../styles/icons/edit.svg')} className="panel-settings"/></div>
                                     ///////////////////////////////////////////

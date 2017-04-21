@@ -43,6 +43,7 @@ export function removeStudentFromApt(studentObj) {
   const url = "/api/room/clear";
   const request = axios.put(url, studentObj)
   console.log("removeStudent(studentObj): ", studentObj)
+  console.log('request', request)
   return {
     type: REMOVE_STUDENT_FROM_APT,
     payload: "testy load"

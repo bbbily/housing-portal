@@ -209,19 +209,22 @@ module.exports = {
         })
     },
     StudentRoomAssign: function(req,res,next) {
-        db.occupy_bed(req.body.student_id, req.body.room_id, function(err, prod) {
-            db.count_beds(req.body.room_id, 1, function(err, prod) {
-                res.status(200).send(prod);
+        db.count_beds(req.body.room_id, 1, function(err, prod) {
+            db.occupy_bed(req.body.student_id, req.body.room_id, function(err, prod) {
+                db.get_students(function(err, prod) { 
+                    res.status(200).send(prod);
+                }) 
             })
         })
     },
     StudentRoomVacate: function(req,res,next) {
-        db.open_bed(req.body.student_id, function(err, prod) {
-            console.log(err);
-            db.count_beds(req.body.room_id, -1, function(err, prod) {
-                console.log(err);
-                res.status(200).send(prod);
+        db.count_beds(req.body.room_id, -1, function(err, prod) {
+             db.open_bed(req.body.student_id, function(err, prod) {
+                db.get_students(function(err, prod) { 
+                    res.status(200).send(prod);
+                })    
             })
         })
     }
 }
+
