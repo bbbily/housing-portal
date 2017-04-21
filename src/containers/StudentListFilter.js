@@ -17,9 +17,8 @@ class StudentListFilter extends Component {
       console.log("type: ", type, "checked", checked,"e", e);
       if (type === "age")
         checked ? this.props.handleChecked(type, 21) : this.props.handleChecked(type, 0);
-        else
+      else
         this.props.handleChecked(type, checked);
-
 
     }
 
