@@ -52,7 +52,7 @@ class Container extends Component {
     const { boxes, dustbins } = this.state;
     let state = this.state;
     //console.log("STUDENT INFO:", this.props.all)
-    let students = this.props.all.map( studentInfo => (
+    let students = this.props.all.filter(student => student.room_id == null).map( studentInfo => (
       <Student  name={`${studentInfo.first_name} ${studentInfo.last_name}`}
                 eligibility={studentInfo.eligibility}
                 age={moment().diff(studentInfo.dob, 'years', false)}
