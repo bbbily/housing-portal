@@ -128,6 +128,7 @@ class Container extends Component {
                                           </ul>
                                       </Panel>
 
+
                                     /////////////////////////////////////////
                                     // For edit apartment, edit the <div className="panel-settings"><img src={require('../../styles/icons/edit.svg')} className="panel-settings"/></div>
                                     ///////////////////////////////////////////
