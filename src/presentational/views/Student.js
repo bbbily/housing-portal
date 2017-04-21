@@ -47,7 +47,6 @@ class Student extends Component {
                 })
               } else if (filterBy === "gender" || filterBy === "campus_id" || filterBy === "cohort_id") {
                   students = students.filter(function(student) {
-                    console.log(filterValue, filterBy);
                     return student[filterBy] == filterValue;
                 })
               } else {
